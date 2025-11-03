@@ -142,10 +142,10 @@ class EdenDataPreprocessor:
         Formula from Eden's paper: x_hat = (x - μ) / σ
         where μ and σ are computed from training set only.
 
-        Features to normalize: Open, High, Low, Close, Volume
-        Note: pct_chg is already normalized (it's a percentage)
+        Features to normalize: Open, High, Low, Close, Volume, pct_chg
+        Note: pct_chg MUST be normalized to match scale of other features!
         """
-        features_to_normalize = ['Open', 'High', 'Low', 'Close', 'Volume']
+        features_to_normalize = ['Open', 'High', 'Low', 'Close', 'Volume', 'pct_chg']
 
         # Calculate training statistics
         train_mean = train_df[features_to_normalize].mean()
