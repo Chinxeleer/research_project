@@ -69,7 +69,19 @@ class EdenDataPreprocessor:
                 if col in df.columns:
                     df[col] = pd.to_numeric(df[col], errors='coerce')
 
-            # Drop rows with missing values
+            # Apply log transforms to bring features to similar scales
+            # This prevents Volume (millions) from contaminating normalization
+            print("  Applying log transforms to prices and volume...")
+            price_cols = ['Open', 'High', 'Low', 'Close']
+            for col in price_cols:
+                if col in df.columns:
+                    df[col] = np.log(df[col])  # log for prices
+
+            if 'Volume' in df.columns:
+                df['Volume'] = np.log1p(df['Volume'])  # log1p for volume (handles zeros)
+
+            # Drop rows with missing values or inf
+            df = df.replace([np.inf, -np.inf], np.nan)
             df = df.dropna()
 
             # Rename date column to standard 'date'
