@@ -218,24 +218,31 @@ class EdenDataPreprocessor:
         print("\nStep 3: Splitting into train/val/test...")
         train_df, val_df, test_df = self.split_data(df)
 
-        # Step 4: Normalize
-        print("\nStep 4: Normalizing using training statistics...")
-        train_norm, val_norm, test_norm, norm_params = self.normalize_data(
-            train_df, val_df, test_df
-        )
+        # Step 4: SKIP NORMALIZATION - Let Time-Series-Library data_loader handle it!
+        print("\nStep 4: Skipping normalization (data_loader will handle this)...")
+        print("  ⚠️  Data will be saved in ORIGINAL scale (unnormalized)")
+        print("  ✅  Data loader will normalize automatically during training")
 
-        # Step 5: Save
-        print("\nStep 5: Saving processed data...")
+        # Step 5: Save UNNORMALIZED data
+        print("\nStep 5: Saving processed data (unnormalized)...")
         output_file = self.save_for_tslib(
-            train_norm, val_norm, test_norm,
+            train_df, val_df, test_df,  # ← Using original splits, NOT normalized!
             output_dir, stock_name
         )
 
-        # Save normalization parameters
+        # Optionally calculate norm params for reference (not used by model)
+        print("\nCalculating normalization params for reference...")
+        features_to_normalize = ['Open', 'High', 'Low', 'Close', 'Volume', 'pct_chg']
+        train_mean = train_df[features_to_normalize].mean()
+        train_std = train_df[features_to_normalize].std()
+        norm_params = {
+            'mean': train_mean.to_dict(),
+            'std': train_std.to_dict()
+        }
         params_file = Path(output_dir) / f"{stock_name}_norm_params.csv"
         params_df = pd.DataFrame(norm_params)
         params_df.to_csv(params_file)
-        print(f"Saved normalization params to: {params_file}")
+        print(f"Saved normalization params (reference only) to: {params_file}")
 
         # Print summary statistics
         print("\n" + "="*60)
@@ -243,20 +250,22 @@ class EdenDataPreprocessor:
         print("="*60)
         print(f"Date range: {df['date'].min()} to {df['date'].max()}")
         print(f"Total rows: {len(df)}")
-        print(f"Train rows: {len(train_norm)}")
-        print(f"Val rows: {len(val_norm)}")
-        print(f"Test rows: {len(test_norm)}")
-        print("\nNormalization params (mean):")
-        print(params_df['mean'])
-        print("\nNormalization params (std):")
-        print(params_df['std'])
+        print(f"Train rows: {len(train_df)}")
+        print(f"Val rows: {len(val_df)}")
+        print(f"Test rows: {len(test_df)}")
+        print("\nData ranges (UNNORMALIZED - original scale):")
+        print(f"  pct_chg: {train_df['pct_chg'].min():.6f} to {train_df['pct_chg'].max():.6f}")
+        print(f"  Close: {train_df['Close'].min():.2f} to {train_df['Close'].max():.2f}")
+        print("\nReference normalization params (not applied to saved data):")
+        print("  Mean:", {k: f"{v:.6f}" for k, v in norm_params['mean'].items()})
+        print("  Std:", {k: f"{v:.6f}" for k, v in norm_params['std'].items()})
 
         return {
             'output_file': output_file,
             'params_file': params_file,
-            'train_size': len(train_norm),
-            'val_size': len(val_norm),
-            'test_size': len(test_norm),
+            'train_size': len(train_df),
+            'val_size': len(val_df),
+            'test_size': len(test_df),
             'norm_params': norm_params
         }
 
