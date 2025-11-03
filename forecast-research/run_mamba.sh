@@ -26,11 +26,11 @@ TRAIN_EPOCHS=50
 PATIENCE=5
 
 ROOT_PATH="../dataset/processed_data/"
-FEATURES="MS"  # Multivariate input, Single (univariate) output!
+FEATURES="M"   # Multivariate (to match Autoformer)
 TARGET="pct_chg"
-ENC_IN=6       # Input: all 6 features
-DEC_IN=6       # Decoder input: all 6 features
-C_OUT=1        # Output: ONLY pct_chg!
+ENC_IN=6
+DEC_IN=6
+C_OUT=6        # Multivariate output (to match Autoformer)
 
 # Datasets and horizons
 DATASETS=("NVIDIA" "APPLE" "SP500" "NASDAQ" "ABSA" "SASOL")
@@ -70,6 +70,7 @@ for dataset in "${DATASETS[@]}"; do
             --learning_rate $LEARNING_RATE \
             --train_epochs $TRAIN_EPOCHS \
             --patience $PATIENCE \
+            --inverse 1 \
             --use_gpu 1 \
             --gpu 0 \
             --des 'Mamba_Exp' \

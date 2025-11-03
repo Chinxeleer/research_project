@@ -70,6 +70,7 @@ for dataset in "${DATASETS[@]}"; do
             --learning_rate $LEARNING_RATE \
             --train_epochs $TRAIN_EPOCHS \
             --patience $PATIENCE \
+            --inverse 1 \
             --use_gpu 1 \
             --gpu 0 \
             --des 'Autoformer_Exp' \
