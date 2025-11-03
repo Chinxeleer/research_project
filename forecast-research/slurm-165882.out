@@ -1,0 +1,3724 @@
+##############################################################################
+# Training iTransformer Model on All Datasets
+##############################################################################
+Training: iTransformer on NVIDIA for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_NVIDIA_H3Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_NVIDIA_H3_iTransformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.106514).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.106514 --> 0.102180).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.102180 --> 0.098809).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.098809 --> 0.098646).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.098646 --> 0.098526).  Saving model ...
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 9.765625e-08
+Validation loss decreased (0.098526 --> 0.097640).  Saving model ...
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.0517578125e-09
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_NVIDIA_H3_iTransformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 6) (125, 3, 6)
+test shape: (125, 3, 6) (125, 3, 6)
+
+
+	mse:0.1722623109817505, mae:0.2325991988182068, rmse:0.41504496335983276, r2:0.8739306032657623, dtw:Not calculated
+
+
+VAL - MSE: 0.1723, MAE: 0.2326, RMSE: 0.4150, R²: 0.8739, MAPE: 0.79%
+Completed: NVIDIA H=3
+
+Training: iTransformer on NVIDIA for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_NVIDIA_H5Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_NVIDIA_H5_iTransformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.105879).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.105879 --> 0.104478).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.104478 --> 0.101077).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_NVIDIA_H5_iTransformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 6) (123, 5, 6)
+test shape: (123, 5, 6) (123, 5, 6)
+
+
+	mse:0.1806197464466095, mae:0.24682332575321198, rmse:0.4249938130378723, r2:0.8666848987340927, dtw:Not calculated
+
+
+VAL - MSE: 0.1806, MAE: 0.2468, RMSE: 0.4250, R²: 0.8667, MAPE: 0.84%
+Completed: NVIDIA H=5
+
+Training: iTransformer on NVIDIA for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_NVIDIA_H10Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_NVIDIA_H10_iTransformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.113095).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+Validation loss decreased (0.113095 --> 0.110356).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.110356 --> 0.110267).  Saving model ...
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_NVIDIA_H10_iTransformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 6) (118, 10, 6)
+test shape: (118, 10, 6) (118, 10, 6)
+
+
+	mse:0.2015039175748825, mae:0.27847304940223694, rmse:0.44889187812805176, r2:0.8484050631523132, dtw:Not calculated
+
+
+VAL - MSE: 0.2015, MAE: 0.2785, RMSE: 0.4489, R²: 0.8484, MAPE: 0.81%
+Completed: NVIDIA H=10
+
+Training: iTransformer on NVIDIA for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_NVIDIA_H22Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_NVIDIA_H22_iTransformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.117693).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_NVIDIA_H22_iTransformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 6) (106, 22, 6)
+test shape: (106, 22, 6) (106, 22, 6)
+
+
+	mse:0.30124232172966003, mae:0.3963308036327362, rmse:0.5488554835319519, r2:0.7613190561532974, dtw:Not calculated
+
+
+VAL - MSE: 0.3012, MAE: 0.3963, RMSE: 0.5489, R²: 0.7613, MAPE: 1.01%
+Completed: NVIDIA H=22
+
+Training: iTransformer on NVIDIA for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_NVIDIA_H50Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_NVIDIA_H50_iTransformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.138605).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+Validation loss decreased (0.138605 --> 0.138079).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.138079 --> 0.137909).  Saving model ...
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 9.765625e-08
+Validation loss decreased (0.137909 --> 0.137450).  Saving model ...
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.0517578125e-09
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_NVIDIA_H50_iTransformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 6) (78, 50, 6)
+test shape: (78, 50, 6) (78, 50, 6)
+
+
+	mse:0.5788317322731018, mae:0.5921443104743958, rmse:0.7608098983764648, r2:0.49185097217559814, dtw:Not calculated
+
+
+VAL - MSE: 0.5788, MAE: 0.5921, RMSE: 0.7608, R²: 0.4919, MAPE: 1.00%
+Completed: NVIDIA H=50
+
+Training: iTransformer on NVIDIA for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_NVIDIA_H100Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_NVIDIA_H100_iTransformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Validation loss decreased (inf --> 0.193717).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.193717 --> 0.189097).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.189097 --> 0.188622).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.188622 --> 0.186615).  Saving model ...
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_NVIDIA_H100_iTransformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 6) (28, 100, 6)
+test shape: (28, 100, 6) (28, 100, 6)
+
+
+	mse:1.1983599662780762, mae:0.8249316811561584, rmse:1.094696283340454, r2:0.02490180730819702, dtw:Not calculated
+
+
+VAL - MSE: 1.1984, MAE: 0.8249, RMSE: 1.0947, R²: 0.0249, MAPE: 0.93%
+Completed: NVIDIA H=100
+
+Training: iTransformer on APPLE for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_APPLE_H3Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_APPLE_H3_iTransformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.355923).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.355923 --> 0.338327).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.338327 --> 0.335607).  Saving model ...
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_APPLE_H3_iTransformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 6) (125, 3, 6)
+test shape: (125, 3, 6) (125, 3, 6)
+
+
+	mse:0.5166756510734558, mae:0.3757092356681824, rmse:0.7188015580177307, r2:0.6197601556777954, dtw:Not calculated
+
+
+VAL - MSE: 0.5167, MAE: 0.3757, RMSE: 0.7188, R²: 0.6198, MAPE: 0.58%
+Completed: APPLE H=3
+
+Training: iTransformer on APPLE for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_APPLE_H5Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_APPLE_H5_iTransformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.358027).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.358027 --> 0.356924).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.356924 --> 0.350524).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_APPLE_H5_iTransformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 6) (123, 5, 6)
+test shape: (123, 5, 6) (123, 5, 6)
+
+
+	mse:0.5228447914123535, mae:0.3828623294830322, rmse:0.7230800986289978, r2:0.6144424974918365, dtw:Not calculated
+
+
+VAL - MSE: 0.5228, MAE: 0.3829, RMSE: 0.7231, R²: 0.6144, MAPE: 0.57%
+Completed: APPLE H=5
+
+Training: iTransformer on APPLE for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_APPLE_H10Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_APPLE_H10_iTransformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.357669).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_APPLE_H10_iTransformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 6) (118, 10, 6)
+test shape: (118, 10, 6) (118, 10, 6)
+
+
+	mse:0.5036531686782837, mae:0.3818890452384949, rmse:0.7096852660179138, r2:0.6280385553836823, dtw:Not calculated
+
+
+VAL - MSE: 0.5037, MAE: 0.3819, RMSE: 0.7097, R²: 0.6280, MAPE: 0.59%
+Completed: APPLE H=10
+
+Training: iTransformer on APPLE for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_APPLE_H22Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_APPLE_H22_iTransformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.405811).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+Validation loss decreased (0.405811 --> 0.392089).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_APPLE_H22_iTransformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 6) (106, 22, 6)
+test shape: (106, 22, 6) (106, 22, 6)
+
+
+	mse:0.5256146788597107, mae:0.3930569291114807, rmse:0.7249928712844849, r2:0.6099012494087219, dtw:Not calculated
+
+
+VAL - MSE: 0.5256, MAE: 0.3931, RMSE: 0.7250, R²: 0.6099, MAPE: 0.52%
+Completed: APPLE H=22
+
+Training: iTransformer on APPLE for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_APPLE_H50Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_APPLE_H50_iTransformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.405579).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.405579 --> 0.401910).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.401910 --> 0.393625).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.393625 --> 0.384283).  Saving model ...
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_APPLE_H50_iTransformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 6) (78, 50, 6)
+test shape: (78, 50, 6) (78, 50, 6)
+
+
+	mse:0.5347499251365662, mae:0.4331197440624237, rmse:0.7312659621238708, r2:0.5792917013168335, dtw:Not calculated
+
+
+VAL - MSE: 0.5347, MAE: 0.4331, RMSE: 0.7313, R²: 0.5793, MAPE: 0.56%
+Completed: APPLE H=50
+
+Training: iTransformer on APPLE for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_APPLE_H100Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_APPLE_H100_iTransformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Validation loss decreased (inf --> 0.537099).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.537099 --> 0.520139).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.520139 --> 0.514663).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_APPLE_H100_iTransformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 6) (28, 100, 6)
+test shape: (28, 100, 6) (28, 100, 6)
+
+
+	mse:0.6348342299461365, mae:0.5415681600570679, rmse:0.7967648506164551, r2:0.5246527194976807, dtw:Not calculated
+
+
+VAL - MSE: 0.6348, MAE: 0.5416, RMSE: 0.7968, R²: 0.5247, MAPE: 0.56%
+Completed: APPLE H=100
+
+Training: iTransformer on SP500 for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_SP500_H3Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_SP500_H3_iTransformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> nan).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.76837158203125e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1920928955078126e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.960464477539063e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9802322387695314e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4901161193847657e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.450580596923828e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.862645149230957e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.313225746154786e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.656612873077393e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.3283064365386964e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1641532182693482e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.820766091346741e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9103830456733705e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4551915228366853e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.275957614183426e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.637978807091713e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.8189894035458566e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.094947017729283e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.5474735088646414e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.2737367544323207e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1368683772161604e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.684341886080802e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.842170943040401e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4210854715202004e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.105427357601002e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.552713678800501e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.7763568394002505e-19
+>>>>>>>testing : long_term_forecast_iTransformer_SP500_H3_iTransformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 6) (125, 3, 6)
+test shape: (125, 3, 6) (125, 3, 6)
+
+
+	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
+
+
+VAL - MSE: nan, MAE: nan, RMSE: nan, R²: nan, MAPE: nan%
+Completed: SP500 H=3
+
+Training: iTransformer on SP500 for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_SP500_H5Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_SP500_H5_iTransformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> nan).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.76837158203125e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1920928955078126e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.960464477539063e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9802322387695314e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4901161193847657e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.450580596923828e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.862645149230957e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.313225746154786e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.656612873077393e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.3283064365386964e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1641532182693482e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.820766091346741e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9103830456733705e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4551915228366853e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.275957614183426e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.637978807091713e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.8189894035458566e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.094947017729283e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.5474735088646414e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.2737367544323207e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1368683772161604e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.684341886080802e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.842170943040401e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4210854715202004e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.105427357601002e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.552713678800501e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.7763568394002505e-19
+>>>>>>>testing : long_term_forecast_iTransformer_SP500_H5_iTransformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 6) (123, 5, 6)
+test shape: (123, 5, 6) (123, 5, 6)
+
+
+	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
+
+
+VAL - MSE: nan, MAE: nan, RMSE: nan, R²: nan, MAPE: nan%
+Completed: SP500 H=5
+
+Training: iTransformer on SP500 for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_SP500_H10Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_SP500_H10_iTransformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> nan).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.76837158203125e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1920928955078126e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.960464477539063e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9802322387695314e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4901161193847657e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.450580596923828e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.862645149230957e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.313225746154786e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.656612873077393e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.3283064365386964e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1641532182693482e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.820766091346741e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9103830456733705e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4551915228366853e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.275957614183426e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.637978807091713e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.8189894035458566e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.094947017729283e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.5474735088646414e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.2737367544323207e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1368683772161604e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.684341886080802e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.842170943040401e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4210854715202004e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.105427357601002e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.552713678800501e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.7763568394002505e-19
+>>>>>>>testing : long_term_forecast_iTransformer_SP500_H10_iTransformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 6) (118, 10, 6)
+test shape: (118, 10, 6) (118, 10, 6)
+
+
+	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
+
+
+VAL - MSE: nan, MAE: nan, RMSE: nan, R²: nan, MAPE: nan%
+Completed: SP500 H=10
+
+Training: iTransformer on SP500 for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_SP500_H22Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_SP500_H22_iTransformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> nan).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.76837158203125e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1920928955078126e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.960464477539063e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9802322387695314e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4901161193847657e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.450580596923828e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.862645149230957e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.313225746154786e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.656612873077393e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.3283064365386964e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1641532182693482e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.820766091346741e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9103830456733705e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4551915228366853e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.275957614183426e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.637978807091713e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.8189894035458566e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.094947017729283e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.5474735088646414e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.2737367544323207e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1368683772161604e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.684341886080802e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.842170943040401e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4210854715202004e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.105427357601002e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.552713678800501e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.7763568394002505e-19
+>>>>>>>testing : long_term_forecast_iTransformer_SP500_H22_iTransformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 6) (106, 22, 6)
+test shape: (106, 22, 6) (106, 22, 6)
+
+
+	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
+
+
+VAL - MSE: nan, MAE: nan, RMSE: nan, R²: nan, MAPE: nan%
+Completed: SP500 H=22
+
+Training: iTransformer on SP500 for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_SP500_H50Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_SP500_H50_iTransformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> nan).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.76837158203125e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1920928955078126e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.960464477539063e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9802322387695314e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4901161193847657e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.450580596923828e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.862645149230957e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.313225746154786e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.656612873077393e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.3283064365386964e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1641532182693482e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.820766091346741e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9103830456733705e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4551915228366853e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.275957614183426e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.637978807091713e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.8189894035458566e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.094947017729283e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.5474735088646414e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.2737367544323207e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1368683772161604e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.684341886080802e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.842170943040401e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4210854715202004e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.105427357601002e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.552713678800501e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.7763568394002505e-19
+>>>>>>>testing : long_term_forecast_iTransformer_SP500_H50_iTransformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 6) (78, 50, 6)
+test shape: (78, 50, 6) (78, 50, 6)
+
+
+	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
+
+
+VAL - MSE: nan, MAE: nan, RMSE: nan, R²: nan, MAPE: nan%
+Completed: SP500 H=50
+
+Training: iTransformer on SP500 for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_SP500_H100Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_SP500_H100_iTransformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Validation loss decreased (inf --> nan).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.76837158203125e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1920928955078126e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.960464477539063e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9802322387695314e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4901161193847657e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.450580596923828e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.862645149230957e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.313225746154786e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.656612873077393e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.3283064365386964e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1641532182693482e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.820766091346741e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9103830456733705e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4551915228366853e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.275957614183426e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.637978807091713e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.8189894035458566e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.094947017729283e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.5474735088646414e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.2737367544323207e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1368683772161604e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.684341886080802e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.842170943040401e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4210854715202004e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.105427357601002e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.552713678800501e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.7763568394002505e-19
+>>>>>>>testing : long_term_forecast_iTransformer_SP500_H100_iTransformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 6) (28, 100, 6)
+test shape: (28, 100, 6) (28, 100, 6)
+
+
+	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
+
+
+VAL - MSE: nan, MAE: nan, RMSE: nan, R²: nan, MAPE: nan%
+Completed: SP500 H=100
+
+Training: iTransformer on NASDAQ for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_NASDAQ_H3Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_NASDAQ_H3_iTransformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.058157).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.058157 --> 0.055689).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_NASDAQ_H3_iTransformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 6) (125, 3, 6)
+test shape: (125, 3, 6) (125, 3, 6)
+
+
+	mse:0.11869848519563675, mae:0.2316189706325531, rmse:0.344526469707489, r2:0.9595344737172127, dtw:Not calculated
+
+
+VAL - MSE: 0.1187, MAE: 0.2316, RMSE: 0.3445, R²: 0.9595, MAPE: 0.44%
+Completed: NASDAQ H=3
+
+Training: iTransformer on NASDAQ for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_NASDAQ_H5Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_NASDAQ_H5_iTransformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.062410).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.062410 --> 0.061768).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.061768 --> 0.059093).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_NASDAQ_H5_iTransformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 6) (123, 5, 6)
+test shape: (123, 5, 6) (123, 5, 6)
+
+
+	mse:0.12236275523900986, mae:0.23908264935016632, rmse:0.3498038947582245, r2:0.9582777582108974, dtw:Not calculated
+
+
+VAL - MSE: 0.1224, MAE: 0.2391, RMSE: 0.3498, R²: 0.9583, MAPE: 0.39%
+Completed: NASDAQ H=5
+
+Training: iTransformer on NASDAQ for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_NASDAQ_H10Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_NASDAQ_H10_iTransformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.067597).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+Validation loss decreased (0.067597 --> 0.066699).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.066699 --> 0.066288).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.066288 --> 0.065358).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_NASDAQ_H10_iTransformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 6) (118, 10, 6)
+test shape: (118, 10, 6) (118, 10, 6)
+
+
+	mse:0.13884767889976501, mae:0.2615933418273926, rmse:0.37262269854545593, r2:0.9527637213468552, dtw:Not calculated
+
+
+VAL - MSE: 0.1388, MAE: 0.2616, RMSE: 0.3726, R²: 0.9528, MAPE: 0.40%
+Completed: NASDAQ H=10
+
+Training: iTransformer on NASDAQ for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_NASDAQ_H22Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_NASDAQ_H22_iTransformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.077706).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_NASDAQ_H22_iTransformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 6) (106, 22, 6)
+test shape: (106, 22, 6) (106, 22, 6)
+
+
+	mse:0.1764986515045166, mae:0.3024884760379791, rmse:0.42011743783950806, r2:0.9400569349527359, dtw:Not calculated
+
+
+VAL - MSE: 0.1765, MAE: 0.3025, RMSE: 0.4201, R²: 0.9401, MAPE: 0.44%
+Completed: NASDAQ H=22
+
+Training: iTransformer on NASDAQ for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_NASDAQ_H50Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_NASDAQ_H50_iTransformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.104059).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_NASDAQ_H50_iTransformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 6) (78, 50, 6)
+test shape: (78, 50, 6) (78, 50, 6)
+
+
+	mse:0.2745174765586853, mae:0.3909594416618347, rmse:0.5239441394805908, r2:0.905147023499012, dtw:Not calculated
+
+
+VAL - MSE: 0.2745, MAE: 0.3910, RMSE: 0.5239, R²: 0.9051, MAPE: 0.45%
+Completed: NASDAQ H=50
+
+Training: iTransformer on NASDAQ for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_NASDAQ_H100Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_NASDAQ_H100_iTransformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Validation loss decreased (inf --> 0.227267).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.227267 --> 0.213602).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_NASDAQ_H100_iTransformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 6) (28, 100, 6)
+test shape: (28, 100, 6) (28, 100, 6)
+
+
+	mse:0.37726593017578125, mae:0.46814486384391785, rmse:0.6142197847366333, r2:0.8715481013059616, dtw:Not calculated
+
+
+VAL - MSE: 0.3773, MAE: 0.4681, RMSE: 0.6142, R²: 0.8715, MAPE: 0.46%
+Completed: NASDAQ H=100
+
+Training: iTransformer on ABSA for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_ABSA_H3Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_ABSA_H3_iTransformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.083228).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.083228 --> 0.078009).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.078009 --> 0.071110).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.071110 --> 0.070477).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.070477 --> 0.069186).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_ABSA_H3_iTransformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 6) (125, 3, 6)
+test shape: (125, 3, 6) (125, 3, 6)
+
+
+	mse:0.2558070719242096, mae:0.2971114218235016, rmse:0.5057737231254578, r2:0.903310738503933, dtw:Not calculated
+
+
+VAL - MSE: 0.2558, MAE: 0.2971, RMSE: 0.5058, R²: 0.9033, MAPE: 0.87%
+Completed: ABSA H=3
+
+Training: iTransformer on ABSA for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_ABSA_H5Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_ABSA_H5_iTransformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.081436).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.081436 --> 0.080416).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.080416 --> 0.074364).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.074364 --> 0.074128).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.074128 --> 0.073776).  Saving model ...
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.073776 --> 0.073600).  Saving model ...
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_ABSA_H5_iTransformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 6) (123, 5, 6)
+test shape: (123, 5, 6) (123, 5, 6)
+
+
+	mse:0.26963236927986145, mae:0.31241562962532043, rmse:0.519261360168457, r2:0.8978580981492996, dtw:Not calculated
+
+
+VAL - MSE: 0.2696, MAE: 0.3124, RMSE: 0.5193, R²: 0.8979, MAPE: 0.89%
+Completed: ABSA H=5
+
+Training: iTransformer on ABSA for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_ABSA_H10Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_ABSA_H10_iTransformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.083407).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.083407 --> 0.082449).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.082449 --> 0.082326).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.082326 --> 0.081199).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.081199 --> 0.080008).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 7.8125e-07
+Validation loss decreased (0.080008 --> 0.079512).  Saving model ...
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.079512 --> 0.079292).  Saving model ...
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (0.079292 --> 0.078879).  Saving model ...
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.0517578125e-09
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.52587890625e-09
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.62939453125e-10
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_ABSA_H10_iTransformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 6) (118, 10, 6)
+test shape: (118, 10, 6) (118, 10, 6)
+
+
+	mse:0.2872580587863922, mae:0.33427953720092773, rmse:0.5359646081924438, r2:0.8908978998661041, dtw:Not calculated
+
+
+VAL - MSE: 0.2873, MAE: 0.3343, RMSE: 0.5360, R²: 0.8909, MAPE: 0.88%
+Completed: ABSA H=10
+
+Training: iTransformer on ABSA for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_ABSA_H22Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_ABSA_H22_iTransformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.098178).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+Validation loss decreased (0.098178 --> 0.095376).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.095376 --> 0.090579).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_ABSA_H22_iTransformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 6) (106, 22, 6)
+test shape: (106, 22, 6) (106, 22, 6)
+
+
+	mse:0.3143906593322754, mae:0.3720235228538513, rmse:0.5607054829597473, r2:0.8791322037577629, dtw:Not calculated
+
+
+VAL - MSE: 0.3144, MAE: 0.3720, RMSE: 0.5607, R²: 0.8791, MAPE: 1.03%
+Completed: ABSA H=22
+
+Training: iTransformer on ABSA for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_ABSA_H50Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_ABSA_H50_iTransformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.155685).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.155685 --> 0.151889).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.151889 --> 0.142954).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.142954 --> 0.138509).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.138509 --> 0.138220).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.138220 --> 0.136183).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.136183 --> 0.136076).  Saving model ...
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.136076 --> 0.134979).  Saving model ...
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_ABSA_H50_iTransformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 6) (78, 50, 6)
+test shape: (78, 50, 6) (78, 50, 6)
+
+
+	mse:0.3658980131149292, mae:0.4148794710636139, rmse:0.6048950552940369, r2:0.8609530031681061, dtw:Not calculated
+
+
+VAL - MSE: 0.3659, MAE: 0.4149, RMSE: 0.6049, R²: 0.8610, MAPE: 1.16%
+Completed: ABSA H=50
+
+Training: iTransformer on ABSA for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_ABSA_H100Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_ABSA_H100_iTransformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Validation loss decreased (inf --> 0.259361).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.259361 --> 0.246659).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.246659 --> 0.239333).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.239333 --> 0.230711).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.230711 --> 0.227357).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.227357 --> 0.225464).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.225464 --> 0.224609).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.224609 --> 0.224289).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (0.224289 --> 0.224047).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (0.224047 --> 0.223955).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.223955 --> 0.223895).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (0.223895 --> 0.223866).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (0.223866 --> 0.223857).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (0.223857 --> 0.223850).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (0.223850 --> 0.223847).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (0.223847 --> 0.223846).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (0.223846 --> 0.223846).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (0.223846 --> 0.223845).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (0.223845 --> 0.223845).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.9073486328125e-10
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 9.5367431640625e-11
+Validation loss decreased (0.223845 --> 0.223845).  Saving model ...
+Updating learning rate to 4.76837158203125e-11
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.384185791015625e-11
+Validation loss decreased (0.223845 --> 0.223845).  Saving model ...
+Updating learning rate to 1.1920928955078126e-11
+Validation loss decreased (0.223845 --> 0.223845).  Saving model ...
+Updating learning rate to 5.960464477539063e-12
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.9802322387695314e-12
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.4901161193847657e-12
+Validation loss decreased (0.223845 --> 0.223845).  Saving model ...
+Updating learning rate to 7.450580596923828e-13
+Validation loss decreased (0.223845 --> 0.223845).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.862645149230957e-13
+Validation loss decreased (0.223845 --> 0.223845).  Saving model ...
+Updating learning rate to 9.313225746154786e-14
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.656612873077393e-14
+Validation loss decreased (0.223845 --> 0.223845).  Saving model ...
+Updating learning rate to 2.3283064365386964e-14
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.1641532182693482e-14
+Validation loss decreased (0.223845 --> 0.223845).  Saving model ...
+Updating learning rate to 5.820766091346741e-15
+Validation loss decreased (0.223845 --> 0.223845).  Saving model ...
+Updating learning rate to 2.9103830456733705e-15
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.4551915228366853e-15
+Validation loss decreased (0.223845 --> 0.223845).  Saving model ...
+Updating learning rate to 7.275957614183426e-16
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.637978807091713e-16
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.8189894035458566e-16
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 9.094947017729283e-17
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 4.5474735088646414e-17
+Validation loss decreased (0.223845 --> 0.223845).  Saving model ...
+Updating learning rate to 2.2737367544323207e-17
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.1368683772161604e-17
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 5.684341886080802e-18
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 2.842170943040401e-18
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.4210854715202004e-18
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_ABSA_H100_iTransformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 6) (28, 100, 6)
+test shape: (28, 100, 6) (28, 100, 6)
+
+
+	mse:0.5012321472167969, mae:0.5505867600440979, rmse:0.7079775333404541, r2:0.8068427294492722, dtw:Not calculated
+
+
+VAL - MSE: 0.5012, MAE: 0.5506, RMSE: 0.7080, R²: 0.8068, MAPE: 1.40%
+Completed: ABSA H=100
+
+Training: iTransformer on SASOL for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_SASOL_H3Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_SASOL_H3_iTransformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.058878).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.058878 --> 0.055675).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.055675 --> 0.055452).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.055452 --> 0.055330).  Saving model ...
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.055330 --> 0.054399).  Saving model ...
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_SASOL_H3_iTransformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 6) (125, 3, 6)
+test shape: (125, 3, 6) (125, 3, 6)
+
+
+	mse:0.08822443336248398, mae:0.09716615080833435, rmse:0.29702597856521606, r2:0.5606963038444519, dtw:Not calculated
+
+
+VAL - MSE: 0.0882, MAE: 0.0972, RMSE: 0.2970, R²: 0.5607, MAPE: 0.43%
+Completed: SASOL H=3
+
+Training: iTransformer on SASOL for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_SASOL_H5Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_SASOL_H5_iTransformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.059588).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.059588 --> 0.055761).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.055761 --> 0.054220).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.054220 --> 0.052741).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_SASOL_H5_iTransformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 6) (123, 5, 6)
+test shape: (123, 5, 6) (123, 5, 6)
+
+
+	mse:0.08796494454145432, mae:0.0965414047241211, rmse:0.29658883810043335, r2:0.562544584274292, dtw:Not calculated
+
+
+VAL - MSE: 0.0880, MAE: 0.0965, RMSE: 0.2966, R²: 0.5625, MAPE: 0.39%
+Completed: SASOL H=5
+
+Training: iTransformer on SASOL for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_SASOL_H10Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_SASOL_H10_iTransformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.057051).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.057051 --> 0.056421).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.056421 --> 0.054222).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.054222 --> 0.052782).  Saving model ...
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_SASOL_H10_iTransformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 6) (118, 10, 6)
+test shape: (118, 10, 6) (118, 10, 6)
+
+
+	mse:0.08821097016334534, mae:0.09774411469697952, rmse:0.2970033288002014, r2:0.5666984021663666, dtw:Not calculated
+
+
+VAL - MSE: 0.0882, MAE: 0.0977, RMSE: 0.2970, R²: 0.5667, MAPE: 0.35%
+Completed: SASOL H=10
+
+Training: iTransformer on SASOL for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_SASOL_H22Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_SASOL_H22_iTransformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.054865).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_SASOL_H22_iTransformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 6) (106, 22, 6)
+test shape: (106, 22, 6) (106, 22, 6)
+
+
+	mse:0.0862095057964325, mae:0.09738120436668396, rmse:0.29361456632614136, r2:0.579559713602066, dtw:Not calculated
+
+
+VAL - MSE: 0.0862, MAE: 0.0974, RMSE: 0.2936, R²: 0.5796, MAPE: 0.36%
+Completed: SASOL H=22
+
+Training: iTransformer on SASOL for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_SASOL_H50Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_SASOL_H50_iTransformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.058289).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.058289 --> 0.055236).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.055236 --> 0.055027).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.055027 --> 0.054755).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.054755 --> 0.054635).  Saving model ...
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.8125e-07
+Validation loss decreased (0.054635 --> 0.054413).  Saving model ...
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_SASOL_H50_iTransformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 6) (78, 50, 6)
+test shape: (78, 50, 6) (78, 50, 6)
+
+
+	mse:0.08940844982862473, mae:0.10215259343385696, rmse:0.2990124523639679, r2:0.5907802581787109, dtw:Not calculated
+
+
+VAL - MSE: 0.0894, MAE: 0.1022, RMSE: 0.2990, R²: 0.5908, MAPE: 0.32%
+Completed: SASOL H=50
+
+Training: iTransformer on SASOL for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           iTransformer_SASOL_H100Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                iTransformer_Exp    Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_iTransformer_SASOL_H100_iTransformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Validation loss decreased (inf --> 0.059839).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.059839 --> 0.059397).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.059397 --> 0.058021).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_iTransformer_SASOL_H100_iTransformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_iTransformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 6) (28, 100, 6)
+test shape: (28, 100, 6) (28, 100, 6)
+
+
+	mse:0.08473196625709534, mae:0.09894052147865295, rmse:0.2910875678062439, r2:0.5917662382125854, dtw:Not calculated
+
+
+VAL - MSE: 0.0847, MAE: 0.0989, RMSE: 0.2911, R²: 0.5918, MAPE: 0.31%
+Completed: SASOL H=100
+
+iTransformer training completed for all datasets!

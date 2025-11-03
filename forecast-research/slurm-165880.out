@@ -183,7 +183,7 @@ test shape: (123, 5, 6) (123, 5, 6)
 test shape: (123, 5, 6) (123, 5, 6)
 
 
-	mse:0.2020464837551117, mae:0.29966914653778076, rmse:0.4494958221912384, r2:0.8508698791265488, dtw:Not calculated
+	mse:0.2020464986562729, mae:0.2996691167354584, rmse:0.4494958221912384, r2:0.8508698642253876, dtw:Not calculated
 
 
 VAL - MSE: 0.2020, MAE: 0.2997, RMSE: 0.4495, R²: 0.8509, MAPE: 0.59%
@@ -385,7 +385,7 @@ test shape: (106, 22, 6) (106, 22, 6)
 test shape: (106, 22, 6) (106, 22, 6)
 
 
-	mse:0.3126336932182312, mae:0.40459853410720825, rmse:0.5591365694999695, r2:0.7522934079170227, dtw:Not calculated
+	mse:0.3126337230205536, mae:0.40459853410720825, rmse:0.5591365694999695, r2:0.7522933781147003, dtw:Not calculated
 
 
 VAL - MSE: 0.3126, MAE: 0.4046, RMSE: 0.5591, R²: 0.7523, MAPE: 0.70%
@@ -849,7 +849,7 @@ test shape: (118, 10, 6) (118, 10, 6)
 test shape: (118, 10, 6) (118, 10, 6)
 
 
-	mse:0.5729939341545105, mae:0.4340164065361023, rmse:0.7569636106491089, r2:0.5768285393714905, dtw:Not calculated
+	mse:0.5729939937591553, mae:0.4340164363384247, rmse:0.7569636702537537, r2:0.5768284797668457, dtw:Not calculated
 
 
 VAL - MSE: 0.5730, MAE: 0.4340, RMSE: 0.7570, R²: 0.5768, MAPE: 0.55%
@@ -2229,7 +2229,7 @@ test shape: (125, 3, 6) (125, 3, 6)
 test shape: (125, 3, 6) (125, 3, 6)
 
 
-	mse:0.10264916718006134, mae:0.20068079233169556, rmse:0.3203890919685364, r2:0.9650058522820473, dtw:Not calculated
+	mse:0.10264917463064194, mae:0.20068079233169556, rmse:0.3203890919685364, r2:0.965005848556757, dtw:Not calculated
 
 
 VAL - MSE: 0.1026, MAE: 0.2007, RMSE: 0.3204, R²: 0.9650, MAPE: 0.32%
@@ -2762,9 +2762,9 @@ Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
 Updating learning rate to 1.4901161193847657e-12
 EarlyStopping counter: 1 out of 5
 Updating learning rate to 7.450580596923828e-13
-Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 3.725290298461914e-13
-EarlyStopping counter: 1 out of 5
+EarlyStopping counter: 3 out of 5
 Updating learning rate to 1.862645149230957e-13
 Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
 Updating learning rate to 9.313225746154786e-14
@@ -2794,7 +2794,7 @@ EarlyStopping counter: 2 out of 5
 Updating learning rate to 2.2737367544323207e-17
 Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
 Updating learning rate to 1.1368683772161604e-17
-Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 5.684341886080802e-18
 Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
 Updating learning rate to 2.842170943040401e-18
@@ -2802,7 +2802,7 @@ Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
 Updating learning rate to 1.4210854715202004e-18
 Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
 Updating learning rate to 7.105427357601002e-19
-Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 3.552713678800501e-19
 Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
 Updating learning rate to 1.7763568394002505e-19
@@ -2910,7 +2910,7 @@ test shape: (125, 3, 6) (125, 3, 6)
 test shape: (125, 3, 6) (125, 3, 6)
 
 
-	mse:0.28478333353996277, mae:0.3568950295448303, rmse:0.5336509346961975, r2:0.8923583701252937, dtw:Not calculated
+	mse:0.28478333353996277, mae:0.35689499974250793, rmse:0.5336509346961975, r2:0.8923583701252937, dtw:Not calculated
 
 
 VAL - MSE: 0.2848, MAE: 0.3569, RMSE: 0.5337, R²: 0.8924, MAPE: 0.85%
@@ -3437,7 +3437,7 @@ Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
 Updating learning rate to 3.637978807091713e-16
 Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
 Updating learning rate to 1.8189894035458566e-16
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
 Updating learning rate to 9.094947017729283e-17
 Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
 Updating learning rate to 4.5474735088646414e-17
@@ -3982,20 +3982,14 @@ Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
 Updating learning rate to 1.9073486328125e-10
 Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
 Updating learning rate to 9.5367431640625e-11
-Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
-Updating learning rate to 4.76837158203125e-11
-Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
-Updating learning rate to 2.384185791015625e-11
-Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
-Updating learning rate to 1.1920928955078126e-11
 EarlyStopping counter: 1 out of 5
-Updating learning rate to 5.960464477539063e-12
+Updating learning rate to 4.76837158203125e-11
 EarlyStopping counter: 2 out of 5
-Updating learning rate to 2.9802322387695314e-12
+Updating learning rate to 2.384185791015625e-11
 EarlyStopping counter: 3 out of 5
-Updating learning rate to 1.4901161193847657e-12
+Updating learning rate to 1.1920928955078126e-11
 EarlyStopping counter: 4 out of 5
-Updating learning rate to 7.450580596923828e-13
+Updating learning rate to 5.960464477539063e-12
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_SASOL_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 28

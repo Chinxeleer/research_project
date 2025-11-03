@@ -255,9 +255,9 @@ class Dataset_Custom(Dataset):
         df_raw.columns: ['date', ...(other features), target feature]
         '''
 
-        if self.target == 'OT' and 'close' in df_raw.columns:
+        if self.target == 'OT' and 'pct_chg' in df_raw.columns: # pct_chg
             print(f"Overriding target from '{self.target}' to 'close' for stock data")
-            self.target = 'close'
+            self.target = 'pct_chg'
                                 
         # FIX: Handle timezone-aware datetime parsing
 
