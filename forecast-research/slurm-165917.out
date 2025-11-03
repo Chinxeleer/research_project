@@ -17,7 +17,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           3                   Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -95,10 +95,10 @@ test shape: (125, 3, 6) (125, 3, 6)
 test shape: (125, 3, 6) (125, 3, 6)
 
 
-	mse:0.18073610961437225, mae:0.27259135246276855, rmse:0.425130695104599, r2:0.8677290976047516, dtw:Not calculated
+	mse:3588532731904.0, mae:535169.0625, rmse:1894342.25, r2:0.7239364087581635, dtw:Not calculated
 
 
-VAL - MSE: 0.1807, MAE: 0.2726, RMSE: 0.4251, R²: 0.8677, MAPE: 0.57%
+VAL - MSE: 3588532731904.0000, MAE: 535169.0625, RMSE: 1894342.2500, R²: 0.7239, MAPE: 4798102.50%
 Completed: NVIDIA H=3
 
 Training: Mamba on NVIDIA for H=5
@@ -117,7 +117,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           5                   Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -183,10 +183,10 @@ test shape: (123, 5, 6) (123, 5, 6)
 test shape: (123, 5, 6) (123, 5, 6)
 
 
-	mse:0.2020464986562729, mae:0.2996691167354584, rmse:0.4494958221912384, r2:0.8508698642253876, dtw:Not calculated
+	mse:3635241811968.0, mae:540622.625, rmse:1906631.0, r2:0.7226753532886505, dtw:Not calculated
 
 
-VAL - MSE: 0.2020, MAE: 0.2997, RMSE: 0.4495, R²: 0.8509, MAPE: 0.59%
+VAL - MSE: 3635241811968.0000, MAE: 540622.6250, RMSE: 1906631.0000, R²: 0.7227, MAPE: 5050220.50%
 Completed: NVIDIA H=5
 
 Training: Mamba on NVIDIA for H=10
@@ -205,7 +205,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           10                  Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -283,10 +283,10 @@ test shape: (118, 10, 6) (118, 10, 6)
 test shape: (118, 10, 6) (118, 10, 6)
 
 
-	mse:0.2258317619562149, mae:0.32685747742652893, rmse:0.4752175807952881, r2:0.8301027864217758, dtw:Not calculated
+	mse:3557249515520.0, mae:518228.46875, rmse:1886067.25, r2:0.7335248291492462, dtw:Not calculated
 
 
-VAL - MSE: 0.2258, MAE: 0.3269, RMSE: 0.4752, R²: 0.8301, MAPE: 0.66%
+VAL - MSE: 3557249515520.0000, MAE: 518228.4688, RMSE: 1886067.2500, R²: 0.7335, MAPE: 6216512.50%
 Completed: NVIDIA H=10
 
 Training: Mamba on NVIDIA for H=22
@@ -305,7 +305,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           22                  Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -385,10 +385,10 @@ test shape: (106, 22, 6) (106, 22, 6)
 test shape: (106, 22, 6) (106, 22, 6)
 
 
-	mse:0.3126337230205536, mae:0.40459853410720825, rmse:0.5591365694999695, r2:0.7522933781147003, dtw:Not calculated
+	mse:3969016922112.0, mae:544269.5625, rmse:1992239.125, r2:0.7184692621231079, dtw:Not calculated
 
 
-VAL - MSE: 0.3126, MAE: 0.4046, RMSE: 0.5591, R²: 0.7523, MAPE: 0.70%
+VAL - MSE: 3969016922112.0000, MAE: 544269.5625, RMSE: 1992239.1250, R²: 0.7185, MAPE: 6136054.00%
 Completed: NVIDIA H=22
 
 Training: Mamba on NVIDIA for H=50
@@ -407,7 +407,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           50                  Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -485,10 +485,10 @@ test shape: (78, 50, 6) (78, 50, 6)
 test shape: (78, 50, 6) (78, 50, 6)
 
 
-	mse:0.5882484316825867, mae:0.5811243057250977, rmse:0.7669735550880432, r2:0.4835842251777649, dtw:Not calculated
+	mse:3453365780480.0, mae:497088.0625, rmse:1858323.375, r2:0.7549830228090286, dtw:Not calculated
 
 
-VAL - MSE: 0.5882, MAE: 0.5811, RMSE: 0.7670, R²: 0.4836, MAPE: 0.83%
+VAL - MSE: 3453365780480.0000, MAE: 497088.0625, RMSE: 1858323.3750, R²: 0.7550, MAPE: 6660304.00%
 Completed: NVIDIA H=50
 
 Training: Mamba on NVIDIA for H=100
@@ -507,7 +507,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           100                 Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -565,10 +565,10 @@ test shape: (28, 100, 6) (28, 100, 6)
 test shape: (28, 100, 6) (28, 100, 6)
 
 
-	mse:0.9051257967948914, mae:0.6960157155990601, rmse:0.9513809680938721, r2:0.26350462436676025, dtw:Not calculated
+	mse:3731259392000.0, mae:487567.21875, rmse:1931646.75, r2:0.741737425327301, dtw:Not calculated
 
 
-VAL - MSE: 0.9051, MAE: 0.6960, RMSE: 0.9514, R²: 0.2635, MAPE: 0.77%
+VAL - MSE: 3731259392000.0000, MAE: 487567.2188, RMSE: 1931646.7500, R²: 0.7417, MAPE: 3842434.00%
 Completed: NVIDIA H=100
 
 Training: Mamba on APPLE for H=3
@@ -587,7 +587,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           3                   Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -673,10 +673,10 @@ test shape: (125, 3, 6) (125, 3, 6)
 test shape: (125, 3, 6) (125, 3, 6)
 
 
-	mse:0.5034381747245789, mae:0.4113079309463501, rmse:0.7095337510108948, r2:0.6295021176338196, dtw:Not calculated
+	mse:89754607550464.0, mae:2805803.25, rmse:9473891.0, r2:0.810209646821022, dtw:Not calculated
 
 
-VAL - MSE: 0.5034, MAE: 0.4113, RMSE: 0.7095, R²: 0.6295, MAPE: 0.56%
+VAL - MSE: 89754607550464.0000, MAE: 2805803.2500, RMSE: 9473891.0000, R²: 0.8102, MAPE: 70634.84%
 Completed: APPLE H=3
 
 Training: Mamba on APPLE for H=5
@@ -695,7 +695,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           5                   Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -759,10 +759,10 @@ test shape: (123, 5, 6) (123, 5, 6)
 test shape: (123, 5, 6) (123, 5, 6)
 
 
-	mse:0.5387709736824036, mae:0.4180929362773895, rmse:0.7340102195739746, r2:0.6026981770992279, dtw:Not calculated
+	mse:98139994324992.0, mae:2828442.75, rmse:9906563.0, r2:0.7948367148637772, dtw:Not calculated
 
 
-VAL - MSE: 0.5388, MAE: 0.4181, RMSE: 0.7340, R²: 0.6027, MAPE: 0.54%
+VAL - MSE: 98139994324992.0000, MAE: 2828442.7500, RMSE: 9906563.0000, R²: 0.7948, MAPE: 68175.86%
 Completed: APPLE H=5
 
 Training: Mamba on APPLE for H=10
@@ -781,7 +781,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           10                  Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -849,10 +849,10 @@ test shape: (118, 10, 6) (118, 10, 6)
 test shape: (118, 10, 6) (118, 10, 6)
 
 
-	mse:0.5729939937591553, mae:0.4340164363384247, rmse:0.7569636702537537, r2:0.5768284797668457, dtw:Not calculated
+	mse:105235347406848.0, mae:2937930.25, rmse:10258428.0, r2:0.7827920168638229, dtw:Not calculated
 
 
-VAL - MSE: 0.5730, MAE: 0.4340, RMSE: 0.7570, R²: 0.5768, MAPE: 0.55%
+VAL - MSE: 105235347406848.0000, MAE: 2937930.2500, RMSE: 10258428.0000, R²: 0.7828, MAPE: 114975.09%
 Completed: APPLE H=10
 
 Training: Mamba on APPLE for H=22
@@ -871,7 +871,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           22                  Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -953,10 +953,10 @@ test shape: (106, 22, 6) (106, 22, 6)
 test shape: (106, 22, 6) (106, 22, 6)
 
 
-	mse:0.6342467069625854, mae:0.4682047665119171, rmse:0.7963960766792297, r2:0.5292771458625793, dtw:Not calculated
+	mse:117056557023232.0, mae:3154295.25, rmse:10819268.0, r2:0.7630076110363007, dtw:Not calculated
 
 
-VAL - MSE: 0.6342, MAE: 0.4682, RMSE: 0.7964, R²: 0.5293, MAPE: 0.61%
+VAL - MSE: 117056557023232.0000, MAE: 3154295.2500, RMSE: 10819268.0000, R²: 0.7630, MAPE: 126878.54%
 Completed: APPLE H=22
 
 Training: Mamba on APPLE for H=50
@@ -975,7 +975,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           50                  Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -1033,10 +1033,10 @@ test shape: (78, 50, 6) (78, 50, 6)
 test shape: (78, 50, 6) (78, 50, 6)
 
 
-	mse:0.6376609802246094, mae:0.4990842938423157, rmse:0.7985367774963379, r2:0.4983276128768921, dtw:Not calculated
+	mse:110309230510080.0, mae:3045275.25, rmse:10502820.0, r2:0.7776967734098434, dtw:Not calculated
 
 
-VAL - MSE: 0.6377, MAE: 0.4991, RMSE: 0.7985, R²: 0.4983, MAPE: 0.64%
+VAL - MSE: 110309230510080.0000, MAE: 3045275.2500, RMSE: 10502820.0000, R²: 0.7777, MAPE: 221469.50%
 Completed: APPLE H=50
 
 Training: Mamba on APPLE for H=100
@@ -1055,7 +1055,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           100                 Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -1113,10 +1113,10 @@ test shape: (28, 100, 6) (28, 100, 6)
 test shape: (28, 100, 6) (28, 100, 6)
 
 
-	mse:0.6660568714141846, mae:0.5589410662651062, rmse:0.8161230683326721, r2:0.5012739896774292, dtw:Not calculated
+	mse:104273350230016.0, mae:2681739.75, rmse:10211432.0, r2:0.7911086529493332, dtw:Not calculated
 
 
-VAL - MSE: 0.6661, MAE: 0.5589, RMSE: 0.8161, R²: 0.5013, MAPE: 0.52%
+VAL - MSE: 104273350230016.0000, MAE: 2681739.7500, RMSE: 10211432.0000, R²: 0.7911, MAPE: 88747.34%
 Completed: APPLE H=100
 
 Training: Mamba on SP500 for H=3
@@ -1135,7 +1135,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           3                   Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -1176,116 +1176,41 @@ Sequence length: 60, Prediction length: 3
 train 2201
 val 123
 test 125
-Validation loss decreased (inf --> nan).  Saving model ...
+Validation loss decreased (inf --> 0.065048).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.065048 --> 0.063622).  Saving model ...
 Updating learning rate to 5e-05
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.063622 --> 0.062518).  Saving model ...
 Updating learning rate to 2.5e-05
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.062518 --> 0.062397).  Saving model ...
 Updating learning rate to 1.25e-05
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.062397 --> 0.061900).  Saving model ...
 Updating learning rate to 6.25e-06
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.061900 --> 0.061899).  Saving model ...
 Updating learning rate to 3.125e-06
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.061899 --> 0.061739).  Saving model ...
 Updating learning rate to 1.5625e-06
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.061739 --> 0.061221).  Saving model ...
 Updating learning rate to 7.8125e-07
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 3.90625e-07
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 1.953125e-07
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 3 out of 5
 Updating learning rate to 9.765625e-08
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 4 out of 5
 Updating learning rate to 4.8828125e-08
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.44140625e-08
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.220703125e-08
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 6.103515625e-09
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.0517578125e-09
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.52587890625e-09
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.62939453125e-10
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.814697265625e-10
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.9073486328125e-10
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 9.5367431640625e-11
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 4.76837158203125e-11
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.384185791015625e-11
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.1920928955078126e-11
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 5.960464477539063e-12
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.9802322387695314e-12
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.4901161193847657e-12
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.450580596923828e-13
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.725290298461914e-13
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.862645149230957e-13
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 9.313225746154786e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 4.656612873077393e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.3283064365386964e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.1641532182693482e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 5.820766091346741e-15
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.9103830456733705e-15
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.4551915228366853e-15
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.275957614183426e-16
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.637978807091713e-16
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.8189894035458566e-16
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 9.094947017729283e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 4.5474735088646414e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.2737367544323207e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.1368683772161604e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 5.684341886080802e-18
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.842170943040401e-18
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.4210854715202004e-18
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.105427357601002e-19
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.552713678800501e-19
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.7763568394002505e-19
+EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_SP500_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 125
 test shape: (125, 3, 6) (125, 3, 6)
 test shape: (125, 3, 6) (125, 3, 6)
 
 
-	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
+	mse:2921.38037109375, mae:33.23241424560547, rmse:54.04979705810547, r2:0.9968595367390662, dtw:Not calculated
 
 
-VAL - MSE: nan, MAE: nan, RMSE: nan, R²: nan, MAPE: nan%
+VAL - MSE: 2921.3804, MAE: 33.2324, RMSE: 54.0498, R²: 0.9969, MAPE: inf%
 Completed: SP500 H=3
 
 Training: Mamba on SP500 for H=5
@@ -1304,7 +1229,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           5                   Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -1345,116 +1270,39 @@ Sequence length: 60, Prediction length: 5
 train 2199
 val 121
 test 123
-Validation loss decreased (inf --> nan).  Saving model ...
+Validation loss decreased (inf --> 0.064793).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.064793 --> 0.063232).  Saving model ...
 Updating learning rate to 5e-05
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.063232 --> 0.062534).  Saving model ...
 Updating learning rate to 2.5e-05
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.062534 --> 0.062099).  Saving model ...
 Updating learning rate to 1.25e-05
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.062099 --> 0.061267).  Saving model ...
 Updating learning rate to 6.25e-06
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.061267 --> 0.061168).  Saving model ...
 Updating learning rate to 3.125e-06
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.061168 --> 0.060858).  Saving model ...
 Updating learning rate to 1.5625e-06
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 7.8125e-07
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 3.90625e-07
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 3 out of 5
 Updating learning rate to 1.953125e-07
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 4 out of 5
 Updating learning rate to 9.765625e-08
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 4.8828125e-08
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.44140625e-08
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.220703125e-08
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 6.103515625e-09
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.0517578125e-09
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.52587890625e-09
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.62939453125e-10
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.814697265625e-10
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.9073486328125e-10
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 9.5367431640625e-11
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 4.76837158203125e-11
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.384185791015625e-11
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.1920928955078126e-11
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 5.960464477539063e-12
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.9802322387695314e-12
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.4901161193847657e-12
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.450580596923828e-13
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.725290298461914e-13
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.862645149230957e-13
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 9.313225746154786e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 4.656612873077393e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.3283064365386964e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.1641532182693482e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 5.820766091346741e-15
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.9103830456733705e-15
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.4551915228366853e-15
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.275957614183426e-16
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.637978807091713e-16
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.8189894035458566e-16
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 9.094947017729283e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 4.5474735088646414e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.2737367544323207e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.1368683772161604e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 5.684341886080802e-18
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.842170943040401e-18
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.4210854715202004e-18
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.105427357601002e-19
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.552713678800501e-19
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.7763568394002505e-19
+EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_SP500_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 123
 test shape: (123, 5, 6) (123, 5, 6)
 test shape: (123, 5, 6) (123, 5, 6)
 
 
-	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
+	mse:3070.970703125, mae:34.27851104736328, rmse:55.41633987426758, r2:0.9966971585527062, dtw:Not calculated
 
 
-VAL - MSE: nan, MAE: nan, RMSE: nan, R²: nan, MAPE: nan%
+VAL - MSE: 3070.9707, MAE: 34.2785, RMSE: 55.4163, R²: 0.9967, MAPE: inf%
 Completed: SP500 H=5
 
 Training: Mamba on SP500 for H=10
@@ -1473,7 +1321,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           10                  Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -1514,116 +1362,39 @@ Sequence length: 60, Prediction length: 10
 train 2194
 val 116
 test 118
-Validation loss decreased (inf --> nan).  Saving model ...
+Validation loss decreased (inf --> 0.064765).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.064765 --> 0.064303).  Saving model ...
 Updating learning rate to 5e-05
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.064303 --> 0.063938).  Saving model ...
 Updating learning rate to 2.5e-05
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.063938 --> 0.063413).  Saving model ...
 Updating learning rate to 1.25e-05
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.063413 --> 0.063225).  Saving model ...
 Updating learning rate to 6.25e-06
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 3.125e-06
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.063225 --> 0.061461).  Saving model ...
 Updating learning rate to 1.5625e-06
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 7.8125e-07
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 3.90625e-07
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 3 out of 5
 Updating learning rate to 1.953125e-07
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 4 out of 5
 Updating learning rate to 9.765625e-08
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 4.8828125e-08
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.44140625e-08
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.220703125e-08
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 6.103515625e-09
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.0517578125e-09
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.52587890625e-09
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.62939453125e-10
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.814697265625e-10
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.9073486328125e-10
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 9.5367431640625e-11
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 4.76837158203125e-11
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.384185791015625e-11
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.1920928955078126e-11
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 5.960464477539063e-12
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.9802322387695314e-12
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.4901161193847657e-12
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.450580596923828e-13
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.725290298461914e-13
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.862645149230957e-13
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 9.313225746154786e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 4.656612873077393e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.3283064365386964e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.1641532182693482e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 5.820766091346741e-15
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.9103830456733705e-15
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.4551915228366853e-15
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.275957614183426e-16
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.637978807091713e-16
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.8189894035458566e-16
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 9.094947017729283e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 4.5474735088646414e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.2737367544323207e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.1368683772161604e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 5.684341886080802e-18
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.842170943040401e-18
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.4210854715202004e-18
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.105427357601002e-19
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.552713678800501e-19
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.7763568394002505e-19
+EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_SP500_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 118
 test shape: (118, 10, 6) (118, 10, 6)
 test shape: (118, 10, 6) (118, 10, 6)
 
 
-	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
+	mse:3661.525390625, mae:37.91305923461914, rmse:60.51054000854492, r2:0.99605622747913, dtw:Not calculated
 
 
-VAL - MSE: nan, MAE: nan, RMSE: nan, R²: nan, MAPE: nan%
+VAL - MSE: 3661.5254, MAE: 37.9131, RMSE: 60.5105, R²: 0.9961, MAPE: inf%
 Completed: SP500 H=10
 
 Training: Mamba on SP500 for H=22
@@ -1642,7 +1413,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           22                  Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -1683,116 +1454,37 @@ Sequence length: 60, Prediction length: 22
 train 2182
 val 104
 test 106
-Validation loss decreased (inf --> nan).  Saving model ...
+Validation loss decreased (inf --> 0.062863).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 5e-05
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 2.5e-05
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 3 out of 5
 Updating learning rate to 1.25e-05
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.062863 --> 0.062409).  Saving model ...
 Updating learning rate to 6.25e-06
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.062409 --> 0.060310).  Saving model ...
 Updating learning rate to 3.125e-06
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 1.5625e-06
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 7.8125e-07
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 3 out of 5
 Updating learning rate to 3.90625e-07
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 4 out of 5
 Updating learning rate to 1.953125e-07
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 9.765625e-08
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 4.8828125e-08
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.44140625e-08
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.220703125e-08
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 6.103515625e-09
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.0517578125e-09
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.52587890625e-09
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.62939453125e-10
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.814697265625e-10
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.9073486328125e-10
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 9.5367431640625e-11
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 4.76837158203125e-11
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.384185791015625e-11
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.1920928955078126e-11
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 5.960464477539063e-12
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.9802322387695314e-12
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.4901161193847657e-12
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.450580596923828e-13
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.725290298461914e-13
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.862645149230957e-13
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 9.313225746154786e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 4.656612873077393e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.3283064365386964e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.1641532182693482e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 5.820766091346741e-15
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.9103830456733705e-15
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.4551915228366853e-15
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.275957614183426e-16
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.637978807091713e-16
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.8189894035458566e-16
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 9.094947017729283e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 4.5474735088646414e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.2737367544323207e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.1368683772161604e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 5.684341886080802e-18
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.842170943040401e-18
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.4210854715202004e-18
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.105427357601002e-19
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.552713678800501e-19
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.7763568394002505e-19
+EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_SP500_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 106
 test shape: (106, 22, 6) (106, 22, 6)
 test shape: (106, 22, 6) (106, 22, 6)
 
 
-	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
+	mse:4544.6982421875, mae:42.43449783325195, rmse:67.41437530517578, r2:0.995085138361901, dtw:Not calculated
 
 
-VAL - MSE: nan, MAE: nan, RMSE: nan, R²: nan, MAPE: nan%
+VAL - MSE: 4544.6982, MAE: 42.4345, RMSE: 67.4144, R²: 0.9951, MAPE: inf%
 Completed: SP500 H=22
 
 Training: Mamba on SP500 for H=50
@@ -1811,7 +1503,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           50                  Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -1852,116 +1544,61 @@ Sequence length: 60, Prediction length: 50
 train 2154
 val 76
 test 78
-Validation loss decreased (inf --> nan).  Saving model ...
+Validation loss decreased (inf --> 0.071496).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.071496 --> 0.070146).  Saving model ...
 Updating learning rate to 5e-05
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 2.5e-05
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.070146 --> 0.068492).  Saving model ...
 Updating learning rate to 1.25e-05
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.068492 --> 0.067325).  Saving model ...
 Updating learning rate to 6.25e-06
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.067325 --> 0.067114).  Saving model ...
 Updating learning rate to 3.125e-06
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 1.5625e-06
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 7.8125e-07
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 3 out of 5
 Updating learning rate to 3.90625e-07
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 4 out of 5
 Updating learning rate to 1.953125e-07
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.067114 --> 0.067099).  Saving model ...
 Updating learning rate to 9.765625e-08
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 4.8828125e-08
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 2.44140625e-08
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 3 out of 5
 Updating learning rate to 1.220703125e-08
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.067099 --> 0.066976).  Saving model ...
 Updating learning rate to 6.103515625e-09
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 3.0517578125e-09
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 1.52587890625e-09
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.066976 --> 0.066787).  Saving model ...
 Updating learning rate to 7.62939453125e-10
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 3.814697265625e-10
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 1.9073486328125e-10
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 3 out of 5
 Updating learning rate to 9.5367431640625e-11
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 4 out of 5
 Updating learning rate to 4.76837158203125e-11
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.384185791015625e-11
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.1920928955078126e-11
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 5.960464477539063e-12
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.9802322387695314e-12
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.4901161193847657e-12
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.450580596923828e-13
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.725290298461914e-13
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.862645149230957e-13
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 9.313225746154786e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 4.656612873077393e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.3283064365386964e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.1641532182693482e-14
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 5.820766091346741e-15
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.9103830456733705e-15
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.4551915228366853e-15
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.275957614183426e-16
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.637978807091713e-16
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.8189894035458566e-16
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 9.094947017729283e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 4.5474735088646414e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.2737367544323207e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.1368683772161604e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 5.684341886080802e-18
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.842170943040401e-18
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.4210854715202004e-18
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.105427357601002e-19
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.552713678800501e-19
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.7763568394002505e-19
+EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_SP500_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 78
 test shape: (78, 50, 6) (78, 50, 6)
 test shape: (78, 50, 6) (78, 50, 6)
 
 
-	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
+	mse:6467.8994140625, mae:50.97145462036133, rmse:80.42324829101562, r2:0.9928930546157062, dtw:Not calculated
 
 
-VAL - MSE: nan, MAE: nan, RMSE: nan, R²: nan, MAPE: nan%
+VAL - MSE: 6467.8994, MAE: 50.9715, RMSE: 80.4232, R²: 0.9929, MAPE: inf%
 Completed: SP500 H=50
 
 Training: Mamba on SP500 for H=100
@@ -1980,7 +1617,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           100                 Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -2021,116 +1658,89 @@ Sequence length: 60, Prediction length: 100
 train 2104
 val 26
 test 28
-Validation loss decreased (inf --> nan).  Saving model ...
+Validation loss decreased (inf --> 0.096359).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.096359 --> 0.092575).  Saving model ...
 Updating learning rate to 5e-05
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.092575 --> 0.085873).  Saving model ...
 Updating learning rate to 2.5e-05
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.085873 --> 0.081577).  Saving model ...
 Updating learning rate to 1.25e-05
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.081577 --> 0.079966).  Saving model ...
 Updating learning rate to 6.25e-06
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.079966 --> 0.079325).  Saving model ...
 Updating learning rate to 3.125e-06
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.079325 --> 0.079051).  Saving model ...
 Updating learning rate to 1.5625e-06
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.079051 --> 0.078925).  Saving model ...
 Updating learning rate to 7.8125e-07
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.078925 --> 0.078866).  Saving model ...
 Updating learning rate to 3.90625e-07
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.078866 --> 0.078837).  Saving model ...
 Updating learning rate to 1.953125e-07
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.078837 --> 0.078822).  Saving model ...
 Updating learning rate to 9.765625e-08
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.078822 --> 0.078815).  Saving model ...
 Updating learning rate to 4.8828125e-08
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.078815 --> 0.078812).  Saving model ...
 Updating learning rate to 2.44140625e-08
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.078812 --> 0.078810).  Saving model ...
 Updating learning rate to 1.220703125e-08
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.078810 --> 0.078809).  Saving model ...
 Updating learning rate to 6.103515625e-09
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.078809 --> 0.078809).  Saving model ...
 Updating learning rate to 3.0517578125e-09
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.078809 --> 0.078808).  Saving model ...
 Updating learning rate to 1.52587890625e-09
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.078808 --> 0.078808).  Saving model ...
 Updating learning rate to 7.62939453125e-10
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.078808 --> 0.078808).  Saving model ...
 Updating learning rate to 3.814697265625e-10
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.078808 --> 0.078808).  Saving model ...
 Updating learning rate to 1.9073486328125e-10
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.078808 --> 0.078808).  Saving model ...
 Updating learning rate to 9.5367431640625e-11
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 4.76837158203125e-11
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 2.384185791015625e-11
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 3 out of 5
 Updating learning rate to 1.1920928955078126e-11
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 4 out of 5
 Updating learning rate to 5.960464477539063e-12
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.078808 --> 0.078808).  Saving model ...
 Updating learning rate to 2.9802322387695314e-12
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.078808 --> 0.078808).  Saving model ...
 Updating learning rate to 1.4901161193847657e-12
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 7.450580596923828e-13
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.078808 --> 0.078808).  Saving model ...
 Updating learning rate to 3.725290298461914e-13
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 1.862645149230957e-13
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 9.313225746154786e-14
-Validation loss decreased (nan --> nan).  Saving model ...
+Validation loss decreased (0.078808 --> 0.078808).  Saving model ...
 Updating learning rate to 4.656612873077393e-14
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 2.3283064365386964e-14
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 1.1641532182693482e-14
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 3 out of 5
 Updating learning rate to 5.820766091346741e-15
-Validation loss decreased (nan --> nan).  Saving model ...
+EarlyStopping counter: 4 out of 5
 Updating learning rate to 2.9103830456733705e-15
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.4551915228366853e-15
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.275957614183426e-16
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.637978807091713e-16
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.8189894035458566e-16
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 9.094947017729283e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 4.5474735088646414e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.2737367544323207e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.1368683772161604e-17
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 5.684341886080802e-18
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 2.842170943040401e-18
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.4210854715202004e-18
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 7.105427357601002e-19
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 3.552713678800501e-19
-Validation loss decreased (nan --> nan).  Saving model ...
-Updating learning rate to 1.7763568394002505e-19
+EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_SP500_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 28
 test shape: (28, 100, 6) (28, 100, 6)
 test shape: (28, 100, 6) (28, 100, 6)
 
 
-	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
+	mse:6525.49658203125, mae:49.23948287963867, rmse:80.78054809570312, r2:0.9929239279590547, dtw:Not calculated
 
 
-VAL - MSE: nan, MAE: nan, RMSE: nan, R²: nan, MAPE: nan%
+VAL - MSE: 6525.4966, MAE: 49.2395, RMSE: 80.7805, R²: 0.9929, MAPE: inf%
 Completed: SP500 H=100
 
 Training: Mamba on NASDAQ for H=3
@@ -2149,7 +1759,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           3                   Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -2229,10 +1839,10 @@ test shape: (125, 3, 6) (125, 3, 6)
 test shape: (125, 3, 6) (125, 3, 6)
 
 
-	mse:0.10264917463064194, mae:0.20068079233169556, rmse:0.3203890919685364, r2:0.965005848556757, dtw:Not calculated
+	mse:77848780800.0, mae:63942.91015625, rmse:279013.9375, r2:0.7073732316493988, dtw:Not calculated
 
 
-VAL - MSE: 0.1026, MAE: 0.2007, RMSE: 0.3204, R²: 0.9650, MAPE: 0.32%
+VAL - MSE: 77848780800.0000, MAE: 63942.9102, RMSE: 279013.9375, R²: 0.7074, MAPE: 63984.44%
 Completed: NASDAQ H=3
 
 Training: Mamba on NASDAQ for H=5
@@ -2251,7 +1861,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           5                   Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -2345,10 +1955,10 @@ test shape: (123, 5, 6) (123, 5, 6)
 test shape: (123, 5, 6) (123, 5, 6)
 
 
-	mse:0.11016567796468735, mae:0.21161529421806335, rmse:0.33191215991973877, r2:0.9624366164207458, dtw:Not calculated
+	mse:82685542400.0, mae:66277.765625, rmse:287550.9375, r2:0.6909386813640594, dtw:Not calculated
 
 
-VAL - MSE: 0.1102, MAE: 0.2116, RMSE: 0.3319, R²: 0.9624, MAPE: 0.33%
+VAL - MSE: 82685542400.0000, MAE: 66277.7656, RMSE: 287550.9375, R²: 0.6909, MAPE: 85071.44%
 Completed: NASDAQ H=5
 
 Training: Mamba on NASDAQ for H=10
@@ -2367,7 +1977,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           10                  Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -2441,10 +2051,10 @@ test shape: (118, 10, 6) (118, 10, 6)
 test shape: (118, 10, 6) (118, 10, 6)
 
 
-	mse:0.12769153714179993, mae:0.23931223154067993, rmse:0.3573395311832428, r2:0.95655906945467, dtw:Not calculated
+	mse:87158841344.0, mae:67625.7578125, rmse:295226.75, r2:0.6765501797199249, dtw:Not calculated
 
 
-VAL - MSE: 0.1277, MAE: 0.2393, RMSE: 0.3573, R²: 0.9566, MAPE: 0.35%
+VAL - MSE: 87158841344.0000, MAE: 67625.7578, RMSE: 295226.7500, R²: 0.6766, MAPE: 54203.52%
 Completed: NASDAQ H=10
 
 Training: Mamba on NASDAQ for H=22
@@ -2463,7 +2073,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           22                  Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -2541,10 +2151,10 @@ test shape: (106, 22, 6) (106, 22, 6)
 test shape: (106, 22, 6) (106, 22, 6)
 
 
-	mse:0.16402840614318848, mae:0.2853439152240753, rmse:0.40500420331954956, r2:0.9442921206355095, dtw:Not calculated
+	mse:98135269376.0, mae:72993.40625, rmse:313265.5, r2:0.6485896706581116, dtw:Not calculated
 
 
-VAL - MSE: 0.1640, MAE: 0.2853, RMSE: 0.4050, R²: 0.9443, MAPE: 0.37%
+VAL - MSE: 98135269376.0000, MAE: 72993.4062, RMSE: 313265.5000, R²: 0.6486, MAPE: 72691.15%
 Completed: NASDAQ H=22
 
 Training: Mamba on NASDAQ for H=50
@@ -2563,7 +2173,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           50                  Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -2643,10 +2253,10 @@ test shape: (78, 50, 6) (78, 50, 6)
 test shape: (78, 50, 6) (78, 50, 6)
 
 
-	mse:0.25495296716690063, mae:0.3663952052593231, rmse:0.5049286484718323, r2:0.9119070693850517, dtw:Not calculated
+	mse:94922514432.0, mae:67801.4921875, rmse:308094.96875, r2:0.6616022884845734, dtw:Not calculated
 
 
-VAL - MSE: 0.2550, MAE: 0.3664, RMSE: 0.5049, R²: 0.9119, MAPE: 0.38%
+VAL - MSE: 94922514432.0000, MAE: 67801.4922, RMSE: 308094.9688, R²: 0.6616, MAPE: 125346.24%
 Completed: NASDAQ H=50
 
 Training: Mamba on NASDAQ for H=100
@@ -2665,7 +2275,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           100                 Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -2746,9 +2356,9 @@ Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
 Updating learning rate to 3.814697265625e-10
 Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
 Updating learning rate to 1.9073486328125e-10
-Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
-Updating learning rate to 9.5367431640625e-11
 EarlyStopping counter: 1 out of 5
+Updating learning rate to 9.5367431640625e-11
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 4.76837158203125e-11
 Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
 Updating learning rate to 2.384185791015625e-11
@@ -2762,11 +2372,11 @@ Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
 Updating learning rate to 1.4901161193847657e-12
 EarlyStopping counter: 1 out of 5
 Updating learning rate to 7.450580596923828e-13
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 3.725290298461914e-13
-EarlyStopping counter: 3 out of 5
-Updating learning rate to 1.862645149230957e-13
 Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.862645149230957e-13
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 9.313225746154786e-14
 Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
 Updating learning rate to 4.656612873077393e-14
@@ -2784,7 +2394,7 @@ EarlyStopping counter: 1 out of 5
 Updating learning rate to 7.275957614183426e-16
 Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
 Updating learning rate to 3.637978807091713e-16
-Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 1.8189894035458566e-16
 Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
 Updating learning rate to 9.094947017729283e-17
@@ -2798,7 +2408,7 @@ EarlyStopping counter: 1 out of 5
 Updating learning rate to 5.684341886080802e-18
 Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
 Updating learning rate to 2.842170943040401e-18
-Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 1.4210854715202004e-18
 Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
 Updating learning rate to 7.105427357601002e-19
@@ -2812,10 +2422,10 @@ test shape: (28, 100, 6) (28, 100, 6)
 test shape: (28, 100, 6) (28, 100, 6)
 
 
-	mse:0.3434217572212219, mae:0.43629226088523865, rmse:0.5860219597816467, r2:0.8830714002251625, dtw:Not calculated
+	mse:99380920320.0, mae:68702.09375, rmse:315247.40625, r2:0.6514750719070435, dtw:Not calculated
 
 
-VAL - MSE: 0.3434, MAE: 0.4363, RMSE: 0.5860, R²: 0.8831, MAPE: 0.41%
+VAL - MSE: 99380920320.0000, MAE: 68702.0938, RMSE: 315247.4062, R²: 0.6515, MAPE: 76523.01%
 Completed: NASDAQ H=100
 
 Training: Mamba on ABSA for H=3
@@ -2834,7 +2444,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           3                   Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -2910,10 +2520,10 @@ test shape: (125, 3, 6) (125, 3, 6)
 test shape: (125, 3, 6) (125, 3, 6)
 
 
-	mse:0.28478333353996277, mae:0.35689499974250793, rmse:0.5336509346961975, r2:0.8923583701252937, dtw:Not calculated
+	mse:10606942208.0, mae:25836.056640625, rmse:102990.0078125, r2:0.6180277764797211, dtw:Not calculated
 
 
-VAL - MSE: 0.2848, MAE: 0.3569, RMSE: 0.5337, R²: 0.8924, MAPE: 0.85%
+VAL - MSE: 10606942208.0000, MAE: 25836.0566, RMSE: 102990.0078, R²: 0.6180, MAPE: 0.32%
 Completed: ABSA H=3
 
 Training: Mamba on ABSA for H=5
@@ -2932,7 +2542,7 @@ Args in experiment:
 [1mForecasting Task[0m
   Seq Len:            60                  Label Len:          30                  
   Pred Len:           5                   Seasonal Patterns:  Monthly             
-  Inverse:            0                   
+  Inverse:            1                   
 
 [1mModel Parameters[0m
   Top k:              5                   Num Kernels:        6                   
@@ -2987,1020 +2597,3 @@ Validation loss decreased (0.090907 --> 0.089679).  Saving model ...
 Updating learning rate to 3.125e-06
 EarlyStopping counter: 1 out of 5
 Updating learning rate to 1.5625e-06
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 7.8125e-07
-Validation loss decreased (0.089679 --> 0.089602).  Saving model ...
-Updating learning rate to 3.90625e-07
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 1.953125e-07
-Validation loss decreased (0.089602 --> 0.089489).  Saving model ...
-Updating learning rate to 9.765625e-08
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 4.8828125e-08
-Validation loss decreased (0.089489 --> 0.089245).  Saving model ...
-Updating learning rate to 2.44140625e-08
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 1.220703125e-08
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 6.103515625e-09
-EarlyStopping counter: 3 out of 5
-Updating learning rate to 3.0517578125e-09
-EarlyStopping counter: 4 out of 5
-Updating learning rate to 1.52587890625e-09
-EarlyStopping counter: 5 out of 5
->>>>>>>testing : long_term_forecast_Mamba_ABSA_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-test 123
-test shape: (123, 5, 6) (123, 5, 6)
-test shape: (123, 5, 6) (123, 5, 6)
-
-
-	mse:0.29209810495376587, mae:0.3625437915325165, rmse:0.540461003780365, r2:0.889347642660141, dtw:Not calculated
-
-
-VAL - MSE: 0.2921, MAE: 0.3625, RMSE: 0.5405, R²: 0.8893, MAPE: 0.87%
-Completed: ABSA H=5
-
-Training: Mamba on ABSA for H=10
-Using GPU
-Args in experiment:
-[1mBasic Config[0m
-  Task Name:          long_term_forecast  Is Training:        1                   
-  Model ID:           Mamba_ABSA_H10      Model:              Mamba               
-
-[1mData Loader[0m
-  Data:               custom              Root Path:          ../dataset/processed_data/
-  Data Path:          ABSA_normalized.csv Features:           M                   
-  Target:             pct_chg             Freq:               h                   
-  Checkpoints:        ./checkpoints/      
-
-[1mForecasting Task[0m
-  Seq Len:            60                  Label Len:          30                  
-  Pred Len:           10                  Seasonal Patterns:  Monthly             
-  Inverse:            0                   
-
-[1mModel Parameters[0m
-  Top k:              5                   Num Kernels:        6                   
-  Enc In:             6                   Dec In:             6                   
-  C Out:              6                   d model:            64                  
-  n heads:            8                   e layers:           2                   
-  d layers:           1                   d FF:               16                  
-  Moving Avg:         25                  Factor:             1                   
-  Distil:             1                   Dropout:            0.1                 
-  Embed:              timeF               Activation:         gelu                
-
-[1mRun Parameters[0m
-  Num Workers:        10                  Itr:                1                   
-  Train Epochs:       50                  Batch Size:         32                  
-  Patience:           5                   Learning Rate:      0.0001              
-  Des:                Mamba_Exp           Loss:               MSE                 
-  Lradj:              type1               Use Amp:            0                   
-
-[1mGPU[0m
-  Use GPU:            1                   GPU:                0                   
-  Use Multi GPU:      0                   Devices:            0,1,2,3             
-
-[1mDe-stationary Projector Params[0m
-  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
-
-Please make sure you have successfully installed mamba_ssm
-Use GPU: cuda:0
->>>>>>>start training : long_term_forecast_Mamba_ABSA_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
-============================================================
-DATASET SPLIT INFO (90/5/5):
-============================================================
-Total samples: 2515
-Train: 2263 samples (90%) - rows 0 to 2262
-Val: 125 samples (5%) - rows 2263 to 2387
-Test: 127 samples (5%) - rows 2388 to 2514
-Sequence length: 60, Prediction length: 10
-============================================================
-train 2194
-val 116
-test 118
-Validation loss decreased (inf --> 0.101819).  Saving model ...
-Updating learning rate to 0.0001
-Validation loss decreased (0.101819 --> 0.100510).  Saving model ...
-Updating learning rate to 5e-05
-Validation loss decreased (0.100510 --> 0.097696).  Saving model ...
-Updating learning rate to 2.5e-05
-Validation loss decreased (0.097696 --> 0.097391).  Saving model ...
-Updating learning rate to 1.25e-05
-Validation loss decreased (0.097391 --> 0.096763).  Saving model ...
-Updating learning rate to 6.25e-06
-Validation loss decreased (0.096763 --> 0.096150).  Saving model ...
-Updating learning rate to 3.125e-06
-Validation loss decreased (0.096150 --> 0.095931).  Saving model ...
-Updating learning rate to 1.5625e-06
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 7.8125e-07
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 3.90625e-07
-EarlyStopping counter: 3 out of 5
-Updating learning rate to 1.953125e-07
-EarlyStopping counter: 4 out of 5
-Updating learning rate to 9.765625e-08
-EarlyStopping counter: 5 out of 5
->>>>>>>testing : long_term_forecast_Mamba_ABSA_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-test 118
-test shape: (118, 10, 6) (118, 10, 6)
-test shape: (118, 10, 6) (118, 10, 6)
-
-
-	mse:0.3022223114967346, mae:0.37143492698669434, rmse:0.5497475266456604, r2:0.8852144107222557, dtw:Not calculated
-
-
-VAL - MSE: 0.3022, MAE: 0.3714, RMSE: 0.5497, R²: 0.8852, MAPE: 0.68%
-Completed: ABSA H=10
-
-Training: Mamba on ABSA for H=22
-Using GPU
-Args in experiment:
-[1mBasic Config[0m
-  Task Name:          long_term_forecast  Is Training:        1                   
-  Model ID:           Mamba_ABSA_H22      Model:              Mamba               
-
-[1mData Loader[0m
-  Data:               custom              Root Path:          ../dataset/processed_data/
-  Data Path:          ABSA_normalized.csv Features:           M                   
-  Target:             pct_chg             Freq:               h                   
-  Checkpoints:        ./checkpoints/      
-
-[1mForecasting Task[0m
-  Seq Len:            60                  Label Len:          30                  
-  Pred Len:           22                  Seasonal Patterns:  Monthly             
-  Inverse:            0                   
-
-[1mModel Parameters[0m
-  Top k:              5                   Num Kernels:        6                   
-  Enc In:             6                   Dec In:             6                   
-  C Out:              6                   d model:            64                  
-  n heads:            8                   e layers:           2                   
-  d layers:           1                   d FF:               16                  
-  Moving Avg:         25                  Factor:             1                   
-  Distil:             1                   Dropout:            0.1                 
-  Embed:              timeF               Activation:         gelu                
-
-[1mRun Parameters[0m
-  Num Workers:        10                  Itr:                1                   
-  Train Epochs:       50                  Batch Size:         32                  
-  Patience:           5                   Learning Rate:      0.0001              
-  Des:                Mamba_Exp           Loss:               MSE                 
-  Lradj:              type1               Use Amp:            0                   
-
-[1mGPU[0m
-  Use GPU:            1                   GPU:                0                   
-  Use Multi GPU:      0                   Devices:            0,1,2,3             
-
-[1mDe-stationary Projector Params[0m
-  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
-
-Please make sure you have successfully installed mamba_ssm
-Use GPU: cuda:0
->>>>>>>start training : long_term_forecast_Mamba_ABSA_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
-============================================================
-DATASET SPLIT INFO (90/5/5):
-============================================================
-Total samples: 2515
-Train: 2263 samples (90%) - rows 0 to 2262
-Val: 125 samples (5%) - rows 2263 to 2387
-Test: 127 samples (5%) - rows 2388 to 2514
-Sequence length: 60, Prediction length: 22
-============================================================
-train 2182
-val 104
-test 106
-Validation loss decreased (inf --> 0.130402).  Saving model ...
-Updating learning rate to 0.0001
-Validation loss decreased (0.130402 --> 0.123087).  Saving model ...
-Updating learning rate to 5e-05
-Validation loss decreased (0.123087 --> 0.120115).  Saving model ...
-Updating learning rate to 2.5e-05
-Validation loss decreased (0.120115 --> 0.116658).  Saving model ...
-Updating learning rate to 1.25e-05
-Validation loss decreased (0.116658 --> 0.115124).  Saving model ...
-Updating learning rate to 6.25e-06
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 3.125e-06
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 1.5625e-06
-Validation loss decreased (0.115124 --> 0.114503).  Saving model ...
-Updating learning rate to 7.8125e-07
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 3.90625e-07
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 1.953125e-07
-EarlyStopping counter: 3 out of 5
-Updating learning rate to 9.765625e-08
-EarlyStopping counter: 4 out of 5
-Updating learning rate to 4.8828125e-08
-EarlyStopping counter: 5 out of 5
->>>>>>>testing : long_term_forecast_Mamba_ABSA_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-test 106
-test shape: (106, 22, 6) (106, 22, 6)
-test shape: (106, 22, 6) (106, 22, 6)
-
-
-	mse:0.3139815330505371, mae:0.3824239671230316, rmse:0.5603405237197876, r2:0.8792895004153252, dtw:Not calculated
-
-
-VAL - MSE: 0.3140, MAE: 0.3824, RMSE: 0.5603, R²: 0.8793, MAPE: 0.63%
-Completed: ABSA H=22
-
-Training: Mamba on ABSA for H=50
-Using GPU
-Args in experiment:
-[1mBasic Config[0m
-  Task Name:          long_term_forecast  Is Training:        1                   
-  Model ID:           Mamba_ABSA_H50      Model:              Mamba               
-
-[1mData Loader[0m
-  Data:               custom              Root Path:          ../dataset/processed_data/
-  Data Path:          ABSA_normalized.csv Features:           M                   
-  Target:             pct_chg             Freq:               h                   
-  Checkpoints:        ./checkpoints/      
-
-[1mForecasting Task[0m
-  Seq Len:            60                  Label Len:          30                  
-  Pred Len:           50                  Seasonal Patterns:  Monthly             
-  Inverse:            0                   
-
-[1mModel Parameters[0m
-  Top k:              5                   Num Kernels:        6                   
-  Enc In:             6                   Dec In:             6                   
-  C Out:              6                   d model:            64                  
-  n heads:            8                   e layers:           2                   
-  d layers:           1                   d FF:               16                  
-  Moving Avg:         25                  Factor:             1                   
-  Distil:             1                   Dropout:            0.1                 
-  Embed:              timeF               Activation:         gelu                
-
-[1mRun Parameters[0m
-  Num Workers:        10                  Itr:                1                   
-  Train Epochs:       50                  Batch Size:         32                  
-  Patience:           5                   Learning Rate:      0.0001              
-  Des:                Mamba_Exp           Loss:               MSE                 
-  Lradj:              type1               Use Amp:            0                   
-
-[1mGPU[0m
-  Use GPU:            1                   GPU:                0                   
-  Use Multi GPU:      0                   Devices:            0,1,2,3             
-
-[1mDe-stationary Projector Params[0m
-  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
-
-Please make sure you have successfully installed mamba_ssm
-Use GPU: cuda:0
->>>>>>>start training : long_term_forecast_Mamba_ABSA_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
-============================================================
-DATASET SPLIT INFO (90/5/5):
-============================================================
-Total samples: 2515
-Train: 2263 samples (90%) - rows 0 to 2262
-Val: 125 samples (5%) - rows 2263 to 2387
-Test: 127 samples (5%) - rows 2388 to 2514
-Sequence length: 60, Prediction length: 50
-============================================================
-train 2154
-val 76
-test 78
-Validation loss decreased (inf --> 0.174497).  Saving model ...
-Updating learning rate to 0.0001
-Validation loss decreased (0.174497 --> 0.171991).  Saving model ...
-Updating learning rate to 5e-05
-Validation loss decreased (0.171991 --> 0.169348).  Saving model ...
-Updating learning rate to 2.5e-05
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 1.25e-05
-Validation loss decreased (0.169348 --> 0.168621).  Saving model ...
-Updating learning rate to 6.25e-06
-Validation loss decreased (0.168621 --> 0.166289).  Saving model ...
-Updating learning rate to 3.125e-06
-Validation loss decreased (0.166289 --> 0.166234).  Saving model ...
-Updating learning rate to 1.5625e-06
-Validation loss decreased (0.166234 --> 0.165954).  Saving model ...
-Updating learning rate to 7.8125e-07
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 3.90625e-07
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 1.953125e-07
-EarlyStopping counter: 3 out of 5
-Updating learning rate to 9.765625e-08
-EarlyStopping counter: 4 out of 5
-Updating learning rate to 4.8828125e-08
-EarlyStopping counter: 5 out of 5
->>>>>>>testing : long_term_forecast_Mamba_ABSA_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-test 78
-test shape: (78, 50, 6) (78, 50, 6)
-test shape: (78, 50, 6) (78, 50, 6)
-
-
-	mse:0.35667604207992554, mae:0.4115681052207947, rmse:0.5972236394882202, r2:0.8644575029611588, dtw:Not calculated
-
-
-VAL - MSE: 0.3567, MAE: 0.4116, RMSE: 0.5972, R²: 0.8645, MAPE: 0.75%
-Completed: ABSA H=50
-
-Training: Mamba on ABSA for H=100
-Using GPU
-Args in experiment:
-[1mBasic Config[0m
-  Task Name:          long_term_forecast  Is Training:        1                   
-  Model ID:           Mamba_ABSA_H100     Model:              Mamba               
-
-[1mData Loader[0m
-  Data:               custom              Root Path:          ../dataset/processed_data/
-  Data Path:          ABSA_normalized.csv Features:           M                   
-  Target:             pct_chg             Freq:               h                   
-  Checkpoints:        ./checkpoints/      
-
-[1mForecasting Task[0m
-  Seq Len:            60                  Label Len:          30                  
-  Pred Len:           100                 Seasonal Patterns:  Monthly             
-  Inverse:            0                   
-
-[1mModel Parameters[0m
-  Top k:              5                   Num Kernels:        6                   
-  Enc In:             6                   Dec In:             6                   
-  C Out:              6                   d model:            64                  
-  n heads:            8                   e layers:           2                   
-  d layers:           1                   d FF:               16                  
-  Moving Avg:         25                  Factor:             1                   
-  Distil:             1                   Dropout:            0.1                 
-  Embed:              timeF               Activation:         gelu                
-
-[1mRun Parameters[0m
-  Num Workers:        10                  Itr:                1                   
-  Train Epochs:       50                  Batch Size:         32                  
-  Patience:           5                   Learning Rate:      0.0001              
-  Des:                Mamba_Exp           Loss:               MSE                 
-  Lradj:              type1               Use Amp:            0                   
-
-[1mGPU[0m
-  Use GPU:            1                   GPU:                0                   
-  Use Multi GPU:      0                   Devices:            0,1,2,3             
-
-[1mDe-stationary Projector Params[0m
-  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
-
-Please make sure you have successfully installed mamba_ssm
-Use GPU: cuda:0
->>>>>>>start training : long_term_forecast_Mamba_ABSA_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
-============================================================
-DATASET SPLIT INFO (90/5/5):
-============================================================
-Total samples: 2515
-Train: 2263 samples (90%) - rows 0 to 2262
-Val: 125 samples (5%) - rows 2263 to 2387
-Test: 127 samples (5%) - rows 2388 to 2514
-Sequence length: 60, Prediction length: 100
-============================================================
-train 2104
-val 26
-test 28
-Validation loss decreased (inf --> 0.277432).  Saving model ...
-Updating learning rate to 0.0001
-Validation loss decreased (0.277432 --> 0.275107).  Saving model ...
-Updating learning rate to 5e-05
-Validation loss decreased (0.275107 --> 0.273222).  Saving model ...
-Updating learning rate to 2.5e-05
-Validation loss decreased (0.273222 --> 0.271907).  Saving model ...
-Updating learning rate to 1.25e-05
-Validation loss decreased (0.271907 --> 0.271067).  Saving model ...
-Updating learning rate to 6.25e-06
-Validation loss decreased (0.271067 --> 0.270625).  Saving model ...
-Updating learning rate to 3.125e-06
-Validation loss decreased (0.270625 --> 0.270398).  Saving model ...
-Updating learning rate to 1.5625e-06
-Validation loss decreased (0.270398 --> 0.270286).  Saving model ...
-Updating learning rate to 7.8125e-07
-Validation loss decreased (0.270286 --> 0.270229).  Saving model ...
-Updating learning rate to 3.90625e-07
-Validation loss decreased (0.270229 --> 0.270201).  Saving model ...
-Updating learning rate to 1.953125e-07
-Validation loss decreased (0.270201 --> 0.270186).  Saving model ...
-Updating learning rate to 9.765625e-08
-Validation loss decreased (0.270186 --> 0.270180).  Saving model ...
-Updating learning rate to 4.8828125e-08
-Validation loss decreased (0.270180 --> 0.270176).  Saving model ...
-Updating learning rate to 2.44140625e-08
-Validation loss decreased (0.270176 --> 0.270174).  Saving model ...
-Updating learning rate to 1.220703125e-08
-Validation loss decreased (0.270174 --> 0.270173).  Saving model ...
-Updating learning rate to 6.103515625e-09
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 3.0517578125e-09
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 1.52587890625e-09
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 7.62939453125e-10
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 3.814697265625e-10
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 1.9073486328125e-10
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 9.5367431640625e-11
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 4.76837158203125e-11
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 2.384185791015625e-11
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 1.1920928955078126e-11
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 5.960464477539063e-12
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 2.9802322387695314e-12
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 1.4901161193847657e-12
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 7.450580596923828e-13
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 3.725290298461914e-13
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 1.862645149230957e-13
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 9.313225746154786e-14
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 4.656612873077393e-14
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 2.3283064365386964e-14
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 1.1641532182693482e-14
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 5.820766091346741e-15
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 2.9103830456733705e-15
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 1.4551915228366853e-15
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 7.275957614183426e-16
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 3.637978807091713e-16
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 1.8189894035458566e-16
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 9.094947017729283e-17
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 4.5474735088646414e-17
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 2.2737367544323207e-17
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 1.1368683772161604e-17
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 5.684341886080802e-18
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 2.842170943040401e-18
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 1.4210854715202004e-18
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 7.105427357601002e-19
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 3.552713678800501e-19
-Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
-Updating learning rate to 1.7763568394002505e-19
->>>>>>>testing : long_term_forecast_Mamba_ABSA_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-test 28
-test shape: (28, 100, 6) (28, 100, 6)
-test shape: (28, 100, 6) (28, 100, 6)
-
-
-	mse:0.4350682497024536, mae:0.4802916347980499, rmse:0.6595970392227173, r2:0.8323399722576141, dtw:Not calculated
-
-
-VAL - MSE: 0.4351, MAE: 0.4803, RMSE: 0.6596, R²: 0.8323, MAPE: 1.33%
-Completed: ABSA H=100
-
-Training: Mamba on SASOL for H=3
-Using GPU
-Args in experiment:
-[1mBasic Config[0m
-  Task Name:          long_term_forecast  Is Training:        1                   
-  Model ID:           Mamba_SASOL_H3      Model:              Mamba               
-
-[1mData Loader[0m
-  Data:               custom              Root Path:          ../dataset/processed_data/
-  Data Path:          SASOL_normalized.csvFeatures:           M                   
-  Target:             pct_chg             Freq:               h                   
-  Checkpoints:        ./checkpoints/      
-
-[1mForecasting Task[0m
-  Seq Len:            60                  Label Len:          30                  
-  Pred Len:           3                   Seasonal Patterns:  Monthly             
-  Inverse:            0                   
-
-[1mModel Parameters[0m
-  Top k:              5                   Num Kernels:        6                   
-  Enc In:             6                   Dec In:             6                   
-  C Out:              6                   d model:            64                  
-  n heads:            8                   e layers:           2                   
-  d layers:           1                   d FF:               16                  
-  Moving Avg:         25                  Factor:             1                   
-  Distil:             1                   Dropout:            0.1                 
-  Embed:              timeF               Activation:         gelu                
-
-[1mRun Parameters[0m
-  Num Workers:        10                  Itr:                1                   
-  Train Epochs:       50                  Batch Size:         32                  
-  Patience:           5                   Learning Rate:      0.0001              
-  Des:                Mamba_Exp           Loss:               MSE                 
-  Lradj:              type1               Use Amp:            0                   
-
-[1mGPU[0m
-  Use GPU:            1                   GPU:                0                   
-  Use Multi GPU:      0                   Devices:            0,1,2,3             
-
-[1mDe-stationary Projector Params[0m
-  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
-
-Please make sure you have successfully installed mamba_ssm
-Use GPU: cuda:0
->>>>>>>start training : long_term_forecast_Mamba_SASOL_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
-============================================================
-DATASET SPLIT INFO (90/5/5):
-============================================================
-Total samples: 2515
-Train: 2263 samples (90%) - rows 0 to 2262
-Val: 125 samples (5%) - rows 2263 to 2387
-Test: 127 samples (5%) - rows 2388 to 2514
-Sequence length: 60, Prediction length: 3
-============================================================
-train 2201
-val 123
-test 125
-Validation loss decreased (inf --> 0.050076).  Saving model ...
-Updating learning rate to 0.0001
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 5e-05
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 2.5e-05
-EarlyStopping counter: 3 out of 5
-Updating learning rate to 1.25e-05
-EarlyStopping counter: 4 out of 5
-Updating learning rate to 6.25e-06
-Validation loss decreased (0.050076 --> 0.049258).  Saving model ...
-Updating learning rate to 3.125e-06
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 1.5625e-06
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 7.8125e-07
-EarlyStopping counter: 3 out of 5
-Updating learning rate to 3.90625e-07
-EarlyStopping counter: 4 out of 5
-Updating learning rate to 1.953125e-07
-EarlyStopping counter: 5 out of 5
->>>>>>>testing : long_term_forecast_Mamba_SASOL_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-test 125
-test shape: (125, 3, 6) (125, 3, 6)
-test shape: (125, 3, 6) (125, 3, 6)
-
-
-	mse:0.07869888097047806, mae:0.09320246428251266, rmse:0.28053319454193115, r2:0.6081277132034302, dtw:Not calculated
-
-
-VAL - MSE: 0.0787, MAE: 0.0932, RMSE: 0.2805, R²: 0.6081, MAPE: 0.27%
-Completed: SASOL H=3
-
-Training: Mamba on SASOL for H=5
-Using GPU
-Args in experiment:
-[1mBasic Config[0m
-  Task Name:          long_term_forecast  Is Training:        1                   
-  Model ID:           Mamba_SASOL_H5      Model:              Mamba               
-
-[1mData Loader[0m
-  Data:               custom              Root Path:          ../dataset/processed_data/
-  Data Path:          SASOL_normalized.csvFeatures:           M                   
-  Target:             pct_chg             Freq:               h                   
-  Checkpoints:        ./checkpoints/      
-
-[1mForecasting Task[0m
-  Seq Len:            60                  Label Len:          30                  
-  Pred Len:           5                   Seasonal Patterns:  Monthly             
-  Inverse:            0                   
-
-[1mModel Parameters[0m
-  Top k:              5                   Num Kernels:        6                   
-  Enc In:             6                   Dec In:             6                   
-  C Out:              6                   d model:            64                  
-  n heads:            8                   e layers:           2                   
-  d layers:           1                   d FF:               16                  
-  Moving Avg:         25                  Factor:             1                   
-  Distil:             1                   Dropout:            0.1                 
-  Embed:              timeF               Activation:         gelu                
-
-[1mRun Parameters[0m
-  Num Workers:        10                  Itr:                1                   
-  Train Epochs:       50                  Batch Size:         32                  
-  Patience:           5                   Learning Rate:      0.0001              
-  Des:                Mamba_Exp           Loss:               MSE                 
-  Lradj:              type1               Use Amp:            0                   
-
-[1mGPU[0m
-  Use GPU:            1                   GPU:                0                   
-  Use Multi GPU:      0                   Devices:            0,1,2,3             
-
-[1mDe-stationary Projector Params[0m
-  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
-
-Please make sure you have successfully installed mamba_ssm
-Use GPU: cuda:0
->>>>>>>start training : long_term_forecast_Mamba_SASOL_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
-============================================================
-DATASET SPLIT INFO (90/5/5):
-============================================================
-Total samples: 2515
-Train: 2263 samples (90%) - rows 0 to 2262
-Val: 125 samples (5%) - rows 2263 to 2387
-Test: 127 samples (5%) - rows 2388 to 2514
-Sequence length: 60, Prediction length: 5
-============================================================
-train 2199
-val 121
-test 123
-Validation loss decreased (inf --> 0.050499).  Saving model ...
-Updating learning rate to 0.0001
-Validation loss decreased (0.050499 --> 0.050430).  Saving model ...
-Updating learning rate to 5e-05
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 2.5e-05
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 1.25e-05
-EarlyStopping counter: 3 out of 5
-Updating learning rate to 6.25e-06
-EarlyStopping counter: 4 out of 5
-Updating learning rate to 3.125e-06
-EarlyStopping counter: 5 out of 5
->>>>>>>testing : long_term_forecast_Mamba_SASOL_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-test 123
-test shape: (123, 5, 6) (123, 5, 6)
-test shape: (123, 5, 6) (123, 5, 6)
-
-
-	mse:0.07824783027172089, mae:0.0925639346241951, rmse:0.27972814440727234, r2:0.6108684241771698, dtw:Not calculated
-
-
-VAL - MSE: 0.0782, MAE: 0.0926, RMSE: 0.2797, R²: 0.6109, MAPE: 0.23%
-Completed: SASOL H=5
-
-Training: Mamba on SASOL for H=10
-Using GPU
-Args in experiment:
-[1mBasic Config[0m
-  Task Name:          long_term_forecast  Is Training:        1                   
-  Model ID:           Mamba_SASOL_H10     Model:              Mamba               
-
-[1mData Loader[0m
-  Data:               custom              Root Path:          ../dataset/processed_data/
-  Data Path:          SASOL_normalized.csvFeatures:           M                   
-  Target:             pct_chg             Freq:               h                   
-  Checkpoints:        ./checkpoints/      
-
-[1mForecasting Task[0m
-  Seq Len:            60                  Label Len:          30                  
-  Pred Len:           10                  Seasonal Patterns:  Monthly             
-  Inverse:            0                   
-
-[1mModel Parameters[0m
-  Top k:              5                   Num Kernels:        6                   
-  Enc In:             6                   Dec In:             6                   
-  C Out:              6                   d model:            64                  
-  n heads:            8                   e layers:           2                   
-  d layers:           1                   d FF:               16                  
-  Moving Avg:         25                  Factor:             1                   
-  Distil:             1                   Dropout:            0.1                 
-  Embed:              timeF               Activation:         gelu                
-
-[1mRun Parameters[0m
-  Num Workers:        10                  Itr:                1                   
-  Train Epochs:       50                  Batch Size:         32                  
-  Patience:           5                   Learning Rate:      0.0001              
-  Des:                Mamba_Exp           Loss:               MSE                 
-  Lradj:              type1               Use Amp:            0                   
-
-[1mGPU[0m
-  Use GPU:            1                   GPU:                0                   
-  Use Multi GPU:      0                   Devices:            0,1,2,3             
-
-[1mDe-stationary Projector Params[0m
-  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
-
-Please make sure you have successfully installed mamba_ssm
-Use GPU: cuda:0
->>>>>>>start training : long_term_forecast_Mamba_SASOL_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
-============================================================
-DATASET SPLIT INFO (90/5/5):
-============================================================
-Total samples: 2515
-Train: 2263 samples (90%) - rows 0 to 2262
-Val: 125 samples (5%) - rows 2263 to 2387
-Test: 127 samples (5%) - rows 2388 to 2514
-Sequence length: 60, Prediction length: 10
-============================================================
-train 2194
-val 116
-test 118
-Validation loss decreased (inf --> 0.051821).  Saving model ...
-Updating learning rate to 0.0001
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 5e-05
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 2.5e-05
-EarlyStopping counter: 3 out of 5
-Updating learning rate to 1.25e-05
-EarlyStopping counter: 4 out of 5
-Updating learning rate to 6.25e-06
-EarlyStopping counter: 5 out of 5
->>>>>>>testing : long_term_forecast_Mamba_SASOL_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-test 118
-test shape: (118, 10, 6) (118, 10, 6)
-test shape: (118, 10, 6) (118, 10, 6)
-
-
-	mse:0.0800599455833435, mae:0.09413951635360718, rmse:0.28294867277145386, r2:0.6067371070384979, dtw:Not calculated
-
-
-VAL - MSE: 0.0801, MAE: 0.0941, RMSE: 0.2829, R²: 0.6067, MAPE: 0.25%
-Completed: SASOL H=10
-
-Training: Mamba on SASOL for H=22
-Using GPU
-Args in experiment:
-[1mBasic Config[0m
-  Task Name:          long_term_forecast  Is Training:        1                   
-  Model ID:           Mamba_SASOL_H22     Model:              Mamba               
-
-[1mData Loader[0m
-  Data:               custom              Root Path:          ../dataset/processed_data/
-  Data Path:          SASOL_normalized.csvFeatures:           M                   
-  Target:             pct_chg             Freq:               h                   
-  Checkpoints:        ./checkpoints/      
-
-[1mForecasting Task[0m
-  Seq Len:            60                  Label Len:          30                  
-  Pred Len:           22                  Seasonal Patterns:  Monthly             
-  Inverse:            0                   
-
-[1mModel Parameters[0m
-  Top k:              5                   Num Kernels:        6                   
-  Enc In:             6                   Dec In:             6                   
-  C Out:              6                   d model:            64                  
-  n heads:            8                   e layers:           2                   
-  d layers:           1                   d FF:               16                  
-  Moving Avg:         25                  Factor:             1                   
-  Distil:             1                   Dropout:            0.1                 
-  Embed:              timeF               Activation:         gelu                
-
-[1mRun Parameters[0m
-  Num Workers:        10                  Itr:                1                   
-  Train Epochs:       50                  Batch Size:         32                  
-  Patience:           5                   Learning Rate:      0.0001              
-  Des:                Mamba_Exp           Loss:               MSE                 
-  Lradj:              type1               Use Amp:            0                   
-
-[1mGPU[0m
-  Use GPU:            1                   GPU:                0                   
-  Use Multi GPU:      0                   Devices:            0,1,2,3             
-
-[1mDe-stationary Projector Params[0m
-  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
-
-Please make sure you have successfully installed mamba_ssm
-Use GPU: cuda:0
->>>>>>>start training : long_term_forecast_Mamba_SASOL_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
-============================================================
-DATASET SPLIT INFO (90/5/5):
-============================================================
-Total samples: 2515
-Train: 2263 samples (90%) - rows 0 to 2262
-Val: 125 samples (5%) - rows 2263 to 2387
-Test: 127 samples (5%) - rows 2388 to 2514
-Sequence length: 60, Prediction length: 22
-============================================================
-train 2182
-val 104
-test 106
-Validation loss decreased (inf --> 0.061337).  Saving model ...
-Updating learning rate to 0.0001
-Validation loss decreased (0.061337 --> 0.054165).  Saving model ...
-Updating learning rate to 5e-05
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 2.5e-05
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 1.25e-05
-EarlyStopping counter: 3 out of 5
-Updating learning rate to 6.25e-06
-EarlyStopping counter: 4 out of 5
-Updating learning rate to 3.125e-06
-EarlyStopping counter: 5 out of 5
->>>>>>>testing : long_term_forecast_Mamba_SASOL_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-test 106
-test shape: (106, 22, 6) (106, 22, 6)
-test shape: (106, 22, 6) (106, 22, 6)
-
-
-	mse:0.0811978355050087, mae:0.09533527493476868, rmse:0.2849523425102234, r2:0.6040014326572418, dtw:Not calculated
-
-
-VAL - MSE: 0.0812, MAE: 0.0953, RMSE: 0.2850, R²: 0.6040, MAPE: 0.26%
-Completed: SASOL H=22
-
-Training: Mamba on SASOL for H=50
-Using GPU
-Args in experiment:
-[1mBasic Config[0m
-  Task Name:          long_term_forecast  Is Training:        1                   
-  Model ID:           Mamba_SASOL_H50     Model:              Mamba               
-
-[1mData Loader[0m
-  Data:               custom              Root Path:          ../dataset/processed_data/
-  Data Path:          SASOL_normalized.csvFeatures:           M                   
-  Target:             pct_chg             Freq:               h                   
-  Checkpoints:        ./checkpoints/      
-
-[1mForecasting Task[0m
-  Seq Len:            60                  Label Len:          30                  
-  Pred Len:           50                  Seasonal Patterns:  Monthly             
-  Inverse:            0                   
-
-[1mModel Parameters[0m
-  Top k:              5                   Num Kernels:        6                   
-  Enc In:             6                   Dec In:             6                   
-  C Out:              6                   d model:            64                  
-  n heads:            8                   e layers:           2                   
-  d layers:           1                   d FF:               16                  
-  Moving Avg:         25                  Factor:             1                   
-  Distil:             1                   Dropout:            0.1                 
-  Embed:              timeF               Activation:         gelu                
-
-[1mRun Parameters[0m
-  Num Workers:        10                  Itr:                1                   
-  Train Epochs:       50                  Batch Size:         32                  
-  Patience:           5                   Learning Rate:      0.0001              
-  Des:                Mamba_Exp           Loss:               MSE                 
-  Lradj:              type1               Use Amp:            0                   
-
-[1mGPU[0m
-  Use GPU:            1                   GPU:                0                   
-  Use Multi GPU:      0                   Devices:            0,1,2,3             
-
-[1mDe-stationary Projector Params[0m
-  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
-
-Please make sure you have successfully installed mamba_ssm
-Use GPU: cuda:0
->>>>>>>start training : long_term_forecast_Mamba_SASOL_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
-============================================================
-DATASET SPLIT INFO (90/5/5):
-============================================================
-Total samples: 2515
-Train: 2263 samples (90%) - rows 0 to 2262
-Val: 125 samples (5%) - rows 2263 to 2387
-Test: 127 samples (5%) - rows 2388 to 2514
-Sequence length: 60, Prediction length: 50
-============================================================
-train 2154
-val 76
-test 78
-Validation loss decreased (inf --> 0.057601).  Saving model ...
-Updating learning rate to 0.0001
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 5e-05
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 2.5e-05
-EarlyStopping counter: 3 out of 5
-Updating learning rate to 1.25e-05
-EarlyStopping counter: 4 out of 5
-Updating learning rate to 6.25e-06
-EarlyStopping counter: 5 out of 5
->>>>>>>testing : long_term_forecast_Mamba_SASOL_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-test 78
-test shape: (78, 50, 6) (78, 50, 6)
-test shape: (78, 50, 6) (78, 50, 6)
-
-
-	mse:0.08627652376890182, mae:0.09969992935657501, rmse:0.29372864961624146, r2:0.6051149964332581, dtw:Not calculated
-
-
-VAL - MSE: 0.0863, MAE: 0.0997, RMSE: 0.2937, R²: 0.6051, MAPE: 0.25%
-Completed: SASOL H=50
-
-Training: Mamba on SASOL for H=100
-Using GPU
-Args in experiment:
-[1mBasic Config[0m
-  Task Name:          long_term_forecast  Is Training:        1                   
-  Model ID:           Mamba_SASOL_H100    Model:              Mamba               
-
-[1mData Loader[0m
-  Data:               custom              Root Path:          ../dataset/processed_data/
-  Data Path:          SASOL_normalized.csvFeatures:           M                   
-  Target:             pct_chg             Freq:               h                   
-  Checkpoints:        ./checkpoints/      
-
-[1mForecasting Task[0m
-  Seq Len:            60                  Label Len:          30                  
-  Pred Len:           100                 Seasonal Patterns:  Monthly             
-  Inverse:            0                   
-
-[1mModel Parameters[0m
-  Top k:              5                   Num Kernels:        6                   
-  Enc In:             6                   Dec In:             6                   
-  C Out:              6                   d model:            64                  
-  n heads:            8                   e layers:           2                   
-  d layers:           1                   d FF:               16                  
-  Moving Avg:         25                  Factor:             1                   
-  Distil:             1                   Dropout:            0.1                 
-  Embed:              timeF               Activation:         gelu                
-
-[1mRun Parameters[0m
-  Num Workers:        10                  Itr:                1                   
-  Train Epochs:       50                  Batch Size:         32                  
-  Patience:           5                   Learning Rate:      0.0001              
-  Des:                Mamba_Exp           Loss:               MSE                 
-  Lradj:              type1               Use Amp:            0                   
-
-[1mGPU[0m
-  Use GPU:            1                   GPU:                0                   
-  Use Multi GPU:      0                   Devices:            0,1,2,3             
-
-[1mDe-stationary Projector Params[0m
-  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
-
-Please make sure you have successfully installed mamba_ssm
-Use GPU: cuda:0
->>>>>>>start training : long_term_forecast_Mamba_SASOL_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
-============================================================
-DATASET SPLIT INFO (90/5/5):
-============================================================
-Total samples: 2515
-Train: 2263 samples (90%) - rows 0 to 2262
-Val: 125 samples (5%) - rows 2263 to 2387
-Test: 127 samples (5%) - rows 2388 to 2514
-Sequence length: 60, Prediction length: 100
-============================================================
-train 2104
-val 26
-test 28
-Validation loss decreased (inf --> 0.061818).  Saving model ...
-Updating learning rate to 0.0001
-Validation loss decreased (0.061818 --> 0.060916).  Saving model ...
-Updating learning rate to 5e-05
-Validation loss decreased (0.060916 --> 0.059760).  Saving model ...
-Updating learning rate to 2.5e-05
-Validation loss decreased (0.059760 --> 0.059050).  Saving model ...
-Updating learning rate to 1.25e-05
-Validation loss decreased (0.059050 --> 0.058738).  Saving model ...
-Updating learning rate to 6.25e-06
-Validation loss decreased (0.058738 --> 0.058603).  Saving model ...
-Updating learning rate to 3.125e-06
-Validation loss decreased (0.058603 --> 0.058540).  Saving model ...
-Updating learning rate to 1.5625e-06
-Validation loss decreased (0.058540 --> 0.058511).  Saving model ...
-Updating learning rate to 7.8125e-07
-Validation loss decreased (0.058511 --> 0.058497).  Saving model ...
-Updating learning rate to 3.90625e-07
-Validation loss decreased (0.058497 --> 0.058490).  Saving model ...
-Updating learning rate to 1.953125e-07
-Validation loss decreased (0.058490 --> 0.058487).  Saving model ...
-Updating learning rate to 9.765625e-08
-Validation loss decreased (0.058487 --> 0.058485).  Saving model ...
-Updating learning rate to 4.8828125e-08
-Validation loss decreased (0.058485 --> 0.058484).  Saving model ...
-Updating learning rate to 2.44140625e-08
-Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
-Updating learning rate to 1.220703125e-08
-Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
-Updating learning rate to 6.103515625e-09
-Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
-Updating learning rate to 3.0517578125e-09
-Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
-Updating learning rate to 1.52587890625e-09
-Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
-Updating learning rate to 7.62939453125e-10
-Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
-Updating learning rate to 3.814697265625e-10
-Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
-Updating learning rate to 1.9073486328125e-10
-Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
-Updating learning rate to 9.5367431640625e-11
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 4.76837158203125e-11
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 2.384185791015625e-11
-EarlyStopping counter: 3 out of 5
-Updating learning rate to 1.1920928955078126e-11
-EarlyStopping counter: 4 out of 5
-Updating learning rate to 5.960464477539063e-12
-EarlyStopping counter: 5 out of 5
->>>>>>>testing : long_term_forecast_Mamba_SASOL_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-test 28
-test shape: (28, 100, 6) (28, 100, 6)
-test shape: (28, 100, 6) (28, 100, 6)
-
-
-	mse:0.08175931870937347, mae:0.0966595858335495, rmse:0.2859358787536621, r2:0.6060883104801178, dtw:Not calculated
-
-
-VAL - MSE: 0.0818, MAE: 0.0967, RMSE: 0.2859, R²: 0.6061, MAPE: 0.22%
-Completed: SASOL H=100
-
-Mamba training completed for all datasets!
