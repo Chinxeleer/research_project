@@ -45,7 +45,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -59,27 +58,27 @@ Sequence length: 60, Prediction length: 3
 train 2201
 val 123
 test 125
-Validation loss decreased (inf --> 0.100488).  Saving model ...
+Validation loss decreased (inf --> 0.105865).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.100488 --> 0.092599).  Saving model ...
+Validation loss decreased (0.105865 --> 0.099161).  Saving model ...
 Updating learning rate to 5e-05
-Validation loss decreased (0.092599 --> 0.092494).  Saving model ...
+Validation loss decreased (0.099161 --> 0.093587).  Saving model ...
 Updating learning rate to 2.5e-05
 EarlyStopping counter: 1 out of 5
 Updating learning rate to 1.25e-05
-Validation loss decreased (0.092494 --> 0.091912).  Saving model ...
+Validation loss decreased (0.093587 --> 0.091923).  Saving model ...
 Updating learning rate to 6.25e-06
 EarlyStopping counter: 1 out of 5
 Updating learning rate to 3.125e-06
-Validation loss decreased (0.091912 --> 0.091784).  Saving model ...
-Updating learning rate to 1.5625e-06
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 7.8125e-07
 EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.091923 --> 0.091456).  Saving model ...
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 3.90625e-07
-EarlyStopping counter: 3 out of 5
+Validation loss decreased (0.091456 --> 0.091033).  Saving model ...
 Updating learning rate to 1.953125e-07
-Validation loss decreased (0.091784 --> 0.090813).  Saving model ...
+Validation loss decreased (0.091033 --> 0.090802).  Saving model ...
 Updating learning rate to 9.765625e-08
 EarlyStopping counter: 1 out of 5
 Updating learning rate to 4.8828125e-08
@@ -96,15 +95,10 @@ test shape: (125, 3, 6) (125, 3, 6)
 test shape: (125, 3, 6) (125, 3, 6)
 
 
-	mse:0.17412716150283813, mae:0.25837093591690063, rmse:0.4172854721546173, r2:0.872565820813179, dtw:Not calculated
+	mse:0.18073610961437225, mae:0.27259135246276855, rmse:0.425130695104599, r2:0.8677290976047516, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.1807, MAE: 0.2726, RMSE: 0.4251, R²: 0.8677, MAPE: 0.57%
 Completed: NVIDIA H=3
 
 Training: Mamba on NVIDIA for H=5
@@ -151,7 +145,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -165,26 +158,24 @@ Sequence length: 60, Prediction length: 5
 train 2199
 val 121
 test 123
-Validation loss decreased (inf --> 0.100649).  Saving model ...
+Validation loss decreased (inf --> 0.106914).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.100649 --> 0.095645).  Saving model ...
+Validation loss decreased (0.106914 --> 0.101012).  Saving model ...
 Updating learning rate to 5e-05
-Validation loss decreased (0.095645 --> 0.094254).  Saving model ...
+Validation loss decreased (0.101012 --> 0.096597).  Saving model ...
 Updating learning rate to 2.5e-05
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.096597 --> 0.094067).  Saving model ...
 Updating learning rate to 1.25e-05
-EarlyStopping counter: 2 out of 5
+Validation loss decreased (0.094067 --> 0.092572).  Saving model ...
 Updating learning rate to 6.25e-06
-Validation loss decreased (0.094254 --> 0.093928).  Saving model ...
-Updating learning rate to 3.125e-06
 EarlyStopping counter: 1 out of 5
-Updating learning rate to 1.5625e-06
+Updating learning rate to 3.125e-06
 EarlyStopping counter: 2 out of 5
-Updating learning rate to 7.8125e-07
+Updating learning rate to 1.5625e-06
 EarlyStopping counter: 3 out of 5
-Updating learning rate to 3.90625e-07
+Updating learning rate to 7.8125e-07
 EarlyStopping counter: 4 out of 5
-Updating learning rate to 1.953125e-07
+Updating learning rate to 3.90625e-07
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 123
@@ -192,15 +183,10 @@ test shape: (123, 5, 6) (123, 5, 6)
 test shape: (123, 5, 6) (123, 5, 6)
 
 
-	mse:0.18671071529388428, mae:0.27655622363090515, rmse:0.4321003556251526, r2:0.8621891736984253, dtw:Not calculated
+	mse:0.2020464837551117, mae:0.29966914653778076, rmse:0.4494958221912384, r2:0.8508698791265488, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.2020, MAE: 0.2997, RMSE: 0.4495, R²: 0.8509, MAPE: 0.59%
 Completed: NVIDIA H=5
 
 Training: Mamba on NVIDIA for H=10
@@ -247,7 +233,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -261,20 +246,36 @@ Sequence length: 60, Prediction length: 10
 train 2194
 val 116
 test 118
-Validation loss decreased (inf --> 0.105723).  Saving model ...
+Validation loss decreased (inf --> 0.113091).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.105723 --> 0.105437).  Saving model ...
+Validation loss decreased (0.113091 --> 0.107436).  Saving model ...
 Updating learning rate to 5e-05
-Validation loss decreased (0.105437 --> 0.104343).  Saving model ...
+Validation loss decreased (0.107436 --> 0.103270).  Saving model ...
 Updating learning rate to 2.5e-05
 EarlyStopping counter: 1 out of 5
 Updating learning rate to 1.25e-05
-EarlyStopping counter: 2 out of 5
+Validation loss decreased (0.103270 --> 0.102064).  Saving model ...
 Updating learning rate to 6.25e-06
-EarlyStopping counter: 3 out of 5
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 3.125e-06
-EarlyStopping counter: 4 out of 5
+Validation loss decreased (0.102064 --> 0.101399).  Saving model ...
 Updating learning rate to 1.5625e-06
+Validation loss decreased (0.101399 --> 0.100040).  Saving model ...
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.100040 --> 0.098820).  Saving model ...
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.103515625e-09
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 118
@@ -282,15 +283,10 @@ test shape: (118, 10, 6) (118, 10, 6)
 test shape: (118, 10, 6) (118, 10, 6)
 
 
-	mse:0.2270711064338684, mae:0.33495762944221497, rmse:0.47651979327201843, r2:0.8291704058647156, dtw:Not calculated
+	mse:0.2258317619562149, mae:0.32685747742652893, rmse:0.4752175807952881, r2:0.8301027864217758, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.2258, MAE: 0.3269, RMSE: 0.4752, R²: 0.8301, MAPE: 0.66%
 Completed: NVIDIA H=10
 
 Training: Mamba on NVIDIA for H=22
@@ -337,7 +333,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -351,16 +346,38 @@ Sequence length: 60, Prediction length: 22
 train 2182
 val 104
 test 106
-Validation loss decreased (inf --> 0.117835).  Saving model ...
+Validation loss decreased (inf --> 0.118083).  Saving model ...
 Updating learning rate to 0.0001
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.118083 --> 0.115245).  Saving model ...
 Updating learning rate to 5e-05
-EarlyStopping counter: 2 out of 5
+Validation loss decreased (0.115245 --> 0.112602).  Saving model ...
 Updating learning rate to 2.5e-05
-EarlyStopping counter: 3 out of 5
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 1.25e-05
-EarlyStopping counter: 4 out of 5
+Validation loss decreased (0.112602 --> 0.112375).  Saving model ...
 Updating learning rate to 6.25e-06
+Validation loss decreased (0.112375 --> 0.111746).  Saving model ...
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.8125e-07
+Validation loss decreased (0.111746 --> 0.110113).  Saving model ...
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 9.765625e-08
+Validation loss decreased (0.110113 --> 0.109166).  Saving model ...
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.0517578125e-09
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 106
@@ -368,15 +385,10 @@ test shape: (106, 22, 6) (106, 22, 6)
 test shape: (106, 22, 6) (106, 22, 6)
 
 
-	mse:0.4983404278755188, mae:0.5529270172119141, rmse:0.7059323191642761, r2:0.6051538586616516, dtw:Not calculated
+	mse:0.3126336932182312, mae:0.40459853410720825, rmse:0.5591365694999695, r2:0.7522934079170227, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.3126, MAE: 0.4046, RMSE: 0.5591, R²: 0.7523, MAPE: 0.70%
 Completed: NVIDIA H=22
 
 Training: Mamba on NVIDIA for H=50
@@ -423,7 +435,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -437,16 +448,36 @@ Sequence length: 60, Prediction length: 50
 train 2154
 val 76
 test 78
-Validation loss decreased (inf --> 0.144414).  Saving model ...
+Validation loss decreased (inf --> 0.141974).  Saving model ...
 Updating learning rate to 0.0001
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.141974 --> 0.140438).  Saving model ...
 Updating learning rate to 5e-05
-EarlyStopping counter: 2 out of 5
+Validation loss decreased (0.140438 --> 0.135594).  Saving model ...
 Updating learning rate to 2.5e-05
-EarlyStopping counter: 3 out of 5
+Validation loss decreased (0.135594 --> 0.135075).  Saving model ...
 Updating learning rate to 1.25e-05
-EarlyStopping counter: 4 out of 5
+Validation loss decreased (0.135075 --> 0.132412).  Saving model ...
 Updating learning rate to 6.25e-06
+Validation loss decreased (0.132412 --> 0.131425).  Saving model ...
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.131425 --> 0.130715).  Saving model ...
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.103515625e-09
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 78
@@ -454,15 +485,10 @@ test shape: (78, 50, 6) (78, 50, 6)
 test shape: (78, 50, 6) (78, 50, 6)
 
 
-	mse:0.7209609746932983, mae:0.6375678777694702, rmse:0.8490942120552063, r2:0.3670775890350342, dtw:Not calculated
+	mse:0.5882484316825867, mae:0.5811243057250977, rmse:0.7669735550880432, r2:0.4835842251777649, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.5882, MAE: 0.5811, RMSE: 0.7670, R²: 0.4836, MAPE: 0.83%
 Completed: NVIDIA H=50
 
 Training: Mamba on NVIDIA for H=100
@@ -509,7 +535,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -523,22 +548,27 @@ Sequence length: 60, Prediction length: 100
 train 2104
 val 26
 test 28
-Traceback (most recent call last):
-  File "run.py", line 202, in <module>
-    exp.train(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 147, in train
-    loss = criterion(outputs, batch_y)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/loss.py", line 538, in forward
-    return F.mse_loss(input, target, reduction=self.reduction)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/functional.py", line 3383, in mse_loss
-    expanded_input, expanded_target = torch.broadcast_tensors(input, target)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/functional.py", line 77, in broadcast_tensors
-    return _VF.broadcast_tensors(tensors)  # type: ignore[attr-defined]
-RuntimeError: The size of tensor a (60) must match the size of tensor b (100) at non-singleton dimension 1
+Validation loss decreased (inf --> 0.173509).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 6) (28, 100, 6)
+test shape: (28, 100, 6) (28, 100, 6)
+
+
+	mse:0.9051257967948914, mae:0.6960157155990601, rmse:0.9513809680938721, r2:0.26350462436676025, dtw:Not calculated
+
+
+VAL - MSE: 0.9051, MAE: 0.6960, RMSE: 0.9514, R²: 0.2635, MAPE: 0.77%
 Completed: NVIDIA H=100
 
 Training: Mamba on APPLE for H=3
@@ -585,7 +615,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_APPLE_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -599,38 +628,44 @@ Sequence length: 60, Prediction length: 3
 train 2201
 val 123
 test 125
-Validation loss decreased (inf --> 0.335110).  Saving model ...
+Validation loss decreased (inf --> 0.335839).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.335110 --> 0.334213).  Saving model ...
+Validation loss decreased (0.335839 --> 0.335152).  Saving model ...
 Updating learning rate to 5e-05
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.335152 --> 0.331642).  Saving model ...
 Updating learning rate to 2.5e-05
-Validation loss decreased (0.334213 --> 0.332166).  Saving model ...
+Validation loss decreased (0.331642 --> 0.330385).  Saving model ...
 Updating learning rate to 1.25e-05
 EarlyStopping counter: 1 out of 5
 Updating learning rate to 6.25e-06
-EarlyStopping counter: 2 out of 5
+Validation loss decreased (0.330385 --> 0.328129).  Saving model ...
 Updating learning rate to 3.125e-06
-Validation loss decreased (0.332166 --> 0.330225).  Saving model ...
+Validation loss decreased (0.328129 --> 0.324612).  Saving model ...
 Updating learning rate to 1.5625e-06
 EarlyStopping counter: 1 out of 5
 Updating learning rate to 7.8125e-07
 EarlyStopping counter: 2 out of 5
 Updating learning rate to 3.90625e-07
-Validation loss decreased (0.330225 --> 0.328921).  Saving model ...
+Validation loss decreased (0.324612 --> 0.321818).  Saving model ...
 Updating learning rate to 1.953125e-07
 EarlyStopping counter: 1 out of 5
 Updating learning rate to 9.765625e-08
-Validation loss decreased (0.328921 --> 0.328717).  Saving model ...
-Updating learning rate to 4.8828125e-08
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 2.44140625e-08
 EarlyStopping counter: 2 out of 5
-Updating learning rate to 1.220703125e-08
+Updating learning rate to 4.8828125e-08
 EarlyStopping counter: 3 out of 5
-Updating learning rate to 6.103515625e-09
+Updating learning rate to 2.44140625e-08
 EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (0.321818 --> 0.321654).  Saving model ...
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 3.0517578125e-09
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.52587890625e-09
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 7.62939453125e-10
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.814697265625e-10
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_APPLE_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 125
@@ -638,15 +673,10 @@ test shape: (125, 3, 6) (125, 3, 6)
 test shape: (125, 3, 6) (125, 3, 6)
 
 
-	mse:0.5277621150016785, mae:0.41719791293144226, rmse:0.7264723777770996, r2:0.6116012632846832, dtw:Not calculated
+	mse:0.5034381747245789, mae:0.4113079309463501, rmse:0.7095337510108948, r2:0.6295021176338196, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.5034, MAE: 0.4113, RMSE: 0.7095, R²: 0.6295, MAPE: 0.56%
 Completed: APPLE H=3
 
 Training: Mamba on APPLE for H=5
@@ -693,7 +723,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_APPLE_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -707,13 +736,13 @@ Sequence length: 60, Prediction length: 5
 train 2199
 val 121
 test 123
-Validation loss decreased (inf --> 0.344450).  Saving model ...
+Validation loss decreased (inf --> 0.338806).  Saving model ...
 Updating learning rate to 0.0001
 EarlyStopping counter: 1 out of 5
 Updating learning rate to 5e-05
-Validation loss decreased (0.344450 --> 0.334190).  Saving model ...
+Validation loss decreased (0.338806 --> 0.333910).  Saving model ...
 Updating learning rate to 2.5e-05
-Validation loss decreased (0.334190 --> 0.331406).  Saving model ...
+Validation loss decreased (0.333910 --> 0.331308).  Saving model ...
 Updating learning rate to 1.25e-05
 EarlyStopping counter: 1 out of 5
 Updating learning rate to 6.25e-06
@@ -730,15 +759,10 @@ test shape: (123, 5, 6) (123, 5, 6)
 test shape: (123, 5, 6) (123, 5, 6)
 
 
-	mse:0.5407992601394653, mae:0.4228331744670868, rmse:0.7353905439376831, r2:0.6012024879455566, dtw:Not calculated
+	mse:0.5387709736824036, mae:0.4180929362773895, rmse:0.7340102195739746, r2:0.6026981770992279, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.5388, MAE: 0.4181, RMSE: 0.7340, R²: 0.6027, MAPE: 0.54%
 Completed: APPLE H=5
 
 Training: Mamba on APPLE for H=10
@@ -785,7 +809,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_APPLE_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -799,42 +822,26 @@ Sequence length: 60, Prediction length: 10
 train 2194
 val 116
 test 118
-Validation loss decreased (inf --> 0.367351).  Saving model ...
+Validation loss decreased (inf --> 0.363649).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.367351 --> 0.347816).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 5e-05
-Validation loss decreased (0.347816 --> 0.345880).  Saving model ...
+Validation loss decreased (0.363649 --> 0.351470).  Saving model ...
 Updating learning rate to 2.5e-05
-Validation loss decreased (0.345880 --> 0.343185).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 1.25e-05
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.351470 --> 0.350082).  Saving model ...
 Updating learning rate to 6.25e-06
-EarlyStopping counter: 2 out of 5
+Validation loss decreased (0.350082 --> 0.343832).  Saving model ...
 Updating learning rate to 3.125e-06
-EarlyStopping counter: 3 out of 5
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 1.5625e-06
-EarlyStopping counter: 4 out of 5
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 7.8125e-07
-Validation loss decreased (0.343185 --> 0.341506).  Saving model ...
+EarlyStopping counter: 3 out of 5
 Updating learning rate to 3.90625e-07
-EarlyStopping counter: 1 out of 5
+EarlyStopping counter: 4 out of 5
 Updating learning rate to 1.953125e-07
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 9.765625e-08
-EarlyStopping counter: 3 out of 5
-Updating learning rate to 4.8828125e-08
-EarlyStopping counter: 4 out of 5
-Updating learning rate to 2.44140625e-08
-Validation loss decreased (0.341506 --> 0.339831).  Saving model ...
-Updating learning rate to 1.220703125e-08
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 6.103515625e-09
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 3.0517578125e-09
-EarlyStopping counter: 3 out of 5
-Updating learning rate to 1.52587890625e-09
-EarlyStopping counter: 4 out of 5
-Updating learning rate to 7.62939453125e-10
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_APPLE_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 118
@@ -842,15 +849,10 @@ test shape: (118, 10, 6) (118, 10, 6)
 test shape: (118, 10, 6) (118, 10, 6)
 
 
-	mse:0.5524190068244934, mae:0.43100208044052124, rmse:0.7432489395141602, r2:0.5920236706733704, dtw:Not calculated
+	mse:0.5729939341545105, mae:0.4340164065361023, rmse:0.7569636106491089, r2:0.5768285393714905, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.5730, MAE: 0.4340, RMSE: 0.7570, R²: 0.5768, MAPE: 0.55%
 Completed: APPLE H=10
 
 Training: Mamba on APPLE for H=22
@@ -897,7 +899,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_APPLE_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -911,20 +912,40 @@ Sequence length: 60, Prediction length: 22
 train 2182
 val 104
 test 106
-Validation loss decreased (inf --> 0.414777).  Saving model ...
+Validation loss decreased (inf --> 0.400417).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.414777 --> 0.405964).  Saving model ...
+Validation loss decreased (0.400417 --> 0.381579).  Saving model ...
 Updating learning rate to 5e-05
-Validation loss decreased (0.405964 --> 0.404294).  Saving model ...
-Updating learning rate to 2.5e-05
 EarlyStopping counter: 1 out of 5
-Updating learning rate to 1.25e-05
+Updating learning rate to 2.5e-05
 EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.381579 --> 0.378513).  Saving model ...
 Updating learning rate to 6.25e-06
-EarlyStopping counter: 3 out of 5
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 3.125e-06
-EarlyStopping counter: 4 out of 5
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 1.5625e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.90625e-07
+Validation loss decreased (0.378513 --> 0.376775).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.376775 --> 0.375950).  Saving model ...
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (0.375950 --> 0.373719).  Saving model ...
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.0517578125e-09
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.52587890625e-09
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_APPLE_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 106
@@ -932,15 +953,10 @@ test shape: (106, 22, 6) (106, 22, 6)
 test shape: (106, 22, 6) (106, 22, 6)
 
 
-	mse:0.6392253637313843, mae:0.4578481912612915, rmse:0.7995157241821289, r2:0.5255821049213409, dtw:Not calculated
+	mse:0.6342467069625854, mae:0.4682047665119171, rmse:0.7963960766792297, r2:0.5292771458625793, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.6342, MAE: 0.4682, RMSE: 0.7964, R²: 0.5293, MAPE: 0.61%
 Completed: APPLE H=22
 
 Training: Mamba on APPLE for H=50
@@ -987,7 +1003,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_APPLE_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -1001,28 +1016,16 @@ Sequence length: 60, Prediction length: 50
 train 2154
 val 76
 test 78
-Validation loss decreased (inf --> 0.414642).  Saving model ...
+Validation loss decreased (inf --> 0.422823).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.414642 --> 0.410717).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 5e-05
-EarlyStopping counter: 1 out of 5
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 2.5e-05
-EarlyStopping counter: 2 out of 5
+EarlyStopping counter: 3 out of 5
 Updating learning rate to 1.25e-05
-EarlyStopping counter: 3 out of 5
+EarlyStopping counter: 4 out of 5
 Updating learning rate to 6.25e-06
-EarlyStopping counter: 4 out of 5
-Updating learning rate to 3.125e-06
-Validation loss decreased (0.410717 --> 0.404821).  Saving model ...
-Updating learning rate to 1.5625e-06
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 7.8125e-07
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 3.90625e-07
-EarlyStopping counter: 3 out of 5
-Updating learning rate to 1.953125e-07
-EarlyStopping counter: 4 out of 5
-Updating learning rate to 9.765625e-08
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_APPLE_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 78
@@ -1030,15 +1033,10 @@ test shape: (78, 50, 6) (78, 50, 6)
 test shape: (78, 50, 6) (78, 50, 6)
 
 
-	mse:0.6278020143508911, mae:0.49931132793426514, rmse:0.792339563369751, r2:0.5060840547084808, dtw:Not calculated
+	mse:0.6376609802246094, mae:0.4990842938423157, rmse:0.7985367774963379, r2:0.4983276128768921, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.6377, MAE: 0.4991, RMSE: 0.7985, R²: 0.4983, MAPE: 0.64%
 Completed: APPLE H=50
 
 Training: Mamba on APPLE for H=100
@@ -1085,7 +1083,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_APPLE_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -1099,22 +1096,27 @@ Sequence length: 60, Prediction length: 100
 train 2104
 val 26
 test 28
-Traceback (most recent call last):
-  File "run.py", line 202, in <module>
-    exp.train(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 147, in train
-    loss = criterion(outputs, batch_y)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/loss.py", line 538, in forward
-    return F.mse_loss(input, target, reduction=self.reduction)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/functional.py", line 3383, in mse_loss
-    expanded_input, expanded_target = torch.broadcast_tensors(input, target)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/functional.py", line 77, in broadcast_tensors
-    return _VF.broadcast_tensors(tensors)  # type: ignore[attr-defined]
-RuntimeError: The size of tensor a (60) must match the size of tensor b (100) at non-singleton dimension 1
+Validation loss decreased (inf --> 0.496059).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_APPLE_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 6) (28, 100, 6)
+test shape: (28, 100, 6) (28, 100, 6)
+
+
+	mse:0.6660568714141846, mae:0.5589410662651062, rmse:0.8161230683326721, r2:0.5012739896774292, dtw:Not calculated
+
+
+VAL - MSE: 0.6661, MAE: 0.5589, RMSE: 0.8161, R²: 0.5013, MAPE: 0.52%
 Completed: APPLE H=100
 
 Training: Mamba on SP500 for H=3
@@ -1161,7 +1163,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_SP500_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -1284,12 +1285,7 @@ test shape: (125, 3, 6) (125, 3, 6)
 	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: nan, MAE: nan, RMSE: nan, R²: nan, MAPE: nan%
 Completed: SP500 H=3
 
 Training: Mamba on SP500 for H=5
@@ -1336,7 +1332,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_SP500_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -1459,12 +1454,7 @@ test shape: (123, 5, 6) (123, 5, 6)
 	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: nan, MAE: nan, RMSE: nan, R²: nan, MAPE: nan%
 Completed: SP500 H=5
 
 Training: Mamba on SP500 for H=10
@@ -1511,7 +1501,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_SP500_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -1634,12 +1623,7 @@ test shape: (118, 10, 6) (118, 10, 6)
 	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: nan, MAE: nan, RMSE: nan, R²: nan, MAPE: nan%
 Completed: SP500 H=10
 
 Training: Mamba on SP500 for H=22
@@ -1686,7 +1670,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_SP500_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -1809,12 +1792,7 @@ test shape: (106, 22, 6) (106, 22, 6)
 	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: nan, MAE: nan, RMSE: nan, R²: nan, MAPE: nan%
 Completed: SP500 H=22
 
 Training: Mamba on SP500 for H=50
@@ -1861,7 +1839,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_SP500_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -1984,12 +1961,7 @@ test shape: (78, 50, 6) (78, 50, 6)
 	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: nan, MAE: nan, RMSE: nan, R²: nan, MAPE: nan%
 Completed: SP500 H=50
 
 Training: Mamba on SP500 for H=100
@@ -2036,7 +2008,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_SP500_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -2050,22 +2021,116 @@ Sequence length: 60, Prediction length: 100
 train 2104
 val 26
 test 28
-Traceback (most recent call last):
-  File "run.py", line 202, in <module>
-    exp.train(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 147, in train
-    loss = criterion(outputs, batch_y)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/loss.py", line 538, in forward
-    return F.mse_loss(input, target, reduction=self.reduction)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/functional.py", line 3383, in mse_loss
-    expanded_input, expanded_target = torch.broadcast_tensors(input, target)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/functional.py", line 77, in broadcast_tensors
-    return _VF.broadcast_tensors(tensors)  # type: ignore[attr-defined]
-RuntimeError: The size of tensor a (60) must match the size of tensor b (100) at non-singleton dimension 1
+Validation loss decreased (inf --> nan).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.76837158203125e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1920928955078126e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.960464477539063e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9802322387695314e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4901161193847657e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.450580596923828e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.862645149230957e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.313225746154786e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.656612873077393e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.3283064365386964e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1641532182693482e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.820766091346741e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9103830456733705e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4551915228366853e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.275957614183426e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.637978807091713e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.8189894035458566e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.094947017729283e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.5474735088646414e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.2737367544323207e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1368683772161604e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.684341886080802e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.842170943040401e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4210854715202004e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.105427357601002e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.552713678800501e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.7763568394002505e-19
+>>>>>>>testing : long_term_forecast_Mamba_SP500_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 6) (28, 100, 6)
+test shape: (28, 100, 6) (28, 100, 6)
+
+
+	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
+
+
+VAL - MSE: nan, MAE: nan, RMSE: nan, R²: nan, MAPE: nan%
 Completed: SP500 H=100
 
 Training: Mamba on NASDAQ for H=3
@@ -2112,7 +2177,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_NASDAQ_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -2126,50 +2190,38 @@ Sequence length: 60, Prediction length: 3
 train 2201
 val 123
 test 125
-Validation loss decreased (inf --> 0.064327).  Saving model ...
+Validation loss decreased (inf --> 0.070009).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.064327 --> 0.048739).  Saving model ...
+Validation loss decreased (0.070009 --> 0.055405).  Saving model ...
 Updating learning rate to 5e-05
-Validation loss decreased (0.048739 --> 0.047618).  Saving model ...
+Validation loss decreased (0.055405 --> 0.048911).  Saving model ...
 Updating learning rate to 2.5e-05
-Validation loss decreased (0.047618 --> 0.047478).  Saving model ...
+Validation loss decreased (0.048911 --> 0.047739).  Saving model ...
 Updating learning rate to 1.25e-05
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.047739 --> 0.046996).  Saving model ...
 Updating learning rate to 6.25e-06
-Validation loss decreased (0.047478 --> 0.047213).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 3.125e-06
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.046996 --> 0.046821).  Saving model ...
 Updating learning rate to 1.5625e-06
-Validation loss decreased (0.047213 --> 0.046916).  Saving model ...
+Validation loss decreased (0.046821 --> 0.046500).  Saving model ...
 Updating learning rate to 7.8125e-07
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.046500 --> 0.046354).  Saving model ...
 Updating learning rate to 3.90625e-07
-EarlyStopping counter: 2 out of 5
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 1.953125e-07
-EarlyStopping counter: 3 out of 5
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 9.765625e-08
-EarlyStopping counter: 4 out of 5
+Validation loss decreased (0.046354 --> 0.046296).  Saving model ...
 Updating learning rate to 4.8828125e-08
-Validation loss decreased (0.046916 --> 0.046905).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 2.44140625e-08
-EarlyStopping counter: 1 out of 5
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 1.220703125e-08
-EarlyStopping counter: 2 out of 5
+EarlyStopping counter: 3 out of 5
 Updating learning rate to 6.103515625e-09
-EarlyStopping counter: 3 out of 5
+EarlyStopping counter: 4 out of 5
 Updating learning rate to 3.0517578125e-09
-EarlyStopping counter: 4 out of 5
-Updating learning rate to 1.52587890625e-09
-Validation loss decreased (0.046905 --> 0.046858).  Saving model ...
-Updating learning rate to 7.62939453125e-10
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 3.814697265625e-10
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 1.9073486328125e-10
-EarlyStopping counter: 3 out of 5
-Updating learning rate to 9.5367431640625e-11
-EarlyStopping counter: 4 out of 5
-Updating learning rate to 4.76837158203125e-11
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_NASDAQ_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 125
@@ -2177,15 +2229,10 @@ test shape: (125, 3, 6) (125, 3, 6)
 test shape: (125, 3, 6) (125, 3, 6)
 
 
-	mse:0.10430251061916351, mae:0.20704606175422668, rmse:0.3229590058326721, r2:0.9644422084093094, dtw:Not calculated
+	mse:0.10264916718006134, mae:0.20068079233169556, rmse:0.3203890919685364, r2:0.9650058522820473, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.1026, MAE: 0.2007, RMSE: 0.3204, R²: 0.9650, MAPE: 0.32%
 Completed: NASDAQ H=3
 
 Training: Mamba on NASDAQ for H=5
@@ -2232,7 +2279,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_NASDAQ_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -2246,34 +2292,52 @@ Sequence length: 60, Prediction length: 5
 train 2199
 val 121
 test 123
-Validation loss decreased (inf --> 0.065302).  Saving model ...
+Validation loss decreased (inf --> 0.071455).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.065302 --> 0.051227).  Saving model ...
+Validation loss decreased (0.071455 --> 0.061065).  Saving model ...
 Updating learning rate to 5e-05
-Validation loss decreased (0.051227 --> 0.051194).  Saving model ...
+Validation loss decreased (0.061065 --> 0.052176).  Saving model ...
 Updating learning rate to 2.5e-05
-Validation loss decreased (0.051194 --> 0.050767).  Saving model ...
+Validation loss decreased (0.052176 --> 0.049598).  Saving model ...
 Updating learning rate to 1.25e-05
-Validation loss decreased (0.050767 --> 0.050622).  Saving model ...
+Validation loss decreased (0.049598 --> 0.048822).  Saving model ...
 Updating learning rate to 6.25e-06
 EarlyStopping counter: 1 out of 5
 Updating learning rate to 3.125e-06
-Validation loss decreased (0.050622 --> 0.050418).  Saving model ...
+Validation loss decreased (0.048822 --> 0.048281).  Saving model ...
 Updating learning rate to 1.5625e-06
-Validation loss decreased (0.050418 --> 0.050217).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 7.8125e-07
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.048281 --> 0.048232).  Saving model ...
 Updating learning rate to 3.90625e-07
-Validation loss decreased (0.050217 --> 0.050160).  Saving model ...
-Updating learning rate to 1.953125e-07
 EarlyStopping counter: 1 out of 5
-Updating learning rate to 9.765625e-08
+Updating learning rate to 1.953125e-07
 EarlyStopping counter: 2 out of 5
-Updating learning rate to 4.8828125e-08
+Updating learning rate to 9.765625e-08
 EarlyStopping counter: 3 out of 5
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (0.048232 --> 0.048216).  Saving model ...
 Updating learning rate to 2.44140625e-08
-EarlyStopping counter: 4 out of 5
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.0517578125e-09
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (0.048216 --> 0.048065).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (0.048065 --> 0.047860).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.9073486328125e-10
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 9.5367431640625e-11
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 4.76837158203125e-11
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 2.384185791015625e-11
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_NASDAQ_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 123
@@ -2281,15 +2345,10 @@ test shape: (123, 5, 6) (123, 5, 6)
 test shape: (123, 5, 6) (123, 5, 6)
 
 
-	mse:0.11743956059217453, mae:0.22681447863578796, rmse:0.34269455075263977, r2:0.9599564261734486, dtw:Not calculated
+	mse:0.11016567796468735, mae:0.21161529421806335, rmse:0.33191215991973877, r2:0.9624366164207458, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.1102, MAE: 0.2116, RMSE: 0.3319, R²: 0.9624, MAPE: 0.33%
 Completed: NASDAQ H=5
 
 Training: Mamba on NASDAQ for H=10
@@ -2336,7 +2395,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_NASDAQ_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -2350,18 +2408,32 @@ Sequence length: 60, Prediction length: 10
 train 2194
 val 116
 test 118
-Validation loss decreased (inf --> 0.068711).  Saving model ...
+Validation loss decreased (inf --> 0.076189).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.068711 --> 0.062636).  Saving model ...
+Validation loss decreased (0.076189 --> 0.067140).  Saving model ...
 Updating learning rate to 5e-05
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.067140 --> 0.059748).  Saving model ...
 Updating learning rate to 2.5e-05
-EarlyStopping counter: 2 out of 5
+Validation loss decreased (0.059748 --> 0.056829).  Saving model ...
 Updating learning rate to 1.25e-05
-EarlyStopping counter: 3 out of 5
+Validation loss decreased (0.056829 --> 0.056274).  Saving model ...
 Updating learning rate to 6.25e-06
-EarlyStopping counter: 4 out of 5
+Validation loss decreased (0.056274 --> 0.055365).  Saving model ...
 Updating learning rate to 3.125e-06
+Validation loss decreased (0.055365 --> 0.054587).  Saving model ...
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.8125e-07
+Validation loss decreased (0.054587 --> 0.053796).  Saving model ...
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 2.44140625e-08
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_NASDAQ_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 118
@@ -2369,15 +2441,10 @@ test shape: (118, 10, 6) (118, 10, 6)
 test shape: (118, 10, 6) (118, 10, 6)
 
 
-	mse:0.14784879982471466, mae:0.2755218744277954, rmse:0.3845111131668091, r2:0.9497015215456486, dtw:Not calculated
+	mse:0.12769153714179993, mae:0.23931223154067993, rmse:0.3573395311832428, r2:0.95655906945467, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.1277, MAE: 0.2393, RMSE: 0.3573, R²: 0.9566, MAPE: 0.35%
 Completed: NASDAQ H=10
 
 Training: Mamba on NASDAQ for H=22
@@ -2424,7 +2491,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_NASDAQ_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -2438,18 +2504,36 @@ Sequence length: 60, Prediction length: 22
 train 2182
 val 104
 test 106
-Validation loss decreased (inf --> 0.085059).  Saving model ...
+Validation loss decreased (inf --> 0.085478).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.085059 --> 0.083091).  Saving model ...
+Validation loss decreased (0.085478 --> 0.082227).  Saving model ...
 Updating learning rate to 5e-05
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.082227 --> 0.073305).  Saving model ...
 Updating learning rate to 2.5e-05
-EarlyStopping counter: 2 out of 5
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 1.25e-05
-EarlyStopping counter: 3 out of 5
+Validation loss decreased (0.073305 --> 0.068805).  Saving model ...
 Updating learning rate to 6.25e-06
-EarlyStopping counter: 4 out of 5
+Validation loss decreased (0.068805 --> 0.068570).  Saving model ...
 Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.068570 --> 0.067179).  Saving model ...
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.103515625e-09
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_NASDAQ_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 106
@@ -2457,15 +2541,10 @@ test shape: (106, 22, 6) (106, 22, 6)
 test shape: (106, 22, 6) (106, 22, 6)
 
 
-	mse:0.19845935702323914, mae:0.3285938501358032, rmse:0.44548776745796204, r2:0.9325985684990883, dtw:Not calculated
+	mse:0.16402840614318848, mae:0.2853439152240753, rmse:0.40500420331954956, r2:0.9442921206355095, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.1640, MAE: 0.2853, RMSE: 0.4050, R²: 0.9443, MAPE: 0.37%
 Completed: NASDAQ H=22
 
 Training: Mamba on NASDAQ for H=50
@@ -2512,7 +2591,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_NASDAQ_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -2526,18 +2604,38 @@ Sequence length: 60, Prediction length: 50
 train 2154
 val 76
 test 78
-Validation loss decreased (inf --> 0.138299).  Saving model ...
+Validation loss decreased (inf --> 0.135110).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.138299 --> 0.136126).  Saving model ...
+Validation loss decreased (0.135110 --> 0.128212).  Saving model ...
 Updating learning rate to 5e-05
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.128212 --> 0.116817).  Saving model ...
 Updating learning rate to 2.5e-05
-EarlyStopping counter: 2 out of 5
+Validation loss decreased (0.116817 --> 0.108320).  Saving model ...
 Updating learning rate to 1.25e-05
-EarlyStopping counter: 3 out of 5
+Validation loss decreased (0.108320 --> 0.105286).  Saving model ...
 Updating learning rate to 6.25e-06
-EarlyStopping counter: 4 out of 5
+Validation loss decreased (0.105286 --> 0.104389).  Saving model ...
 Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.8125e-07
+Validation loss decreased (0.104389 --> 0.104040).  Saving model ...
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.104040 --> 0.103653).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (0.103653 --> 0.101277).  Saving model ...
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.0517578125e-09
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_NASDAQ_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 78
@@ -2545,15 +2643,10 @@ test shape: (78, 50, 6) (78, 50, 6)
 test shape: (78, 50, 6) (78, 50, 6)
 
 
-	mse:0.27597081661224365, mae:0.3845592141151428, rmse:0.5253292322158813, r2:0.9046448618173599, dtw:Not calculated
+	mse:0.25495296716690063, mae:0.3663952052593231, rmse:0.5049286484718323, r2:0.9119070693850517, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.2550, MAE: 0.3664, RMSE: 0.5049, R²: 0.9119, MAPE: 0.38%
 Completed: NASDAQ H=50
 
 Training: Mamba on NASDAQ for H=100
@@ -2600,7 +2693,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_NASDAQ_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -2614,22 +2706,116 @@ Sequence length: 60, Prediction length: 100
 train 2104
 val 26
 test 28
-Traceback (most recent call last):
-  File "run.py", line 202, in <module>
-    exp.train(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 147, in train
-    loss = criterion(outputs, batch_y)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/loss.py", line 538, in forward
-    return F.mse_loss(input, target, reduction=self.reduction)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/functional.py", line 3383, in mse_loss
-    expanded_input, expanded_target = torch.broadcast_tensors(input, target)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/functional.py", line 77, in broadcast_tensors
-    return _VF.broadcast_tensors(tensors)  # type: ignore[attr-defined]
-RuntimeError: The size of tensor a (60) must match the size of tensor b (100) at non-singleton dimension 1
+Validation loss decreased (inf --> 0.273169).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.273169 --> 0.266163).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.266163 --> 0.253814).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.253814 --> 0.244234).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.244234 --> 0.239252).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.239252 --> 0.237069).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.237069 --> 0.236094).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.236094 --> 0.235562).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (0.235562 --> 0.235286).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (0.235286 --> 0.235180).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.235180 --> 0.235125).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (0.235125 --> 0.235099).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (0.235099 --> 0.235086).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (0.235086 --> 0.235079).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (0.235079 --> 0.235076).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (0.235076 --> 0.235074).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.76837158203125e-11
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 1.1920928955078126e-11
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 5.960464477539063e-12
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 2.9802322387695314e-12
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 1.4901161193847657e-12
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.450580596923828e-13
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.862645149230957e-13
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 9.313225746154786e-14
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 4.656612873077393e-14
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.3283064365386964e-14
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.1641532182693482e-14
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 5.820766091346741e-15
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.9103830456733705e-15
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 1.4551915228366853e-15
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.275957614183426e-16
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 3.637978807091713e-16
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 1.8189894035458566e-16
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 9.094947017729283e-17
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.5474735088646414e-17
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.2737367544323207e-17
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 1.1368683772161604e-17
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 5.684341886080802e-18
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 2.842170943040401e-18
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 1.4210854715202004e-18
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 7.105427357601002e-19
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 3.552713678800501e-19
+Validation loss decreased (0.235074 --> 0.235074).  Saving model ...
+Updating learning rate to 1.7763568394002505e-19
+>>>>>>>testing : long_term_forecast_Mamba_NASDAQ_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 6) (28, 100, 6)
+test shape: (28, 100, 6) (28, 100, 6)
+
+
+	mse:0.3434217572212219, mae:0.43629226088523865, rmse:0.5860219597816467, r2:0.8830714002251625, dtw:Not calculated
+
+
+VAL - MSE: 0.3434, MAE: 0.4363, RMSE: 0.5860, R²: 0.8831, MAPE: 0.41%
 Completed: NASDAQ H=100
 
 Training: Mamba on ABSA for H=3
@@ -2676,7 +2862,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_ABSA_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -2690,48 +2875,34 @@ Sequence length: 60, Prediction length: 3
 train 2201
 val 123
 test 125
-Validation loss decreased (inf --> 0.092606).  Saving model ...
+Validation loss decreased (inf --> 0.094460).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.092606 --> 0.087589).  Saving model ...
+Validation loss decreased (0.094460 --> 0.091299).  Saving model ...
 Updating learning rate to 5e-05
-Validation loss decreased (0.087589 --> 0.083438).  Saving model ...
+Validation loss decreased (0.091299 --> 0.089580).  Saving model ...
 Updating learning rate to 2.5e-05
-Validation loss decreased (0.083438 --> 0.081408).  Saving model ...
+Validation loss decreased (0.089580 --> 0.088203).  Saving model ...
 Updating learning rate to 1.25e-05
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.088203 --> 0.088108).  Saving model ...
 Updating learning rate to 6.25e-06
-Validation loss decreased (0.081408 --> 0.080794).  Saving model ...
+Validation loss decreased (0.088108 --> 0.087311).  Saving model ...
 Updating learning rate to 3.125e-06
-Validation loss decreased (0.080794 --> 0.080377).  Saving model ...
-Updating learning rate to 1.5625e-06
-Validation loss decreased (0.080377 --> 0.080042).  Saving model ...
-Updating learning rate to 7.8125e-07
 EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.087311 --> 0.086965).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (0.086965 --> 0.086749).  Saving model ...
 Updating learning rate to 3.90625e-07
-Validation loss decreased (0.080042 --> 0.079963).  Saving model ...
+Validation loss decreased (0.086749 --> 0.086615).  Saving model ...
 Updating learning rate to 1.953125e-07
 EarlyStopping counter: 1 out of 5
 Updating learning rate to 9.765625e-08
 EarlyStopping counter: 2 out of 5
 Updating learning rate to 4.8828125e-08
-Validation loss decreased (0.079963 --> 0.079825).  Saving model ...
-Updating learning rate to 2.44140625e-08
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 1.220703125e-08
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 6.103515625e-09
-Validation loss decreased (0.079825 --> 0.079810).  Saving model ...
-Updating learning rate to 3.0517578125e-09
-Validation loss decreased (0.079810 --> 0.079712).  Saving model ...
-Updating learning rate to 1.52587890625e-09
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 7.62939453125e-10
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 3.814697265625e-10
 EarlyStopping counter: 3 out of 5
-Updating learning rate to 1.9073486328125e-10
+Updating learning rate to 2.44140625e-08
 EarlyStopping counter: 4 out of 5
-Updating learning rate to 9.5367431640625e-11
+Updating learning rate to 1.220703125e-08
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_ABSA_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 125
@@ -2739,15 +2910,10 @@ test shape: (125, 3, 6) (125, 3, 6)
 test shape: (125, 3, 6) (125, 3, 6)
 
 
-	mse:0.2919427156448364, mae:0.36265531182289124, rmse:0.5403172373771667, r2:0.8896522894501686, dtw:Not calculated
+	mse:0.28478333353996277, mae:0.3568950295448303, rmse:0.5336509346961975, r2:0.8923583701252937, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.2848, MAE: 0.3569, RMSE: 0.5337, R²: 0.8924, MAPE: 0.85%
 Completed: ABSA H=3
 
 Training: Mamba on ABSA for H=5
@@ -2794,7 +2960,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_ABSA_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -2808,30 +2973,40 @@ Sequence length: 60, Prediction length: 5
 train 2199
 val 121
 test 123
-Validation loss decreased (inf --> 0.093422).  Saving model ...
+Validation loss decreased (inf --> 0.096193).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.093422 --> 0.087206).  Saving model ...
+Validation loss decreased (0.096193 --> 0.093364).  Saving model ...
 Updating learning rate to 5e-05
-Validation loss decreased (0.087206 --> 0.084591).  Saving model ...
+Validation loss decreased (0.093364 --> 0.092321).  Saving model ...
 Updating learning rate to 2.5e-05
-Validation loss decreased (0.084591 --> 0.081216).  Saving model ...
+Validation loss decreased (0.092321 --> 0.091372).  Saving model ...
 Updating learning rate to 1.25e-05
-Validation loss decreased (0.081216 --> 0.080616).  Saving model ...
+Validation loss decreased (0.091372 --> 0.090907).  Saving model ...
 Updating learning rate to 6.25e-06
-Validation loss decreased (0.080616 --> 0.079927).  Saving model ...
+Validation loss decreased (0.090907 --> 0.089679).  Saving model ...
 Updating learning rate to 3.125e-06
-Validation loss decreased (0.079927 --> 0.079006).  Saving model ...
-Updating learning rate to 1.5625e-06
-Validation loss decreased (0.079006 --> 0.078938).  Saving model ...
-Updating learning rate to 7.8125e-07
 EarlyStopping counter: 1 out of 5
-Updating learning rate to 3.90625e-07
+Updating learning rate to 1.5625e-06
 EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.8125e-07
+Validation loss decreased (0.089679 --> 0.089602).  Saving model ...
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 1.953125e-07
-EarlyStopping counter: 3 out of 5
+Validation loss decreased (0.089602 --> 0.089489).  Saving model ...
 Updating learning rate to 9.765625e-08
-EarlyStopping counter: 4 out of 5
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 4.8828125e-08
+Validation loss decreased (0.089489 --> 0.089245).  Saving model ...
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.0517578125e-09
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.52587890625e-09
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_ABSA_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 123
@@ -2839,15 +3014,10 @@ test shape: (123, 5, 6) (123, 5, 6)
 test shape: (123, 5, 6) (123, 5, 6)
 
 
-	mse:0.30139365792274475, mae:0.3661251962184906, rmse:0.5489932894706726, r2:0.8858263120055199, dtw:Not calculated
+	mse:0.29209810495376587, mae:0.3625437915325165, rmse:0.540461003780365, r2:0.889347642660141, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.2921, MAE: 0.3625, RMSE: 0.5405, R²: 0.8893, MAPE: 0.87%
 Completed: ABSA H=5
 
 Training: Mamba on ABSA for H=10
@@ -2894,7 +3064,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_ABSA_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -2908,36 +3077,28 @@ Sequence length: 60, Prediction length: 10
 train 2194
 val 116
 test 118
-Validation loss decreased (inf --> 0.098968).  Saving model ...
+Validation loss decreased (inf --> 0.101819).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.098968 --> 0.092213).  Saving model ...
+Validation loss decreased (0.101819 --> 0.100510).  Saving model ...
 Updating learning rate to 5e-05
-Validation loss decreased (0.092213 --> 0.088298).  Saving model ...
+Validation loss decreased (0.100510 --> 0.097696).  Saving model ...
 Updating learning rate to 2.5e-05
-Validation loss decreased (0.088298 --> 0.085405).  Saving model ...
+Validation loss decreased (0.097696 --> 0.097391).  Saving model ...
 Updating learning rate to 1.25e-05
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.097391 --> 0.096763).  Saving model ...
 Updating learning rate to 6.25e-06
-Validation loss decreased (0.085405 --> 0.083222).  Saving model ...
+Validation loss decreased (0.096763 --> 0.096150).  Saving model ...
 Updating learning rate to 3.125e-06
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.096150 --> 0.095931).  Saving model ...
 Updating learning rate to 1.5625e-06
-Validation loss decreased (0.083222 --> 0.083105).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 7.8125e-07
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 3.90625e-07
-Validation loss decreased (0.083105 --> 0.082949).  Saving model ...
-Updating learning rate to 1.953125e-07
-Validation loss decreased (0.082949 --> 0.082541).  Saving model ...
-Updating learning rate to 9.765625e-08
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 4.8828125e-08
 EarlyStopping counter: 2 out of 5
-Updating learning rate to 2.44140625e-08
+Updating learning rate to 3.90625e-07
 EarlyStopping counter: 3 out of 5
-Updating learning rate to 1.220703125e-08
+Updating learning rate to 1.953125e-07
 EarlyStopping counter: 4 out of 5
-Updating learning rate to 6.103515625e-09
+Updating learning rate to 9.765625e-08
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_ABSA_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 118
@@ -2945,15 +3106,10 @@ test shape: (118, 10, 6) (118, 10, 6)
 test shape: (118, 10, 6) (118, 10, 6)
 
 
-	mse:0.31936681270599365, mae:0.38037586212158203, rmse:0.5651254653930664, r2:0.8787028416991234, dtw:Not calculated
+	mse:0.3022223114967346, mae:0.37143492698669434, rmse:0.5497475266456604, r2:0.8852144107222557, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.3022, MAE: 0.3714, RMSE: 0.5497, R²: 0.8852, MAPE: 0.68%
 Completed: ABSA H=10
 
 Training: Mamba on ABSA for H=22
@@ -3000,7 +3156,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_ABSA_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -3014,32 +3169,30 @@ Sequence length: 60, Prediction length: 22
 train 2182
 val 104
 test 106
-Validation loss decreased (inf --> 0.121777).  Saving model ...
+Validation loss decreased (inf --> 0.130402).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.121777 --> 0.111153).  Saving model ...
+Validation loss decreased (0.130402 --> 0.123087).  Saving model ...
 Updating learning rate to 5e-05
-Validation loss decreased (0.111153 --> 0.106416).  Saving model ...
+Validation loss decreased (0.123087 --> 0.120115).  Saving model ...
 Updating learning rate to 2.5e-05
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.120115 --> 0.116658).  Saving model ...
 Updating learning rate to 1.25e-05
-Validation loss decreased (0.106416 --> 0.102495).  Saving model ...
+Validation loss decreased (0.116658 --> 0.115124).  Saving model ...
 Updating learning rate to 6.25e-06
 EarlyStopping counter: 1 out of 5
 Updating learning rate to 3.125e-06
 EarlyStopping counter: 2 out of 5
 Updating learning rate to 1.5625e-06
-EarlyStopping counter: 3 out of 5
+Validation loss decreased (0.115124 --> 0.114503).  Saving model ...
 Updating learning rate to 7.8125e-07
-Validation loss decreased (0.102495 --> 0.102275).  Saving model ...
-Updating learning rate to 3.90625e-07
 EarlyStopping counter: 1 out of 5
-Updating learning rate to 1.953125e-07
+Updating learning rate to 3.90625e-07
 EarlyStopping counter: 2 out of 5
-Updating learning rate to 9.765625e-08
+Updating learning rate to 1.953125e-07
 EarlyStopping counter: 3 out of 5
-Updating learning rate to 4.8828125e-08
+Updating learning rate to 9.765625e-08
 EarlyStopping counter: 4 out of 5
-Updating learning rate to 2.44140625e-08
+Updating learning rate to 4.8828125e-08
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_ABSA_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 106
@@ -3047,15 +3200,10 @@ test shape: (106, 22, 6) (106, 22, 6)
 test shape: (106, 22, 6) (106, 22, 6)
 
 
-	mse:0.3360803723335266, mae:0.4059177041053772, rmse:0.5797243714332581, r2:0.8707935810089111, dtw:Not calculated
+	mse:0.3139815330505371, mae:0.3824239671230316, rmse:0.5603405237197876, r2:0.8792895004153252, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.3140, MAE: 0.3824, RMSE: 0.5603, R²: 0.8793, MAPE: 0.63%
 Completed: ABSA H=22
 
 Training: Mamba on ABSA for H=50
@@ -3102,7 +3250,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_ABSA_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -3116,26 +3263,30 @@ Sequence length: 60, Prediction length: 50
 train 2154
 val 76
 test 78
-Validation loss decreased (inf --> 0.172031).  Saving model ...
+Validation loss decreased (inf --> 0.174497).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.172031 --> 0.168628).  Saving model ...
+Validation loss decreased (0.174497 --> 0.171991).  Saving model ...
 Updating learning rate to 5e-05
-Validation loss decreased (0.168628 --> 0.161528).  Saving model ...
+Validation loss decreased (0.171991 --> 0.169348).  Saving model ...
 Updating learning rate to 2.5e-05
-Validation loss decreased (0.161528 --> 0.156059).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 1.25e-05
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.169348 --> 0.168621).  Saving model ...
 Updating learning rate to 6.25e-06
-Validation loss decreased (0.156059 --> 0.155586).  Saving model ...
+Validation loss decreased (0.168621 --> 0.166289).  Saving model ...
 Updating learning rate to 3.125e-06
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.166289 --> 0.166234).  Saving model ...
 Updating learning rate to 1.5625e-06
-EarlyStopping counter: 2 out of 5
+Validation loss decreased (0.166234 --> 0.165954).  Saving model ...
 Updating learning rate to 7.8125e-07
-EarlyStopping counter: 3 out of 5
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 3.90625e-07
-EarlyStopping counter: 4 out of 5
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 1.953125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 4.8828125e-08
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_ABSA_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 78
@@ -3143,15 +3294,10 @@ test shape: (78, 50, 6) (78, 50, 6)
 test shape: (78, 50, 6) (78, 50, 6)
 
 
-	mse:0.38118767738342285, mae:0.43526625633239746, rmse:0.6174039840698242, r2:0.8551426827907562, dtw:Not calculated
+	mse:0.35667604207992554, mae:0.4115681052207947, rmse:0.5972236394882202, r2:0.8644575029611588, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.3567, MAE: 0.4116, RMSE: 0.5972, R²: 0.8645, MAPE: 0.75%
 Completed: ABSA H=50
 
 Training: Mamba on ABSA for H=100
@@ -3198,7 +3344,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_ABSA_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -3212,22 +3357,116 @@ Sequence length: 60, Prediction length: 100
 train 2104
 val 26
 test 28
-Traceback (most recent call last):
-  File "run.py", line 202, in <module>
-    exp.train(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 147, in train
-    loss = criterion(outputs, batch_y)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/loss.py", line 538, in forward
-    return F.mse_loss(input, target, reduction=self.reduction)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/functional.py", line 3383, in mse_loss
-    expanded_input, expanded_target = torch.broadcast_tensors(input, target)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/functional.py", line 77, in broadcast_tensors
-    return _VF.broadcast_tensors(tensors)  # type: ignore[attr-defined]
-RuntimeError: The size of tensor a (60) must match the size of tensor b (100) at non-singleton dimension 1
+Validation loss decreased (inf --> 0.277432).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.277432 --> 0.275107).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.275107 --> 0.273222).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.273222 --> 0.271907).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.271907 --> 0.271067).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.271067 --> 0.270625).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.270625 --> 0.270398).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.270398 --> 0.270286).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (0.270286 --> 0.270229).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (0.270229 --> 0.270201).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.270201 --> 0.270186).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (0.270186 --> 0.270180).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (0.270180 --> 0.270176).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (0.270176 --> 0.270174).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (0.270174 --> 0.270173).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 4.76837158203125e-11
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 1.1920928955078126e-11
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 5.960464477539063e-12
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 2.9802322387695314e-12
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 1.4901161193847657e-12
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 7.450580596923828e-13
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 1.862645149230957e-13
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 9.313225746154786e-14
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 4.656612873077393e-14
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 2.3283064365386964e-14
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 1.1641532182693482e-14
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 5.820766091346741e-15
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 2.9103830456733705e-15
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 1.4551915228366853e-15
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 7.275957614183426e-16
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 3.637978807091713e-16
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 1.8189894035458566e-16
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 9.094947017729283e-17
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 4.5474735088646414e-17
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 2.2737367544323207e-17
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 1.1368683772161604e-17
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 5.684341886080802e-18
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 2.842170943040401e-18
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 1.4210854715202004e-18
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 7.105427357601002e-19
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 3.552713678800501e-19
+Validation loss decreased (0.270173 --> 0.270173).  Saving model ...
+Updating learning rate to 1.7763568394002505e-19
+>>>>>>>testing : long_term_forecast_Mamba_ABSA_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 6) (28, 100, 6)
+test shape: (28, 100, 6) (28, 100, 6)
+
+
+	mse:0.4350682497024536, mae:0.4802916347980499, rmse:0.6595970392227173, r2:0.8323399722576141, dtw:Not calculated
+
+
+VAL - MSE: 0.4351, MAE: 0.4803, RMSE: 0.6596, R²: 0.8323, MAPE: 1.33%
 Completed: ABSA H=100
 
 Training: Mamba on SASOL for H=3
@@ -3274,7 +3513,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_SASOL_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -3288,7 +3526,7 @@ Sequence length: 60, Prediction length: 3
 train 2201
 val 123
 test 125
-Validation loss decreased (inf --> 0.049770).  Saving model ...
+Validation loss decreased (inf --> 0.050076).  Saving model ...
 Updating learning rate to 0.0001
 EarlyStopping counter: 1 out of 5
 Updating learning rate to 5e-05
@@ -3296,26 +3534,18 @@ EarlyStopping counter: 2 out of 5
 Updating learning rate to 2.5e-05
 EarlyStopping counter: 3 out of 5
 Updating learning rate to 1.25e-05
-Validation loss decreased (0.049770 --> 0.049419).  Saving model ...
+EarlyStopping counter: 4 out of 5
 Updating learning rate to 6.25e-06
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.050076 --> 0.049258).  Saving model ...
 Updating learning rate to 3.125e-06
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 1.5625e-06
-EarlyStopping counter: 3 out of 5
-Updating learning rate to 7.8125e-07
-EarlyStopping counter: 4 out of 5
-Updating learning rate to 3.90625e-07
-Validation loss decreased (0.049419 --> 0.049175).  Saving model ...
-Updating learning rate to 1.953125e-07
 EarlyStopping counter: 1 out of 5
-Updating learning rate to 9.765625e-08
+Updating learning rate to 1.5625e-06
 EarlyStopping counter: 2 out of 5
-Updating learning rate to 4.8828125e-08
+Updating learning rate to 7.8125e-07
 EarlyStopping counter: 3 out of 5
-Updating learning rate to 2.44140625e-08
+Updating learning rate to 3.90625e-07
 EarlyStopping counter: 4 out of 5
-Updating learning rate to 1.220703125e-08
+Updating learning rate to 1.953125e-07
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_SASOL_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 125
@@ -3323,15 +3553,10 @@ test shape: (125, 3, 6) (125, 3, 6)
 test shape: (125, 3, 6) (125, 3, 6)
 
 
-	mse:0.07773580402135849, mae:0.09010127931833267, rmse:0.27881142497062683, r2:0.6129232347011566, dtw:Not calculated
+	mse:0.07869888097047806, mae:0.09320246428251266, rmse:0.28053319454193115, r2:0.6081277132034302, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.0787, MAE: 0.0932, RMSE: 0.2805, R²: 0.6081, MAPE: 0.27%
 Completed: SASOL H=3
 
 Training: Mamba on SASOL for H=5
@@ -3378,7 +3603,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_SASOL_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -3392,20 +3616,18 @@ Sequence length: 60, Prediction length: 5
 train 2199
 val 121
 test 123
-Validation loss decreased (inf --> 0.050289).  Saving model ...
+Validation loss decreased (inf --> 0.050499).  Saving model ...
 Updating learning rate to 0.0001
-EarlyStopping counter: 1 out of 5
+Validation loss decreased (0.050499 --> 0.050430).  Saving model ...
 Updating learning rate to 5e-05
-Validation loss decreased (0.050289 --> 0.049748).  Saving model ...
-Updating learning rate to 2.5e-05
 EarlyStopping counter: 1 out of 5
-Updating learning rate to 1.25e-05
+Updating learning rate to 2.5e-05
 EarlyStopping counter: 2 out of 5
-Updating learning rate to 6.25e-06
+Updating learning rate to 1.25e-05
 EarlyStopping counter: 3 out of 5
-Updating learning rate to 3.125e-06
+Updating learning rate to 6.25e-06
 EarlyStopping counter: 4 out of 5
-Updating learning rate to 1.5625e-06
+Updating learning rate to 3.125e-06
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_SASOL_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 123
@@ -3413,15 +3635,10 @@ test shape: (123, 5, 6) (123, 5, 6)
 test shape: (123, 5, 6) (123, 5, 6)
 
 
-	mse:0.07795603573322296, mae:0.09062661230564117, rmse:0.2792060673236847, r2:0.6123195290565491, dtw:Not calculated
+	mse:0.07824783027172089, mae:0.0925639346241951, rmse:0.27972814440727234, r2:0.6108684241771698, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.0782, MAE: 0.0926, RMSE: 0.2797, R²: 0.6109, MAPE: 0.23%
 Completed: SASOL H=5
 
 Training: Mamba on SASOL for H=10
@@ -3468,7 +3685,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_SASOL_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -3482,22 +3698,16 @@ Sequence length: 60, Prediction length: 10
 train 2194
 val 116
 test 118
-Validation loss decreased (inf --> 0.051084).  Saving model ...
+Validation loss decreased (inf --> 0.051821).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.051084 --> 0.051045).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 5e-05
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 2.5e-05
-Validation loss decreased (0.051045 --> 0.049516).  Saving model ...
-Updating learning rate to 1.25e-05
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 6.25e-06
 EarlyStopping counter: 2 out of 5
-Updating learning rate to 3.125e-06
+Updating learning rate to 2.5e-05
 EarlyStopping counter: 3 out of 5
-Updating learning rate to 1.5625e-06
+Updating learning rate to 1.25e-05
 EarlyStopping counter: 4 out of 5
-Updating learning rate to 7.8125e-07
+Updating learning rate to 6.25e-06
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_SASOL_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 118
@@ -3505,15 +3715,10 @@ test shape: (118, 10, 6) (118, 10, 6)
 test shape: (118, 10, 6) (118, 10, 6)
 
 
-	mse:0.08087103813886642, mae:0.09299243986606598, rmse:0.2843783497810364, r2:0.6027529239654541, dtw:Not calculated
+	mse:0.0800599455833435, mae:0.09413951635360718, rmse:0.28294867277145386, r2:0.6067371070384979, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.0801, MAE: 0.0941, RMSE: 0.2829, R²: 0.6067, MAPE: 0.25%
 Completed: SASOL H=10
 
 Training: Mamba on SASOL for H=22
@@ -3560,7 +3765,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_SASOL_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -3574,26 +3778,18 @@ Sequence length: 60, Prediction length: 22
 train 2182
 val 104
 test 106
-Validation loss decreased (inf --> 0.056963).  Saving model ...
+Validation loss decreased (inf --> 0.061337).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.056963 --> 0.055453).  Saving model ...
+Validation loss decreased (0.061337 --> 0.054165).  Saving model ...
 Updating learning rate to 5e-05
-Validation loss decreased (0.055453 --> 0.052705).  Saving model ...
+EarlyStopping counter: 1 out of 5
 Updating learning rate to 2.5e-05
-EarlyStopping counter: 1 out of 5
+EarlyStopping counter: 2 out of 5
 Updating learning rate to 1.25e-05
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 6.25e-06
-Validation loss decreased (0.052705 --> 0.052280).  Saving model ...
-Updating learning rate to 3.125e-06
-EarlyStopping counter: 1 out of 5
-Updating learning rate to 1.5625e-06
-EarlyStopping counter: 2 out of 5
-Updating learning rate to 7.8125e-07
 EarlyStopping counter: 3 out of 5
-Updating learning rate to 3.90625e-07
+Updating learning rate to 6.25e-06
 EarlyStopping counter: 4 out of 5
-Updating learning rate to 1.953125e-07
+Updating learning rate to 3.125e-06
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_SASOL_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 106
@@ -3601,15 +3797,10 @@ test shape: (106, 22, 6) (106, 22, 6)
 test shape: (106, 22, 6) (106, 22, 6)
 
 
-	mse:0.08060456067323685, mae:0.09557396918535233, rmse:0.283909410238266, r2:0.6068948209285736, dtw:Not calculated
+	mse:0.0811978355050087, mae:0.09533527493476868, rmse:0.2849523425102234, r2:0.6040014326572418, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.0812, MAE: 0.0953, RMSE: 0.2850, R²: 0.6040, MAPE: 0.26%
 Completed: SASOL H=22
 
 Training: Mamba on SASOL for H=50
@@ -3656,7 +3847,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_SASOL_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -3670,18 +3860,16 @@ Sequence length: 60, Prediction length: 50
 train 2154
 val 76
 test 78
-Validation loss decreased (inf --> 0.056214).  Saving model ...
+Validation loss decreased (inf --> 0.057601).  Saving model ...
 Updating learning rate to 0.0001
-Validation loss decreased (0.056214 --> 0.055737).  Saving model ...
-Updating learning rate to 5e-05
 EarlyStopping counter: 1 out of 5
-Updating learning rate to 2.5e-05
+Updating learning rate to 5e-05
 EarlyStopping counter: 2 out of 5
-Updating learning rate to 1.25e-05
+Updating learning rate to 2.5e-05
 EarlyStopping counter: 3 out of 5
-Updating learning rate to 6.25e-06
+Updating learning rate to 1.25e-05
 EarlyStopping counter: 4 out of 5
-Updating learning rate to 3.125e-06
+Updating learning rate to 6.25e-06
 EarlyStopping counter: 5 out of 5
 >>>>>>>testing : long_term_forecast_Mamba_SASOL_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 test 78
@@ -3689,15 +3877,10 @@ test shape: (78, 50, 6) (78, 50, 6)
 test shape: (78, 50, 6) (78, 50, 6)
 
 
-	mse:0.08624332398176193, mae:0.10040163993835449, rmse:0.2936721444129944, r2:0.6052669584751129, dtw:Not calculated
+	mse:0.08627652376890182, mae:0.09969992935657501, rmse:0.29372864961624146, r2:0.6051149964332581, dtw:Not calculated
 
 
-Traceback (most recent call last):
-  File "run.py", line 205, in <module>
-    exp.test(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
-    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
-AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+VAL - MSE: 0.0863, MAE: 0.0997, RMSE: 0.2937, R²: 0.6051, MAPE: 0.25%
 Completed: SASOL H=50
 
 Training: Mamba on SASOL for H=100
@@ -3744,7 +3927,6 @@ Args in experiment:
 
 Please make sure you have successfully installed mamba_ssm
 Use GPU: cuda:0
-W&B logging disabled
 >>>>>>>start training : long_term_forecast_Mamba_SASOL_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
 ============================================================
 DATASET SPLIT INFO (90/5/5):
@@ -3758,22 +3940,73 @@ Sequence length: 60, Prediction length: 100
 train 2104
 val 26
 test 28
-Traceback (most recent call last):
-  File "run.py", line 202, in <module>
-    exp.train(setting)
-  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 147, in train
-    loss = criterion(outputs, batch_y)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/loss.py", line 538, in forward
-    return F.mse_loss(input, target, reduction=self.reduction)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/functional.py", line 3383, in mse_loss
-    expanded_input, expanded_target = torch.broadcast_tensors(input, target)
-  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/functional.py", line 77, in broadcast_tensors
-    return _VF.broadcast_tensors(tensors)  # type: ignore[attr-defined]
-RuntimeError: The size of tensor a (60) must match the size of tensor b (100) at non-singleton dimension 1
+Validation loss decreased (inf --> 0.061818).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.061818 --> 0.060916).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.060916 --> 0.059760).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.059760 --> 0.059050).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.059050 --> 0.058738).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.058738 --> 0.058603).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.058603 --> 0.058540).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.058540 --> 0.058511).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (0.058511 --> 0.058497).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (0.058497 --> 0.058490).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.058490 --> 0.058487).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (0.058487 --> 0.058485).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (0.058485 --> 0.058484).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
+Updating learning rate to 4.76837158203125e-11
+Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+Validation loss decreased (0.058484 --> 0.058484).  Saving model ...
+Updating learning rate to 1.1920928955078126e-11
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5.960464477539063e-12
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.9802322387695314e-12
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.4901161193847657e-12
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.450580596923828e-13
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_SASOL_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 6) (28, 100, 6)
+test shape: (28, 100, 6) (28, 100, 6)
+
+
+	mse:0.08175931870937347, mae:0.0966595858335495, rmse:0.2859358787536621, r2:0.6060883104801178, dtw:Not calculated
+
+
+VAL - MSE: 0.0818, MAE: 0.0967, RMSE: 0.2859, R²: 0.6061, MAPE: 0.22%
 Completed: SASOL H=100
 
 Mamba training completed for all datasets!

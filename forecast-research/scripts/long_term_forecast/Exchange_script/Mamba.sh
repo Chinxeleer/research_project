@@ -19,7 +19,7 @@ for pred_len in 1 7 14 30; do
 		--d_layers 1 \
 		--enc_in 5 \
 		--expand 2 \
-		--d_ff 512 \
+		--d_ff 64 \
 		--dec_in 5 \
 		--d_conv 4 \
 		--c_out 5 \
