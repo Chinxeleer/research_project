@@ -1,0 +1,3484 @@
+##############################################################################
+# Training Mamba Model on All Datasets
+##############################################################################
+Training: Mamba on NVIDIA for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NVIDIA_H3     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H3_Mamba_custom_ftMS_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.046948).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.046948 --> 0.045972).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.045972 --> 0.045878).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H3_Mamba_custom_ftMS_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 1) (125, 3, 1)
+test shape: (125, 3, 1) (125, 3, 1)
+
+
+	mse:0.003842795267701149, mae:0.039408545941114426, rmse:0.06199028342962265, r2:-0.02195262908935547, dtw:Not calculated
+
+
+VAL - MSE: 0.0038, MAE: 0.0394, RMSE: 0.0620, R²: -0.0220, MAPE: 3439106.75%
+Completed: NVIDIA H=3
+
+Training: Mamba on NVIDIA for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NVIDIA_H5     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H5_Mamba_custom_ftMS_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.047294).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.047294 --> 0.046723).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.046723 --> 0.046167).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.046167 --> 0.046048).  Saving model ...
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H5_Mamba_custom_ftMS_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 1) (123, 5, 1)
+test shape: (123, 5, 1) (123, 5, 1)
+
+
+	mse:0.003872781526297331, mae:0.03931461274623871, rmse:0.062231674790382385, r2:-0.01908135414123535, dtw:Not calculated
+
+
+VAL - MSE: 0.0039, MAE: 0.0393, RMSE: 0.0622, R²: -0.0191, MAPE: 2999002.25%
+Completed: NVIDIA H=5
+
+Training: Mamba on NVIDIA for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NVIDIA_H10    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H10_Mamba_custom_ftMS_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.047957).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.047957 --> 0.046842).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H10_Mamba_custom_ftMS_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 1) (118, 10, 1)
+test shape: (118, 10, 1) (118, 10, 1)
+
+
+	mse:0.003930996172130108, mae:0.040461041033267975, rmse:0.06269765645265579, r2:-0.016524434089660645, dtw:Not calculated
+
+
+VAL - MSE: 0.0039, MAE: 0.0405, RMSE: 0.0627, R²: -0.0165, MAPE: 4648671.00%
+Completed: NVIDIA H=10
+
+Training: Mamba on NVIDIA for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NVIDIA_H22    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H22_Mamba_custom_ftMS_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.048268).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.048268 --> 0.047723).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H22_Mamba_custom_ftMS_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 1) (106, 22, 1)
+test shape: (106, 22, 1) (106, 22, 1)
+
+
+	mse:0.004002597648650408, mae:0.04031461849808693, rmse:0.0632660835981369, r2:-0.016916275024414062, dtw:Not calculated
+
+
+VAL - MSE: 0.0040, MAE: 0.0403, RMSE: 0.0633, R²: -0.0169, MAPE: 3864074.50%
+Completed: NVIDIA H=22
+
+Training: Mamba on NVIDIA for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NVIDIA_H50    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H50_Mamba_custom_ftMS_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.050214).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.050214 --> 0.049196).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H50_Mamba_custom_ftMS_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 1) (78, 50, 1)
+test shape: (78, 50, 1) (78, 50, 1)
+
+
+	mse:0.0038207850884646177, mae:0.03968660905957222, rmse:0.061812497675418854, r2:-0.02371394634246826, dtw:Not calculated
+
+
+VAL - MSE: 0.0038, MAE: 0.0397, RMSE: 0.0618, R²: -0.0237, MAPE: 3367887.25%
+Completed: NVIDIA H=50
+
+Training: Mamba on NVIDIA for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NVIDIA_H100   Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H100_Mamba_custom_ftMS_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Validation loss decreased (inf --> 0.049061).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H100_Mamba_custom_ftMS_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 1) (28, 100, 1)
+test shape: (28, 100, 1) (28, 100, 1)
+
+
+	mse:0.0041200388222932816, mae:0.04042637348175049, rmse:0.06418752670288086, r2:-0.04171347618103027, dtw:Not calculated
+
+
+VAL - MSE: 0.0041, MAE: 0.0404, RMSE: 0.0642, R²: -0.0417, MAPE: 2775601.50%
+Completed: NVIDIA H=100
+
+Training: Mamba on APPLE for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_APPLE_H3      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_APPLE_H3_Mamba_custom_ftMS_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.075521).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.075521 --> 0.074683).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.074683 --> 0.073827).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_APPLE_H3_Mamba_custom_ftMS_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 1) (125, 3, 1)
+test shape: (125, 3, 1) (125, 3, 1)
+
+
+	mse:3.1840350857237354e-05, mae:0.004243099130690098, rmse:0.005642725620418787, r2:-0.016160249710083008, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0042, RMSE: 0.0056, R²: -0.0162, MAPE: 23811.72%
+Completed: APPLE H=3
+
+Training: Mamba on APPLE for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_APPLE_H5      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_APPLE_H5_Mamba_custom_ftMS_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.074598).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.074598 --> 0.073877).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.073877 --> 0.073855).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.8125e-07
+Validation loss decreased (0.073855 --> 0.073795).  Saving model ...
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_APPLE_H5_Mamba_custom_ftMS_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 1) (123, 5, 1)
+test shape: (123, 5, 1) (123, 5, 1)
+
+
+	mse:3.207438567187637e-05, mae:0.0042467801831662655, rmse:0.005663425195962191, r2:-0.011408209800720215, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0042, RMSE: 0.0057, R²: -0.0114, MAPE: 59609.73%
+Completed: APPLE H=5
+
+Training: Mamba on APPLE for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_APPLE_H10     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_APPLE_H10_Mamba_custom_ftMS_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.072226).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.072226 --> 0.072153).  Saving model ...
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.072153 --> 0.071351).  Saving model ...
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_APPLE_H10_Mamba_custom_ftMS_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 1) (118, 10, 1)
+test shape: (118, 10, 1) (118, 10, 1)
+
+
+	mse:3.249809014960192e-05, mae:0.004273387137800455, rmse:0.005700709763914347, r2:-0.010567784309387207, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0043, RMSE: 0.0057, R²: -0.0106, MAPE: 81018.34%
+Completed: APPLE H=10
+
+Training: Mamba on APPLE for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_APPLE_H22     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_APPLE_H22_Mamba_custom_ftMS_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.066522).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_APPLE_H22_Mamba_custom_ftMS_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 1) (106, 22, 1)
+test shape: (106, 22, 1) (106, 22, 1)
+
+
+	mse:3.374235893716104e-05, mae:0.004324792884290218, rmse:0.005808817222714424, r2:-0.019022703170776367, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0043, RMSE: 0.0058, R²: -0.0190, MAPE: 117537.84%
+Completed: APPLE H=22
+
+Training: Mamba on APPLE for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_APPLE_H50     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_APPLE_H50_Mamba_custom_ftMS_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.068264).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+Validation loss decreased (0.068264 --> 0.067169).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.067169 --> 0.066373).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.066373 --> 0.064637).  Saving model ...
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_APPLE_H50_Mamba_custom_ftMS_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 1) (78, 50, 1)
+test shape: (78, 50, 1) (78, 50, 1)
+
+
+	mse:3.399606794118881e-05, mae:0.00435613514855504, rmse:0.005830614827573299, r2:-0.01537024974822998, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0044, RMSE: 0.0058, R²: -0.0154, MAPE: 172061.30%
+Completed: APPLE H=50
+
+Training: Mamba on APPLE for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_APPLE_H100    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_APPLE_H100_Mamba_custom_ftMS_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Validation loss decreased (inf --> 0.070383).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.070383 --> 0.070250).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.070250 --> 0.070208).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.070208 --> 0.070180).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.070180 --> 0.070168).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.070168 --> 0.070162).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.070162 --> 0.070159).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.070159 --> 0.070158).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (0.070158 --> 0.070157).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (0.070157 --> 0.070157).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.070157 --> 0.070156).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.76837158203125e-11
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.1920928955078126e-11
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 5.960464477539063e-12
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 2.9802322387695314e-12
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 1.4901161193847657e-12
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.450580596923828e-13
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 1.862645149230957e-13
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 9.313225746154786e-14
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 4.656612873077393e-14
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 2.3283064365386964e-14
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 1.1641532182693482e-14
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 5.820766091346741e-15
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 2.9103830456733705e-15
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.4551915228366853e-15
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 7.275957614183426e-16
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 3.637978807091713e-16
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 1.8189894035458566e-16
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 9.094947017729283e-17
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 4.5474735088646414e-17
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.2737367544323207e-17
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 1.1368683772161604e-17
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5.684341886080802e-18
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 2.842170943040401e-18
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.4210854715202004e-18
+Validation loss decreased (0.070156 --> 0.070156).  Saving model ...
+Updating learning rate to 7.105427357601002e-19
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.552713678800501e-19
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.7763568394002505e-19
+>>>>>>>testing : long_term_forecast_Mamba_APPLE_H100_Mamba_custom_ftMS_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 1) (28, 100, 1)
+test shape: (28, 100, 1) (28, 100, 1)
+
+
+	mse:3.399723573238589e-05, mae:0.004338804166764021, rmse:0.005830714944750071, r2:-0.003005504608154297, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0043, RMSE: 0.0058, R²: -0.0030, MAPE: 63677.31%
+Completed: APPLE H=100
+
+Training: Mamba on SP500 for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SP500_H3      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_SP500_H3_Mamba_custom_ftMS_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.277113).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+Validation loss decreased (0.277113 --> 0.274308).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.274308 --> 0.274185).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_SP500_H3_Mamba_custom_ftMS_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 1) (125, 3, 1)
+test shape: (125, 3, 1) (125, 3, 1)
+
+
+	mse:2.249515091534704e-06, mae:0.0010650570038706064, rmse:0.0014998383121564984, r2:-0.014330863952636719, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0011, RMSE: 0.0015, R²: -0.0143, MAPE: 1.17%
+Completed: SP500 H=3
+
+Training: Mamba on SP500 for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SP500_H5      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_SP500_H5_Mamba_custom_ftMS_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.276546).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.276546 --> 0.273543).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.273543 --> 0.270650).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_SP500_H5_Mamba_custom_ftMS_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 1) (123, 5, 1)
+test shape: (123, 5, 1) (123, 5, 1)
+
+
+	mse:2.2569111024495214e-06, mae:0.0010637674713507295, rmse:0.001502301893197, r2:-0.012784004211425781, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0011, RMSE: 0.0015, R²: -0.0128, MAPE: 1.19%
+Completed: SP500 H=5
+
+Training: Mamba on SP500 for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SP500_H10     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_SP500_H10_Mamba_custom_ftMS_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.280322).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.280322 --> 0.275511).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.275511 --> 0.272000).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_SP500_H10_Mamba_custom_ftMS_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 1) (118, 10, 1)
+test shape: (118, 10, 1) (118, 10, 1)
+
+
+	mse:2.2944338979868917e-06, mae:0.0010704339947551489, rmse:0.001514738891273737, r2:-0.015435934066772461, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0011, RMSE: 0.0015, R²: -0.0154, MAPE: 1.18%
+Completed: SP500 H=10
+
+Training: Mamba on SP500 for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SP500_H22     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_SP500_H22_Mamba_custom_ftMS_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.263877).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_SP500_H22_Mamba_custom_ftMS_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 1) (106, 22, 1)
+test shape: (106, 22, 1) (106, 22, 1)
+
+
+	mse:2.377989403612446e-06, mae:0.0010854037245735526, rmse:0.0015420730924233794, r2:-0.016802191734313965, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0011, RMSE: 0.0015, R²: -0.0168, MAPE: 1.27%
+Completed: SP500 H=22
+
+Training: Mamba on SP500 for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SP500_H50     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_SP500_H50_Mamba_custom_ftMS_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.267961).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.267961 --> 0.265493).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.265493 --> 0.261714).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.261714 --> 0.261342).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.261342 --> 0.259385).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.259385 --> 0.253859).  Saving model ...
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_SP500_H50_Mamba_custom_ftMS_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 1) (78, 50, 1)
+test shape: (78, 50, 1) (78, 50, 1)
+
+
+	mse:2.7814483019028557e-06, mae:0.0011822795495390892, rmse:0.001667767413891852, r2:-0.015183806419372559, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0012, RMSE: 0.0017, R²: -0.0152, MAPE: 1.26%
+Completed: SP500 H=50
+
+Training: Mamba on SP500 for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SP500_H100    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_SP500_H100_Mamba_custom_ftMS_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Validation loss decreased (inf --> 0.273714).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.273714 --> 0.273262).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.273262 --> 0.273027).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.273027 --> 0.272921).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.272921 --> 0.272862).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.272862 --> 0.272834).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.272834 --> 0.272822).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.272822 --> 0.272814).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (0.272814 --> 0.272811).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (0.272811 --> 0.272809).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.272809 --> 0.272808).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (0.272808 --> 0.272808).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (0.272808 --> 0.272808).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (0.272808 --> 0.272808).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (0.272808 --> 0.272807).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 4.76837158203125e-11
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 1.1920928955078126e-11
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 5.960464477539063e-12
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 2.9802322387695314e-12
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 1.4901161193847657e-12
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 7.450580596923828e-13
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 1.862645149230957e-13
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 9.313225746154786e-14
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 4.656612873077393e-14
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 2.3283064365386964e-14
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 1.1641532182693482e-14
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 5.820766091346741e-15
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 2.9103830456733705e-15
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 1.4551915228366853e-15
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 7.275957614183426e-16
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 3.637978807091713e-16
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 1.8189894035458566e-16
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 9.094947017729283e-17
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 4.5474735088646414e-17
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 2.2737367544323207e-17
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 1.1368683772161604e-17
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 5.684341886080802e-18
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 2.842170943040401e-18
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 1.4210854715202004e-18
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 7.105427357601002e-19
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 3.552713678800501e-19
+Validation loss decreased (0.272807 --> 0.272807).  Saving model ...
+Updating learning rate to 1.7763568394002505e-19
+>>>>>>>testing : long_term_forecast_Mamba_SP500_H100_Mamba_custom_ftMS_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 1) (28, 100, 1)
+test shape: (28, 100, 1) (28, 100, 1)
+
+
+	mse:2.4043094981607283e-06, mae:0.001091199112124741, rmse:0.0015505836345255375, r2:-0.00039398670196533203, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0011, RMSE: 0.0016, R²: -0.0004, MAPE: 1.17%
+Completed: SP500 H=100
+
+Training: Mamba on NASDAQ for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NASDAQ_H3     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_NASDAQ_H3_Mamba_custom_ftMS_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.102402).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.102402 --> 0.100525).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NASDAQ_H3_Mamba_custom_ftMS_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 1) (125, 3, 1)
+test shape: (125, 3, 1) (125, 3, 1)
+
+
+	mse:2.901973857660778e-05, mae:0.004056139849126339, rmse:0.005386997014284134, r2:-0.007452249526977539, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0041, RMSE: 0.0054, R²: -0.0075, MAPE: 1367287.25%
+Completed: NASDAQ H=3
+
+Training: Mamba on NASDAQ for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NASDAQ_H5     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_NASDAQ_H5_Mamba_custom_ftMS_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.101697).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.101697 --> 0.101388).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NASDAQ_H5_Mamba_custom_ftMS_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 1) (123, 5, 1)
+test shape: (123, 5, 1) (123, 5, 1)
+
+
+	mse:2.944136031146627e-05, mae:0.004100074525922537, rmse:0.0054259891621768475, r2:-0.011768102645874023, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0041, RMSE: 0.0054, R²: -0.0118, MAPE: 1761714.38%
+Completed: NASDAQ H=5
+
+Training: Mamba on NASDAQ for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NASDAQ_H10    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_NASDAQ_H10_Mamba_custom_ftMS_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.101556).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+Validation loss decreased (0.101556 --> 0.099821).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.099821 --> 0.099204).  Saving model ...
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NASDAQ_H10_Mamba_custom_ftMS_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 1) (118, 10, 1)
+test shape: (118, 10, 1) (118, 10, 1)
+
+
+	mse:2.9450977308442816e-05, mae:0.004108660854399204, rmse:0.005426875315606594, r2:-0.011828184127807617, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0041, RMSE: 0.0054, R²: -0.0118, MAPE: 1423464.62%
+Completed: NASDAQ H=10
+
+Training: Mamba on NASDAQ for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NASDAQ_H22    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_NASDAQ_H22_Mamba_custom_ftMS_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.097309).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.097309 --> 0.096999).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NASDAQ_H22_Mamba_custom_ftMS_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 1) (106, 22, 1)
+test shape: (106, 22, 1) (106, 22, 1)
+
+
+	mse:3.003635174536612e-05, mae:0.004146230407059193, rmse:0.005480543244630098, r2:-0.009762287139892578, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0041, RMSE: 0.0055, R²: -0.0098, MAPE: 1144673.00%
+Completed: NASDAQ H=22
+
+Training: Mamba on NASDAQ for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NASDAQ_H50    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_NASDAQ_H50_Mamba_custom_ftMS_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.101878).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.101878 --> 0.101559).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.101559 --> 0.101308).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.101308 --> 0.101078).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.101078 --> 0.100745).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.100745 --> 0.099550).  Saving model ...
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NASDAQ_H50_Mamba_custom_ftMS_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 1) (78, 50, 1)
+test shape: (78, 50, 1) (78, 50, 1)
+
+
+	mse:3.2691186788724735e-05, mae:0.004312193486839533, rmse:0.0057176207192242146, r2:-0.013259172439575195, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0043, RMSE: 0.0057, R²: -0.0133, MAPE: 1051581.62%
+Completed: NASDAQ H=50
+
+Training: Mamba on NASDAQ for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NASDAQ_H100   Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_NASDAQ_H100_Mamba_custom_ftMS_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Validation loss decreased (inf --> 0.100722).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.100722 --> 0.100477).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.100477 --> 0.100366).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.100366 --> 0.100309).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.100309 --> 0.100280).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.100280 --> 0.100265).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.100265 --> 0.100257).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.100257 --> 0.100253).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (0.100253 --> 0.100251).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (0.100251 --> 0.100250).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.100250 --> 0.100250).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (0.100250 --> 0.100250).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (0.100250 --> 0.100250).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (0.100250 --> 0.100250).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (0.100250 --> 0.100250).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (0.100250 --> 0.100250).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (0.100250 --> 0.100250).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (0.100250 --> 0.100249).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (0.100249 --> 0.100249).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Validation loss decreased (0.100249 --> 0.100249).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Validation loss decreased (0.100249 --> 0.100249).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.76837158203125e-11
+Validation loss decreased (0.100249 --> 0.100249).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.1920928955078126e-11
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 5.960464477539063e-12
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 2.9802322387695314e-12
+Validation loss decreased (0.100249 --> 0.100249).  Saving model ...
+Updating learning rate to 1.4901161193847657e-12
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.450580596923828e-13
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.725290298461914e-13
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.862645149230957e-13
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 9.313225746154786e-14
+Validation loss decreased (0.100249 --> 0.100249).  Saving model ...
+Updating learning rate to 4.656612873077393e-14
+Validation loss decreased (0.100249 --> 0.100249).  Saving model ...
+Updating learning rate to 2.3283064365386964e-14
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.1641532182693482e-14
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 5.820766091346741e-15
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 2.9103830456733705e-15
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.4551915228366853e-15
+Validation loss decreased (0.100249 --> 0.100249).  Saving model ...
+Updating learning rate to 7.275957614183426e-16
+Validation loss decreased (0.100249 --> 0.100249).  Saving model ...
+Updating learning rate to 3.637978807091713e-16
+Validation loss decreased (0.100249 --> 0.100249).  Saving model ...
+Updating learning rate to 1.8189894035458566e-16
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 9.094947017729283e-17
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 4.5474735088646414e-17
+Validation loss decreased (0.100249 --> 0.100249).  Saving model ...
+Updating learning rate to 2.2737367544323207e-17
+Validation loss decreased (0.100249 --> 0.100249).  Saving model ...
+Updating learning rate to 1.1368683772161604e-17
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5.684341886080802e-18
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.842170943040401e-18
+Validation loss decreased (0.100249 --> 0.100249).  Saving model ...
+Updating learning rate to 1.4210854715202004e-18
+Validation loss decreased (0.100249 --> 0.100249).  Saving model ...
+Updating learning rate to 7.105427357601002e-19
+Validation loss decreased (0.100249 --> 0.100249).  Saving model ...
+Updating learning rate to 3.552713678800501e-19
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.7763568394002505e-19
+>>>>>>>testing : long_term_forecast_Mamba_NASDAQ_H100_Mamba_custom_ftMS_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 1) (28, 100, 1)
+test shape: (28, 100, 1) (28, 100, 1)
+
+
+	mse:3.048055623366963e-05, mae:0.004186660051345825, rmse:0.005520919803529978, r2:-0.005319118499755859, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0042, RMSE: 0.0055, R²: -0.0053, MAPE: 1138727.00%
+Completed: NASDAQ H=100
+
+Training: Mamba on ABSA for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_ABSA_H3       Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_ABSA_H3_Mamba_custom_ftMS_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.017786).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.017786 --> 0.017565).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.017565 --> 0.017486).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_ABSA_H3_Mamba_custom_ftMS_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 1) (125, 3, 1)
+test shape: (125, 3, 1) (125, 3, 1)
+
+
+	mse:2.648037661856506e-05, mae:0.0037464210763573647, rmse:0.005145908799022436, r2:-0.03191196918487549, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0037, RMSE: 0.0051, R²: -0.0319, MAPE: 1.17%
+Completed: ABSA H=3
+
+Training: Mamba on ABSA for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_ABSA_H5       Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_ABSA_H5_Mamba_custom_ftMS_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.017900).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.017900 --> 0.017804).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.017804 --> 0.017658).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_ABSA_H5_Mamba_custom_ftMS_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 1) (123, 5, 1)
+test shape: (123, 5, 1) (123, 5, 1)
+
+
+	mse:2.6551930204732344e-05, mae:0.003766284789890051, rmse:0.005152856465429068, r2:-0.021311402320861816, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0038, RMSE: 0.0052, R²: -0.0213, MAPE: 1.20%
+Completed: ABSA H=5
+
+Training: Mamba on ABSA for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_ABSA_H10      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_ABSA_H10_Mamba_custom_ftMS_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.017483).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+Validation loss decreased (0.017483 --> 0.017106).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_ABSA_H10_Mamba_custom_ftMS_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 1) (118, 10, 1)
+test shape: (118, 10, 1) (118, 10, 1)
+
+
+	mse:2.702867641346529e-05, mae:0.0038249557837843895, rmse:0.005198911298066378, r2:-0.017730116844177246, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0038, RMSE: 0.0052, R²: -0.0177, MAPE: 1.22%
+Completed: ABSA H=10
+
+Training: Mamba on ABSA for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_ABSA_H22      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_ABSA_H22_Mamba_custom_ftMS_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.016815).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.016815 --> 0.016610).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.8125e-07
+Validation loss decreased (0.016610 --> 0.016453).  Saving model ...
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_ABSA_H22_Mamba_custom_ftMS_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 1) (106, 22, 1)
+test shape: (106, 22, 1) (106, 22, 1)
+
+
+	mse:2.793727799144108e-05, mae:0.0038772267289459705, rmse:0.005285572726279497, r2:-0.02042090892791748, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0039, RMSE: 0.0053, R²: -0.0204, MAPE: 1.26%
+Completed: ABSA H=22
+
+Training: Mamba on ABSA for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_ABSA_H50      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_ABSA_H50_Mamba_custom_ftMS_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.016326).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.016326 --> 0.016258).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.016258 --> 0.015893).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.015893 --> 0.015864).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.015864 --> 0.015471).  Saving model ...
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_ABSA_H50_Mamba_custom_ftMS_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 1) (78, 50, 1)
+test shape: (78, 50, 1) (78, 50, 1)
+
+
+	mse:2.9173781513236463e-05, mae:0.003877475392073393, rmse:0.005401276051998138, r2:-0.0032843351364135742, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0039, RMSE: 0.0054, R²: -0.0033, MAPE: 1.29%
+Completed: ABSA H=50
+
+Training: Mamba on ABSA for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_ABSA_H100     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_ABSA_H100_Mamba_custom_ftMS_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Validation loss decreased (inf --> 0.016696).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.016696 --> 0.016680).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.016680 --> 0.016677).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.016677 --> 0.016677).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.016677 --> 0.016676).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_ABSA_H100_Mamba_custom_ftMS_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 1) (28, 100, 1)
+test shape: (28, 100, 1) (28, 100, 1)
+
+
+	mse:2.820797271851916e-05, mae:0.0038498537614941597, rmse:0.005311117973178625, r2:-0.016041994094848633, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0038, RMSE: 0.0053, R²: -0.0160, MAPE: 1.20%
+Completed: ABSA H=100
+
+Training: Mamba on SASOL for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SASOL_H3      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_SASOL_H3_Mamba_custom_ftMS_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 2.250048).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (2.250048 --> 2.236916).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (2.236916 --> 2.208052).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+Validation loss decreased (2.208052 --> 2.197788).  Saving model ...
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.8125e-07
+Validation loss decreased (2.197788 --> 2.172688).  Saving model ...
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_SASOL_H3_Mamba_custom_ftMS_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 1) (125, 3, 1)
+test shape: (125, 3, 1) (125, 3, 1)
+
+
+	mse:0.0014563438016921282, mae:0.027701685205101967, rmse:0.038162071257829666, r2:-0.009014368057250977, dtw:Not calculated
+
+
+VAL - MSE: 0.0015, MAE: 0.0277, RMSE: 0.0382, R²: -0.0090, MAPE: 21282502.00%
+Completed: SASOL H=3
+
+Training: Mamba on SASOL for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SASOL_H5      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_SASOL_H5_Mamba_custom_ftMS_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 2.179195).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+Validation loss decreased (2.179195 --> 2.177553).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_SASOL_H5_Mamba_custom_ftMS_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 1) (123, 5, 1)
+test shape: (123, 5, 1) (123, 5, 1)
+
+
+	mse:0.0014626489719375968, mae:0.027456199750304222, rmse:0.038244593888521194, r2:-0.01083672046661377, dtw:Not calculated
+
+
+VAL - MSE: 0.0015, MAE: 0.0275, RMSE: 0.0382, R²: -0.0108, MAPE: 15802043.00%
+Completed: SASOL H=5
+
+Training: Mamba on SASOL for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SASOL_H10     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_SASOL_H10_Mamba_custom_ftMS_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 2.337964).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (2.337964 --> 2.236891).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_SASOL_H10_Mamba_custom_ftMS_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 1) (118, 10, 1)
+test shape: (118, 10, 1) (118, 10, 1)
+
+
+	mse:0.0014993619406595826, mae:0.027616506442427635, rmse:0.03872159495949745, r2:-0.015481233596801758, dtw:Not calculated
+
+
+VAL - MSE: 0.0015, MAE: 0.0276, RMSE: 0.0387, R²: -0.0155, MAPE: 25340864.00%
+Completed: SASOL H=10
+
+Training: Mamba on SASOL for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SASOL_H22     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_SASOL_H22_Mamba_custom_ftMS_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 2.339844).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+Validation loss decreased (2.339844 --> 2.332879).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_SASOL_H22_Mamba_custom_ftMS_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 1) (106, 22, 1)
+test shape: (106, 22, 1) (106, 22, 1)
+
+
+	mse:0.0015109352534636855, mae:0.02763814851641655, rmse:0.03887075185775757, r2:-0.01050877571105957, dtw:Not calculated
+
+
+VAL - MSE: 0.0015, MAE: 0.0276, RMSE: 0.0389, R²: -0.0105, MAPE: 22893082.00%
+Completed: SASOL H=22
+
+Training: Mamba on SASOL for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SASOL_H50     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_SASOL_H50_Mamba_custom_ftMS_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 2.453274).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (2.453274 --> 2.429163).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+Validation loss decreased (2.429163 --> 2.426713).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+Validation loss decreased (2.426713 --> 2.406805).  Saving model ...
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.953125e-07
+Validation loss decreased (2.406805 --> 2.403326).  Saving model ...
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_SASOL_H50_Mamba_custom_ftMS_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 1) (78, 50, 1)
+test shape: (78, 50, 1) (78, 50, 1)
+
+
+	mse:0.0016517455223947763, mae:0.02862028405070305, rmse:0.040641672909259796, r2:-0.014692306518554688, dtw:Not calculated
+
+
+VAL - MSE: 0.0017, MAE: 0.0286, RMSE: 0.0406, R²: -0.0147, MAPE: 23477546.00%
+Completed: SASOL H=50
+
+Training: Mamba on SASOL for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SASOL_H100    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           MS                  
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              1                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Mamba_SASOL_H100_Mamba_custom_ftMS_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Validation loss decreased (inf --> 2.447815).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (2.447815 --> 2.445004).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (2.445004 --> 2.443983).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (2.443983 --> 2.443493).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (2.443493 --> 2.443233).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (2.443233 --> 2.443097).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (2.443097 --> 2.443033).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (2.443033 --> 2.442997).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (2.442997 --> 2.442979).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (2.442979 --> 2.442971).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (2.442971 --> 2.442966).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (2.442966 --> 2.442965).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (2.442965 --> 2.442964).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (2.442964 --> 2.442963).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (2.442963 --> 2.442962).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.76837158203125e-11
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 1.1920928955078126e-11
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 5.960464477539063e-12
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 2.9802322387695314e-12
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 1.4901161193847657e-12
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 7.450580596923828e-13
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 1.862645149230957e-13
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 9.313225746154786e-14
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 4.656612873077393e-14
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 2.3283064365386964e-14
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 1.1641532182693482e-14
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 5.820766091346741e-15
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 2.9103830456733705e-15
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 1.4551915228366853e-15
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 7.275957614183426e-16
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 3.637978807091713e-16
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 1.8189894035458566e-16
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 9.094947017729283e-17
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 4.5474735088646414e-17
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 2.2737367544323207e-17
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 1.1368683772161604e-17
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 5.684341886080802e-18
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 2.842170943040401e-18
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 1.4210854715202004e-18
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 7.105427357601002e-19
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 3.552713678800501e-19
+Validation loss decreased (2.442962 --> 2.442962).  Saving model ...
+Updating learning rate to 1.7763568394002505e-19
+>>>>>>>testing : long_term_forecast_Mamba_SASOL_H100_Mamba_custom_ftMS_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 1) (28, 100, 1)
+test shape: (28, 100, 1) (28, 100, 1)
+
+
+	mse:0.0015257858904078603, mae:0.027631646022200584, rmse:0.03906130790710449, r2:-0.0018981695175170898, dtw:Not calculated
+
+
+VAL - MSE: 0.0015, MAE: 0.0276, RMSE: 0.0391, R²: -0.0019, MAPE: 16528110.00%
+Completed: SASOL H=100
+
+Mamba training completed for all datasets!
