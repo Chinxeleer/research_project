@@ -1,0 +1,2668 @@
+##############################################################################
+# Training FEDformer Model on All Datasets
+##############################################################################
+Training: FEDformer on NVIDIA for H=3
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_NVIDIA_H3 Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+ fourier enhanced cross attention used!
+modes_q=16, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: NVIDIA H=3
+
+Training: FEDformer on NVIDIA for H=5
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_NVIDIA_H5 Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+ fourier enhanced cross attention used!
+modes_q=17, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: NVIDIA H=5
+
+Training: FEDformer on NVIDIA for H=10
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_NVIDIA_H10Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+ fourier enhanced cross attention used!
+modes_q=20, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: NVIDIA H=10
+
+Training: FEDformer on NVIDIA for H=22
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_NVIDIA_H22Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+ fourier enhanced cross attention used!
+modes_q=26, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: NVIDIA H=22
+
+Training: FEDformer on NVIDIA for H=50
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_NVIDIA_H50Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 22, 23, 24, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 37, 39]
+ fourier enhanced cross attention used!
+modes_q=32, index_q=[0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 22, 24, 26, 28, 29, 30, 33, 34, 35, 36, 37, 38, 39]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: NVIDIA H=50
+
+Training: FEDformer on NVIDIA for H=100
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_NVIDIA_H100Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 8, 13, 16, 20, 22, 23, 24, 28, 29, 30, 31, 32, 34, 35, 37, 39, 43, 44, 46, 51, 52, 55, 56, 57, 62, 63, 64]
+ fourier enhanced cross attention used!
+modes_q=32, index_q=[0, 1, 2, 4, 5, 6, 8, 9, 10, 12, 13, 14, 17, 18, 20, 21, 22, 23, 28, 30, 34, 36, 44, 45, 50, 53, 54, 55, 56, 57, 61, 63]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: NVIDIA H=100
+
+Training: FEDformer on APPLE for H=3
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_APPLE_H3  Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+ fourier enhanced cross attention used!
+modes_q=16, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: APPLE H=3
+
+Training: FEDformer on APPLE for H=5
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_APPLE_H5  Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+ fourier enhanced cross attention used!
+modes_q=17, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: APPLE H=5
+
+Training: FEDformer on APPLE for H=10
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_APPLE_H10 Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+ fourier enhanced cross attention used!
+modes_q=20, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: APPLE H=10
+
+Training: FEDformer on APPLE for H=22
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_APPLE_H22 Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+ fourier enhanced cross attention used!
+modes_q=26, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: APPLE H=22
+
+Training: FEDformer on APPLE for H=50
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_APPLE_H50 Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 22, 23, 24, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 37, 39]
+ fourier enhanced cross attention used!
+modes_q=32, index_q=[0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 22, 24, 26, 28, 29, 30, 33, 34, 35, 36, 37, 38, 39]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: APPLE H=50
+
+Training: FEDformer on APPLE for H=100
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_APPLE_H100Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 8, 13, 16, 20, 22, 23, 24, 28, 29, 30, 31, 32, 34, 35, 37, 39, 43, 44, 46, 51, 52, 55, 56, 57, 62, 63, 64]
+ fourier enhanced cross attention used!
+modes_q=32, index_q=[0, 1, 2, 4, 5, 6, 8, 9, 10, 12, 13, 14, 17, 18, 20, 21, 22, 23, 28, 30, 34, 36, 44, 45, 50, 53, 54, 55, 56, 57, 61, 63]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: APPLE H=100
+
+Training: FEDformer on SP500 for H=3
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_SP500_H3  Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+ fourier enhanced cross attention used!
+modes_q=16, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: SP500 H=3
+
+Training: FEDformer on SP500 for H=5
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_SP500_H5  Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+ fourier enhanced cross attention used!
+modes_q=17, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: SP500 H=5
+
+Training: FEDformer on SP500 for H=10
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_SP500_H10 Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+ fourier enhanced cross attention used!
+modes_q=20, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: SP500 H=10
+
+Training: FEDformer on SP500 for H=22
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_SP500_H22 Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+ fourier enhanced cross attention used!
+modes_q=26, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: SP500 H=22
+
+Training: FEDformer on SP500 for H=50
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_SP500_H50 Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 22, 23, 24, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 37, 39]
+ fourier enhanced cross attention used!
+modes_q=32, index_q=[0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 22, 24, 26, 28, 29, 30, 33, 34, 35, 36, 37, 38, 39]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: SP500 H=50
+
+Training: FEDformer on SP500 for H=100
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_SP500_H100Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 8, 13, 16, 20, 22, 23, 24, 28, 29, 30, 31, 32, 34, 35, 37, 39, 43, 44, 46, 51, 52, 55, 56, 57, 62, 63, 64]
+ fourier enhanced cross attention used!
+modes_q=32, index_q=[0, 1, 2, 4, 5, 6, 8, 9, 10, 12, 13, 14, 17, 18, 20, 21, 22, 23, 28, 30, 34, 36, 44, 45, 50, 53, 54, 55, 56, 57, 61, 63]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: SP500 H=100
+
+Training: FEDformer on NASDAQ for H=3
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_NASDAQ_H3 Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+ fourier enhanced cross attention used!
+modes_q=16, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: NASDAQ H=3
+
+Training: FEDformer on NASDAQ for H=5
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_NASDAQ_H5 Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+ fourier enhanced cross attention used!
+modes_q=17, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: NASDAQ H=5
+
+Training: FEDformer on NASDAQ for H=10
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_NASDAQ_H10Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+ fourier enhanced cross attention used!
+modes_q=20, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: NASDAQ H=10
+
+Training: FEDformer on NASDAQ for H=22
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_NASDAQ_H22Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+ fourier enhanced cross attention used!
+modes_q=26, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: NASDAQ H=22
+
+Training: FEDformer on NASDAQ for H=50
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_NASDAQ_H50Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 22, 23, 24, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 37, 39]
+ fourier enhanced cross attention used!
+modes_q=32, index_q=[0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 22, 24, 26, 28, 29, 30, 33, 34, 35, 36, 37, 38, 39]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: NASDAQ H=50
+
+Training: FEDformer on NASDAQ for H=100
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_NASDAQ_H100Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 8, 13, 16, 20, 22, 23, 24, 28, 29, 30, 31, 32, 34, 35, 37, 39, 43, 44, 46, 51, 52, 55, 56, 57, 62, 63, 64]
+ fourier enhanced cross attention used!
+modes_q=32, index_q=[0, 1, 2, 4, 5, 6, 8, 9, 10, 12, 13, 14, 17, 18, 20, 21, 22, 23, 28, 30, 34, 36, 44, 45, 50, 53, 54, 55, 56, 57, 61, 63]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: NASDAQ H=100
+
+Training: FEDformer on ABSA for H=3
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_ABSA_H3   Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+ fourier enhanced cross attention used!
+modes_q=16, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: ABSA H=3
+
+Training: FEDformer on ABSA for H=5
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_ABSA_H5   Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+ fourier enhanced cross attention used!
+modes_q=17, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: ABSA H=5
+
+Training: FEDformer on ABSA for H=10
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_ABSA_H10  Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+ fourier enhanced cross attention used!
+modes_q=20, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: ABSA H=10
+
+Training: FEDformer on ABSA for H=22
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_ABSA_H22  Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+ fourier enhanced cross attention used!
+modes_q=26, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: ABSA H=22
+
+Training: FEDformer on ABSA for H=50
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_ABSA_H50  Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 22, 23, 24, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 37, 39]
+ fourier enhanced cross attention used!
+modes_q=32, index_q=[0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 22, 24, 26, 28, 29, 30, 33, 34, 35, 36, 37, 38, 39]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: ABSA H=50
+
+Training: FEDformer on ABSA for H=100
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_ABSA_H100 Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 8, 13, 16, 20, 22, 23, 24, 28, 29, 30, 31, 32, 34, 35, 37, 39, 43, 44, 46, 51, 52, 55, 56, 57, 62, 63, 64]
+ fourier enhanced cross attention used!
+modes_q=32, index_q=[0, 1, 2, 4, 5, 6, 8, 9, 10, 12, 13, 14, 17, 18, 20, 21, 22, 23, 28, 30, 34, 36, 44, 45, 50, 53, 54, 55, 56, 57, 61, 63]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: ABSA H=100
+
+Training: FEDformer on SASOL for H=3
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_SASOL_H3  Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+ fourier enhanced cross attention used!
+modes_q=16, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: SASOL H=3
+
+Training: FEDformer on SASOL for H=5
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_SASOL_H5  Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+ fourier enhanced cross attention used!
+modes_q=17, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: SASOL H=5
+
+Training: FEDformer on SASOL for H=10
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_SASOL_H10 Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+ fourier enhanced cross attention used!
+modes_q=20, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: SASOL H=10
+
+Training: FEDformer on SASOL for H=22
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_SASOL_H22 Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+ fourier enhanced cross attention used!
+modes_q=26, index_q=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: SASOL H=22
+
+Training: FEDformer on SASOL for H=50
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_SASOL_H50 Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 22, 23, 24, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 37, 39]
+ fourier enhanced cross attention used!
+modes_q=32, index_q=[0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 22, 24, 26, 28, 29, 30, 33, 34, 35, 36, 37, 38, 39]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: SASOL H=50
+
+Training: FEDformer on SASOL for H=100
+Using cpu or mps
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           FEDformer_SASOL_H100Model:              FEDformer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                FEDformer_Exp       Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 3, 4, 8, 13, 16, 20, 22, 23, 24, 28, 29, 30, 31, 32, 34, 35, 37, 39, 43, 44, 46, 51, 52, 55, 56, 57, 62, 63, 64]
+ fourier enhanced cross attention used!
+modes_q=32, index_q=[0, 1, 2, 4, 5, 6, 8, 9, 10, 12, 13, 14, 17, 18, 20, 21, 22, 23, 28, 30, 34, 36, 44, 45, 50, 53, 54, 55, 56, 57, 61, 63]
+modes_kv=30, index_kv=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+Traceback (most recent call last):
+  File "run.py", line 179, in <module>
+    exp = Exp(args)  # set experiments
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 22, in __init__
+    super(Exp_Long_Term_Forecast, self).__init__(args)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_basic.py", line 50, in __init__
+    self.model = self._build_model().to(self.device)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+Completed: SASOL H=100
+
+FEDformer training completed for all datasets!

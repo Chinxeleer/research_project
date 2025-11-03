@@ -1,0 +1,3122 @@
+##############################################################################
+# Training Autoformer Model on All Datasets
+##############################################################################
+Training: Autoformer on NVIDIA for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_NVIDIA_H3Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_NVIDIA_H3_Autoformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.127978).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_NVIDIA_H3_Autoformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 6) (125, 3, 6)
+test shape: (125, 3, 6) (125, 3, 6)
+
+
+	mse:0.044429145753383636, mae:0.13504990935325623, rmse:0.2107822299003601, r2:0.9987839567475021, dtw:Not calculated
+
+
+VAL - MSE: 0.0444, MAE: 0.1350, RMSE: 0.2108, R²: 0.9988, MAPE: 4934844.50%
+Completed: NVIDIA H=3
+
+Training: Autoformer on NVIDIA for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_NVIDIA_H5Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_NVIDIA_H5_Autoformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.141577).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.141577 --> 0.118984).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.118984 --> 0.118341).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.118341 --> 0.118272).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.118272 --> 0.114676).  Saving model ...
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_NVIDIA_H5_Autoformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 6) (123, 5, 6)
+test shape: (123, 5, 6) (123, 5, 6)
+
+
+	mse:0.05888795852661133, mae:0.16331715881824493, rmse:0.24266842007637024, r2:0.9983898492064327, dtw:Not calculated
+
+
+VAL - MSE: 0.0589, MAE: 0.1633, RMSE: 0.2427, R²: 0.9984, MAPE: 3078007.00%
+Completed: NVIDIA H=5
+
+Training: Autoformer on NVIDIA for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_NVIDIA_H10Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_NVIDIA_H10_Autoformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.127097).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.127097 --> 0.116836).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.116836 --> 0.112893).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.112893 --> 0.112503).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_NVIDIA_H10_Autoformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 6) (118, 10, 6)
+test shape: (118, 10, 6) (118, 10, 6)
+
+
+	mse:0.046011749655008316, mae:0.1380717009305954, rmse:0.21450349688529968, r2:0.9987443585414439, dtw:Not calculated
+
+
+VAL - MSE: 0.0460, MAE: 0.1381, RMSE: 0.2145, R²: 0.9987, MAPE: 2826427.50%
+Completed: NVIDIA H=10
+
+Training: Autoformer on NVIDIA for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_NVIDIA_H22Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_NVIDIA_H22_Autoformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.161401).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.161401 --> 0.159066).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.159066 --> 0.153728).  Saving model ...
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_NVIDIA_H22_Autoformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 6) (106, 22, 6)
+test shape: (106, 22, 6) (106, 22, 6)
+
+
+	mse:0.04600005969405174, mae:0.12890461087226868, rmse:0.21447624266147614, r2:0.9987489528721198, dtw:Not calculated
+
+
+VAL - MSE: 0.0460, MAE: 0.1289, RMSE: 0.2145, R²: 0.9987, MAPE: 3348351.00%
+Completed: NVIDIA H=22
+
+Training: Autoformer on NVIDIA for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_NVIDIA_H50Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_NVIDIA_H50_Autoformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.148192).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.148192 --> 0.147832).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_NVIDIA_H50_Autoformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 6) (78, 50, 6)
+test shape: (78, 50, 6) (78, 50, 6)
+
+
+	mse:0.06311841309070587, mae:0.17162013053894043, rmse:0.2512337863445282, r2:0.9982899979222566, dtw:Not calculated
+
+
+VAL - MSE: 0.0631, MAE: 0.1716, RMSE: 0.2512, R²: 0.9983, MAPE: 3168161.50%
+Completed: NVIDIA H=50
+
+Training: Autoformer on NVIDIA for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_NVIDIA_H100Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_NVIDIA_H100_Autoformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Validation loss decreased (inf --> 0.166822).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.166822 --> 0.160780).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_NVIDIA_H100_Autoformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 6) (28, 100, 6)
+test shape: (28, 100, 6) (28, 100, 6)
+
+
+	mse:0.0808672159910202, mae:0.20667430758476257, rmse:0.28437161445617676, r2:0.9978046612814069, dtw:Not calculated
+
+
+VAL - MSE: 0.0809, MAE: 0.2067, RMSE: 0.2844, R²: 0.9978, MAPE: 1740066.25%
+Completed: NVIDIA H=100
+
+Training: Autoformer on APPLE for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_APPLE_H3 Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_APPLE_H3_Autoformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.085248).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.085248 --> 0.077229).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.077229 --> 0.077160).  Saving model ...
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.077160 --> 0.077155).  Saving model ...
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (0.077155 --> 0.076812).  Saving model ...
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.0517578125e-09
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.52587890625e-09
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.62939453125e-10
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_APPLE_H3_Autoformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 6) (125, 3, 6)
+test shape: (125, 3, 6) (125, 3, 6)
+
+
+	mse:0.034381091594696045, mae:0.09890879690647125, rmse:0.1854213923215866, r2:0.9989515936467797, dtw:Not calculated
+
+
+VAL - MSE: 0.0344, MAE: 0.0989, RMSE: 0.1854, R²: 0.9990, MAPE: 44006.52%
+Completed: APPLE H=3
+
+Training: Autoformer on APPLE for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_APPLE_H5 Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_APPLE_H5_Autoformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.100827).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.100827 --> 0.089138).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.089138 --> 0.083740).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.083740 --> 0.083543).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_APPLE_H5_Autoformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 6) (123, 5, 6)
+test shape: (123, 5, 6) (123, 5, 6)
+
+
+	mse:0.03092191182076931, mae:0.09526423364877701, rmse:0.17584627866744995, r2:0.9990581675665453, dtw:Not calculated
+
+
+VAL - MSE: 0.0309, MAE: 0.0953, RMSE: 0.1758, R²: 0.9991, MAPE: 33906.21%
+Completed: APPLE H=5
+
+Training: Autoformer on APPLE for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_APPLE_H10Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_APPLE_H10_Autoformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.105796).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.105796 --> 0.093639).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.093639 --> 0.093508).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.093508 --> 0.085933).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.085933 --> 0.085561).  Saving model ...
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.90625e-07
+Validation loss decreased (0.085561 --> 0.085077).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.085077 --> 0.084921).  Saving model ...
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_APPLE_H10_Autoformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 6) (118, 10, 6)
+test shape: (118, 10, 6) (118, 10, 6)
+
+
+	mse:0.03505876660346985, mae:0.10655079782009125, rmse:0.187239870429039, r2:0.9989334380952641, dtw:Not calculated
+
+
+VAL - MSE: 0.0351, MAE: 0.1066, RMSE: 0.1872, R²: 0.9989, MAPE: 75960.48%
+Completed: APPLE H=10
+
+Training: Autoformer on APPLE for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_APPLE_H22Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_APPLE_H22_Autoformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.089752).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_APPLE_H22_Autoformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 6) (106, 22, 6)
+test shape: (106, 22, 6) (106, 22, 6)
+
+
+	mse:0.04205780848860741, mae:0.12339705228805542, rmse:0.20508000254631042, r2:0.9987221815390512, dtw:Not calculated
+
+
+VAL - MSE: 0.0421, MAE: 0.1234, RMSE: 0.2051, R²: 0.9987, MAPE: 62702.75%
+Completed: APPLE H=22
+
+Training: Autoformer on APPLE for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_APPLE_H50Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_APPLE_H50_Autoformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.086918).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_APPLE_H50_Autoformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 6) (78, 50, 6)
+test shape: (78, 50, 6) (78, 50, 6)
+
+
+	mse:0.05254974588751793, mae:0.16744458675384521, rmse:0.22923731803894043, r2:0.998408579849638, dtw:Not calculated
+
+
+VAL - MSE: 0.0525, MAE: 0.1674, RMSE: 0.2292, R²: 0.9984, MAPE: 32016.65%
+Completed: APPLE H=50
+
+Training: Autoformer on APPLE for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_APPLE_H100Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_APPLE_H100_Autoformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Validation loss decreased (inf --> 0.079246).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_APPLE_H100_Autoformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 6) (28, 100, 6)
+test shape: (28, 100, 6) (28, 100, 6)
+
+
+	mse:0.07095324993133545, mae:0.21771091222763062, rmse:0.2663705050945282, r2:0.9978467738255858, dtw:Not calculated
+
+
+VAL - MSE: 0.0710, MAE: 0.2177, RMSE: 0.2664, R²: 0.9978, MAPE: 40388.26%
+Completed: APPLE H=100
+
+Training: Autoformer on SP500 for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_SP500_H3 Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_SP500_H3_Autoformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.071312).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.071312 --> 0.066038).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.066038 --> 0.056436).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.056436 --> 0.055059).  Saving model ...
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.055059 --> 0.054688).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (0.054688 --> 0.054649).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (0.054649 --> 0.053901).  Saving model ...
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_SP500_H3_Autoformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 6) (125, 3, 6)
+test shape: (125, 3, 6) (125, 3, 6)
+
+
+	mse:0.0008625192567706108, mae:0.02063889242708683, rmse:0.029368678107857704, r2:0.9999331863655243, dtw:Not calculated
+
+
+VAL - MSE: 0.0009, MAE: 0.0206, RMSE: 0.0294, R²: 0.9999, MAPE: inf%
+Completed: SP500 H=3
+
+Training: Autoformer on SP500 for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_SP500_H5 Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_SP500_H5_Autoformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.063274).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.063274 --> 0.058470).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.058470 --> 0.053182).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.053182 --> 0.050380).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.050380 --> 0.049501).  Saving model ...
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.049501 --> 0.049358).  Saving model ...
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (0.049358 --> 0.049354).  Saving model ...
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.0517578125e-09
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.52587890625e-09
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_SP500_H5_Autoformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 6) (123, 5, 6)
+test shape: (123, 5, 6) (123, 5, 6)
+
+
+	mse:0.0010428930399939418, mae:0.022204436361789703, rmse:0.032293856143951416, r2:0.9999192088507698, dtw:Not calculated
+
+
+VAL - MSE: 0.0010, MAE: 0.0222, RMSE: 0.0323, R²: 0.9999, MAPE: inf%
+Completed: SP500 H=5
+
+Training: Autoformer on SP500 for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_SP500_H10Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_SP500_H10_Autoformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.061575).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.061575 --> 0.056689).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.056689 --> 0.053316).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.053316 --> 0.052249).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.052249 --> 0.051888).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.90625e-07
+Validation loss decreased (0.051888 --> 0.051397).  Saving model ...
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_SP500_H10_Autoformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 6) (118, 10, 6)
+test shape: (118, 10, 6) (118, 10, 6)
+
+
+	mse:0.0009696113993413746, mae:0.021159036085009575, rmse:0.0311385840177536, r2:0.9999248706735671, dtw:Not calculated
+
+
+VAL - MSE: 0.0010, MAE: 0.0212, RMSE: 0.0311, R²: 0.9999, MAPE: inf%
+Completed: SP500 H=10
+
+Training: Autoformer on SP500 for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_SP500_H22Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_SP500_H22_Autoformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.062193).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.062193 --> 0.054333).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_SP500_H22_Autoformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 6) (106, 22, 6)
+test shape: (106, 22, 6) (106, 22, 6)
+
+
+	mse:0.0015907137421891093, mae:0.027502764016389847, rmse:0.039883751422166824, r2:0.999876675879932, dtw:Not calculated
+
+
+VAL - MSE: 0.0016, MAE: 0.0275, RMSE: 0.0399, R²: 0.9999, MAPE: inf%
+Completed: SP500 H=22
+
+Training: Autoformer on SP500 for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_SP500_H50Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_SP500_H50_Autoformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.051526).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_SP500_H50_Autoformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 6) (78, 50, 6)
+test shape: (78, 50, 6) (78, 50, 6)
+
+
+	mse:0.0032890208531171083, mae:0.04123294726014137, rmse:0.05734998732805252, r2:0.9997444654873107, dtw:Not calculated
+
+
+VAL - MSE: 0.0033, MAE: 0.0412, RMSE: 0.0573, R²: 0.9997, MAPE: inf%
+Completed: SP500 H=50
+
+Training: Autoformer on SP500 for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_SP500_H100Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_SP500_H100_Autoformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Validation loss decreased (inf --> 0.051102).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_SP500_H100_Autoformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 6) (28, 100, 6)
+test shape: (28, 100, 6) (28, 100, 6)
+
+
+	mse:0.003113312181085348, mae:0.041561394929885864, rmse:0.05579706281423569, r2:0.9997585443343269, dtw:Not calculated
+
+
+VAL - MSE: 0.0031, MAE: 0.0416, RMSE: 0.0558, R²: 0.9998, MAPE: inf%
+Completed: SP500 H=100
+
+Training: Autoformer on NASDAQ for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_NASDAQ_H3Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_NASDAQ_H3_Autoformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.120764).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.120764 --> 0.116080).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.116080 --> 0.098460).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.098460 --> 0.098231).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.098231 --> 0.097652).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.097652 --> 0.094500).  Saving model ...
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_NASDAQ_H3_Autoformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 6) (125, 3, 6)
+test shape: (125, 3, 6) (125, 3, 6)
+
+
+	mse:0.039492569863796234, mae:0.08266978710889816, rmse:0.19872736930847168, r2:0.9979961419012398, dtw:Not calculated
+
+
+VAL - MSE: 0.0395, MAE: 0.0827, RMSE: 0.1987, R²: 0.9980, MAPE: 1576897.00%
+Completed: NASDAQ H=3
+
+Training: Autoformer on NASDAQ for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_NASDAQ_H5Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_NASDAQ_H5_Autoformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.116779).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.116779 --> 0.113852).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.113852 --> 0.108479).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.108479 --> 0.104862).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_NASDAQ_H5_Autoformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 6) (123, 5, 6)
+test shape: (123, 5, 6) (123, 5, 6)
+
+
+	mse:0.041338566690683365, mae:0.08365554362535477, rmse:0.20331887900829315, r2:0.997902668081224, dtw:Not calculated
+
+
+VAL - MSE: 0.0413, MAE: 0.0837, RMSE: 0.2033, R²: 0.9979, MAPE: 1975464.75%
+Completed: NASDAQ H=5
+
+Training: Autoformer on NASDAQ for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_NASDAQ_H10Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_NASDAQ_H10_Autoformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.122979).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.122979 --> 0.122577).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.122577 --> 0.121020).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.121020 --> 0.118411).  Saving model ...
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_NASDAQ_H10_Autoformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 6) (118, 10, 6)
+test shape: (118, 10, 6) (118, 10, 6)
+
+
+	mse:0.0408974289894104, mae:0.0818442851305008, rmse:0.20223112404346466, r2:0.9979245993308723, dtw:Not calculated
+
+
+VAL - MSE: 0.0409, MAE: 0.0818, RMSE: 0.2022, R²: 0.9979, MAPE: 1537125.00%
+Completed: NASDAQ H=10
+
+Training: Autoformer on NASDAQ for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_NASDAQ_H22Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_NASDAQ_H22_Autoformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.126456).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+Validation loss decreased (0.126456 --> 0.116413).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.116413 --> 0.108991).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.108991 --> 0.108347).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.108347 --> 0.105093).  Saving model ...
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 9.765625e-08
+Validation loss decreased (0.105093 --> 0.102999).  Saving model ...
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.0517578125e-09
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_NASDAQ_H22_Autoformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 6) (106, 22, 6)
+test shape: (106, 22, 6) (106, 22, 6)
+
+
+	mse:0.04040215164422989, mae:0.08333871513605118, rmse:0.20100286602973938, r2:0.9979531688150018, dtw:Not calculated
+
+
+VAL - MSE: 0.0404, MAE: 0.0833, RMSE: 0.2010, R²: 0.9980, MAPE: 1128014.50%
+Completed: NASDAQ H=22
+
+Training: Autoformer on NASDAQ for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_NASDAQ_H50Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_NASDAQ_H50_Autoformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.118729).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_NASDAQ_H50_Autoformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 6) (78, 50, 6)
+test shape: (78, 50, 6) (78, 50, 6)
+
+
+	mse:0.04093138873577118, mae:0.08230393379926682, rmse:0.2023150771856308, r2:0.9979274095967412, dtw:Not calculated
+
+
+VAL - MSE: 0.0409, MAE: 0.0823, RMSE: 0.2023, R²: 0.9979, MAPE: 1553862.88%
+Completed: NASDAQ H=50
+
+Training: Autoformer on NASDAQ for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_NASDAQ_H100Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_NASDAQ_H100_Autoformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Validation loss decreased (inf --> 0.143914).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.143914 --> 0.142678).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.142678 --> 0.142628).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.142628 --> 0.139900).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_NASDAQ_H100_Autoformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 6) (28, 100, 6)
+test shape: (28, 100, 6) (28, 100, 6)
+
+
+	mse:0.04563169181346893, mae:0.1092950701713562, rmse:0.2136157602071762, r2:0.9976908469107002, dtw:Not calculated
+
+
+VAL - MSE: 0.0456, MAE: 0.1093, RMSE: 0.2136, R²: 0.9977, MAPE: 1161119.75%
+Completed: NASDAQ H=100
+
+Training: Autoformer on ABSA for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_ABSA_H3  Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_ABSA_H3_Autoformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.101757).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.101757 --> 0.066480).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_ABSA_H3_Autoformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 6) (125, 3, 6)
+test shape: (125, 3, 6) (125, 3, 6)
+
+
+	mse:0.05787976086139679, mae:0.11184437572956085, rmse:0.24058212339878082, r2:0.9959210236556828, dtw:Not calculated
+
+
+VAL - MSE: 0.0579, MAE: 0.1118, RMSE: 0.2406, R²: 0.9959, MAPE: 0.91%
+Completed: ABSA H=3
+
+Training: Autoformer on ABSA for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_ABSA_H5  Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_ABSA_H5_Autoformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.082233).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.082233 --> 0.077505).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.077505 --> 0.075264).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_ABSA_H5_Autoformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 6) (123, 5, 6)
+test shape: (123, 5, 6) (123, 5, 6)
+
+
+	mse:0.058252833783626556, mae:0.11886125802993774, rmse:0.2413562387228012, r2:0.9958992293104529, dtw:Not calculated
+
+
+VAL - MSE: 0.0583, MAE: 0.1189, RMSE: 0.2414, R²: 0.9959, MAPE: 0.49%
+Completed: ABSA H=5
+
+Training: Autoformer on ABSA for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_ABSA_H10 Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_ABSA_H10_Autoformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.080653).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.080653 --> 0.073372).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.073372 --> 0.066173).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_ABSA_H10_Autoformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 6) (118, 10, 6)
+test shape: (118, 10, 6) (118, 10, 6)
+
+
+	mse:0.056985437870025635, mae:0.11061452329158783, rmse:0.2387162297964096, r2:0.9959940314292908, dtw:Not calculated
+
+
+VAL - MSE: 0.0570, MAE: 0.1106, RMSE: 0.2387, R²: 0.9960, MAPE: 0.60%
+Completed: ABSA H=10
+
+Training: Autoformer on ABSA for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_ABSA_H22 Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_ABSA_H22_Autoformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.070411).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_ABSA_H22_Autoformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 6) (106, 22, 6)
+test shape: (106, 22, 6) (106, 22, 6)
+
+
+	mse:0.053765881806612015, mae:0.11075202375650406, rmse:0.23187470436096191, r2:0.9962273233104497, dtw:Not calculated
+
+
+VAL - MSE: 0.0538, MAE: 0.1108, RMSE: 0.2319, R²: 0.9962, MAPE: 0.60%
+Completed: ABSA H=22
+
+Training: Autoformer on ABSA for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_ABSA_H50 Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_ABSA_H50_Autoformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.077261).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_ABSA_H50_Autoformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 6) (78, 50, 6)
+test shape: (78, 50, 6) (78, 50, 6)
+
+
+	mse:0.05152596905827522, mae:0.1264582723379135, rmse:0.22699332237243652, r2:0.9963707949500531, dtw:Not calculated
+
+
+VAL - MSE: 0.0515, MAE: 0.1265, RMSE: 0.2270, R²: 0.9964, MAPE: 0.55%
+Completed: ABSA H=50
+
+Training: Autoformer on ABSA for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_ABSA_H100Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_ABSA_H100_Autoformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Validation loss decreased (inf --> 0.092671).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.092671 --> 0.089467).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_ABSA_H100_Autoformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 6) (28, 100, 6)
+test shape: (28, 100, 6) (28, 100, 6)
+
+
+	mse:0.05923724174499512, mae:0.12926825881004333, rmse:0.24338701367378235, r2:0.9958455436863005, dtw:Not calculated
+
+
+VAL - MSE: 0.0592, MAE: 0.1293, RMSE: 0.2434, R²: 0.9958, MAPE: 0.64%
+Completed: ABSA H=100
+
+Training: Autoformer on SASOL for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_SASOL_H3 Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_SASOL_H3_Autoformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.582737).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.582737 --> 0.552838).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.552838 --> 0.549439).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.549439 --> 0.543655).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_SASOL_H3_Autoformer_custom_ftM_sl60_ll30_pl3_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 6) (125, 3, 6)
+test shape: (125, 3, 6) (125, 3, 6)
+
+
+	mse:0.12124751508235931, mae:0.1767810583114624, rmse:0.34820613265037537, r2:0.9916805550456047, dtw:Not calculated
+
+
+VAL - MSE: 0.1212, MAE: 0.1768, RMSE: 0.3482, R²: 0.9917, MAPE: 6319285.50%
+Completed: SASOL H=3
+
+Training: Autoformer on SASOL for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_SASOL_H5 Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_SASOL_H5_Autoformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.578296).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.578296 --> 0.567097).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_SASOL_H5_Autoformer_custom_ftM_sl60_ll30_pl5_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 6) (123, 5, 6)
+test shape: (123, 5, 6) (123, 5, 6)
+
+
+	mse:0.1630953848361969, mae:0.24540211260318756, rmse:0.4038507044315338, r2:0.9888107124716043, dtw:Not calculated
+
+
+VAL - MSE: 0.1631, MAE: 0.2454, RMSE: 0.4039, R²: 0.9888, MAPE: 11111281.00%
+Completed: SASOL H=5
+
+Training: Autoformer on SASOL for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_SASOL_H10Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_SASOL_H10_Autoformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.593132).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.593132 --> 0.592533).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.592533 --> 0.583050).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.583050 --> 0.578975).  Saving model ...
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.578975 --> 0.577052).  Saving model ...
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_SASOL_H10_Autoformer_custom_ftM_sl60_ll30_pl10_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 6) (118, 10, 6)
+test shape: (118, 10, 6) (118, 10, 6)
+
+
+	mse:0.1290399432182312, mae:0.1883929967880249, rmse:0.35922130942344666, r2:0.991170572116971, dtw:Not calculated
+
+
+VAL - MSE: 0.1290, MAE: 0.1884, RMSE: 0.3592, R²: 0.9912, MAPE: 8731554.00%
+Completed: SASOL H=10
+
+Training: Autoformer on SASOL for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_SASOL_H22Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_SASOL_H22_Autoformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.668504).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.668504 --> 0.643734).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.643734 --> 0.619974).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.619974 --> 0.598696).  Saving model ...
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_SASOL_H22_Autoformer_custom_ftM_sl60_ll30_pl22_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 6) (106, 22, 6)
+test shape: (106, 22, 6) (106, 22, 6)
+
+
+	mse:0.1549704670906067, mae:0.21698617935180664, rmse:0.3936628997325897, r2:0.9894309369847178, dtw:Not calculated
+
+
+VAL - MSE: 0.1550, MAE: 0.2170, RMSE: 0.3937, R²: 0.9894, MAPE: 7750036.00%
+Completed: SASOL H=22
+
+Training: Autoformer on SASOL for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_SASOL_H50Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_SASOL_H50_Autoformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.794447).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.794447 --> 0.790187).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.790187 --> 0.773386).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_SASOL_H50_Autoformer_custom_ftM_sl60_ll30_pl50_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 6) (78, 50, 6)
+test shape: (78, 50, 6) (78, 50, 6)
+
+
+	mse:0.21072453260421753, mae:0.2826462686061859, rmse:0.45904740691185, r2:0.9857426499947906, dtw:Not calculated
+
+
+VAL - MSE: 0.2107, MAE: 0.2826, RMSE: 0.4590, R²: 0.9857, MAPE: 5638879.00%
+Completed: SASOL H=50
+
+Training: Autoformer on SASOL for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Autoformer_SASOL_H100Model:              Autoformer          
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Autoformer_Exp      Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Autoformer_SASOL_H100_Autoformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Validation loss decreased (inf --> 1.149225).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (1.149225 --> 1.138577).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Autoformer_SASOL_H100_Autoformer_custom_ftM_sl60_ll30_pl100_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Autoformer_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 6) (28, 100, 6)
+test shape: (28, 100, 6) (28, 100, 6)
+
+
+	mse:0.25540128350257874, mae:0.30416139960289, rmse:0.5053724050521851, r2:0.9826151169836521, dtw:Not calculated
+
+
+VAL - MSE: 0.2554, MAE: 0.3042, RMSE: 0.5054, R²: 0.9826, MAPE: 3692459.75%
+Completed: SASOL H=100
+
+Autoformer training completed for all datasets!
