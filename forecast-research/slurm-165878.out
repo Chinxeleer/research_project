@@ -1108,3 +1108,84 @@ test shape: (227, 14, 5) (227, 14, 5)
 
 
 VAL - MSE: 0.0592, MAE: 0.1036, RMSE: 0.2433, R²: 0.7754, MAPE: 0.32%
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Exchange_30         Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/exchange_rate/
+  Data Path:          exchange_rate.csv   Features:           M                   
+  Target:             OT                  Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            96                  Label Len:          48                  
+  Pred Len:           30                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             5                   Dec In:             5                   
+  C Out:              5                   d model:            128                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               64                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       150                 Batch Size:         32                  
+  Patience:           999                 Learning Rate:      0.0001              
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_Exchange_30_Mamba_custom_ftM_sl96_ll48_pl30_dm128_nh8_el2_dl1_df64_expand2_dc4_fc1_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+Overriding target from 'OT' to 'close' for stock data
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 4781
+Train: 4302 samples (90%) - rows 0 to 4301
+Val: 239 samples (5%) - rows 4302 to 4540
+Test: 240 samples (5%) - rows 4541 to 4780
+Sequence length: 96, Prediction length: 30
+============================================================
+train 4177
+Overriding target from 'OT' to 'close' for stock data
+val 210
+Overriding target from 'OT' to 'close' for stock data
+test 211
+Validation loss decreased (inf --> 0.035695).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.035695 --> 0.033522).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 999
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 999
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 999
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 999
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 5 out of 999
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 6 out of 999
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 7 out of 999
+Updating learning rate to 3.90625e-07
+Validation loss decreased (0.033522 --> 0.033490).  Saving model ...
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 1 out of 999
+Updating learning rate to 9.765625e-08
