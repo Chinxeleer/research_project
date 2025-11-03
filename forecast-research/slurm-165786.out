@@ -1,0 +1,3779 @@
+##############################################################################
+# Training Mamba Model on All Datasets
+##############################################################################
+Training: Mamba on NVIDIA for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NVIDIA_H3     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.100488).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.100488 --> 0.092599).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.092599 --> 0.092494).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.092494 --> 0.091912).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.091912 --> 0.091784).  Saving model ...
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.091784 --> 0.090813).  Saving model ...
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 6) (125, 3, 6)
+test shape: (125, 3, 6) (125, 3, 6)
+
+
+	mse:0.17412716150283813, mae:0.25837093591690063, rmse:0.4172854721546173, r2:0.872565820813179, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: NVIDIA H=3
+
+Training: Mamba on NVIDIA for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NVIDIA_H5     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.100649).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.100649 --> 0.095645).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.095645 --> 0.094254).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.094254 --> 0.093928).  Saving model ...
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 6) (123, 5, 6)
+test shape: (123, 5, 6) (123, 5, 6)
+
+
+	mse:0.18671071529388428, mae:0.27655622363090515, rmse:0.4321003556251526, r2:0.8621891736984253, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: NVIDIA H=5
+
+Training: Mamba on NVIDIA for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NVIDIA_H10    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.105723).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.105723 --> 0.105437).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.105437 --> 0.104343).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 6) (118, 10, 6)
+test shape: (118, 10, 6) (118, 10, 6)
+
+
+	mse:0.2270711064338684, mae:0.33495762944221497, rmse:0.47651979327201843, r2:0.8291704058647156, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: NVIDIA H=10
+
+Training: Mamba on NVIDIA for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NVIDIA_H22    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.117835).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 6) (106, 22, 6)
+test shape: (106, 22, 6) (106, 22, 6)
+
+
+	mse:0.4983404278755188, mae:0.5529270172119141, rmse:0.7059323191642761, r2:0.6051538586616516, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: NVIDIA H=22
+
+Training: Mamba on NVIDIA for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NVIDIA_H50    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.144414).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 6) (78, 50, 6)
+test shape: (78, 50, 6) (78, 50, 6)
+
+
+	mse:0.7209609746932983, mae:0.6375678777694702, rmse:0.8490942120552063, r2:0.3670775890350342, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: NVIDIA H=50
+
+Training: Mamba on NVIDIA for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NVIDIA_H100   Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Traceback (most recent call last):
+  File "run.py", line 202, in <module>
+    exp.train(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 147, in train
+    loss = criterion(outputs, batch_y)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/loss.py", line 538, in forward
+    return F.mse_loss(input, target, reduction=self.reduction)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/functional.py", line 3383, in mse_loss
+    expanded_input, expanded_target = torch.broadcast_tensors(input, target)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/functional.py", line 77, in broadcast_tensors
+    return _VF.broadcast_tensors(tensors)  # type: ignore[attr-defined]
+RuntimeError: The size of tensor a (60) must match the size of tensor b (100) at non-singleton dimension 1
+Completed: NVIDIA H=100
+
+Training: Mamba on APPLE for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_APPLE_H3      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_APPLE_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.335110).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.335110 --> 0.334213).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.334213 --> 0.332166).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.332166 --> 0.330225).  Saving model ...
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.90625e-07
+Validation loss decreased (0.330225 --> 0.328921).  Saving model ...
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 9.765625e-08
+Validation loss decreased (0.328921 --> 0.328717).  Saving model ...
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.0517578125e-09
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_APPLE_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 6) (125, 3, 6)
+test shape: (125, 3, 6) (125, 3, 6)
+
+
+	mse:0.5277621150016785, mae:0.41719791293144226, rmse:0.7264723777770996, r2:0.6116012632846832, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: APPLE H=3
+
+Training: Mamba on APPLE for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_APPLE_H5      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_APPLE_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.344450).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+Validation loss decreased (0.344450 --> 0.334190).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.334190 --> 0.331406).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_APPLE_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 6) (123, 5, 6)
+test shape: (123, 5, 6) (123, 5, 6)
+
+
+	mse:0.5407992601394653, mae:0.4228331744670868, rmse:0.7353905439376831, r2:0.6012024879455566, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: APPLE H=5
+
+Training: Mamba on APPLE for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_APPLE_H10     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_APPLE_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.367351).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.367351 --> 0.347816).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.347816 --> 0.345880).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.345880 --> 0.343185).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.8125e-07
+Validation loss decreased (0.343185 --> 0.341506).  Saving model ...
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (0.341506 --> 0.339831).  Saving model ...
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.0517578125e-09
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.52587890625e-09
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.62939453125e-10
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_APPLE_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 6) (118, 10, 6)
+test shape: (118, 10, 6) (118, 10, 6)
+
+
+	mse:0.5524190068244934, mae:0.43100208044052124, rmse:0.7432489395141602, r2:0.5920236706733704, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: APPLE H=10
+
+Training: Mamba on APPLE for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_APPLE_H22     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_APPLE_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.414777).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.414777 --> 0.405964).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.405964 --> 0.404294).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_APPLE_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 6) (106, 22, 6)
+test shape: (106, 22, 6) (106, 22, 6)
+
+
+	mse:0.6392253637313843, mae:0.4578481912612915, rmse:0.7995157241821289, r2:0.5255821049213409, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: APPLE H=22
+
+Training: Mamba on APPLE for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_APPLE_H50     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_APPLE_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.414642).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.414642 --> 0.410717).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.410717 --> 0.404821).  Saving model ...
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_APPLE_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 6) (78, 50, 6)
+test shape: (78, 50, 6) (78, 50, 6)
+
+
+	mse:0.6278020143508911, mae:0.49931132793426514, rmse:0.792339563369751, r2:0.5060840547084808, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: APPLE H=50
+
+Training: Mamba on APPLE for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_APPLE_H100    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_APPLE_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Traceback (most recent call last):
+  File "run.py", line 202, in <module>
+    exp.train(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 147, in train
+    loss = criterion(outputs, batch_y)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/loss.py", line 538, in forward
+    return F.mse_loss(input, target, reduction=self.reduction)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/functional.py", line 3383, in mse_loss
+    expanded_input, expanded_target = torch.broadcast_tensors(input, target)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/functional.py", line 77, in broadcast_tensors
+    return _VF.broadcast_tensors(tensors)  # type: ignore[attr-defined]
+RuntimeError: The size of tensor a (60) must match the size of tensor b (100) at non-singleton dimension 1
+Completed: APPLE H=100
+
+Training: Mamba on SP500 for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SP500_H3      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_SP500_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> nan).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.76837158203125e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1920928955078126e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.960464477539063e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9802322387695314e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4901161193847657e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.450580596923828e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.862645149230957e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.313225746154786e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.656612873077393e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.3283064365386964e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1641532182693482e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.820766091346741e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9103830456733705e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4551915228366853e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.275957614183426e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.637978807091713e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.8189894035458566e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.094947017729283e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.5474735088646414e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.2737367544323207e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1368683772161604e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.684341886080802e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.842170943040401e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4210854715202004e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.105427357601002e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.552713678800501e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.7763568394002505e-19
+>>>>>>>testing : long_term_forecast_Mamba_SP500_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 6) (125, 3, 6)
+test shape: (125, 3, 6) (125, 3, 6)
+
+
+	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: SP500 H=3
+
+Training: Mamba on SP500 for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SP500_H5      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_SP500_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> nan).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.76837158203125e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1920928955078126e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.960464477539063e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9802322387695314e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4901161193847657e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.450580596923828e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.862645149230957e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.313225746154786e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.656612873077393e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.3283064365386964e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1641532182693482e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.820766091346741e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9103830456733705e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4551915228366853e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.275957614183426e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.637978807091713e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.8189894035458566e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.094947017729283e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.5474735088646414e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.2737367544323207e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1368683772161604e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.684341886080802e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.842170943040401e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4210854715202004e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.105427357601002e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.552713678800501e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.7763568394002505e-19
+>>>>>>>testing : long_term_forecast_Mamba_SP500_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 6) (123, 5, 6)
+test shape: (123, 5, 6) (123, 5, 6)
+
+
+	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: SP500 H=5
+
+Training: Mamba on SP500 for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SP500_H10     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_SP500_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> nan).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.76837158203125e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1920928955078126e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.960464477539063e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9802322387695314e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4901161193847657e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.450580596923828e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.862645149230957e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.313225746154786e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.656612873077393e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.3283064365386964e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1641532182693482e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.820766091346741e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9103830456733705e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4551915228366853e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.275957614183426e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.637978807091713e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.8189894035458566e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.094947017729283e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.5474735088646414e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.2737367544323207e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1368683772161604e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.684341886080802e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.842170943040401e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4210854715202004e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.105427357601002e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.552713678800501e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.7763568394002505e-19
+>>>>>>>testing : long_term_forecast_Mamba_SP500_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 6) (118, 10, 6)
+test shape: (118, 10, 6) (118, 10, 6)
+
+
+	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: SP500 H=10
+
+Training: Mamba on SP500 for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SP500_H22     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_SP500_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> nan).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.76837158203125e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1920928955078126e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.960464477539063e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9802322387695314e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4901161193847657e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.450580596923828e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.862645149230957e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.313225746154786e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.656612873077393e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.3283064365386964e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1641532182693482e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.820766091346741e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9103830456733705e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4551915228366853e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.275957614183426e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.637978807091713e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.8189894035458566e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.094947017729283e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.5474735088646414e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.2737367544323207e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1368683772161604e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.684341886080802e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.842170943040401e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4210854715202004e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.105427357601002e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.552713678800501e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.7763568394002505e-19
+>>>>>>>testing : long_term_forecast_Mamba_SP500_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 6) (106, 22, 6)
+test shape: (106, 22, 6) (106, 22, 6)
+
+
+	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: SP500 H=22
+
+Training: Mamba on SP500 for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SP500_H50     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_SP500_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> nan).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.8125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.90625e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.765625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.76837158203125e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1920928955078126e-11
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.960464477539063e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9802322387695314e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4901161193847657e-12
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.450580596923828e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.862645149230957e-13
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.313225746154786e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.656612873077393e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.3283064365386964e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1641532182693482e-14
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.820766091346741e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.9103830456733705e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4551915228366853e-15
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.275957614183426e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.637978807091713e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.8189894035458566e-16
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 9.094947017729283e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 4.5474735088646414e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.2737367544323207e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.1368683772161604e-17
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 5.684341886080802e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 2.842170943040401e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.4210854715202004e-18
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 7.105427357601002e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 3.552713678800501e-19
+Validation loss decreased (nan --> nan).  Saving model ...
+Updating learning rate to 1.7763568394002505e-19
+>>>>>>>testing : long_term_forecast_Mamba_SP500_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 6) (78, 50, 6)
+test shape: (78, 50, 6) (78, 50, 6)
+
+
+	mse:nan, mae:nan, rmse:nan, r2:nan, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: SP500 H=50
+
+Training: Mamba on SP500 for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SP500_H100    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_SP500_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Traceback (most recent call last):
+  File "run.py", line 202, in <module>
+    exp.train(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 147, in train
+    loss = criterion(outputs, batch_y)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/loss.py", line 538, in forward
+    return F.mse_loss(input, target, reduction=self.reduction)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/functional.py", line 3383, in mse_loss
+    expanded_input, expanded_target = torch.broadcast_tensors(input, target)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/functional.py", line 77, in broadcast_tensors
+    return _VF.broadcast_tensors(tensors)  # type: ignore[attr-defined]
+RuntimeError: The size of tensor a (60) must match the size of tensor b (100) at non-singleton dimension 1
+Completed: SP500 H=100
+
+Training: Mamba on NASDAQ for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NASDAQ_H3     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_NASDAQ_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.064327).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.064327 --> 0.048739).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.048739 --> 0.047618).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.047618 --> 0.047478).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.047478 --> 0.047213).  Saving model ...
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.047213 --> 0.046916).  Saving model ...
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (0.046916 --> 0.046905).  Saving model ...
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.0517578125e-09
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.52587890625e-09
+Validation loss decreased (0.046905 --> 0.046858).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.814697265625e-10
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.9073486328125e-10
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 9.5367431640625e-11
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 4.76837158203125e-11
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NASDAQ_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 6) (125, 3, 6)
+test shape: (125, 3, 6) (125, 3, 6)
+
+
+	mse:0.10430251061916351, mae:0.20704606175422668, rmse:0.3229590058326721, r2:0.9644422084093094, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: NASDAQ H=3
+
+Training: Mamba on NASDAQ for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NASDAQ_H5     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_NASDAQ_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.065302).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.065302 --> 0.051227).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.051227 --> 0.051194).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.051194 --> 0.050767).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.050767 --> 0.050622).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.050622 --> 0.050418).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.050418 --> 0.050217).  Saving model ...
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-07
+Validation loss decreased (0.050217 --> 0.050160).  Saving model ...
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NASDAQ_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 6) (123, 5, 6)
+test shape: (123, 5, 6) (123, 5, 6)
+
+
+	mse:0.11743956059217453, mae:0.22681447863578796, rmse:0.34269455075263977, r2:0.9599564261734486, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: NASDAQ H=5
+
+Training: Mamba on NASDAQ for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NASDAQ_H10    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_NASDAQ_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.068711).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.068711 --> 0.062636).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NASDAQ_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 6) (118, 10, 6)
+test shape: (118, 10, 6) (118, 10, 6)
+
+
+	mse:0.14784879982471466, mae:0.2755218744277954, rmse:0.3845111131668091, r2:0.9497015215456486, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: NASDAQ H=10
+
+Training: Mamba on NASDAQ for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NASDAQ_H22    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_NASDAQ_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.085059).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.085059 --> 0.083091).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NASDAQ_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 6) (106, 22, 6)
+test shape: (106, 22, 6) (106, 22, 6)
+
+
+	mse:0.19845935702323914, mae:0.3285938501358032, rmse:0.44548776745796204, r2:0.9325985684990883, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: NASDAQ H=22
+
+Training: Mamba on NASDAQ for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NASDAQ_H50    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_NASDAQ_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.138299).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.138299 --> 0.136126).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NASDAQ_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 6) (78, 50, 6)
+test shape: (78, 50, 6) (78, 50, 6)
+
+
+	mse:0.27597081661224365, mae:0.3845592141151428, rmse:0.5253292322158813, r2:0.9046448618173599, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: NASDAQ H=50
+
+Training: Mamba on NASDAQ for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NASDAQ_H100   Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NASDAQ_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_NASDAQ_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Traceback (most recent call last):
+  File "run.py", line 202, in <module>
+    exp.train(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 147, in train
+    loss = criterion(outputs, batch_y)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/loss.py", line 538, in forward
+    return F.mse_loss(input, target, reduction=self.reduction)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/functional.py", line 3383, in mse_loss
+    expanded_input, expanded_target = torch.broadcast_tensors(input, target)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/functional.py", line 77, in broadcast_tensors
+    return _VF.broadcast_tensors(tensors)  # type: ignore[attr-defined]
+RuntimeError: The size of tensor a (60) must match the size of tensor b (100) at non-singleton dimension 1
+Completed: NASDAQ H=100
+
+Training: Mamba on ABSA for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_ABSA_H3       Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_ABSA_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.092606).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.092606 --> 0.087589).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.087589 --> 0.083438).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.083438 --> 0.081408).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.081408 --> 0.080794).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.080794 --> 0.080377).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.080377 --> 0.080042).  Saving model ...
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-07
+Validation loss decreased (0.080042 --> 0.079963).  Saving model ...
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 4.8828125e-08
+Validation loss decreased (0.079963 --> 0.079825).  Saving model ...
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.103515625e-09
+Validation loss decreased (0.079825 --> 0.079810).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Validation loss decreased (0.079810 --> 0.079712).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.62939453125e-10
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.814697265625e-10
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.9073486328125e-10
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 9.5367431640625e-11
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_ABSA_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 6) (125, 3, 6)
+test shape: (125, 3, 6) (125, 3, 6)
+
+
+	mse:0.2919427156448364, mae:0.36265531182289124, rmse:0.5403172373771667, r2:0.8896522894501686, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: ABSA H=3
+
+Training: Mamba on ABSA for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_ABSA_H5       Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_ABSA_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.093422).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.093422 --> 0.087206).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.087206 --> 0.084591).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.084591 --> 0.081216).  Saving model ...
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.081216 --> 0.080616).  Saving model ...
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.080616 --> 0.079927).  Saving model ...
+Updating learning rate to 3.125e-06
+Validation loss decreased (0.079927 --> 0.079006).  Saving model ...
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.079006 --> 0.078938).  Saving model ...
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_ABSA_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 6) (123, 5, 6)
+test shape: (123, 5, 6) (123, 5, 6)
+
+
+	mse:0.30139365792274475, mae:0.3661251962184906, rmse:0.5489932894706726, r2:0.8858263120055199, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: ABSA H=5
+
+Training: Mamba on ABSA for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_ABSA_H10      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_ABSA_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.098968).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.098968 --> 0.092213).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.092213 --> 0.088298).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.088298 --> 0.085405).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.085405 --> 0.083222).  Saving model ...
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+Validation loss decreased (0.083222 --> 0.083105).  Saving model ...
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-07
+Validation loss decreased (0.083105 --> 0.082949).  Saving model ...
+Updating learning rate to 1.953125e-07
+Validation loss decreased (0.082949 --> 0.082541).  Saving model ...
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.103515625e-09
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_ABSA_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 6) (118, 10, 6)
+test shape: (118, 10, 6) (118, 10, 6)
+
+
+	mse:0.31936681270599365, mae:0.38037586212158203, rmse:0.5651254653930664, r2:0.8787028416991234, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: ABSA H=10
+
+Training: Mamba on ABSA for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_ABSA_H22      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_ABSA_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.121777).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.121777 --> 0.111153).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.111153 --> 0.106416).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.106416 --> 0.102495).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 7.8125e-07
+Validation loss decreased (0.102495 --> 0.102275).  Saving model ...
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_ABSA_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 6) (106, 22, 6)
+test shape: (106, 22, 6) (106, 22, 6)
+
+
+	mse:0.3360803723335266, mae:0.4059177041053772, rmse:0.5797243714332581, r2:0.8707935810089111, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: ABSA H=22
+
+Training: Mamba on ABSA for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_ABSA_H50      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_ABSA_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.172031).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.172031 --> 0.168628).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.168628 --> 0.161528).  Saving model ...
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.161528 --> 0.156059).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.156059 --> 0.155586).  Saving model ...
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_ABSA_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 6) (78, 50, 6)
+test shape: (78, 50, 6) (78, 50, 6)
+
+
+	mse:0.38118767738342285, mae:0.43526625633239746, rmse:0.6174039840698242, r2:0.8551426827907562, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: ABSA H=50
+
+Training: Mamba on ABSA for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_ABSA_H100     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          ABSA_normalized.csv Features:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_ABSA_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Traceback (most recent call last):
+  File "run.py", line 202, in <module>
+    exp.train(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 147, in train
+    loss = criterion(outputs, batch_y)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/loss.py", line 538, in forward
+    return F.mse_loss(input, target, reduction=self.reduction)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/functional.py", line 3383, in mse_loss
+    expanded_input, expanded_target = torch.broadcast_tensors(input, target)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/functional.py", line 77, in broadcast_tensors
+    return _VF.broadcast_tensors(tensors)  # type: ignore[attr-defined]
+RuntimeError: The size of tensor a (60) must match the size of tensor b (100) at non-singleton dimension 1
+Completed: ABSA H=100
+
+Training: Mamba on SASOL for H=3
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SASOL_H3      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_SASOL_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Validation loss decreased (inf --> 0.049770).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+Validation loss decreased (0.049770 --> 0.049419).  Saving model ...
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.90625e-07
+Validation loss decreased (0.049419 --> 0.049175).  Saving model ...
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 9.765625e-08
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 4.8828125e-08
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 2.44140625e-08
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.220703125e-08
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_SASOL_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 6) (125, 3, 6)
+test shape: (125, 3, 6) (125, 3, 6)
+
+
+	mse:0.07773580402135849, mae:0.09010127931833267, rmse:0.27881142497062683, r2:0.6129232347011566, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: SASOL H=3
+
+Training: Mamba on SASOL for H=5
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SASOL_H5      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_SASOL_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Validation loss decreased (inf --> 0.050289).  Saving model ...
+Updating learning rate to 0.0001
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+Validation loss decreased (0.050289 --> 0.049748).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_SASOL_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 6) (123, 5, 6)
+test shape: (123, 5, 6) (123, 5, 6)
+
+
+	mse:0.07795603573322296, mae:0.09062661230564117, rmse:0.2792060673236847, r2:0.6123195290565491, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: SASOL H=5
+
+Training: Mamba on SASOL for H=10
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SASOL_H10     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_SASOL_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Validation loss decreased (inf --> 0.051084).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.051084 --> 0.051045).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+Validation loss decreased (0.051045 --> 0.049516).  Saving model ...
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_SASOL_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 6) (118, 10, 6)
+test shape: (118, 10, 6) (118, 10, 6)
+
+
+	mse:0.08087103813886642, mae:0.09299243986606598, rmse:0.2843783497810364, r2:0.6027529239654541, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: SASOL H=10
+
+Training: Mamba on SASOL for H=22
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SASOL_H22     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_SASOL_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Validation loss decreased (inf --> 0.056963).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.056963 --> 0.055453).  Saving model ...
+Updating learning rate to 5e-05
+Validation loss decreased (0.055453 --> 0.052705).  Saving model ...
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+Validation loss decreased (0.052705 --> 0.052280).  Saving model ...
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.8125e-07
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.90625e-07
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.953125e-07
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_SASOL_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 6) (106, 22, 6)
+test shape: (106, 22, 6) (106, 22, 6)
+
+
+	mse:0.08060456067323685, mae:0.09557396918535233, rmse:0.283909410238266, r2:0.6068948209285736, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: SASOL H=22
+
+Training: Mamba on SASOL for H=50
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SASOL_H50     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_SASOL_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Validation loss decreased (inf --> 0.056214).  Saving model ...
+Updating learning rate to 0.0001
+Validation loss decreased (0.056214 --> 0.055737).  Saving model ...
+Updating learning rate to 5e-05
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_SASOL_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 6) (78, 50, 6)
+test shape: (78, 50, 6) (78, 50, 6)
+
+
+	mse:0.08624332398176193, mae:0.10040163993835449, rmse:0.2936721444129944, r2:0.6052669584751129, dtw:Not calculated
+
+
+Traceback (most recent call last):
+  File "run.py", line 205, in <module>
+    exp.test(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 303, in test
+    self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+AttributeError: 'WandbLogger' object has no attribute 'log_predictions_table'
+Completed: SASOL H=50
+
+Training: Mamba on SASOL for H=100
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SASOL_H100    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SASOL_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+W&B logging disabled
+>>>>>>>start training : long_term_forecast_Mamba_SASOL_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Traceback (most recent call last):
+  File "run.py", line 202, in <module>
+    exp.train(setting)
+  File "/home-mscluster/bkodze/research_project/forecast-research/exp/exp_long_term_forecasting.py", line 147, in train
+    loss = criterion(outputs, batch_y)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/modules/loss.py", line 538, in forward
+    return F.mse_loss(input, target, reduction=self.reduction)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/nn/functional.py", line 3383, in mse_loss
+    expanded_input, expanded_target = torch.broadcast_tensors(input, target)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/torch/functional.py", line 77, in broadcast_tensors
+    return _VF.broadcast_tensors(tensors)  # type: ignore[attr-defined]
+RuntimeError: The size of tensor a (60) must match the size of tensor b (100) at non-singleton dimension 1
+Completed: SASOL H=100
+
+Mamba training completed for all datasets!
