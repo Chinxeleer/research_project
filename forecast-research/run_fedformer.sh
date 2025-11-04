@@ -69,6 +69,8 @@ for dataset in "${DATASETS[@]}"; do
             --train_epochs $TRAIN_EPOCHS \
             --patience $PATIENCE \
             --use_gpu 1 \
+	    --use_wandb \
+            --wandb_project "financial-forecasting-${dataset}" \
             --gpu 0 \
             --des 'FEDformer_Exp' \
             --itr 1

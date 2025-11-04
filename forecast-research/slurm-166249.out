@@ -1,0 +1,2371 @@
+##############################################################################
+# Training Mamba Model on All Datasets
+##############################################################################
+Training: Mamba on NVIDIA for H=3
+wandb: Currently logged in as: blessingeleer-programming (blessingeleer-programming-university-of-the-witwatersrand). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.22.3 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /home-mscluster/bkodze/research_project/forecast-research/wandb/run-20251104_215143-0vo0vhmf
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Mamba_custom_sl60_pl3
+wandb: ⭐️ View project at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia
+wandb: 🚀 View run at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia/runs/0vo0vhmf
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NVIDIA_H3     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+✅ W&B initialized: Mamba_custom_sl60_pl3
+   Dashboard: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia/runs/0vo0vhmf
+>>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Epoch: 1, Steps: 69 | Train Loss: 0.4010416 Vali Loss: 0.1023820 Test Loss: 0.2446495
+Validation loss decreased (inf --> 0.102382).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2, Steps: 69 | Train Loss: 0.3783666 Vali Loss: 0.0970083 Test Loss: 0.2193874
+Validation loss decreased (0.102382 --> 0.097008).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3, Steps: 69 | Train Loss: 0.3489995 Vali Loss: 0.0921570 Test Loss: 0.1941119
+Validation loss decreased (0.097008 --> 0.092157).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4, Steps: 69 | Train Loss: 0.3227592 Vali Loss: 0.0927554 Test Loss: 0.1843724
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+Epoch: 5, Steps: 69 | Train Loss: 0.3123121 Vali Loss: 0.0899209 Test Loss: 0.1808394
+Validation loss decreased (0.092157 --> 0.089921).  Saving model ...
+Updating learning rate to 6.25e-06
+Epoch: 6, Steps: 69 | Train Loss: 0.3057482 Vali Loss: 0.0900443 Test Loss: 0.1795271
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+wandb: WARNING Step only supports monotonically increasing values, use define_metric to set a custom x axis. For details see: https://wandb.me/define-metric
+wandb: WARNING (User provided step: 0 is less than current step: 2. Dropping entry: {'epoch': 0, 'train/loss': 0.4010415904331898, 'val/loss': 0.10238200798630714, 'test/loss': 0.24464952945709229, '_timestamp': 1762285930.857907}).
+wandb: WARNING (User provided step: 1 is less than current step: 2. Dropping entry: {'epoch': 1, 'train/loss': 0.3783666156772254, 'val/loss': 0.09700827859342098, 'test/loss': 0.21938740834593773, '_timestamp': 1762285932.9939053}).
+Epoch: 7, Steps: 69 | Train Loss: 0.3030787 Vali Loss: 0.0914041 Test Loss: 0.1787997
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+Epoch: 8, Steps: 69 | Train Loss: 0.3023897 Vali Loss: 0.0895884 Test Loss: 0.1784098
+Validation loss decreased (0.089921 --> 0.089588).  Saving model ...
+Updating learning rate to 7.8125e-07
+Epoch: 9, Steps: 69 | Train Loss: 0.3018313 Vali Loss: 0.0902059 Test Loss: 0.1782429
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-07
+Epoch: 10, Steps: 69 | Train Loss: 0.3009404 Vali Loss: 0.0894948 Test Loss: 0.1781747
+Validation loss decreased (0.089588 --> 0.089495).  Saving model ...
+Updating learning rate to 1.953125e-07
+Epoch: 11, Steps: 69 | Train Loss: 0.3040199 Vali Loss: 0.0897768 Test Loss: 0.1781363
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 9.765625e-08
+Epoch: 12, Steps: 69 | Train Loss: 0.2998498 Vali Loss: 0.0893690 Test Loss: 0.1781156
+Validation loss decreased (0.089495 --> 0.089369).  Saving model ...
+Updating learning rate to 4.8828125e-08
+Epoch: 13, Steps: 69 | Train Loss: 0.3000447 Vali Loss: 0.0910906 Test Loss: 0.1781038
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.44140625e-08
+Epoch: 14, Steps: 69 | Train Loss: 0.3031367 Vali Loss: 0.0915205 Test Loss: 0.1780999
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.220703125e-08
+Epoch: 15, Steps: 69 | Train Loss: 0.3040007 Vali Loss: 0.0897287 Test Loss: 0.1780977
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.103515625e-09
+Epoch: 16, Steps: 69 | Train Loss: 0.3012694 Vali Loss: 0.0897458 Test Loss: 0.1780967
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.0517578125e-09
+Epoch: 17, Steps: 69 | Train Loss: 0.3012560 Vali Loss: 0.0896436 Test Loss: 0.1780964
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 1) (125, 3, 1)
+test shape: (125, 3, 1) (125, 3, 1)
+
+
+	mse:0.004066385794430971, mae:0.04209179803729057, rmse:0.06376822292804718, r2:-0.08141422271728516, dtw:Not calculated
+
+
+VAL - MSE: 0.0041, MAE: 0.0421, RMSE: 0.0638, R²: -0.0814, MAPE: 9180322.00%
+
+📊 Logging comprehensive val results to W&B...
+✅ Val results logged to W&B
+wandb: - 0.440 MB of 0.440 MB uploadedwandb: \ 0.440 MB of 0.440 MB uploadedwandb: | 0.440 MB of 0.440 MB uploadedwandb: / 0.440 MB of 0.440 MB uploadedwandb: - 0.440 MB of 0.440 MB uploadedwandb: \ 0.440 MB of 0.440 MB uploadedwandb: | 0.489 MB of 0.549 MB uploadedwandb: / 0.549 MB of 0.549 MB uploadedwandb: - 0.549 MB of 0.549 MB uploadedwandb: \ 0.549 MB of 0.549 MB uploadedwandb: 
+wandb: Run history:
+wandb:                      epoch ▁▁▂▃▃▃▄▅▅▅▆▇▇▇█
+wandb: model/non_trainable_params ▁
+wandb:         model/total_params ▁
+wandb:     model/trainable_params ▁
+wandb:                  test/loss █▄▂▂▁▁▁▁▁▁▁▁▁▁▁
+wandb:                 train/loss █▄▃▂▁▁▁▁▂▁▁▁▂▁▁
+wandb:   val/directional_accuracy ▁
+wandb:                   val/loss ▇█▂▂▅▁▃▁▂▁▅▅▂▂▂
+wandb:                    val/mae ▁
+wandb:                   val/mape ▁
+wandb:                    val/mse ▁
+wandb:                     val/r2 ▁
+wandb:                   val/rmse ▁
+wandb: 
+wandb: Run summary:
+wandb:                      epoch 16
+wandb:         model/architecture Model(
+wandb:   (embedding)...
+wandb: model/non_trainable_params 0
+wandb:         model/total_params 35218
+wandb:     model/trainable_params 35218
+wandb:                  test/loss 0.1781
+wandb:                 train/loss 0.30126
+wandb:   val/directional_accuracy 42.0
+wandb:                   val/loss 0.08964
+wandb:                    val/mae 0.04209
+wandb:                   val/mape 918032200.0
+wandb:                    val/mse 0.00407
+wandb:                     val/r2 -0.08141
+wandb:                   val/rmse 0.06377
+wandb: 
+wandb: 🚀 View run Mamba_custom_sl60_pl3 at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia/runs/0vo0vhmf
+wandb: ⭐️ View project at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia
+wandb: Synced 5 W&B file(s), 8 media file(s), 4 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251104_215143-0vo0vhmf/logs
+Completed: NVIDIA H=3
+
+Training: Mamba on NVIDIA for H=5
+wandb: Currently logged in as: blessingeleer-programming (blessingeleer-programming-university-of-the-witwatersrand). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.22.3 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /home-mscluster/bkodze/research_project/forecast-research/wandb/run-20251104_215315-t7j6g7vo
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Mamba_custom_sl60_pl5
+wandb: ⭐️ View project at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia
+wandb: 🚀 View run at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia/runs/t7j6g7vo
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NVIDIA_H5     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+✅ W&B initialized: Mamba_custom_sl60_pl5
+   Dashboard: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia/runs/t7j6g7vo
+>>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Epoch: 1, Steps: 69 | Train Loss: 0.4046632 Vali Loss: 0.1065672 Test Loss: 0.2509893
+Validation loss decreased (inf --> 0.106567).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2, Steps: 69 | Train Loss: 0.3836289 Vali Loss: 0.1016662 Test Loss: 0.2297333
+Validation loss decreased (0.106567 --> 0.101666).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3, Steps: 69 | Train Loss: 0.3474733 Vali Loss: 0.0991373 Test Loss: 0.2051855
+Validation loss decreased (0.101666 --> 0.099137).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4, Steps: 69 | Train Loss: 0.3233699 Vali Loss: 0.0957458 Test Loss: 0.1921289
+Validation loss decreased (0.099137 --> 0.095746).  Saving model ...
+Updating learning rate to 1.25e-05
+Epoch: 5, Steps: 69 | Train Loss: 0.3104827 Vali Loss: 0.0947704 Test Loss: 0.1873846
+Validation loss decreased (0.095746 --> 0.094770).  Saving model ...
+Updating learning rate to 6.25e-06
+Epoch: 6, Steps: 69 | Train Loss: 0.3076087 Vali Loss: 0.0952535 Test Loss: 0.1851884
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+Epoch: 7, Steps: 69 | Train Loss: 0.3029683 Vali Loss: 0.0970154 Test Loss: 0.1841888
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+Epoch: 8, Steps: 69 | Train Loss: 0.3044469 Vali Loss: 0.0950675 Test Loss: 0.1836932
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 7.8125e-07
+Epoch: 9, Steps: 69 | Train Loss: 0.3045016 Vali Loss: 0.0970797 Test Loss: 0.1834715
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.90625e-07
+Epoch: 10, Steps: 69 | Train Loss: 0.3026035 Vali Loss: 0.0952063 Test Loss: 0.1833559
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+wandb: WARNING Step only supports monotonically increasing values, use define_metric to set a custom x axis. For details see: https://wandb.me/define-metric
+wandb: WARNING (User provided step: 0 is less than current step: 2. Dropping entry: {'epoch': 0, 'train/loss': 0.40466321745644446, 'val/loss': 0.10656724125146866, 'test/loss': 0.25098932906985283, '_timestamp': 1762286003.35873}).
+wandb: WARNING (User provided step: 1 is less than current step: 2. Dropping entry: {'epoch': 1, 'train/loss': 0.383628878256549, 'val/loss': 0.10166620276868343, 'test/loss': 0.2297332789748907, '_timestamp': 1762286004.647553}).
+test shape: (123, 5, 1) (123, 5, 1)
+test shape: (123, 5, 1) (123, 5, 1)
+
+
+	mse:0.003947009798139334, mae:0.041741855442523956, rmse:0.06282523274421692, r2:-0.03861379623413086, dtw:Not calculated
+
+
+VAL - MSE: 0.0039, MAE: 0.0417, RMSE: 0.0628, R²: -0.0386, MAPE: 8521595.00%
+
+📊 Logging comprehensive val results to W&B...
+✅ Val results logged to W&B
+wandb: - 0.461 MB of 0.462 MB uploadedwandb: \ 0.461 MB of 0.462 MB uploadedwandb: | 0.461 MB of 0.462 MB uploadedwandb: / 0.461 MB of 0.462 MB uploadedwandb: - 0.462 MB of 0.462 MB uploadedwandb: \ 0.462 MB of 0.532 MB uploadedwandb: | 0.462 MB of 0.532 MB uploadedwandb: / 0.532 MB of 0.532 MB uploadedwandb: 
+wandb: Run history:
+wandb:                      epoch ▁▂▃▄▅▆▇█
+wandb: model/non_trainable_params ▁
+wandb:         model/total_params ▁
+wandb:     model/trainable_params ▁
+wandb:                  test/loss █▄▂▂▁▁▁▁
+wandb:                 train/loss █▄▂▂▁▁▁▁
+wandb:   val/directional_accuracy ▁
+wandb:                   val/loss █▃▁▂▅▁▅▂
+wandb:                    val/mae ▁
+wandb:                   val/mape ▁
+wandb:                    val/mse ▁
+wandb:                     val/r2 ▁
+wandb:                   val/rmse ▁
+wandb: 
+wandb: Run summary:
+wandb:                      epoch 9
+wandb:         model/architecture Model(
+wandb:   (embedding)...
+wandb: model/non_trainable_params 0
+wandb:         model/total_params 35998
+wandb:     model/trainable_params 35998
+wandb:                  test/loss 0.18336
+wandb:                 train/loss 0.3026
+wandb:   val/directional_accuracy 42.88618
+wandb:                   val/loss 0.09521
+wandb:                    val/mae 0.04174
+wandb:                   val/mape 852159500.0
+wandb:                    val/mse 0.00395
+wandb:                     val/r2 -0.03861
+wandb:                   val/rmse 0.06283
+wandb: 
+wandb: 🚀 View run Mamba_custom_sl60_pl5 at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia/runs/t7j6g7vo
+wandb: ⭐️ View project at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia
+wandb: Synced 6 W&B file(s), 8 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251104_215315-t7j6g7vo/logs
+Completed: NVIDIA H=5
+
+Training: Mamba on NVIDIA for H=10
+wandb: Currently logged in as: blessingeleer-programming (blessingeleer-programming-university-of-the-witwatersrand). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.22.3 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /home-mscluster/bkodze/research_project/forecast-research/wandb/run-20251104_215400-r1x95092
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Mamba_custom_sl60_pl10
+wandb: ⭐️ View project at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia
+wandb: 🚀 View run at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia/runs/r1x95092
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NVIDIA_H10    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+✅ W&B initialized: Mamba_custom_sl60_pl10
+   Dashboard: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia/runs/r1x95092
+>>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Epoch: 1, Steps: 69 | Train Loss: 0.4223351 Vali Loss: 0.1127257 Test Loss: 0.2688606
+Validation loss decreased (inf --> 0.112726).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2, Steps: 69 | Train Loss: 0.4017377 Vali Loss: 0.1061939 Test Loss: 0.2417861
+Validation loss decreased (0.112726 --> 0.106194).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3, Steps: 69 | Train Loss: 0.3665773 Vali Loss: 0.1038124 Test Loss: 0.2117086
+Validation loss decreased (0.106194 --> 0.103812).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4, Steps: 69 | Train Loss: 0.3500083 Vali Loss: 0.1056190 Test Loss: 0.1964230
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+Epoch: 5, Steps: 69 | Train Loss: 0.3306470 Vali Loss: 0.1025220 Test Loss: 0.1906505
+Validation loss decreased (0.103812 --> 0.102522).  Saving model ...
+Updating learning rate to 6.25e-06
+Epoch: 6, Steps: 69 | Train Loss: 0.3264405 Vali Loss: 0.1035012 Test Loss: 0.1883576
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+Epoch: 7, Steps: 69 | Train Loss: 0.3241990 Vali Loss: 0.1026329 Test Loss: 0.1872916
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.5625e-06
+Epoch: 8, Steps: 69 | Train Loss: 0.3218572 Vali Loss: 0.1005597 Test Loss: 0.1867705
+Validation loss decreased (0.102522 --> 0.100560).  Saving model ...
+Updating learning rate to 7.8125e-07
+Epoch: 9, Steps: 69 | Train Loss: 0.3233400 Vali Loss: 0.1025487 Test Loss: 0.1865306
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-07
+Epoch: 10, Steps: 69 | Train Loss: 0.3224465 Vali Loss: 0.1039319 Test Loss: 0.1864083
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.953125e-07
+Epoch: 11, Steps: 69 | Train Loss: 0.3240916 Vali Loss: 0.1023583 Test Loss: 0.1863504
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 9.765625e-08
+wandb: WARNING Step only supports monotonically increasing values, use define_metric to set a custom x axis. For details see: https://wandb.me/define-metric
+wandb: WARNING (User provided step: 0 is less than current step: 2. Dropping entry: {'epoch': 0, 'train/loss': 0.4223351424586946, 'val/loss': 0.11272574588656425, 'test/loss': 0.2688605673611164, '_timestamp': 1762286048.4620779}).
+wandb: WARNING (User provided step: 1 is less than current step: 2. Dropping entry: {'epoch': 1, 'train/loss': 0.401737685220829, 'val/loss': 0.10619392991065979, 'test/loss': 0.24178608134388924, '_timestamp': 1762286049.7459667}).
+Epoch: 12, Steps: 69 | Train Loss: 0.3221776 Vali Loss: 0.1019813 Test Loss: 0.1863238
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 4.8828125e-08
+Epoch: 13, Steps: 69 | Train Loss: 0.3228168 Vali Loss: 0.1017309 Test Loss: 0.1863078
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+test shape: (118, 10, 1) (118, 10, 1)
+test shape: (118, 10, 1) (118, 10, 1)
+
+
+	mse:0.004311263095587492, mae:0.04358958452939987, rmse:0.06566020846366882, r2:-0.11485838890075684, dtw:Not calculated
+
+
+VAL - MSE: 0.0043, MAE: 0.0436, RMSE: 0.0657, R²: -0.1149, MAPE: 10276073.00%
+
+📊 Logging comprehensive val results to W&B...
+✅ Val results logged to W&B
+wandb: - 0.517 MB of 0.517 MB uploadedwandb: \ 0.517 MB of 0.517 MB uploadedwandb: | 0.517 MB of 0.517 MB uploadedwandb: / 0.517 MB of 0.517 MB uploadedwandb: - 0.517 MB of 0.589 MB uploadedwandb: \ 0.589 MB of 0.589 MB uploadedwandb: 
+wandb: Run history:
+wandb:                      epoch ▁▂▂▃▄▅▅▆▇▇█
+wandb: model/non_trainable_params ▁
+wandb:         model/total_params ▁
+wandb:     model/trainable_params ▁
+wandb:                  test/loss █▄▂▂▁▁▁▁▁▁▁
+wandb:                 train/loss █▅▂▂▁▁▁▁▁▁▁
+wandb:   val/directional_accuracy ▁
+wandb:                   val/loss ▆█▄▅▄▁▄▆▃▃▃
+wandb:                    val/mae ▁
+wandb:                   val/mape ▁
+wandb:                    val/mse ▁
+wandb:                     val/r2 ▁
+wandb:                   val/rmse ▁
+wandb: 
+wandb: Run summary:
+wandb:                      epoch 12
+wandb:         model/architecture Model(
+wandb:   (embedding)...
+wandb: model/non_trainable_params 0
+wandb:         model/total_params 37948
+wandb:     model/trainable_params 37948
+wandb:                  test/loss 0.18631
+wandb:                 train/loss 0.32282
+wandb:   val/directional_accuracy 44.25612
+wandb:                   val/loss 0.10173
+wandb:                    val/mae 0.04359
+wandb:                   val/mape 1027607300.0
+wandb:                    val/mse 0.00431
+wandb:                     val/r2 -0.11486
+wandb:                   val/rmse 0.06566
+wandb: 
+wandb: 🚀 View run Mamba_custom_sl60_pl10 at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia/runs/r1x95092
+wandb: ⭐️ View project at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia
+wandb: Synced 6 W&B file(s), 8 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251104_215400-r1x95092/logs
+Completed: NVIDIA H=10
+
+Training: Mamba on NVIDIA for H=22
+wandb: Currently logged in as: blessingeleer-programming (blessingeleer-programming-university-of-the-witwatersrand). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.22.3 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /home-mscluster/bkodze/research_project/forecast-research/wandb/run-20251104_215448-ws4qxeqd
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Mamba_custom_sl60_pl22
+wandb: ⭐️ View project at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia
+wandb: 🚀 View run at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia/runs/ws4qxeqd
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NVIDIA_H22    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+✅ W&B initialized: Mamba_custom_sl60_pl22
+   Dashboard: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia/runs/ws4qxeqd
+>>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Epoch: 1, Steps: 69 | Train Loss: 0.4612303 Vali Loss: 0.1126102 Test Loss: 0.3402548
+Validation loss decreased (inf --> 0.112610).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2, Steps: 69 | Train Loss: 0.4426604 Vali Loss: 0.1108817 Test Loss: 0.3064733
+Validation loss decreased (0.112610 --> 0.110882).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3, Steps: 69 | Train Loss: 0.4007437 Vali Loss: 0.1077030 Test Loss: 0.2571140
+Validation loss decreased (0.110882 --> 0.107703).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4, Steps: 69 | Train Loss: 0.3783966 Vali Loss: 0.1127908 Test Loss: 0.2421269
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+Epoch: 5, Steps: 69 | Train Loss: 0.3717828 Vali Loss: 0.1086004 Test Loss: 0.2350566
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+Epoch: 6, Steps: 69 | Train Loss: 0.3676477 Vali Loss: 0.1085594 Test Loss: 0.2327883
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.125e-06
+Epoch: 7, Steps: 69 | Train Loss: 0.3668344 Vali Loss: 0.1098876 Test Loss: 0.2315026
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.5625e-06
+Epoch: 8, Steps: 69 | Train Loss: 0.3667889 Vali Loss: 0.1125052 Test Loss: 0.2308185
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 1) (106, 22, 1)
+test shape: (106, 22, 1) (106, 22, 1)
+
+
+	mse:0.0044351909309625626, mae:0.04379143565893173, rmse:0.06659723073244095, r2:-0.1268225908279419, dtw:Not calculated
+
+
+VAL - MSE: 0.0044, MAE: 0.0438, RMSE: 0.0666, R²: -0.1268, MAPE: 10173754.00%
+
+📊 Logging comprehensive val results to W&B...
+✅ Val results logged to W&B
+wandb: - 0.590 MB of 0.591 MB uploadedwandb: \ 0.590 MB of 0.591 MB uploadedwandb: | 0.591 MB of 0.661 MB uploadedwandb: / 0.594 MB of 0.661 MB uploadedwandb: - 0.661 MB of 0.661 MB uploadedwandb: 
+wandb: Run history:
+wandb:                      epoch ▁▂▄▅▇█
+wandb: model/non_trainable_params ▁
+wandb:         model/total_params ▁
+wandb:     model/trainable_params ▁
+wandb:                  test/loss █▄▂▂▁▁
+wandb:                 train/loss █▃▂▁▁▁
+wandb:   val/directional_accuracy ▁
+wandb:                   val/loss ▁█▂▂▄█
+wandb:                    val/mae ▁
+wandb:                   val/mape ▁
+wandb:                    val/mse ▁
+wandb:                     val/r2 ▁
+wandb:                   val/rmse ▁
+wandb: 
+wandb: Run summary:
+wandb:                      epoch 7
+wandb:         model/architecture Model(
+wandb:   (embedding)...
+wandb: model/non_trainable_params 0
+wandb:         model/total_params 42628
+wandb:     model/trainable_params 42628
+wandb:                  test/loss 0.23082
+wandb:                 train/loss 0.36679
+wandb:   val/directional_accuracy 43.26146
+wandb:                   val/loss 0.11251
+wandb:                    val/mae 0.04379
+wandb:                   val/mape 1017375400.0
+wandb:                    val/mse 0.00444
+wandb:                     val/r2 -0.12682
+wandb:                   val/rmse 0.0666
+wandb: 
+wandb: 🚀 View run Mamba_custom_sl60_pl22 at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia/runs/ws4qxeqd
+wandb: ⭐️ View project at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia
+wandb: Synced 6 W&B file(s), 8 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251104_215448-ws4qxeqd/logs
+wandb: WARNING Step only supports monotonically increasing values, use define_metric to set a custom x axis. For details see: https://wandb.me/define-metric
+wandb: WARNING (User provided step: 0 is less than current step: 2. Dropping entry: {'epoch': 0, 'train/loss': 0.4612303052259528, 'val/loss': 0.11261015199124813, 'test/loss': 0.3402547612786293, '_timestamp': 1762286096.4116306}).
+wandb: WARNING (User provided step: 1 is less than current step: 2. Dropping entry: {'epoch': 1, 'train/loss': 0.44266038895517157, 'val/loss': 0.11088166758418083, 'test/loss': 0.3064733035862446, '_timestamp': 1762286097.6989288}).
+Completed: NVIDIA H=22
+
+Training: Mamba on NVIDIA for H=50
+wandb: Currently logged in as: blessingeleer-programming (blessingeleer-programming-university-of-the-witwatersrand). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.22.3 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /home-mscluster/bkodze/research_project/forecast-research/wandb/run-20251104_215528-j9ybq4ux
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Mamba_custom_sl60_pl50
+wandb: ⭐️ View project at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia
+wandb: 🚀 View run at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia/runs/j9ybq4ux
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NVIDIA_H50    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+✅ W&B initialized: Mamba_custom_sl60_pl50
+   Dashboard: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia/runs/j9ybq4ux
+>>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Epoch: 1, Steps: 68 | Train Loss: 0.5691054 Vali Loss: 0.1574762 Test Loss: 0.4581656
+Validation loss decreased (inf --> 0.157476).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2, Steps: 68 | Train Loss: 0.5593851 Vali Loss: 0.1544821 Test Loss: 0.4308286
+Validation loss decreased (0.157476 --> 0.154482).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3, Steps: 68 | Train Loss: 0.5175620 Vali Loss: 0.1470085 Test Loss: 0.3875329
+Validation loss decreased (0.154482 --> 0.147008).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4, Steps: 68 | Train Loss: 0.4901943 Vali Loss: 0.1487502 Test Loss: 0.3660154
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+Epoch: 5, Steps: 68 | Train Loss: 0.4846488 Vali Loss: 0.1440352 Test Loss: 0.3578333
+Validation loss decreased (0.147008 --> 0.144035).  Saving model ...
+Updating learning rate to 6.25e-06
+Epoch: 6, Steps: 68 | Train Loss: 0.4771236 Vali Loss: 0.1422572 Test Loss: 0.3551252
+Validation loss decreased (0.144035 --> 0.142257).  Saving model ...
+Updating learning rate to 3.125e-06
+Epoch: 7, Steps: 68 | Train Loss: 0.4754309 Vali Loss: 0.1424270 Test Loss: 0.3536077
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+Epoch: 8, Steps: 68 | Train Loss: 0.4802973 Vali Loss: 0.1488695 Test Loss: 0.3531417
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.8125e-07
+Epoch: 9, Steps: 68 | Train Loss: 0.4814222 Vali Loss: 0.1438896 Test Loss: 0.3527626
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.90625e-07
+Epoch: 10, Steps: 68 | Train Loss: 0.4763511 Vali Loss: 0.1441695 Test Loss: 0.3525917
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.953125e-07
+Epoch: 11, Steps: 68 | Train Loss: 0.4729749 Vali Loss: 0.1422762 Test Loss: 0.3524987
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+wandb: WARNING Step only supports monotonically increasing values, use define_metric to set a custom x axis. For details see: https://wandb.me/define-metric
+wandb: WARNING (User provided step: 0 is less than current step: 2. Dropping entry: {'epoch': 0, 'train/loss': 0.5691054112770978, 'val/loss': 0.15747620165348053, 'test/loss': 0.45816562076409656, '_timestamp': 1762286136.185995}).
+wandb: WARNING (User provided step: 1 is less than current step: 2. Dropping entry: {'epoch': 1, 'train/loss': 0.5593850737547174, 'val/loss': 0.15448207159837088, 'test/loss': 0.4308286209901174, '_timestamp': 1762286137.4586902}).
+test shape: (78, 50, 1) (78, 50, 1)
+test shape: (78, 50, 1) (78, 50, 1)
+
+
+	mse:0.004005041439086199, mae:0.04189227148890495, rmse:0.06328539550304413, r2:-0.07308220863342285, dtw:Not calculated
+
+
+VAL - MSE: 0.0040, MAE: 0.0419, RMSE: 0.0633, R²: -0.0731, MAPE: 7494732.50%
+
+📊 Logging comprehensive val results to W&B...
+✅ Val results logged to W&B
+wandb: - 0.593 MB of 0.596 MB uploadedwandb: \ 0.596 MB of 0.596 MB uploadedwandb: | 0.596 MB of 0.596 MB uploadedwandb: / 0.596 MB of 0.596 MB uploadedwandb: - 0.596 MB of 0.596 MB uploadedwandb: \ 0.596 MB of 0.667 MB uploadedwandb: | 0.667 MB of 0.667 MB uploadedwandb: 
+wandb: Run history:
+wandb:                      epoch ▁▂▃▄▅▅▆▇█
+wandb: model/non_trainable_params ▁
+wandb:         model/total_params ▁
+wandb:     model/trainable_params ▁
+wandb:                  test/loss █▄▂▂▁▁▁▁▁
+wandb:                 train/loss █▄▃▂▁▂▂▂▁
+wandb:   val/directional_accuracy ▁
+wandb:                   val/loss ▆█▃▁▁█▃▃▁
+wandb:                    val/mae ▁
+wandb:                   val/mape ▁
+wandb:                    val/mse ▁
+wandb:                     val/r2 ▁
+wandb:                   val/rmse ▁
+wandb: 
+wandb: Run summary:
+wandb:                      epoch 10
+wandb:         model/architecture Model(
+wandb:   (embedding)...
+wandb: model/non_trainable_params 0
+wandb:         model/total_params 53548
+wandb:     model/trainable_params 53548
+wandb:                  test/loss 0.3525
+wandb:                 train/loss 0.47297
+wandb:   val/directional_accuracy 42.98796
+wandb:                   val/loss 0.14228
+wandb:                    val/mae 0.04189
+wandb:                   val/mape 749473250.0
+wandb:                    val/mse 0.00401
+wandb:                     val/r2 -0.07308
+wandb:                   val/rmse 0.06329
+wandb: 
+wandb: 🚀 View run Mamba_custom_sl60_pl50 at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia/runs/j9ybq4ux
+wandb: ⭐️ View project at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia
+wandb: Synced 6 W&B file(s), 8 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251104_215528-j9ybq4ux/logs
+Exception in thread Exception in thread IntMsgThrChkStopThr:
+:
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/threading.py", line 870, in run
+    self.run()
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 286, in check_stop_status
+    self._target(*self._args, **self._kwargs)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 300, in check_internal_messages
+    self._loop_check_status(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 224, in _loop_check_status
+    self._loop_check_status(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 224, in _loop_check_status
+    local_handle = request()
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/interface/interface.py", line 856, in deliver_internal_messages
+    local_handle = request()
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/interface/interface.py", line 840, in deliver_stop_status
+    return self._deliver_stop_status(status)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/interface/interface_shared.py", line 494, in _deliver_stop_status
+    return self._deliver_internal_messages(internal_message)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/interface/interface_shared.py", line 516, in _deliver_internal_messages
+    return self._deliver_record(record)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/interface/interface_shared.py", line 459, in _deliver_record
+    return self._deliver_record(record)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/interface/interface_shared.py", line 459, in _deliver_record
+    handle = mailbox._deliver_record(record, interface=self)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/mailbox.py", line 455, in _deliver_record
+    handle = mailbox._deliver_record(record, interface=self)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/mailbox.py", line 455, in _deliver_record
+    interface._publish(record)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/interface/interface_sock.py", line 51, in _publish
+    interface._publish(record)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/interface/interface_sock.py", line 51, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/sock_client.py", line 221, in send_record_publish
+    self._sock_client.send_record_publish(record)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/sock_client.py", line 221, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/sock_client.py", line 155, in send_server_request
+    self.send_server_request(server_req)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/sock_client.py", line 155, in send_server_request
+    self._send_message(msg)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/sock_client.py", line 152, in _send_message
+    self._send_message(msg)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/sock_client.py", line 152, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/sock_client.py", line 130, in _sendall_with_error_handle
+    self._sendall_with_error_handle(header + data)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/sock_client.py", line 130, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+Completed: NVIDIA H=50
+
+Training: Mamba on NVIDIA for H=100
+wandb: Currently logged in as: blessingeleer-programming (blessingeleer-programming-university-of-the-witwatersrand). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.22.3 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /home-mscluster/bkodze/research_project/forecast-research/wandb/run-20251104_215612-g3w3d3gj
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Mamba_custom_sl60_pl100
+wandb: ⭐️ View project at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia
+wandb: 🚀 View run at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia/runs/g3w3d3gj
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_NVIDIA_H100   Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          NVIDIA_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+✅ W&B initialized: Mamba_custom_sl60_pl100
+   Dashboard: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia/runs/g3w3d3gj
+>>>>>>>start training : long_term_forecast_Mamba_NVIDIA_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Epoch: 1, Steps: 66 | Train Loss: 0.7678302 Vali Loss: 0.1856544 Test Loss: 0.4941041
+Validation loss decreased (inf --> 0.185654).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2, Steps: 66 | Train Loss: 0.7555194 Vali Loss: 0.1856389 Test Loss: 0.5145633
+Validation loss decreased (0.185654 --> 0.185639).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3, Steps: 66 | Train Loss: 0.7221912 Vali Loss: 0.1850860 Test Loss: 0.5462475
+Validation loss decreased (0.185639 --> 0.185086).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4, Steps: 66 | Train Loss: 0.6945843 Vali Loss: 0.1846852 Test Loss: 0.5692940
+Validation loss decreased (0.185086 --> 0.184685).  Saving model ...
+Updating learning rate to 1.25e-05
+Epoch: 5, Steps: 66 | Train Loss: 0.6813220 Vali Loss: 0.1844679 Test Loss: 0.5783874
+Validation loss decreased (0.184685 --> 0.184468).  Saving model ...
+Updating learning rate to 6.25e-06
+Epoch: 6, Steps: 66 | Train Loss: 0.6760570 Vali Loss: 0.1843776 Test Loss: 0.5832745
+Validation loss decreased (0.184468 --> 0.184378).  Saving model ...
+Updating learning rate to 3.125e-06
+Epoch: 7, Steps: 66 | Train Loss: 0.6735248 Vali Loss: 0.1843409 Test Loss: 0.5856442
+Validation loss decreased (0.184378 --> 0.184341).  Saving model ...
+Updating learning rate to 1.5625e-06
+Epoch: 8, Steps: 66 | Train Loss: 0.6718537 Vali Loss: 0.1843162 Test Loss: 0.5865379
+Validation loss decreased (0.184341 --> 0.184316).  Saving model ...
+Updating learning rate to 7.8125e-07
+Epoch: 9, Steps: 66 | Train Loss: 0.6718941 Vali Loss: 0.1843037 Test Loss: 0.5869248
+Validation loss decreased (0.184316 --> 0.184304).  Saving model ...
+Updating learning rate to 3.90625e-07
+Epoch: 10, Steps: 66 | Train Loss: 0.6721641 Vali Loss: 0.1843001 Test Loss: 0.5871923
+Validation loss decreased (0.184304 --> 0.184300).  Saving model ...
+Updating learning rate to 1.953125e-07
+Epoch: 11, Steps: 66 | Train Loss: 0.6728032 Vali Loss: 0.1842971 Test Loss: 0.5873025
+Validation loss decreased (0.184300 --> 0.184297).  Saving model ...
+Updating learning rate to 9.765625e-08
+Epoch: 12, Steps: 66 | Train Loss: 0.6734607 Vali Loss: 0.1842957 Test Loss: 0.5873539
+Validation loss decreased (0.184297 --> 0.184296).  Saving model ...
+Updating learning rate to 4.8828125e-08
+wandb: WARNING Step only supports monotonically increasing values, use define_metric to set a custom x axis. For details see: https://wandb.me/define-metric
+wandb: WARNING (User provided step: 0 is less than current step: 2. Dropping entry: {'epoch': 0, 'train/loss': 0.7678302083954667, 'val/loss': 0.185654416680336, 'test/loss': 0.4941041171550751, '_timestamp': 1762286180.8227599}).
+wandb: WARNING (User provided step: 1 is less than current step: 2. Dropping entry: {'epoch': 1, 'train/loss': 0.7555194117806174, 'val/loss': 0.18563887476921082, 'test/loss': 0.5145633220672607, '_timestamp': 1762286182.0837636}).
+Epoch: 13, Steps: 66 | Train Loss: 0.6735875 Vali Loss: 0.1842951 Test Loss: 0.5873833
+Validation loss decreased (0.184296 --> 0.184295).  Saving model ...
+Updating learning rate to 2.44140625e-08
+Epoch: 14, Steps: 66 | Train Loss: 0.6719528 Vali Loss: 0.1842949 Test Loss: 0.5873964
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 1.220703125e-08
+Epoch: 15, Steps: 66 | Train Loss: 0.6723790 Vali Loss: 0.1842947 Test Loss: 0.5874032
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Epoch: 16, Steps: 66 | Train Loss: 0.6735994 Vali Loss: 0.1842947 Test Loss: 0.5874056
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Epoch: 17, Steps: 66 | Train Loss: 0.6708874 Vali Loss: 0.1842946 Test Loss: 0.5874064
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 1.52587890625e-09
+Epoch: 18, Steps: 66 | Train Loss: 0.6716952 Vali Loss: 0.1842946 Test Loss: 0.5874065
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 7.62939453125e-10
+Epoch: 19, Steps: 66 | Train Loss: 0.6736286 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 3.814697265625e-10
+Epoch: 20, Steps: 66 | Train Loss: 0.6723564 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 1.9073486328125e-10
+Epoch: 21, Steps: 66 | Train Loss: 0.6732371 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 9.5367431640625e-11
+Epoch: 22, Steps: 66 | Train Loss: 0.6713376 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 4.76837158203125e-11
+Epoch: 23, Steps: 66 | Train Loss: 0.6714848 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 2.384185791015625e-11
+Epoch: 24, Steps: 66 | Train Loss: 0.6724351 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 1.1920928955078126e-11
+Epoch: 25, Steps: 66 | Train Loss: 0.6728672 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 5.960464477539063e-12
+Epoch: 26, Steps: 66 | Train Loss: 0.6714981 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 2.9802322387695314e-12
+Epoch: 27, Steps: 66 | Train Loss: 0.6703922 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 1.4901161193847657e-12
+Epoch: 28, Steps: 66 | Train Loss: 0.6734596 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 7.450580596923828e-13
+Epoch: 29, Steps: 66 | Train Loss: 0.6717987 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 3.725290298461914e-13
+Epoch: 30, Steps: 66 | Train Loss: 0.6720519 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 1.862645149230957e-13
+Epoch: 31, Steps: 66 | Train Loss: 0.6734788 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 9.313225746154786e-14
+Epoch: 32, Steps: 66 | Train Loss: 0.6692797 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 4.656612873077393e-14
+Epoch: 33, Steps: 66 | Train Loss: 0.6717210 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 2.3283064365386964e-14
+Epoch: 34, Steps: 66 | Train Loss: 0.6705913 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 1.1641532182693482e-14
+Epoch: 35, Steps: 66 | Train Loss: 0.6709957 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 5.820766091346741e-15
+Epoch: 36, Steps: 66 | Train Loss: 0.6731052 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 2.9103830456733705e-15
+Epoch: 37, Steps: 66 | Train Loss: 0.6726479 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 1.4551915228366853e-15
+Epoch: 38, Steps: 66 | Train Loss: 0.6725643 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 7.275957614183426e-16
+Epoch: 39, Steps: 66 | Train Loss: 0.6722434 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 3.637978807091713e-16
+Epoch: 40, Steps: 66 | Train Loss: 0.6723619 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 1.8189894035458566e-16
+Epoch: 41, Steps: 66 | Train Loss: 0.6739141 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 9.094947017729283e-17
+Epoch: 42, Steps: 66 | Train Loss: 0.6731373 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 4.5474735088646414e-17
+Epoch: 43, Steps: 66 | Train Loss: 0.6712241 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 2.2737367544323207e-17
+Epoch: 44, Steps: 66 | Train Loss: 0.6735567 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 1.1368683772161604e-17
+Epoch: 45, Steps: 66 | Train Loss: 0.6698917 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 5.684341886080802e-18
+Epoch: 46, Steps: 66 | Train Loss: 0.6708158 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 2.842170943040401e-18
+Epoch: 47, Steps: 66 | Train Loss: 0.6740453 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 1.4210854715202004e-18
+Epoch: 48, Steps: 66 | Train Loss: 0.6711721 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 7.105427357601002e-19
+Epoch: 49, Steps: 66 | Train Loss: 0.6709818 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 3.552713678800501e-19
+Epoch: 50, Steps: 66 | Train Loss: 0.6737173 Vali Loss: 0.1842946 Test Loss: 0.5874066
+Validation loss decreased (0.184295 --> 0.184295).  Saving model ...
+Updating learning rate to 1.7763568394002505e-19
+>>>>>>>testing : long_term_forecast_Mamba_NVIDIA_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 1) (28, 100, 1)
+test shape: (28, 100, 1) (28, 100, 1)
+
+
+	mse:0.004073670133948326, mae:0.04124652221798897, rmse:0.06382530927658081, r2:-0.02998960018157959, dtw:Not calculated
+
+
+VAL - MSE: 0.0041, MAE: 0.0412, RMSE: 0.0638, R²: -0.0300, MAPE: 5978145.50%
+
+📊 Logging comprehensive val results to W&B...
+✅ Val results logged to W&B
+wandb: - 0.569 MB of 0.574 MB uploadedwandb: \ 0.569 MB of 0.574 MB uploadedwandb: | 0.574 MB of 0.574 MB uploadedwandb: / 0.574 MB of 0.574 MB uploadedwandb: - 0.574 MB of 0.653 MB uploadedwandb: \ 0.653 MB of 0.653 MB uploadedwandb: | 0.653 MB of 0.653 MB uploadedwandb: 
+wandb: Run history:
+wandb:                      epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb: model/non_trainable_params ▁
+wandb:         model/total_params ▁
+wandb:     model/trainable_params ▁
+wandb:                  test/loss ▁▅▆▇████████████████████████████████████
+wandb:                 train/loss █▄▃▂▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▂▁▂
+wandb:   val/directional_accuracy ▁
+wandb:                   val/loss █▄▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                    val/mae ▁
+wandb:                   val/mape ▁
+wandb:                    val/mse ▁
+wandb:                     val/r2 ▁
+wandb:                   val/rmse ▁
+wandb: 
+wandb: Run summary:
+wandb:                      epoch 49
+wandb:         model/architecture Model(
+wandb:   (embedding)...
+wandb: model/non_trainable_params 0
+wandb:         model/total_params 73048
+wandb:     model/trainable_params 73048
+wandb:                  test/loss 0.58741
+wandb:                 train/loss 0.67372
+wandb:   val/directional_accuracy 43.47042
+wandb:                   val/loss 0.18429
+wandb:                    val/mae 0.04125
+wandb:                   val/mape 597814550.0
+wandb:                    val/mse 0.00407
+wandb:                     val/r2 -0.02999
+wandb:                   val/rmse 0.06383
+wandb: 
+wandb: 🚀 View run Mamba_custom_sl60_pl100 at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia/runs/g3w3d3gj
+wandb: ⭐️ View project at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-nvidia
+wandb: Synced 6 W&B file(s), 8 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251104_215612-g3w3d3gj/logs
+Completed: NVIDIA H=100
+
+Training: Mamba on APPLE for H=3
+wandb: Currently logged in as: blessingeleer-programming (blessingeleer-programming-university-of-the-witwatersrand). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.22.3 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /home-mscluster/bkodze/research_project/forecast-research/wandb/run-20251104_215758-35kib1lj
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Mamba_custom_sl60_pl3
+wandb: ⭐️ View project at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE
+wandb: 🚀 View run at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE/runs/35kib1lj
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_APPLE_H3      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+✅ W&B initialized: Mamba_custom_sl60_pl3
+   Dashboard: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE/runs/35kib1lj
+>>>>>>>start training : long_term_forecast_Mamba_APPLE_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Epoch: 1, Steps: 69 | Train Loss: 0.2605655 Vali Loss: 0.0725324 Test Loss: 0.1189245
+Validation loss decreased (inf --> 0.072532).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2, Steps: 69 | Train Loss: 0.2532858 Vali Loss: 0.0723887 Test Loss: 0.1174214
+Validation loss decreased (0.072532 --> 0.072389).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3, Steps: 69 | Train Loss: 0.2469951 Vali Loss: 0.0723154 Test Loss: 0.1161995
+Validation loss decreased (0.072389 --> 0.072315).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4, Steps: 69 | Train Loss: 0.2432493 Vali Loss: 0.0719094 Test Loss: 0.1150876
+Validation loss decreased (0.072315 --> 0.071909).  Saving model ...
+Updating learning rate to 1.25e-05
+Epoch: 5, Steps: 69 | Train Loss: 0.2426491 Vali Loss: 0.0720549 Test Loss: 0.1145703
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+Epoch: 6, Steps: 69 | Train Loss: 0.2414691 Vali Loss: 0.0711377 Test Loss: 0.1142974
+Validation loss decreased (0.071909 --> 0.071138).  Saving model ...
+Updating learning rate to 3.125e-06
+Epoch: 7, Steps: 69 | Train Loss: 0.2407512 Vali Loss: 0.0706088 Test Loss: 0.1141608
+Validation loss decreased (0.071138 --> 0.070609).  Saving model ...
+Updating learning rate to 1.5625e-06
+Epoch: 8, Steps: 69 | Train Loss: 0.2404555 Vali Loss: 0.0717558 Test Loss: 0.1140885
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.8125e-07
+Epoch: 9, Steps: 69 | Train Loss: 0.2402645 Vali Loss: 0.0704889 Test Loss: 0.1140530
+Validation loss decreased (0.070609 --> 0.070489).  Saving model ...
+Updating learning rate to 3.90625e-07
+Epoch: 10, Steps: 69 | Train Loss: 0.2421585 Vali Loss: 0.0702719 Test Loss: 0.1140381
+Validation loss decreased (0.070489 --> 0.070272).  Saving model ...
+Updating learning rate to 1.953125e-07
+Epoch: 11, Steps: 69 | Train Loss: 0.2401633 Vali Loss: 0.0706294 Test Loss: 0.1140289
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 9.765625e-08
+wandb: WARNING Step only supports monotonically increasing values, use define_metric to set a custom x axis. For details see: https://wandb.me/define-metric
+wandb: WARNING (User provided step: 0 is less than current step: 2. Dropping entry: {'epoch': 0, 'train/loss': 0.26056549579337024, 'val/loss': 0.07253238558769226, 'test/loss': 0.11892454512417316, '_timestamp': 1762286289.4224644}).
+wandb: WARNING (User provided step: 1 is less than current step: 2. Dropping entry: {'epoch': 1, 'train/loss': 0.2532858133747958, 'val/loss': 0.07238870672881603, 'test/loss': 0.11742143891751766, '_timestamp': 1762286290.7409549}).
+Epoch: 12, Steps: 69 | Train Loss: 0.2406434 Vali Loss: 0.0709620 Test Loss: 0.1140251
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 4.8828125e-08
+Epoch: 13, Steps: 69 | Train Loss: 0.2406583 Vali Loss: 0.0706792 Test Loss: 0.1140229
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 2.44140625e-08
+Epoch: 14, Steps: 69 | Train Loss: 0.2401945 Vali Loss: 0.0715528 Test Loss: 0.1140220
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.220703125e-08
+Epoch: 15, Steps: 69 | Train Loss: 0.2406980 Vali Loss: 0.0702632 Test Loss: 0.1140215
+Validation loss decreased (0.070272 --> 0.070263).  Saving model ...
+Updating learning rate to 6.103515625e-09
+Epoch: 16, Steps: 69 | Train Loss: 0.2407009 Vali Loss: 0.0702242 Test Loss: 0.1140213
+Validation loss decreased (0.070263 --> 0.070224).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+Epoch: 17, Steps: 69 | Train Loss: 0.2405392 Vali Loss: 0.0703115 Test Loss: 0.1140213
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.52587890625e-09
+Epoch: 18, Steps: 69 | Train Loss: 0.2407770 Vali Loss: 0.0703004 Test Loss: 0.1140212
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.62939453125e-10
+Epoch: 19, Steps: 69 | Train Loss: 0.2409080 Vali Loss: 0.0709922 Test Loss: 0.1140212
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.814697265625e-10
+Epoch: 20, Steps: 69 | Train Loss: 0.2398038 Vali Loss: 0.0707238 Test Loss: 0.1140212
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.9073486328125e-10
+Epoch: 21, Steps: 69 | Train Loss: 0.2405859 Vali Loss: 0.0706357 Test Loss: 0.1140212
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_APPLE_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 1) (125, 3, 1)
+test shape: (125, 3, 1) (125, 3, 1)
+
+
+	mse:3.190914139850065e-05, mae:0.004238938447088003, rmse:0.005648817867040634, r2:-0.018355607986450195, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0042, RMSE: 0.0056, R²: -0.0184, MAPE: 69388.75%
+
+📊 Logging comprehensive val results to W&B...
+✅ Val results logged to W&B
+wandb: - 0.458 MB of 0.458 MB uploadedwandb: \ 0.458 MB of 0.458 MB uploadedwandb: | 0.458 MB of 0.458 MB uploadedwandb: / 0.458 MB of 0.458 MB uploadedwandb: - 0.458 MB of 0.458 MB uploadedwandb: \ 0.458 MB of 0.458 MB uploadedwandb: | 0.458 MB of 0.458 MB uploadedwandb: / 0.458 MB of 0.458 MB uploadedwandb: - 0.507 MB of 0.580 MB uploadedwandb: \ 0.580 MB of 0.580 MB uploadedwandb: 
+wandb: Run history:
+wandb:                      epoch ▁▁▂▂▃▃▃▄▄▅▅▅▆▆▆▇▇██
+wandb: model/non_trainable_params ▁
+wandb:         model/total_params ▁
+wandb:     model/trainable_params ▁
+wandb:                  test/loss █▄▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                 train/loss █▄▄▃▂▂▁▃▁▂▂▁▂▂▂▂▂▁▂
+wandb:   val/directional_accuracy ▁
+wandb:                   val/loss █▇▇▄▂▆▂▁▂▃▃▅▁▁▁▁▄▃▂
+wandb:                    val/mae ▁
+wandb:                   val/mape ▁
+wandb:                    val/mse ▁
+wandb:                     val/r2 ▁
+wandb:                   val/rmse ▁
+wandb: 
+wandb: Run summary:
+wandb:                      epoch 20
+wandb:         model/architecture Model(
+wandb:   (embedding)...
+wandb: model/non_trainable_params 0
+wandb:         model/total_params 35218
+wandb:     model/trainable_params 35218
+wandb:                  test/loss 0.11402
+wandb:                 train/loss 0.24059
+wandb:   val/directional_accuracy 50.8
+wandb:                   val/loss 0.07064
+wandb:                    val/mae 0.00424
+wandb:                   val/mape 6938875.0
+wandb:                    val/mse 3e-05
+wandb:                     val/r2 -0.01836
+wandb:                   val/rmse 0.00565
+wandb: 
+wandb: 🚀 View run Mamba_custom_sl60_pl3 at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE/runs/35kib1lj
+wandb: ⭐️ View project at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE
+wandb: Synced 6 W&B file(s), 8 media file(s), 4 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251104_215758-35kib1lj/logs
+Completed: APPLE H=3
+
+Training: Mamba on APPLE for H=5
+wandb: Currently logged in as: blessingeleer-programming (blessingeleer-programming-university-of-the-witwatersrand). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.22.3 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /home-mscluster/bkodze/research_project/forecast-research/wandb/run-20251104_215904-at3mwpgz
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Mamba_custom_sl60_pl5
+wandb: ⭐️ View project at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE
+wandb: 🚀 View run at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE/runs/at3mwpgz
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_APPLE_H5      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+✅ W&B initialized: Mamba_custom_sl60_pl5
+   Dashboard: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE/runs/at3mwpgz
+>>>>>>>start training : long_term_forecast_Mamba_APPLE_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Epoch: 1, Steps: 69 | Train Loss: 0.2653836 Vali Loss: 0.0727608 Test Loss: 0.1197955
+Validation loss decreased (inf --> 0.072761).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2, Steps: 69 | Train Loss: 0.2576455 Vali Loss: 0.0736219 Test Loss: 0.1205607
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+Epoch: 3, Steps: 69 | Train Loss: 0.2518191 Vali Loss: 0.0732996 Test Loss: 0.1206257
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+Epoch: 4, Steps: 69 | Train Loss: 0.2491163 Vali Loss: 0.0727149 Test Loss: 0.1201672
+Validation loss decreased (0.072761 --> 0.072715).  Saving model ...
+Updating learning rate to 1.25e-05
+Epoch: 5, Steps: 69 | Train Loss: 0.2477189 Vali Loss: 0.0733758 Test Loss: 0.1199726
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 6.25e-06
+Epoch: 6, Steps: 69 | Train Loss: 0.2470902 Vali Loss: 0.0739106 Test Loss: 0.1199076
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.125e-06
+Epoch: 7, Steps: 69 | Train Loss: 0.2467189 Vali Loss: 0.0730348 Test Loss: 0.1198487
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.5625e-06
+Epoch: 8, Steps: 69 | Train Loss: 0.2464798 Vali Loss: 0.0737474 Test Loss: 0.1198267
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 7.8125e-07
+Epoch: 9, Steps: 69 | Train Loss: 0.2459068 Vali Loss: 0.0732047 Test Loss: 0.1198172
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_APPLE_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+wandb: WARNING Step only supports monotonically increasing values, use define_metric to set a custom x axis. For details see: https://wandb.me/define-metric
+wandb: WARNING (User provided step: 0 is less than current step: 2. Dropping entry: {'epoch': 0, 'train/loss': 0.2653835815364036, 'val/loss': 0.07276084367185831, 'test/loss': 0.11979549750685692, '_timestamp': 1762286352.5544455}).
+wandb: WARNING (User provided step: 1 is less than current step: 2. Dropping entry: {'epoch': 1, 'train/loss': 0.25764547806719074, 'val/loss': 0.07362194359302521, 'test/loss': 0.12056068703532219, '_timestamp': 1762286353.8191447}).
+test shape: (123, 5, 1) (123, 5, 1)
+test shape: (123, 5, 1) (123, 5, 1)
+
+
+	mse:3.221114820917137e-05, mae:0.004275246523320675, rmse:0.005675486754626036, r2:-0.015720725059509277, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0043, RMSE: 0.0057, R²: -0.0157, MAPE: 81041.56%
+
+📊 Logging comprehensive val results to W&B...
+✅ Val results logged to W&B
+wandb: - 0.488 MB of 0.488 MB uploadedwandb: \ 0.488 MB of 0.488 MB uploadedwandb: | 0.488 MB of 0.559 MB uploadedwandb: / 0.559 MB of 0.559 MB uploadedwandb: - 0.559 MB of 0.559 MB uploadedwandb: 
+wandb: Run history:
+wandb:                      epoch ▁▂▃▅▆▇█
+wandb: model/non_trainable_params ▁
+wandb:         model/total_params ▁
+wandb:     model/trainable_params ▁
+wandb:                  test/loss █▄▂▂▁▁▁
+wandb:                 train/loss █▅▃▂▂▂▁
+wandb:   val/directional_accuracy ▁
+wandb:                   val/loss ▄▁▅█▃▇▄
+wandb:                    val/mae ▁
+wandb:                   val/mape ▁
+wandb:                    val/mse ▁
+wandb:                     val/r2 ▁
+wandb:                   val/rmse ▁
+wandb: 
+wandb: Run summary:
+wandb:                      epoch 8
+wandb:         model/architecture Model(
+wandb:   (embedding)...
+wandb: model/non_trainable_params 0
+wandb:         model/total_params 35998
+wandb:     model/trainable_params 35998
+wandb:                  test/loss 0.11982
+wandb:                 train/loss 0.24591
+wandb:   val/directional_accuracy 49.18699
+wandb:                   val/loss 0.0732
+wandb:                    val/mae 0.00428
+wandb:                   val/mape 8104156.25
+wandb:                    val/mse 3e-05
+wandb:                     val/r2 -0.01572
+wandb:                   val/rmse 0.00568
+wandb: 
+wandb: 🚀 View run Mamba_custom_sl60_pl5 at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE/runs/at3mwpgz
+wandb: ⭐️ View project at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE
+wandb: Synced 6 W&B file(s), 8 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251104_215904-at3mwpgz/logs
+Completed: APPLE H=5
+
+Training: Mamba on APPLE for H=10
+wandb: Currently logged in as: blessingeleer-programming (blessingeleer-programming-university-of-the-witwatersrand). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.22.3 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /home-mscluster/bkodze/research_project/forecast-research/wandb/run-20251104_215942-16wlc2um
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Mamba_custom_sl60_pl10
+wandb: ⭐️ View project at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE
+wandb: 🚀 View run at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE/runs/16wlc2um
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_APPLE_H10     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           10                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+✅ W&B initialized: Mamba_custom_sl60_pl10
+   Dashboard: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE/runs/16wlc2um
+>>>>>>>start training : long_term_forecast_Mamba_APPLE_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 10
+============================================================
+train 2194
+val 116
+test 118
+Epoch: 1, Steps: 69 | Train Loss: 0.2697866 Vali Loss: 0.0768775 Test Loss: 0.1231585
+Validation loss decreased (inf --> 0.076877).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2, Steps: 69 | Train Loss: 0.2631308 Vali Loss: 0.0787289 Test Loss: 0.1239812
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+Epoch: 3, Steps: 69 | Train Loss: 0.2589089 Vali Loss: 0.0764126 Test Loss: 0.1246077
+Validation loss decreased (0.076877 --> 0.076413).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4, Steps: 69 | Train Loss: 0.2565732 Vali Loss: 0.0777171 Test Loss: 0.1245670
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+Epoch: 5, Steps: 69 | Train Loss: 0.2549113 Vali Loss: 0.0764400 Test Loss: 0.1245692
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 6.25e-06
+Epoch: 6, Steps: 69 | Train Loss: 0.2543386 Vali Loss: 0.0761144 Test Loss: 0.1245530
+Validation loss decreased (0.076413 --> 0.076114).  Saving model ...
+Updating learning rate to 3.125e-06
+Epoch: 7, Steps: 69 | Train Loss: 0.2545815 Vali Loss: 0.0770445 Test Loss: 0.1245415
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.5625e-06
+Epoch: 8, Steps: 69 | Train Loss: 0.2542069 Vali Loss: 0.0776548 Test Loss: 0.1245251
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 7.8125e-07
+Epoch: 9, Steps: 69 | Train Loss: 0.2534640 Vali Loss: 0.0783442 Test Loss: 0.1245195
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 3.90625e-07
+Epoch: 10, Steps: 69 | Train Loss: 0.2538737 Vali Loss: 0.0771600 Test Loss: 0.1245176
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 1.953125e-07
+Epoch: 11, Steps: 69 | Train Loss: 0.2529531 Vali Loss: 0.0777074 Test Loss: 0.1245170
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_APPLE_H10_Mamba_custom_ftM_sl60_ll30_pl10_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 118
+wandb: WARNING Step only supports monotonically increasing values, use define_metric to set a custom x axis. For details see: https://wandb.me/define-metric
+wandb: WARNING (User provided step: 0 is less than current step: 2. Dropping entry: {'epoch': 0, 'train/loss': 0.2697866170302681, 'val/loss': 0.07687746919691563, 'test/loss': 0.12315846420824528, '_timestamp': 1762286389.6113338}).
+wandb: WARNING (User provided step: 1 is less than current step: 2. Dropping entry: {'epoch': 1, 'train/loss': 0.2631308490383452, 'val/loss': 0.07872894778847694, 'test/loss': 0.12398120015859604, '_timestamp': 1762286390.9042146}).
+test shape: (118, 10, 1) (118, 10, 1)
+test shape: (118, 10, 1) (118, 10, 1)
+
+
+	mse:3.278688745922409e-05, mae:0.0043063415214419365, rmse:0.005725983530282974, r2:-0.01954829692840576, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0043, RMSE: 0.0057, R²: -0.0195, MAPE: 114348.95%
+
+📊 Logging comprehensive val results to W&B...
+✅ Val results logged to W&B
+wandb: - 0.538 MB of 0.539 MB uploadedwandb: \ 0.539 MB of 0.539 MB uploadedwandb: | 0.539 MB of 0.539 MB uploadedwandb: / 0.539 MB of 0.610 MB uploadedwandb: - 0.539 MB of 0.610 MB uploadedwandb: \ 0.610 MB of 0.610 MB uploadedwandb: 
+wandb: Run history:
+wandb:                      epoch ▁▂▃▄▅▅▆▇█
+wandb: model/non_trainable_params ▁
+wandb:         model/total_params ▁
+wandb:     model/trainable_params ▁
+wandb:                  test/loss █▅▅▄▃▂▁▁▁
+wandb:                 train/loss █▅▃▃▃▂▂▂▁
+wandb:   val/directional_accuracy ▁
+wandb:                   val/loss ▂▆▂▁▄▆█▄▆
+wandb:                    val/mae ▁
+wandb:                   val/mape ▁
+wandb:                    val/mse ▁
+wandb:                     val/r2 ▁
+wandb:                   val/rmse ▁
+wandb: 
+wandb: Run summary:
+wandb:                      epoch 10
+wandb:         model/architecture Model(
+wandb:   (embedding)...
+wandb: model/non_trainable_params 0
+wandb:         model/total_params 37948
+wandb:     model/trainable_params 37948
+wandb:                  test/loss 0.12452
+wandb:                 train/loss 0.25295
+wandb:   val/directional_accuracy 50.28249
+wandb:                   val/loss 0.07771
+wandb:                    val/mae 0.00431
+wandb:                   val/mape 11434894.53125
+wandb:                    val/mse 3e-05
+wandb:                     val/r2 -0.01955
+wandb:                   val/rmse 0.00573
+wandb: 
+wandb: 🚀 View run Mamba_custom_sl60_pl10 at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE/runs/16wlc2um
+wandb: ⭐️ View project at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE
+wandb: Synced 6 W&B file(s), 8 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251104_215942-16wlc2um/logs
+Exception in thread IntMsgThr:
+Traceback (most recent call last):
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+Exception in thread NetStatThr:
+Traceback (most recent call last):
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/threading.py", line 870, in run
+    self.run()
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 268, in check_network_status
+    self._target(*self._args, **self._kwargs)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 300, in check_internal_messages
+    self._loop_check_status(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 224, in _loop_check_status
+    self._loop_check_status(
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 224, in _loop_check_status
+    local_handle = request()
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/interface/interface.py", line 848, in deliver_network_status
+    local_handle = request()
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/interface/interface.py", line 856, in deliver_internal_messages
+    return self._deliver_internal_messages(internal_message)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/interface/interface_shared.py", line 516, in _deliver_internal_messages
+    return self._deliver_network_status(status)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/interface/interface_shared.py", line 510, in _deliver_network_status
+    return self._deliver_record(record)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/interface/interface_shared.py", line 459, in _deliver_record
+    return self._deliver_record(record)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/interface/interface_shared.py", line 459, in _deliver_record
+    handle = mailbox._deliver_record(record, interface=self)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/mailbox.py", line 455, in _deliver_record
+    handle = mailbox._deliver_record(record, interface=self)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/mailbox.py", line 455, in _deliver_record
+    interface._publish(record)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/interface/interface_sock.py", line 51, in _publish
+    interface._publish(record)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/interface/interface_sock.py", line 51, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/sock_client.py", line 221, in send_record_publish
+    self._sock_client.send_record_publish(record)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/sock_client.py", line 221, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/sock_client.py", line 155, in send_server_request
+    self.send_server_request(server_req)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/sock_client.py", line 155, in send_server_request
+    self._send_message(msg)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/sock_client.py", line 152, in _send_message
+    self._send_message(msg)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/sock_client.py", line 152, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/sock_client.py", line 130, in _sendall_with_error_handle
+    self._sendall_with_error_handle(header + data)
+  File "/home-mscluster/bkodze/miniconda3/envs/finalenv/lib/python3.8/site-packages/wandb/sdk/lib/sock_client.py", line 130, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+Completed: APPLE H=10
+
+Training: Mamba on APPLE for H=22
+wandb: Currently logged in as: blessingeleer-programming (blessingeleer-programming-university-of-the-witwatersrand). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.22.3 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /home-mscluster/bkodze/research_project/forecast-research/wandb/run-20251104_220026-wdmqzjut
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Mamba_custom_sl60_pl22
+wandb: ⭐️ View project at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE
+wandb: 🚀 View run at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE/runs/wdmqzjut
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_APPLE_H22     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           22                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+✅ W&B initialized: Mamba_custom_sl60_pl22
+   Dashboard: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE/runs/wdmqzjut
+>>>>>>>start training : long_term_forecast_Mamba_APPLE_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 22
+============================================================
+train 2182
+val 104
+test 106
+Epoch: 1, Steps: 69 | Train Loss: 0.2801679 Vali Loss: 0.0853878 Test Loss: 0.1337573
+Validation loss decreased (inf --> 0.085388).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2, Steps: 69 | Train Loss: 0.2773513 Vali Loss: 0.0850113 Test Loss: 0.1356857
+Validation loss decreased (0.085388 --> 0.085011).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3, Steps: 69 | Train Loss: 0.2688701 Vali Loss: 0.0872288 Test Loss: 0.1366133
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.5e-05
+Epoch: 4, Steps: 69 | Train Loss: 0.2695924 Vali Loss: 0.0880785 Test Loss: 0.1364635
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.25e-05
+Epoch: 5, Steps: 69 | Train Loss: 0.2639697 Vali Loss: 0.0863362 Test Loss: 0.1365375
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.25e-06
+Epoch: 6, Steps: 69 | Train Loss: 0.2635869 Vali Loss: 0.0892201 Test Loss: 0.1365041
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 3.125e-06
+Epoch: 7, Steps: 69 | Train Loss: 0.2646735 Vali Loss: 0.0892230 Test Loss: 0.1364794
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_APPLE_H22_Mamba_custom_ftM_sl60_ll30_pl22_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 106
+test shape: (106, 22, 1) (106, 22, 1)
+test shape: (106, 22, 1) (106, 22, 1)
+
+
+	mse:3.375609958311543e-05, mae:0.004331420175731182, rmse:0.005810000002384186, r2:-0.019437670707702637, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0043, RMSE: 0.0058, R²: -0.0194, MAPE: 135391.53%
+
+📊 Logging comprehensive val results to W&B...
+✅ Val results logged to W&B
+wandb: - 0.595 MB of 0.596 MB uploadedwandb: \ 0.595 MB of 0.596 MB uploadedwandb: | 0.596 MB of 0.666 MB uploadedwandb: / 0.666 MB of 0.666 MB uploadedwandb: 
+wandb: Run history:
+wandb:                      epoch ▁▃▅▆█
+wandb: model/non_trainable_params ▁
+wandb:         model/total_params ▁
+wandb:     model/trainable_params ▁
+wandb:                  test/loss █▁▄▃▂
+wandb:                 train/loss ▇█▁▁▂
+wandb:   val/directional_accuracy ▁
+wandb:                   val/loss ▃▅▁██
+wandb:                    val/mae ▁
+wandb:                   val/mape ▁
+wandb:                    val/mse ▁
+wandb:                     val/r2 ▁
+wandb:                   val/rmse ▁
+wandb: 
+wandb: Run summary:
+wandb:                      epoch 6
+wandb:         model/architecture Model(
+wandb:   (embedding)...
+wandb: model/non_trainable_params 0
+wandb:         model/total_params 42628
+wandb:     model/trainable_params 42628
+wandb:                  test/loss 0.13648
+wandb:                 train/loss 0.26467
+wandb:   val/directional_accuracy 51.30279
+wandb:                   val/loss 0.08922
+wandb:                    val/mae 0.00433
+wandb:                   val/mape 13539153.125
+wandb:                    val/mse 3e-05
+wandb:                     val/r2 -0.01944
+wandb:                   val/rmse 0.00581
+wandb: 
+wandb: 🚀 View run Mamba_custom_sl60_pl22 at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE/runs/wdmqzjut
+wandb: ⭐️ View project at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE
+wandb: Synced 6 W&B file(s), 8 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251104_220026-wdmqzjut/logs
+wandb: WARNING Step only supports monotonically increasing values, use define_metric to set a custom x axis. For details see: https://wandb.me/define-metric
+wandb: WARNING (User provided step: 0 is less than current step: 2. Dropping entry: {'epoch': 0, 'train/loss': 0.28016794095004816, 'val/loss': 0.08538777008652687, 'test/loss': 0.13375726528465748, '_timestamp': 1762286433.875557}).
+wandb: WARNING (User provided step: 1 is less than current step: 2. Dropping entry: {'epoch': 1, 'train/loss': 0.2773513452730317, 'val/loss': 0.08501127921044827, 'test/loss': 0.1356857232749462, '_timestamp': 1762286435.1276507}).
+Completed: APPLE H=22
+
+Training: Mamba on APPLE for H=50
+wandb: Currently logged in as: blessingeleer-programming (blessingeleer-programming-university-of-the-witwatersrand). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.22.3 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /home-mscluster/bkodze/research_project/forecast-research/wandb/run-20251104_220102-rt3gn8an
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Mamba_custom_sl60_pl50
+wandb: ⭐️ View project at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE
+wandb: 🚀 View run at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE/runs/rt3gn8an
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_APPLE_H50     Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           50                  Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+✅ W&B initialized: Mamba_custom_sl60_pl50
+   Dashboard: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE/runs/rt3gn8an
+>>>>>>>start training : long_term_forecast_Mamba_APPLE_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 50
+============================================================
+train 2154
+val 76
+test 78
+Epoch: 1, Steps: 68 | Train Loss: 0.3111376 Vali Loss: 0.0886567 Test Loss: 0.1286549
+Validation loss decreased (inf --> 0.088657).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2, Steps: 68 | Train Loss: 0.3036383 Vali Loss: 0.0946152 Test Loss: 0.1281555
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+Epoch: 3, Steps: 68 | Train Loss: 0.2992443 Vali Loss: 0.0991742 Test Loss: 0.1278843
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+Epoch: 4, Steps: 68 | Train Loss: 0.2948764 Vali Loss: 0.1019346 Test Loss: 0.1277788
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+Epoch: 5, Steps: 68 | Train Loss: 0.2926006 Vali Loss: 0.1037107 Test Loss: 0.1277276
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+Epoch: 6, Steps: 68 | Train Loss: 0.2921684 Vali Loss: 0.1022735 Test Loss: 0.1276935
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_APPLE_H50_Mamba_custom_ftM_sl60_ll30_pl50_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 78
+test shape: (78, 50, 1) (78, 50, 1)
+test shape: (78, 50, 1) (78, 50, 1)
+
+
+	mse:3.40989681717474e-05, mae:0.004365647677332163, rmse:0.0058394321240484715, r2:-0.018443584442138672, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0044, RMSE: 0.0058, R²: -0.0184, MAPE: 201322.45%
+
+📊 Logging comprehensive val results to W&B...
+✅ Val results logged to W&B
+wandb: - 0.648 MB of 0.650 MB uploadedwandb: \ 0.650 MB of 0.650 MB uploadedwandb: | 0.650 MB of 0.650 MB uploadedwandb: / 0.650 MB of 0.720 MB uploadedwandb: - 0.720 MB of 0.720 MB uploadedwandb: 
+wandb: Run history:
+wandb:                      epoch ▁▃▆█
+wandb: model/non_trainable_params ▁
+wandb:         model/total_params ▁
+wandb:     model/trainable_params ▁
+wandb:                  test/loss █▄▂▁
+wandb:                 train/loss █▄▁▁
+wandb:   val/directional_accuracy ▁
+wandb:                   val/loss ▁▅█▆
+wandb:                    val/mae ▁
+wandb:                   val/mape ▁
+wandb:                    val/mse ▁
+wandb:                     val/r2 ▁
+wandb:                   val/rmse ▁
+wandb: 
+wandb: Run summary:
+wandb:                      epoch 5
+wandb:         model/architecture Model(
+wandb:   (embedding)...
+wandb: model/non_trainable_params 0
+wandb:         model/total_params 53548
+wandb:     model/trainable_params 53548
+wandb:                  test/loss 0.12769
+wandb:                 train/loss 0.29217
+wandb:   val/directional_accuracy 49.39822
+wandb:                   val/loss 0.10227
+wandb:                    val/mae 0.00437
+wandb:                   val/mape 20132245.3125
+wandb:                    val/mse 3e-05
+wandb:                     val/r2 -0.01844
+wandb:                   val/rmse 0.00584
+wandb: 
+wandb: 🚀 View run Mamba_custom_sl60_pl50 at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE/runs/rt3gn8an
+wandb: ⭐️ View project at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE
+wandb: Synced 6 W&B file(s), 8 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251104_220102-rt3gn8an/logs
+wandb: WARNING Step only supports monotonically increasing values, use define_metric to set a custom x axis. For details see: https://wandb.me/define-metric
+wandb: WARNING (User provided step: 0 is less than current step: 2. Dropping entry: {'epoch': 0, 'train/loss': 0.311137609402923, 'val/loss': 0.08865669121344884, 'test/loss': 0.12865493446588516, '_timestamp': 1762286469.1657646}).
+wandb: WARNING (User provided step: 1 is less than current step: 2. Dropping entry: {'epoch': 1, 'train/loss': 0.3036383103360148, 'val/loss': 0.09461523592472076, 'test/loss': 0.1281555394331614, '_timestamp': 1762286470.420006}).
+Completed: APPLE H=50
+
+Training: Mamba on APPLE for H=100
+wandb: Currently logged in as: blessingeleer-programming (blessingeleer-programming-university-of-the-witwatersrand). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.22.3 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /home-mscluster/bkodze/research_project/forecast-research/wandb/run-20251104_220139-vw5do4gp
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Mamba_custom_sl60_pl100
+wandb: ⭐️ View project at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE
+wandb: 🚀 View run at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE/runs/vw5do4gp
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_APPLE_H100    Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          APPLE_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           100                 Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+✅ W&B initialized: Mamba_custom_sl60_pl100
+   Dashboard: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE/runs/vw5do4gp
+>>>>>>>start training : long_term_forecast_Mamba_APPLE_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 100
+============================================================
+train 2104
+val 26
+test 28
+Epoch: 1, Steps: 66 | Train Loss: 0.3523682 Vali Loss: 0.0895255 Test Loss: 0.1263046
+Validation loss decreased (inf --> 0.089526).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2, Steps: 66 | Train Loss: 0.3478554 Vali Loss: 0.0907254 Test Loss: 0.1263395
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 5e-05
+Epoch: 3, Steps: 66 | Train Loss: 0.3419619 Vali Loss: 0.0927914 Test Loss: 0.1267191
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 2.5e-05
+Epoch: 4, Steps: 66 | Train Loss: 0.3373246 Vali Loss: 0.0939006 Test Loss: 0.1270282
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.25e-05
+Epoch: 5, Steps: 66 | Train Loss: 0.3355222 Vali Loss: 0.0943012 Test Loss: 0.1272203
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 6.25e-06
+Epoch: 6, Steps: 66 | Train Loss: 0.3349783 Vali Loss: 0.0944367 Test Loss: 0.1273107
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_APPLE_H100_Mamba_custom_ftM_sl60_ll30_pl100_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 28
+test shape: (28, 100, 1) (28, 100, 1)
+test shape: (28, 100, 1) (28, 100, 1)
+
+
+	mse:3.404896051506512e-05, mae:0.0043451921083033085, rmse:0.0058351485058665276, r2:-0.004531383514404297, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0043, RMSE: 0.0058, R²: -0.0045, MAPE: 75344.88%
+
+📊 Logging comprehensive val results to W&B...
+✅ Val results logged to W&B
+wandb: - 0.693 MB of 0.698 MB uploadedwandb: \ 0.698 MB of 0.698 MB uploadedwandb: | 0.698 MB of 0.698 MB uploadedwandb: / 0.698 MB of 0.768 MB uploadedwandb: - 0.768 MB of 0.768 MB uploadedwandb: 
+wandb: Run history:
+wandb:                      epoch ▁▃▆█
+wandb: model/non_trainable_params ▁
+wandb:         model/total_params ▁
+wandb:     model/trainable_params ▁
+wandb:                  test/loss ▁▅▇█
+wandb:                 train/loss █▃▂▁
+wandb:   val/directional_accuracy ▁
+wandb:                   val/loss ▁▆▇█
+wandb:                    val/mae ▁
+wandb:                   val/mape ▁
+wandb:                    val/mse ▁
+wandb:                     val/r2 ▁
+wandb:                   val/rmse ▁
+wandb: 
+wandb: Run summary:
+wandb:                      epoch 5
+wandb:         model/architecture Model(
+wandb:   (embedding)...
+wandb: model/non_trainable_params 0
+wandb:         model/total_params 73048
+wandb:     model/trainable_params 73048
+wandb:                  test/loss 0.12731
+wandb:                 train/loss 0.33498
+wandb:   val/directional_accuracy 50.1443
+wandb:                   val/loss 0.09444
+wandb:                    val/mae 0.00435
+wandb:                   val/mape 7534488.28125
+wandb:                    val/mse 3e-05
+wandb:                     val/r2 -0.00453
+wandb:                   val/rmse 0.00584
+wandb: 
+wandb: 🚀 View run Mamba_custom_sl60_pl100 at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE/runs/vw5do4gp
+wandb: ⭐️ View project at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-APPLE
+wandb: Synced 6 W&B file(s), 8 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251104_220139-vw5do4gp/logs
+wandb: WARNING Step only supports monotonically increasing values, use define_metric to set a custom x axis. For details see: https://wandb.me/define-metric
+wandb: WARNING (User provided step: 0 is less than current step: 2. Dropping entry: {'epoch': 0, 'train/loss': 0.3523681874979626, 'val/loss': 0.089525505900383, 'test/loss': 0.12630461156368256, '_timestamp': 1762286508.830019}).
+wandb: WARNING (User provided step: 1 is less than current step: 2. Dropping entry: {'epoch': 1, 'train/loss': 0.3478553900212953, 'val/loss': 0.09072543680667877, 'test/loss': 0.12633951008319855, '_timestamp': 1762286510.0285327}).
+Completed: APPLE H=100
+
+Training: Mamba on SP500 for H=3
+wandb: Currently logged in as: blessingeleer-programming (blessingeleer-programming-university-of-the-witwatersrand). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.22.3 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /home-mscluster/bkodze/research_project/forecast-research/wandb/run-20251104_220215-osq3dgj9
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Mamba_custom_sl60_pl3
+wandb: ⭐️ View project at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-SP500
+wandb: 🚀 View run at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-SP500/runs/osq3dgj9
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SP500_H3      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           3                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+✅ W&B initialized: Mamba_custom_sl60_pl3
+   Dashboard: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-SP500/runs/osq3dgj9
+>>>>>>>start training : long_term_forecast_Mamba_SP500_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 3
+============================================================
+train 2201
+val 123
+test 125
+Epoch: 1, Steps: 69 | Train Loss: 0.2145794 Vali Loss: 0.0503459 Test Loss: 0.1197698
+Validation loss decreased (inf --> 0.050346).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2, Steps: 69 | Train Loss: 0.2111718 Vali Loss: 0.0496375 Test Loss: 0.1184955
+Validation loss decreased (0.050346 --> 0.049638).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3, Steps: 69 | Train Loss: 0.2077181 Vali Loss: 0.0490316 Test Loss: 0.1174407
+Validation loss decreased (0.049638 --> 0.049032).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4, Steps: 69 | Train Loss: 0.2048754 Vali Loss: 0.0490611 Test Loss: 0.1168062
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 1.25e-05
+Epoch: 5, Steps: 69 | Train Loss: 0.2032823 Vali Loss: 0.0487669 Test Loss: 0.1164476
+Validation loss decreased (0.049032 --> 0.048767).  Saving model ...
+Updating learning rate to 6.25e-06
+Epoch: 6, Steps: 69 | Train Loss: 0.2021566 Vali Loss: 0.0488037 Test Loss: 0.1162423
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.125e-06
+Epoch: 7, Steps: 69 | Train Loss: 0.2018939 Vali Loss: 0.0486953 Test Loss: 0.1161589
+Validation loss decreased (0.048767 --> 0.048695).  Saving model ...
+Updating learning rate to 1.5625e-06
+Epoch: 8, Steps: 69 | Train Loss: 0.2014698 Vali Loss: 0.0482705 Test Loss: 0.1161135
+Validation loss decreased (0.048695 --> 0.048271).  Saving model ...
+Updating learning rate to 7.8125e-07
+Epoch: 9, Steps: 69 | Train Loss: 0.2010463 Vali Loss: 0.0489742 Test Loss: 0.1160904
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 3.90625e-07
+Epoch: 10, Steps: 69 | Train Loss: 0.2012427 Vali Loss: 0.0483687 Test Loss: 0.1160808
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.953125e-07
+Epoch: 11, Steps: 69 | Train Loss: 0.2009460 Vali Loss: 0.0488646 Test Loss: 0.1160759
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 9.765625e-08
+wandb: WARNING Step only supports monotonically increasing values, use define_metric to set a custom x axis. For details see: https://wandb.me/define-metric
+wandb: WARNING (User provided step: 0 is less than current step: 2. Dropping entry: {'epoch': 0, 'train/loss': 0.21457938029282336, 'val/loss': 0.05034594889730215, 'test/loss': 0.11976978834718466, '_timestamp': 1762286542.8571157}).
+wandb: WARNING (User provided step: 1 is less than current step: 2. Dropping entry: {'epoch': 1, 'train/loss': 0.2111718105017275, 'val/loss': 0.049637503921985626, 'test/loss': 0.11849553138017654, '_timestamp': 1762286544.1514268}).
+Epoch: 12, Steps: 69 | Train Loss: 0.2008255 Vali Loss: 0.0484148 Test Loss: 0.1160731
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 4.8828125e-08
+Epoch: 13, Steps: 69 | Train Loss: 0.2014476 Vali Loss: 0.0486294 Test Loss: 0.1160719
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_SP500_H3_Mamba_custom_ftM_sl60_ll30_pl3_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 125
+test shape: (125, 3, 1) (125, 3, 1)
+test shape: (125, 3, 1) (125, 3, 1)
+
+
+	mse:2.2427336716646096e-06, mae:0.0010624139104038477, rmse:0.0014975758967921138, r2:-0.01127314567565918, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0011, RMSE: 0.0015, R²: -0.0113, MAPE: 1.18%
+
+📊 Logging comprehensive val results to W&B...
+✅ Val results logged to W&B
+wandb: - 0.457 MB of 0.457 MB uploadedwandb: \ 0.457 MB of 0.457 MB uploadedwandb: | 0.457 MB of 0.457 MB uploadedwandb: / 0.457 MB of 0.457 MB uploadedwandb: - 0.457 MB of 0.457 MB uploadedwandb: \ 0.457 MB of 0.457 MB uploadedwandb: | 0.506 MB of 0.578 MB uploadedwandb: / 0.559 MB of 0.578 MB uploadedwandb: - 0.578 MB of 0.578 MB uploadedwandb: 
+wandb: Run history:
+wandb:                      epoch ▁▂▂▃▄▅▅▆▇▇█
+wandb: model/non_trainable_params ▁
+wandb:         model/total_params ▁
+wandb:     model/trainable_params ▁
+wandb:                  test/loss █▅▃▂▁▁▁▁▁▁▁
+wandb:                 train/loss █▅▃▂▂▂▁▁▁▁▂
+wandb:   val/directional_accuracy ▁
+wandb:                   val/loss ██▅▆▅▁▇▂▆▂▄
+wandb:                    val/mae ▁
+wandb:                   val/mape ▁
+wandb:                    val/mse ▁
+wandb:                     val/r2 ▁
+wandb:                   val/rmse ▁
+wandb: 
+wandb: Run summary:
+wandb:                      epoch 12
+wandb:         model/architecture Model(
+wandb:   (embedding)...
+wandb: model/non_trainable_params 0
+wandb:         model/total_params 35218
+wandb:     model/trainable_params 35218
+wandb:                  test/loss 0.11607
+wandb:                 train/loss 0.20145
+wandb:   val/directional_accuracy 48.8
+wandb:                   val/loss 0.04863
+wandb:                    val/mae 0.00106
+wandb:                   val/mape 117.59723
+wandb:                    val/mse 0.0
+wandb:                     val/r2 -0.01127
+wandb:                   val/rmse 0.0015
+wandb: 
+wandb: 🚀 View run Mamba_custom_sl60_pl3 at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-SP500/runs/osq3dgj9
+wandb: ⭐️ View project at: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-SP500
+wandb: Synced 6 W&B file(s), 8 media file(s), 4 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251104_220215-osq3dgj9/logs
+Completed: SP500 H=3
+
+Training: Mamba on SP500 for H=5
+wandb: Currently logged in as: blessingeleer-programming (blessingeleer-programming-university-of-the-witwatersrand). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.22.3 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.6
+wandb: Run data is saved locally in /home-mscluster/bkodze/research_project/forecast-research/wandb/run-20251104_220305-hllre2zm
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Mamba_custom_sl60_pl5
+wandb: ⭐️ View project at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-SP500
+wandb: 🚀 View run at https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-SP500/runs/hllre2zm
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           Mamba_SP500_H5      Model:              Mamba               
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ../dataset/processed_data/
+  Data Path:          SP500_normalized.csvFeatures:           M                   
+  Target:             pct_chg             Freq:               h                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            60                  Label Len:          30                  
+  Pred Len:           5                   Seasonal Patterns:  Monthly             
+  Inverse:            1                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            64                  
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               16                  
+  Moving Avg:         25                  Factor:             1                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       50                  Batch Size:         32                  
+  Patience:           5                   Learning Rate:      0.0001              
+  Des:                Mamba_Exp           Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Please make sure you have successfully installed mamba_ssm
+Use GPU: cuda:0
+✅ W&B initialized: Mamba_custom_sl60_pl5
+   Dashboard: https://wandb.ai/blessingeleer-programming-university-of-the-witwatersrand/financial-forecasting-SP500/runs/hllre2zm
+>>>>>>>start training : long_term_forecast_Mamba_SP500_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+============================================================
+DATASET SPLIT INFO (90/5/5):
+============================================================
+Total samples: 2515
+Train: 2263 samples (90%) - rows 0 to 2262
+Val: 125 samples (5%) - rows 2263 to 2387
+Test: 127 samples (5%) - rows 2388 to 2514
+Sequence length: 60, Prediction length: 5
+============================================================
+train 2199
+val 121
+test 123
+Epoch: 1, Steps: 69 | Train Loss: 0.2186204 Vali Loss: 0.0501406 Test Loss: 0.1207134
+Validation loss decreased (inf --> 0.050141).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2, Steps: 69 | Train Loss: 0.2141347 Vali Loss: 0.0490951 Test Loss: 0.1188784
+Validation loss decreased (0.050141 --> 0.049095).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3, Steps: 69 | Train Loss: 0.2090195 Vali Loss: 0.0489308 Test Loss: 0.1175153
+Validation loss decreased (0.049095 --> 0.048931).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4, Steps: 69 | Train Loss: 0.2065192 Vali Loss: 0.0487048 Test Loss: 0.1166988
+Validation loss decreased (0.048931 --> 0.048705).  Saving model ...
+Updating learning rate to 1.25e-05
+Epoch: 5, Steps: 69 | Train Loss: 0.2052376 Vali Loss: 0.0481389 Test Loss: 0.1162519
+Validation loss decreased (0.048705 --> 0.048139).  Saving model ...
+Updating learning rate to 6.25e-06
+Epoch: 6, Steps: 69 | Train Loss: 0.2036469 Vali Loss: 0.0480164 Test Loss: 0.1160289
+Validation loss decreased (0.048139 --> 0.048016).  Saving model ...
+Updating learning rate to 3.125e-06
+Epoch: 7, Steps: 69 | Train Loss: 0.2026465 Vali Loss: 0.0479000 Test Loss: 0.1159073
+Validation loss decreased (0.048016 --> 0.047900).  Saving model ...
+Updating learning rate to 1.5625e-06
+Epoch: 8, Steps: 69 | Train Loss: 0.2030065 Vali Loss: 0.0487933 Test Loss: 0.1158481
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 7.8125e-07
+Epoch: 9, Steps: 69 | Train Loss: 0.2022902 Vali Loss: 0.0483937 Test Loss: 0.1158205
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 3.90625e-07
+Epoch: 10, Steps: 69 | Train Loss: 0.2030784 Vali Loss: 0.0481460 Test Loss: 0.1158070
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 1.953125e-07
+Epoch: 11, Steps: 69 | Train Loss: 0.2028611 Vali Loss: 0.0483196 Test Loss: 0.1158003
+EarlyStopping counter: 4 out of 5
+Updating learning rate to 9.765625e-08
+wandb: WARNING Step only supports monotonically increasing values, use define_metric to set a custom x axis. For details see: https://wandb.me/define-metric
+wandb: WARNING (User provided step: 0 is less than current step: 2. Dropping entry: {'epoch': 0, 'train/loss': 0.2186203699397004, 'val/loss': 0.050140623934566975, 'test/loss': 0.1207133773714304, '_timestamp': 1762286594.5195096}).
+wandb: WARNING (User provided step: 1 is less than current step: 2. Dropping entry: {'epoch': 1, 'train/loss': 0.21413472208423892, 'val/loss': 0.04909507464617491, 'test/loss': 0.11887844279408455, '_timestamp': 1762286595.8508205}).
+Epoch: 12, Steps: 69 | Train Loss: 0.2031180 Vali Loss: 0.0484980 Test Loss: 0.1157970
+EarlyStopping counter: 5 out of 5
+>>>>>>>testing : long_term_forecast_Mamba_SP500_H5_Mamba_custom_ftM_sl60_ll30_pl5_dm64_nh8_el2_dl1_df16_expand2_dc4_fc1_ebtimeF_dtTrue_Mamba_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 123
+test shape: (123, 5, 1) (123, 5, 1)
+test shape: (123, 5, 1) (123, 5, 1)
+
+
+	mse:2.2332385469781e-06, mae:0.0010583350667729974, rmse:0.0014944024151191115, r2:-0.0021610260009765625, dtw:Not calculated
+
+
+VAL - MSE: 0.0000, MAE: 0.0011, RMSE: 0.0015, R²: -0.0022, MAPE: 1.16%
+
+📊 Logging comprehensive val results to W&B...
+✅ Val results logged to W&B
