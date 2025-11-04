@@ -106,36 +106,33 @@ class EdenDataPreprocessor:
 
     def split_data(self, df):
         """
-        Split data into train/val/test following Eden's approach:
-        - Train: 2215 days (or proportional if data is shorter)
-        - Val: 200 days
-        - Test: 100 days
+        Split data into train/val/test using 80/10/10 ratio.
+        Uses ALL available data from 2006-2024 for comprehensive training.
+
+        - Train: 80% (for learning)
+        - Val: 10% (for hyperparameter tuning and early stopping)
+        - Test: 10% (for final evaluation)
         """
         total_days = len(df)
-        min_required = self.train_days + self.val_days + self.test_days
 
-        if total_days < min_required:
-            print(f"Warning: Dataset has {total_days} days, need {min_required}.")
-            print("Adjusting splits proportionally...")
-
-            # Use proportional split
-            train_ratio = self.train_days / min_required
-            val_ratio = self.val_days / min_required
-
-            train_size = int(total_days * train_ratio)
-            val_size = int(total_days * val_ratio)
-            test_size = total_days - train_size - val_size
-        else:
-            # Use exact splits from paper
-            train_size = self.train_days
-            val_size = self.val_days
-            test_size = self.test_days
+        # Use 80/10/10 split for all data
+        train_size = int(total_days * 0.80)
+        val_size = int(total_days * 0.10)
+        test_size = total_days - train_size - val_size  # Remaining goes to test
 
         train_df = df.iloc[:train_size].copy()
         val_df = df.iloc[train_size:train_size + val_size].copy()
-        test_df = df.iloc[train_size + val_size:train_size + val_size + test_size].copy()
+        test_df = df.iloc[train_size + val_size:].copy()
 
-        print(f"Split sizes - Train: {len(train_df)}, Val: {len(val_df)}, Test: {len(test_df)}")
+        print(f"\n{'='*60}")
+        print(f"DATA SPLIT (80/10/10):")
+        print(f"{'='*60}")
+        print(f"Total samples: {total_days}")
+        print(f"Train: {len(train_df)} samples (80%)")
+        print(f"Val: {len(val_df)} samples (10%)")
+        print(f"Test: {len(test_df)} samples (10%)")
+        print(f"Date range: {df['date'].min()} to {df['date'].max()}")
+        print(f"{'='*60}")
 
         return train_df, val_df, test_df
 

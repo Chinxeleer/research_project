@@ -20,8 +20,8 @@ SEQ_LEN=60
 LABEL_LEN=30
 BATCH_SIZE=32
 LEARNING_RATE=0.0001
-TRAIN_EPOCHS=50
-PATIENCE=5
+TRAIN_EPOCHS=100  # Increased for more thorough training
+PATIENCE=10       # Increased from 5 to allow more exploration
 
 ROOT_PATH="../dataset/processed_data/"
 FEATURES="M"
