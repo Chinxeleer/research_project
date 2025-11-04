@@ -72,9 +72,17 @@ class Exp_Long_Term_Forecast(Exp_Basic):
                         outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)
                 else:
                     outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)
+
+                # CRITICAL FIX: Calculate loss ONLY on target column (last column = pct_chg)
                 f_dim = -1 if self.args.features == 'MS' else 0
-                outputs = outputs[:, -self.args.pred_len:, f_dim:]
-                batch_y = batch_y[:, -self.args.pred_len:, f_dim:].to(self.device)
+                if self.args.features == 'M':
+                    # For multivariate, select ONLY the target column (last column)
+                    outputs = outputs[:, -self.args.pred_len:, -1:]
+                    batch_y = batch_y[:, -self.args.pred_len:, -1:].to(self.device)
+                else:
+                    # For MS or S, use original slicing logic
+                    outputs = outputs[:, -self.args.pred_len:, f_dim:]
+                    batch_y = batch_y[:, -self.args.pred_len:, f_dim:].to(self.device)
 
                 pred = outputs.detach()
                 true = batch_y.detach()
@@ -133,17 +141,27 @@ class Exp_Long_Term_Forecast(Exp_Basic):
                     with torch.cuda.amp.autocast():
                         outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)
 
+                        # CRITICAL FIX: Train ONLY on target column (last column = pct_chg)
                         f_dim = -1 if self.args.features == 'MS' else 0
-                        outputs = outputs[:, -self.args.pred_len:, f_dim:]
-                        batch_y = batch_y[:, -self.args.pred_len:, f_dim:].to(self.device)
+                        if self.args.features == 'M':
+                            outputs = outputs[:, -self.args.pred_len:, -1:]
+                            batch_y = batch_y[:, -self.args.pred_len:, -1:].to(self.device)
+                        else:
+                            outputs = outputs[:, -self.args.pred_len:, f_dim:]
+                            batch_y = batch_y[:, -self.args.pred_len:, f_dim:].to(self.device)
                         loss = criterion(outputs, batch_y)
                         train_loss.append(loss.item())
                 else:
                     outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)
 
+                    # CRITICAL FIX: Train ONLY on target column (last column = pct_chg)
                     f_dim = -1 if self.args.features == 'MS' else 0
-                    outputs = outputs[:, -self.args.pred_len:, f_dim:]
-                    batch_y = batch_y[:, -self.args.pred_len:, f_dim:].to(self.device)
+                    if self.args.features == 'M':
+                        outputs = outputs[:, -self.args.pred_len:, -1:]
+                        batch_y = batch_y[:, -self.args.pred_len:, -1:].to(self.device)
+                    else:
+                        outputs = outputs[:, -self.args.pred_len:, f_dim:]
+                        batch_y = batch_y[:, -self.args.pred_len:, f_dim:].to(self.device)
                     loss = criterion(outputs, batch_y)
                     train_loss.append(loss.item())
 
@@ -226,11 +244,13 @@ class Exp_Long_Term_Forecast(Exp_Basic):
                 else:
                     outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)
 
-                f_dim = -1 if self.args.features == 'MS' else 0
+                # Get all predictions and ground truth
                 outputs = outputs[:, -self.args.pred_len:, :]
                 batch_y = batch_y[:, -self.args.pred_len:, :].to(self.device)
                 outputs = outputs.detach().cpu().numpy()
                 batch_y = batch_y.detach().cpu().numpy()
+
+                # Denormalize all features if inverse transform is enabled
                 if test_data.scale and self.args.inverse:
                     shape = batch_y.shape
                     if outputs.shape[-1] != batch_y.shape[-1]:
@@ -238,8 +258,18 @@ class Exp_Long_Term_Forecast(Exp_Basic):
                     outputs = test_data.inverse_transform(outputs.reshape(shape[0] * shape[1], -1)).reshape(shape)
                     batch_y = test_data.inverse_transform(batch_y.reshape(shape[0] * shape[1], -1)).reshape(shape)
 
-                outputs = outputs[:, :, f_dim:]
-                batch_y = batch_y[:, :, f_dim:]
+                # CRITICAL FIX: Evaluate ONLY on target column (last column = pct_chg)
+                # The target is always the last column after data_loader reordering
+                # This ensures MSE is computed ONLY on pct_chg, not all 6 features!
+                f_dim = -1 if self.args.features == 'MS' else 0
+                if self.args.features == 'M':
+                    # For multivariate, select ONLY the target column (last column)
+                    outputs = outputs[:, :, -1:]
+                    batch_y = batch_y[:, :, -1:]
+                else:
+                    # For MS or S, use original slicing logic
+                    outputs = outputs[:, :, f_dim:]
+                    batch_y = batch_y[:, :, f_dim:]
 
                 pred = outputs
                 true = batch_y
