@@ -22,12 +22,12 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         super(Exp_Long_Term_Forecast, self).__init__(args)
 
         # Initialize wandb logger
-        # self.wandb_logger = WandbLogger(
-        #     args, 
-        #     project_name=args.wandb_project if hasattr(args, 'wandb_project') else "financial-forecasting",
-        #     enabled=args.use_wandb if hasattr(args, 'use_wandb') else False
-        # )
-        
+        self.wandb_logger = WandbLogger(
+            args,
+            project_name=args.wandb_project if hasattr(args, 'wandb_project') else "financial-forecasting",
+            enabled=args.use_wandb if hasattr(args, 'use_wandb') else False
+        )
+
         # Track losses for learning curves
         self.train_losses = []
         self.val_losses = []
@@ -102,9 +102,9 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         train_steps = len(train_loader)
         early_stopping = EarlyStopping(patience=self.args.patience, verbose=True)
 
-        # added wandb model logging
-        # self.wandb_logger.watch_model(self.model, log_freq=100)
-        # self.wandb_logger.log_model_architecture(self.model)
+        # Added wandb model logging
+        self.wandb_logger.watch_model(self.model, log_freq=100)
+        self.wandb_logger.log_model_architecture(self.model)
 
         model_optim = self._select_optimizer()
         criterion = self._select_criterion()
@@ -175,15 +175,16 @@ class Exp_Long_Term_Forecast(Exp_Basic):
             self.train_losses.append(train_loss)
             self.val_losses.append(vali_loss)
 
-            # self.wandb_logger.log_epoch_metrics(
-            #         epoch=epoch,
-            #         train_loss=train_loss,
-            #         vali_loss=vali_loss,
-            #         test_loss=test_loss
-            #     )
+            # Log metrics to wandb
+            self.wandb_logger.log_epoch_metrics(
+                    epoch=epoch,
+                    train_loss=train_loss,
+                    vali_loss=vali_loss,
+                    test_loss=test_loss
+                )
 
-            # print("Epoch: {0}, Steps: {1} | Train Loss: {2:.7f} Vali Loss: {3:.7f} Test Loss: {4:.7f}\n".format(
-            #    epoch + 1, train_steps, train_loss, vali_loss, test_loss))
+            print("Epoch: {0}, Steps: {1} | Train Loss: {2:.7f} Vali Loss: {3:.7f} Test Loss: {4:.7f}".format(
+               epoch + 1, train_steps, train_loss, vali_loss, test_loss))
             early_stopping(vali_loss, self.model, path)
             if early_stopping.early_stop:
                 # print("Early stopping\n")
@@ -194,8 +195,8 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         best_model_path = path + '/' + 'checkpoint.pth'
         self.model.load_state_dict(torch.load(best_model_path))
 
-        # At end of train() method
-        # self.wandb_logger.log_learning_curve(self.train_losses, self.val_losses)
+        # Log learning curves at end of training
+        self.wandb_logger.log_learning_curve(self.train_losses, self.val_losses)
 
         return self.model
 
@@ -310,14 +311,12 @@ class Exp_Long_Term_Forecast(Exp_Basic):
             }
 
         split_name = "val" if test == 0 else "test"
-        # self.wandb_logger.log_metrics(metrics, prefix=f"{split_name}/")
 
-        # Log visualizations
-        # self.wandb_logger.log_predictions(trues, preds, split=split_name, num_samples=5)
-        # self.wandb_logger.log_confusion_metrics(trues, preds, split=split_name)
-        # self.wandb_logger.log_distribution_comparison(trues, preds, split=split_name)
-        # self.wandb_logger.log_predictions_table(trues, preds, split=split_name, max_rows=100)
+        # Log comprehensive results to wandb
         print(f'{split_name.upper()} - MSE: {mse:.4f}, MAE: {mae:.4f}, RMSE: {rmse:.4f}, R²: {r2:.4f}, MAPE: {mape:.2f}%')
+
+        # Log all comprehensive test visualizations and metrics
+        self.wandb_logger.log_comprehensive_test_results(trues, preds, split=split_name, num_samples=5)
 
 
 

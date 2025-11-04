@@ -140,6 +140,11 @@ if __name__ == '__main__':
     # TimeXer
     parser.add_argument('--patch_len', type=int, default=16, help='patch length')
 
+    # Weights & Biases logging
+    parser.add_argument('--use_wandb', action='store_true', help='use Weights & Biases for logging', default=False)
+    parser.add_argument('--wandb_project', type=str, default='financial-forecasting', help='W&B project name')
+    parser.add_argument('--wandb_entity', type=str, default=None, help='W&B entity/team name')
+
     args = parser.parse_args()
     if torch.cuda.is_available() and args.use_gpu:
         args.device = torch.device('cuda:{}'.format(args.gpu))

@@ -11,6 +11,7 @@
 2. [Session 2: Normalization Issues](#session-2-normalization-issues)
 3. [Session 3: Evaluation Methodology Fix](#session-3-evaluation-methodology-fix)
 4. [Session 4: Training Loss Correction](#session-4-training-loss-correction)
+5. [Session 5: Weights & Biases Integration](#session-5-weights--biases-integration)
 
 ---
 
@@ -394,6 +395,304 @@ Index 5: pct_chg  ← Target (last column)
 2. **Research standard**: Papers report metrics on target variable only
 3. **Interpretability**: MSE on pct_chg has clear meaning (percentage point error)
 4. **Avoids confusion**: Different features have different scales and meanings
+
+---
+
+## Session 5: Weights & Biases Integration
+**Date:** 2025-11-04 (Evening)
+
+### Problem Identified
+No comprehensive visualization and error tracking system:
+- Unable to see prediction vs ground truth comparisons
+- No residual analysis or error distribution plots
+- Difficult to compare models across different runs
+- Missing directional accuracy metrics (critical for trading)
+- No per-horizon error breakdown
+
+### Solution: Full WandB Integration
+
+Integrated Weights & Biases logging with comprehensive visualizations for research analysis.
+
+### Changes Made
+
+#### 1. Enhanced WandB Logger
+**File:** `utils/wandb_logger.py`
+
+**Added new methods (lines 222-435):**
+
+```python
+def log_residual_analysis(self, true, pred, split="test"):
+    """4-panel residual analysis with Q-Q plot, histogram, scatter, time series"""
+    # Creates comprehensive residual diagnostic plots
+
+def log_error_metrics_detailed(self, true, pred, split="test"):
+    """Logs MAE, MSE, RMSE, R², MAPE, and Directional Accuracy"""
+    # Calculates directional accuracy (% correct direction predictions)
+    # Creates metrics summary table
+
+def log_horizon_analysis(self, true, pred, split="test"):
+    """Per-timestep error analysis"""
+    # Shows MSE and MAE at each forecast horizon
+    # Helps identify if errors increase with longer forecasts
+
+def log_comprehensive_test_results(self, true, pred, split="test", num_samples=5):
+    """Calls all visualization methods in one go"""
+    # Logs: predictions, scatter, distributions, residuals, horizon analysis
+```
+
+**Key Features:**
+- **Residual plots**: Check for bias and patterns in errors
+- **Q-Q plot**: Verify residuals are normally distributed
+- **Directional accuracy**: % of correct direction predictions (crucial for trading!)
+- **Horizon analysis**: Error breakdown by forecast timestep
+- **Summary tables**: Clean metric presentation
+
+#### 2. Integrated Logging in Experiment Class
+**File:** `exp/exp_long_term_forecasting.py`
+
+**Changes:**
+
+a) **Uncommented WandB initialization (lines 25-29):**
+```python
+self.wandb_logger = WandbLogger(
+    args,
+    project_name=args.wandb_project if hasattr(args, 'wandb_project') else "financial-forecasting",
+    enabled=args.use_wandb if hasattr(args, 'use_wandb') else False
+)
+```
+
+b) **Uncommented model logging (lines 106-107):**
+```python
+self.wandb_logger.watch_model(self.model, log_freq=100)
+self.wandb_logger.log_model_architecture(self.model)
+```
+
+c) **Uncommented epoch logging (lines 179-184):**
+```python
+self.wandb_logger.log_epoch_metrics(
+    epoch=epoch,
+    train_loss=train_loss,
+    vali_loss=vali_loss,
+    test_loss=test_loss
+)
+```
+
+d) **Re-enabled print statements (lines 186-187):**
+```python
+print("Epoch: {0}, Steps: {1} | Train Loss: {2:.7f} Vali Loss: {3:.7f} Test Loss: {4:.7f}".format(
+   epoch + 1, train_steps, train_loss, vali_loss, test_loss))
+```
+
+e) **Uncommented learning curve logging (line 199):**
+```python
+self.wandb_logger.log_learning_curve(self.train_losses, self.val_losses)
+```
+
+f) **Added comprehensive test logging (line 319):**
+```python
+self.wandb_logger.log_comprehensive_test_results(trues, preds, split=split_name, num_samples=5)
+```
+
+#### 3. Added Command-Line Arguments
+**File:** `run.py`
+
+**Added arguments (lines 143-146):**
+```python
+# Weights & Biases logging
+parser.add_argument('--use_wandb', action='store_true', help='use Weights & Biases for logging', default=False)
+parser.add_argument('--wandb_project', type=str, default='financial-forecasting', help='W&B project name')
+parser.add_argument('--wandb_entity', type=str, default=None, help='W&B entity/team name')
+```
+
+#### 4. Updated Training Script
+**File:** `run_mamba.sh`
+
+**Added flags (lines 73, 76-77):**
+```bash
+--inverse 1 \
+--use_wandb \
+--wandb_project "financial-forecasting-${dataset}" \
+```
+
+**Result:**
+- WandB enabled by default for Mamba training
+- Each dataset gets its own project for organization
+- Inverse transform enabled (was missing)
+
+### What Gets Logged to WandB
+
+#### **During Training (Every Epoch):**
+- `train/loss` - Training loss
+- `val/loss` - Validation loss
+- `test/loss` - Test loss (if computed)
+- `epoch` - Current epoch number
+- Model gradients and weights (if watching)
+
+#### **At Test Time (Once at End):**
+
+**Metrics:**
+- `test/mae` - Mean Absolute Error
+- `test/mse` - Mean Squared Error
+- `test/rmse` - Root Mean Squared Error
+- `test/r2` - R² coefficient
+- `test/mape` - Mean Absolute Percentage Error
+- `test/directional_accuracy` - % correct direction predictions ⭐
+
+**Visualizations:**
+1. **Prediction Samples** - 5 examples of pred vs true
+2. **Scatter Plot** - Predicted vs True with diagonal reference line
+3. **Distribution Comparison** - Histogram + Boxplot
+4. **Residual Analysis** - 4-panel diagnostic:
+   - Residual vs Predicted scatter
+   - Residual histogram with normality check
+   - Q-Q plot for normality
+   - Residuals over time
+5. **Horizon Analysis** - MSE and MAE by forecast timestep
+6. **Learning Curves** - Train vs Val loss over epochs
+
+**Tables:**
+- Metrics summary table
+- Per-horizon metrics table
+
+**Model Info:**
+- Total parameters
+- Trainable parameters
+- Model architecture text
+
+### Benefits for Research
+
+#### 1. Error Analysis
+- **Residual plots** show if model has systematic bias
+- **Q-Q plot** checks if errors are normally distributed (assumption for many tests)
+- **Horizon analysis** shows if errors increase with longer forecasts
+
+#### 2. Model Comparison
+- Compare all models side-by-side in WandB dashboard
+- Filter by dataset, horizon, model type
+- Create comparison reports for publication
+
+#### 3. Directional Accuracy
+- **Most important metric for trading applications!**
+- Even if magnitude is wrong, correct direction = profitable trade
+- Goal: >50% (better than random), 55-60%+ is excellent
+
+#### 4. Reproducibility
+- All hyperparameters logged automatically
+- Config saved for every run
+- Easy to reproduce best models
+
+#### 5. Publication-Ready Figures
+- High-quality plots generated automatically
+- Can download and use directly in papers
+- Professional visualizations
+
+### Expected Output
+
+#### Console (with WandB):
+```
+✅ W&B initialized: Mamba_NVIDIA_sl60_pl22
+   Dashboard: https://wandb.ai/username/financial-forecasting-NVIDIA/runs/abc123
+
+Epoch: 1, Steps: 45 | Train Loss: 0.0045123 Vali Loss: 0.0043211 Test Loss: 0.0042987
+Epoch: 2, Steps: 45 | Train Loss: 0.0041234 Vali Loss: 0.0040123 Test Loss: 0.0039876
+...
+Epoch: 50, Steps: 45 | Train Loss: 0.0032111 Vali Loss: 0.0031890 Test Loss: 0.0031567
+
+TEST - MSE: 0.0000, MAE: 0.0042, RMSE: 0.0056, R²: -0.0183, MAPE: 4.23%
+
+📊 Logging comprehensive test results to W&B...
+✅ Test results logged to W&B
+✅ W&B run finished
+```
+
+#### WandB Dashboard:
+- **Charts tab**: All plots automatically generated
+- **Metrics tab**: Time series of all metrics
+- **Tables tab**: Summary tables
+- **Config tab**: All hyperparameters
+- **Model tab**: Architecture and parameters
+
+### Usage Instructions
+
+#### First Time Setup:
+```bash
+# Install WandB
+pip install wandb
+
+# Login (get API key from wandb.ai/authorize)
+wandb login
+
+# Verify
+python -c "import wandb; print('WandB ready!')"
+```
+
+#### Training with WandB:
+```bash
+cd forecast-research
+
+# Run training (WandB now enabled by default)
+bash run_mamba.sh
+
+# View results at: https://wandb.ai/your-username/financial-forecasting-NVIDIA
+```
+
+#### Disable WandB (if needed):
+```bash
+# Option 1: Remove --use_wandb flag from script
+# Option 2: Set environment variable
+export WANDB_MODE=disabled
+bash run_mamba.sh
+```
+
+### Files Modified
+
+1. ✅ `utils/wandb_logger.py` - Added 6 new visualization methods
+2. ✅ `exp/exp_long_term_forecasting.py` - Integrated logging throughout
+3. ✅ `run.py` - Added command-line arguments
+4. ✅ `run_mamba.sh` - Enabled WandB and added inverse flag
+5. ✅ Created `WANDB_SETUP.md` - Comprehensive documentation
+
+### Next Steps
+
+**To use WandB with other models:**
+
+Add these flags to `run_autoformer.sh`, `run_informer.sh`, `run_fedformer.sh`, `run_itransformer.sh`:
+
+```bash
+--inverse 1 \
+--use_wandb \
+--wandb_project "financial-forecasting-${dataset}" \
+```
+
+**To create comparison report:**
+1. Train all 5 models on same dataset
+2. Go to WandB project dashboard
+3. Select all runs → "Create Report"
+4. Add comparison charts
+5. Share with advisors/collaborators
+
+### Technical Notes
+
+1. **scipy dependency**: Added for Q-Q plots (`scipy.stats.probplot`)
+2. **sklearn metrics**: Using for consistent metric calculation
+3. **Directional accuracy**: Custom metric specifically for financial forecasting
+4. **Horizon analysis**: Critical for understanding forecast degradation over time
+5. **Residual normality**: Important assumption for statistical tests
+
+### Expected Impact on Results
+
+**No change to model performance** - This is pure logging/visualization enhancement.
+
+**Benefits:**
+- ✅ See prediction errors visually
+- ✅ Understand where and why models fail
+- ✅ Compare models objectively
+- ✅ Track directional accuracy (trading-relevant)
+- ✅ Analyze error patterns
+- ✅ Create publication figures
+- ✅ Improve model debugging
+
+**Status:** ✅ Ready for Training
 
 ---
 
