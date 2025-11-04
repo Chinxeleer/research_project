@@ -12,6 +12,7 @@
 3. [Session 3: Evaluation Methodology Fix](#session-3-evaluation-methodology-fix)
 4. [Session 4: Training Loss Correction](#session-4-training-loss-correction)
 5. [Session 5: Weights & Biases Integration](#session-5-weights--biases-integration)
+6. [Session 6: Critical Preprocessing Bug - pct_chg Formula](#session-6-critical-preprocessing-bug)
 
 ---
 
@@ -696,6 +697,229 @@ Add these flags to `run_autoformer.sh`, `run_informer.sh`, `run_fedformer.sh`, `
 
 ---
 
+## Session 6: Critical Preprocessing Bug
+**Date:** 2025-11-04 (Evening - Post WandB Analysis)
+
+### Problem Identified
+
+After enabling WandB visualizations, user discovered that prediction plots showed incorrect scale:
+- Y-axis range: **-0.3 to 0.1** (should be -0.05 to 0.05 for percentage changes)
+- Ground truth had extreme spikes (dropping to -0.35)
+- Predictions were very smooth and hovering near zero
+- Metrics (MSE, MAE, R²) were technically correct BUT for the wrong data!
+
+### Root Cause Analysis
+
+**Critical bug in preprocessing order:**
+
+```python
+# BROKEN ORDER (before fix):
+1. Load CSV
+2. Apply log() to Close prices  ← Line 78 in load_csv()
+   df['Close'] = np.log(df['Close'])
+3. Calculate pct_chg from log-transformed prices  ← Line 108
+   df['pct_chg'] = df['Close'].pct_change()
+   # = (log(Close_t) - log(Close_{t-1})) / log(Close_{t-1})  ← MATHEMATICALLY WRONG!
+```
+
+**What this calculated:**
+- NOT a percentage change!
+- Dividing a log-difference by a log-value
+- No financial meaning
+- Values in range -0.3 to 0.1 (meaningless scale)
+
+**Correct formula for percentage change:**
+```python
+pct_chg = (Close_t - Close_{t-1}) / Close_{t-1}
+```
+
+### Solution: Fix Preprocessing Order
+
+**CORRECT ORDER (after fix):**
+```python
+1. Load CSV (WITHOUT log transforms)
+2. Calculate pct_chg from ORIGINAL prices  ← Calculate first!
+   df['pct_chg'] = df['Close'].pct_change()
+   # = (Close_t - Close_{t-1}) / Close_{t-1}  ← CORRECT!
+3. THEN apply log() to prices  ← Transform after
+   df['Close'] = np.log(df['Close'])
+   # Note: pct_chg column remains UNCHANGED at original scale
+```
+
+### Changes Made
+
+**File:** `dataset/prepare_data_eden_method.py`
+
+#### 1. Removed Log Transforms from `load_csv()` Method
+
+**Old code (lines 72-81):**
+```python
+# Apply log transforms to bring features to similar scales
+print("  Applying log transforms to prices and volume...")
+price_cols = ['Open', 'High', 'Low', 'Close']
+for col in price_cols:
+    if col in df.columns:
+        df[col] = np.log(df[col])  # log for prices
+
+if 'Volume' in df.columns:
+    df['Volume'] = np.log1p(df['Volume'])
+```
+
+**New code (lines 72-73):**
+```python
+# NOTE: Log transforms will be applied AFTER pct_chg calculation
+# to avoid calculating pct_chg from log-transformed prices
+```
+
+#### 2. Added Log Transforms to `process_stock()` Method
+
+**New Step 2.5 (lines 221-237):**
+```python
+# Step 2.5: Apply log transforms AFTER pct_chg calculation
+print("\nStep 2.5: Applying log transforms to prices and volume (NOT to pct_chg)...")
+price_cols = ['Open', 'High', 'Low', 'Close']
+for col in price_cols:
+    if col in df.columns:
+        df[col] = np.log(df[col])  # log for prices
+        print(f"  Applied log() to {col}")
+
+if 'Volume' in df.columns:
+    df['Volume'] = np.log1p(df['Volume'])  # log1p for volume
+    print(f"  Applied log1p() to Volume")
+
+df = df.replace([np.inf, -np.inf], np.nan)
+df = df.dropna()
+print(f"  ✅ Log transforms applied. pct_chg column UNCHANGED (still original scale)")
+```
+
+**Processing order now:**
+1. Load CSV (lines 209-214)
+2. **Create pct_chg from original prices** (lines 216-219) ✅
+3. **Apply log transforms to prices** (lines 221-237) ✅
+4. Split data (lines 239-241)
+5. Save processed data (lines 243-248)
+
+### Impact and Implications
+
+#### Immediate Impact:
+1. **All existing datasets are WRONG** - Must regenerate!
+2. **All existing models trained on WRONG data** - Must re-train!
+3. **All existing metrics are MEANINGLESS** - Computed on wrong scale!
+
+#### Why Previous Metrics Looked "OK":
+- MSE ~2.28e-06 was technically correct for the weird pct_chg values
+- But those values weren't real percentage changes
+- Model was learning to predict meaningless numbers
+- Results cannot be compared to literature (wrong formula)
+
+#### After Fix:
+- pct_chg will be TRUE percentage changes: (Price change / Previous price)
+- Values in correct range: -0.05 to 0.05 for daily returns
+- Metrics will change (expected - different scale!)
+- Results will be scientifically valid and comparable to Eden's paper
+
+### Required Actions
+
+#### **CRITICAL: Must Regenerate All Data**
+
+```bash
+cd /home/chinxeleer/dev/repos/research_project/dataset
+python prepare_data_eden_method.py
+```
+
+This regenerates:
+- NVIDIA_normalized.csv
+- APPLE_normalized.csv
+- SP500_normalized.csv
+- NASDAQ_normalized.csv
+- ABSA_normalized.csv
+- SASOL_normalized.csv
+
+#### **Verification Step:**
+
+After regenerating, verify the fix:
+```python
+import pandas as pd
+df = pd.read_csv('processed_data/NVIDIA_normalized.csv')
+print(df['pct_chg'].describe())
+# min/max should be ~-0.05 to 0.05, NOT -0.3 to 0.1
+```
+
+#### **Must Re-train All Models:**
+
+```bash
+cd forecast-research
+bash run_mamba.sh
+bash run_autoformer.sh
+bash run_informer.sh
+bash run_fedformer.sh
+bash run_itransformer.sh
+```
+
+### Expected Changes After Re-training
+
+#### WandB Visualizations:
+- ✅ Y-axis: -0.05 to 0.05 (correct scale)
+- ✅ Predictions more visible
+- ✅ Ground truth less volatile
+- ✅ No weird -0.35 spikes
+
+#### Metrics:
+- **WILL CHANGE** - Different scale now
+- May increase or decrease (unpredictable)
+- Model rankings may change
+- But now scientifically valid!
+
+#### Directional Accuracy:
+- Should improve (model learning correct patterns)
+- Was trying to predict meaningless values before
+- Now predicts true percentage changes
+
+### Files Modified
+
+1. ✅ `dataset/prepare_data_eden_method.py` - Fixed preprocessing order
+2. ✅ Created `PREPROCESSING_FIX.md` - Comprehensive documentation
+
+### Technical Notes
+
+#### Why Log Transforms Are Still Used:
+
+Log transforms are **still applied** to Open, High, Low, Close, Volume:
+- Brings features to similar scales
+- Volume in millions would dominate normalization otherwise
+- Standard practice in financial ML
+
+**Key point:** `pct_chg` is calculated **before** log transforms, so it stays at original scale.
+
+#### Alternative (Log Returns):
+
+Could use log-returns instead:
+```python
+df['Close'] = np.log(df['Close'])
+df['log_return'] = df['Close'].diff()  # log(Close_t) - log(Close_{t-1})
+```
+
+This is also valid and ≈ `log(1 + pct_chg)` for small changes. But current fix gives **true percentage changes** matching Eden's methodology.
+
+### Why This Bug Existed
+
+1. **Premature optimization**: Applied log transforms too early
+2. **Hidden dependency**: `pct_chg` depends on original Close prices
+3. **No validation**: Didn't check pct_chg value ranges after preprocessing
+4. **WandB revealed it**: Visualization made the problem obvious!
+
+### Lessons from This Bug
+
+1. **Always validate preprocessing output**: Check value ranges make sense
+2. **Visualize data early**: WandB plots revealed the issue immediately
+3. **Order matters**: Calculate derived features BEFORE transformations
+4. **Trust your intuition**: User correctly identified something was wrong
+5. **Log transforms are powerful but dangerous**: Apply them carefully
+
+**Status:** ✅ Fix Complete - **REQUIRES DATA REGENERATION AND RE-TRAINING**
+
+---
+
 ## Lessons Learned
 
 1. **Always check data scale**: Log transforms crucial for features with vastly different magnitudes
@@ -705,6 +929,9 @@ Add these flags to `run_autoformer.sh`, `run_informer.sh`, `run_fedformer.sh`, `
 5. **Read the paper carefully**: Eden's methodology details matter for comparison
 6. **Test incrementally**: Each fix should be tested before moving to next
 7. **Document everything**: Complex debugging requires careful tracking
+8. **Visualize early and often**: WandB plots revealed critical preprocessing bug immediately
+9. **Order of operations matters**: Calculate derived features BEFORE applying transformations
+10. **Validate preprocessing output**: Always check value ranges make sense before training
 
 ---
 

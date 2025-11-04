@@ -69,16 +69,8 @@ class EdenDataPreprocessor:
                 if col in df.columns:
                     df[col] = pd.to_numeric(df[col], errors='coerce')
 
-            # Apply log transforms to bring features to similar scales
-            # This prevents Volume (millions) from contaminating normalization
-            print("  Applying log transforms to prices and volume...")
-            price_cols = ['Open', 'High', 'Low', 'Close']
-            for col in price_cols:
-                if col in df.columns:
-                    df[col] = np.log(df[col])  # log for prices
-
-            if 'Volume' in df.columns:
-                df['Volume'] = np.log1p(df['Volume'])  # log1p for volume (handles zeros)
+            # NOTE: Log transforms will be applied AFTER pct_chg calculation
+            # to avoid calculating pct_chg from log-transformed prices
 
             # Drop rows with missing values or inf
             df = df.replace([np.inf, -np.inf], np.nan)
@@ -221,10 +213,28 @@ class EdenDataPreprocessor:
             return None
         print(f"Loaded {len(df)} rows")
 
-        # Step 2: Create percentage change
-        print("\nStep 2: Creating percentage change target...")
+        # Step 2: Create percentage change (from ORIGINAL prices)
+        print("\nStep 2: Creating percentage change target from original prices...")
         df = self.create_percentage_change(df)
         print(f"Created pct_chg column. New length: {len(df)} rows")
+
+        # Step 2.5: Apply log transforms AFTER pct_chg calculation
+        print("\nStep 2.5: Applying log transforms to prices and volume (NOT to pct_chg)...")
+        price_cols = ['Open', 'High', 'Low', 'Close']
+        for col in price_cols:
+            if col in df.columns:
+                df[col] = np.log(df[col])  # log for prices
+                print(f"  Applied log() to {col}")
+
+        if 'Volume' in df.columns:
+            df['Volume'] = np.log1p(df['Volume'])  # log1p for volume (handles zeros)
+            print(f"  Applied log1p() to Volume")
+
+        # Drop any inf or NaN that might have appeared from log transforms
+        df = df.replace([np.inf, -np.inf], np.nan)
+        df = df.dropna()
+        print(f"  ✅ Log transforms applied. pct_chg column UNCHANGED (still original scale)")
+        print(f"  Remaining rows after cleaning: {len(df)}")
 
         # Step 3: Split data
         print("\nStep 3: Splitting into train/val/test...")
