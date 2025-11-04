@@ -73,16 +73,10 @@ class Exp_Long_Term_Forecast(Exp_Basic):
                 else:
                     outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)
 
-                # CRITICAL FIX: Calculate loss ONLY on target column (last column = pct_chg)
+                # Validation: Use all features for loss (keeps model learning all features)
                 f_dim = -1 if self.args.features == 'MS' else 0
-                if self.args.features == 'M':
-                    # For multivariate, select ONLY the target column (last column)
-                    outputs = outputs[:, -self.args.pred_len:, -1:]
-                    batch_y = batch_y[:, -self.args.pred_len:, -1:].to(self.device)
-                else:
-                    # For MS or S, use original slicing logic
-                    outputs = outputs[:, -self.args.pred_len:, f_dim:]
-                    batch_y = batch_y[:, -self.args.pred_len:, f_dim:].to(self.device)
+                outputs = outputs[:, -self.args.pred_len:, f_dim:]
+                batch_y = batch_y[:, -self.args.pred_len:, f_dim:].to(self.device)
 
                 pred = outputs.detach()
                 true = batch_y.detach()
@@ -141,27 +135,19 @@ class Exp_Long_Term_Forecast(Exp_Basic):
                     with torch.cuda.amp.autocast():
                         outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)
 
-                        # CRITICAL FIX: Train ONLY on target column (last column = pct_chg)
+                        # Training: Use all features for loss (keeps model learning all features)
                         f_dim = -1 if self.args.features == 'MS' else 0
-                        if self.args.features == 'M':
-                            outputs = outputs[:, -self.args.pred_len:, -1:]
-                            batch_y = batch_y[:, -self.args.pred_len:, -1:].to(self.device)
-                        else:
-                            outputs = outputs[:, -self.args.pred_len:, f_dim:]
-                            batch_y = batch_y[:, -self.args.pred_len:, f_dim:].to(self.device)
+                        outputs = outputs[:, -self.args.pred_len:, f_dim:]
+                        batch_y = batch_y[:, -self.args.pred_len:, f_dim:].to(self.device)
                         loss = criterion(outputs, batch_y)
                         train_loss.append(loss.item())
                 else:
                     outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)
 
-                    # CRITICAL FIX: Train ONLY on target column (last column = pct_chg)
+                    # Training: Use all features for loss (keeps model learning all features)
                     f_dim = -1 if self.args.features == 'MS' else 0
-                    if self.args.features == 'M':
-                        outputs = outputs[:, -self.args.pred_len:, -1:]
-                        batch_y = batch_y[:, -self.args.pred_len:, -1:].to(self.device)
-                    else:
-                        outputs = outputs[:, -self.args.pred_len:, f_dim:]
-                        batch_y = batch_y[:, -self.args.pred_len:, f_dim:].to(self.device)
+                    outputs = outputs[:, -self.args.pred_len:, f_dim:]
+                    batch_y = batch_y[:, -self.args.pred_len:, f_dim:].to(self.device)
                     loss = criterion(outputs, batch_y)
                     train_loss.append(loss.item())
 
