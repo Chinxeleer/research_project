@@ -12,10 +12,10 @@
 **Before:** Only used 2515 rows (2006-2015, ~10 years)
 **After:** Uses ALL ~4,780 rows (2006-2024, ~19 years)
 
-**Split:** 80/10/10 ratio
-- Train: 80% (~3,824 rows)
-- Val: 10% (~478 rows)
-- Test: 10% (~478 rows)
+**Split:** 90/5/5 ratio (optimal for financial forecasting)
+- Train: 90% (~4,302 rows) - Maximum historical data
+- Val: 5% (~239 rows) - For early stopping
+- Test: 5% (~239 rows) - For final evaluation
 
 ### 2. ✅ Early Stopping: KEPT with Increased Patience
 
@@ -62,15 +62,15 @@ python prepare_data_eden_method.py
 
 **This will:**
 - Use ALL data from 2006-2024 (~4,780 rows per dataset)
-- Apply 80/10/10 split
+- Apply 90/5/5 split (matches data loader)
 - Generate corrected datasets with proper pct_chg formula
 
 **Expected output:**
 ```
 Total samples: ~4780
-Train: ~3824 samples (80%)
-Val: ~478 samples (10%)
-Test: ~478 samples (10%)
+Train: ~4302 samples (90%)
+Val: ~239 samples (5%)
+Test: ~239 samples (5%)
 Date range: 2006-01-04 to 2024-12-31
 ```
 
@@ -119,8 +119,8 @@ sbatch run_itransformer.sh
 
 ### Training Time Estimates:
 
-With ~4,780 samples (80/10/10 split):
-- **Train samples:** ~3,824 → ~120 batches/epoch (batch=32)
+With ~4,780 samples (90/5/5 split):
+- **Train samples:** ~4,302 → ~135 batches/epoch (batch=32)
 - **Epochs:** Up to 100 (early stop ~20-40 typically)
 - **Time per epoch:** ~30-60 seconds per model
 - **Total time per model:** ~30-60 minutes
@@ -140,7 +140,8 @@ With patience=10:
 ### 1. **More Data = Better Generalization**
 - 10 years → 19 years of data
 - 2,515 → 4,780 samples
-- **90% more training data!**
+- **90% more total data!**
+- Train on 4,302 samples (90%) for maximum learning
 
 ### 2. **Better Splits for Modern Standards**
 - Old: 88/8/4 split (Eden's fixed sizes)
@@ -279,6 +280,7 @@ Before running final experiments:
 
 - [ ] Preprocessed data shows 2006-2024 date range
 - [ ] Total samples ~4,780 (not 2,515)
+- [ ] Split shows 90/5/5 (train: 4302, val: 239, test: 239)
 - [ ] pct_chg values in range -0.05 to 0.05
 - [ ] All model scripts have TRAIN_EPOCHS=100, PATIENCE=10
 - [ ] WandB is enabled (--use_wandb flag present)
@@ -298,15 +300,17 @@ After training:
 ### What Was Wrong:
 1. ❌ Using only 2006-2015 data (10 years)
 2. ❌ Fixed split sizes limited data usage
-3. ❌ Short training (50 epochs, patience=5)
-4. ❌ Wrong pct_chg formula (already fixed earlier)
+3. ❌ Split mismatch between preprocessing and data loader
+4. ❌ Short training (50 epochs, patience=5)
+5. ❌ Wrong pct_chg formula (already fixed earlier)
 
 ### What's Fixed:
 1. ✅ Using ALL 2006-2024 data (19 years)
-2. ✅ 80/10/10 split uses all available data
+2. ✅ 90/5/5 split uses all available data (matches data loader)
 3. ✅ Longer training (100 epochs, patience=10)
 4. ✅ Early stopping KEPT (good for research)
 5. ✅ All models updated consistently
+6. ✅ Preprocessing and data loader now use SAME split
 
 ### Next Steps:
 1. Regenerate datasets (required!)

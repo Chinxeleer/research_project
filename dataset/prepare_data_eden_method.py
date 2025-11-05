@@ -106,18 +106,19 @@ class EdenDataPreprocessor:
 
     def split_data(self, df):
         """
-        Split data into train/val/test using 80/10/10 ratio.
+        Split data into train/val/test using 90/5/5 ratio.
         Uses ALL available data from 2006-2024 for comprehensive training.
 
-        - Train: 80% (for learning)
-        - Val: 10% (for hyperparameter tuning and early stopping)
-        - Test: 10% (for final evaluation)
+        90/5/5 split is optimal for financial forecasting:
+        - Train: 90% (maximum historical data for learning)
+        - Val: 5% (for hyperparameter tuning and early stopping)
+        - Test: 5% (for final evaluation on recent data)
         """
         total_days = len(df)
 
-        # Use 80/10/10 split for all data
-        train_size = int(total_days * 0.80)
-        val_size = int(total_days * 0.10)
+        # Use 90/5/5 split - more training data for financial forecasting
+        train_size = int(total_days * 0.90)
+        val_size = int(total_days * 0.05)
         test_size = total_days - train_size - val_size  # Remaining goes to test
 
         train_df = df.iloc[:train_size].copy()
@@ -125,12 +126,12 @@ class EdenDataPreprocessor:
         test_df = df.iloc[train_size + val_size:].copy()
 
         print(f"\n{'='*60}")
-        print(f"DATA SPLIT (80/10/10):")
+        print(f"DATA SPLIT (90/5/5) - MATCHES DATA LOADER:")
         print(f"{'='*60}")
         print(f"Total samples: {total_days}")
-        print(f"Train: {len(train_df)} samples (80%)")
-        print(f"Val: {len(val_df)} samples (10%)")
-        print(f"Test: {len(test_df)} samples (10%)")
+        print(f"Train: {len(train_df)} samples (90%)")
+        print(f"Val: {len(val_df)} samples (5%)")
+        print(f"Test: {len(test_df)} samples (5%)")
         print(f"Date range: {df['date'].min()} to {df['date'].max()}")
         print(f"{'='*60}")
 

@@ -246,7 +246,7 @@ Loss
 ```
 
 **When this is OK:** ✅
-1. **Smaller validation set** (yours: 125 val vs 2201 train)
+1. **Smaller validation set** (yours: 239 val vs 4,302 train with 90/5/5 split)
    - Less data = less noise in average
    - Validation can get "lucky"
 

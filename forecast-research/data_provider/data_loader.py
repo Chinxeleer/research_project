@@ -282,10 +282,11 @@ class Dataset_Custom(Dataset):
         cols.remove('date')
         df_raw = df_raw[['date'] + cols + [self.target]]
         
-        # CHANGED: 85/5/10 split instead of 70/10/20
-        num_train = int(len(df_raw) * 0.9)
-        num_vali = int(len(df_raw) * 0.05)
-        num_test = len(df_raw) - num_train - num_vali
+        # 90/5/5 split for financial forecasting
+        # More training data needed, less validation/test for short-term predictions
+        num_train = int(len(df_raw) * 0.9)   # 90%
+        num_vali = int(len(df_raw) * 0.05)   # 5%
+        num_test = len(df_raw) - num_train - num_vali  # 5%
         
         # Define boundaries with sequence length adjustment
         border1s = [0, num_train - self.seq_len, num_train + num_vali - self.seq_len]

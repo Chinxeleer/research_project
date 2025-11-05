@@ -58,10 +58,14 @@ for dataset in "${DATASETS[@]}"; do
             --dec_in $DEC_IN \
             --c_out $C_OUT \
             --d_model $D_MODEL \
+            --n_heads $N_HEADS \
             --e_layers $E_LAYERS \
             --d_layers $D_LAYERS \
             --d_ff $D_FF \
+            --dropout $DROPOUT \
             --factor $FACTOR \
+            --batch_size $BATCH_SIZE \
+            --learning_rate $LEARNING_RATE \
             --train_epochs $TRAIN_EPOCHS \
             --patience $PATIENCE \
             --use_gpu 1 \

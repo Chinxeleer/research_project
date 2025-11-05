@@ -66,6 +66,9 @@ for dataset in "${DATASETS[@]}"; do
             --e_layers $E_LAYERS \
             --d_layers $D_LAYERS \
             --d_ff $D_FF \
+            --dropout $DROPOUT \
+            --batch_size $BATCH_SIZE \
+            --learning_rate $LEARNING_RATE \
             --train_epochs $TRAIN_EPOCHS \
             --patience $PATIENCE \
             --use_gpu 1 \
