@@ -7,7 +7,7 @@
 
 ## Summary of Changes
 
-### 1. ✅ Data Range: Now Using 2006-2024 (All Available Data)
+### 1.  Data Range: Now Using 2006-2024 (All Available Data)
 
 **Before:** Only used 2515 rows (2006-2015, ~10 years)
 **After:** Uses ALL ~4,780 rows (2006-2024, ~19 years)
@@ -17,7 +17,7 @@
 - Val: 5% (~239 rows) - For early stopping
 - Test: 5% (~239 rows) - For final evaluation
 
-### 2. ✅ Early Stopping: KEPT with Increased Patience
+### 2.  Early Stopping: KEPT with Increased Patience
 
 **Decision:** Keep early stopping (prevents overfitting, standard in research)
 
@@ -61,7 +61,7 @@ python prepare_data_eden_method.py
 ```
 
 **This will:**
-- Use ALL data from 2006-2024 (~4,780 rows per dataset)
+- Use ALL data from 2006-2024 (4,780 rows per dataset)
 - Apply 90/5/5 split (matches data loader)
 - Generate corrected datasets with proper pct_chg formula
 

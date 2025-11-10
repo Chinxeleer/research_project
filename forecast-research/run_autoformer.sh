@@ -31,7 +31,7 @@ ENC_IN=6
 DEC_IN=6
 C_OUT=6
 
-DATASETS=("NVIDIA" "APPLE" "SP500" "NASDAQ" "ABSA" "SASOL")
+DATASETS=("NVIDIA" "APPLE" "SP500" "NASDAQ" "ABSA" "SASOL" "DRD_GOLD" "ANGLO_AMERICAN")
 HORIZONS=(3 5 10 22 50 100)
 
 echo "##############################################################################"
@@ -70,6 +70,7 @@ for dataset in "${DATASETS[@]}"; do
             --learning_rate $LEARNING_RATE \
             --train_epochs $TRAIN_EPOCHS \
             --patience $PATIENCE \
+            --inverse \
             --use_gpu 1 \
 	    --use_wandb \
             --wandb_project "financial-forecasting-${dataset}" \

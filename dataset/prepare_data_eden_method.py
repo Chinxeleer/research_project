@@ -309,10 +309,10 @@ def main():
         'APPLE': 'Data - APPLE.csv',
         'SP500': 'Data - S&P500.csv',
         'NASDAQ': 'Data - NASDAQ.csv',
-        'ABSA': 'Data - ABSA GROUP LTD.csv',
+        'ABSA': 'Data - ABSAGROUPLTD.csv',
         'SASOL': 'Data - SASOL.csv',
-        'DRD_GOLD': 'Data - DRD GOLD.csv',
-        'ANGLO_AMERICAN': 'Data - Anglo American plc.csv'
+        'DRD_GOLD': 'Data - DRDGOLD.csv',
+        'ANGLO_AMERICAN': 'Data - ANGLOAMERICAN.csv'
     }
 
     # Initialize preprocessor with Eden's parameters

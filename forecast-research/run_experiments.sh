@@ -72,6 +72,7 @@ run_experiment() {
         --dec_in $DEC_IN \
         --c_out $C_OUT \
         --patience $PATIENCE \
+        --inverse \
         --use_gpu $USE_GPU \
         --gpu $GPU_ID \
         --des 'Exp' \
