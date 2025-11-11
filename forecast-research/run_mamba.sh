@@ -10,8 +10,8 @@
 # Model-specific parameters for Mamba
 # CRITICAL: d_inner = d_model × expand MUST be <= 256
 MODEL="Mamba"
-D_MODEL=64          # Hidden dimension (64 × 2 = 128 ✓)
-D_FF=16             # SSM state dimension (d_state)
+D_MODEL=128         # Hidden dimension (128 × 2 = 256 ✓ MAX)
+D_FF=128            # SSM state dimension (d_state) - increased for capacity
 D_CONV=4            # Convolution kernel size
 EXPAND=2            # Expansion factor
 E_LAYERS=2          # Number of encoder layers
